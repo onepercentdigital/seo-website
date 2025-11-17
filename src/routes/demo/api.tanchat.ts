@@ -1,4 +1,5 @@
 import { anthropic } from '@ai-sdk/anthropic';
+import type { UIMessage } from '@ai-sdk/react';
 import { createFileRoute } from '@tanstack/react-router';
 import { convertToModelMessages, stepCountIs, streamText } from 'ai';
 
@@ -17,7 +18,8 @@ export const Route = createFileRoute('/demo/api/tanchat')({
     handlers: {
       POST: async ({ request }) => {
         try {
-          const { messages } = await request.json();
+          const body = (await request.json()) as { messages: UIMessage[] };
+          const { messages } = body;
 
           const tools = await getTools();
 
