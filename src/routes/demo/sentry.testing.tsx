@@ -6,21 +6,21 @@
  * @ai_context: Demonstrates Sentry features through interactive examples with educational context
  */
 
-import * as fs from 'node:fs/promises'
-import { createFileRoute } from '@tanstack/react-router'
-import { createServerFn } from '@tanstack/react-start'
-import * as Sentry from '@sentry/tanstackstart-react'
-import { useState, useEffect, useRef } from 'react'
+import * as fs from 'node:fs/promises';
+import * as Sentry from '@sentry/tanstackstart-react';
+import { createFileRoute } from '@tanstack/react-router';
+import { createServerFn } from '@tanstack/react-start';
+import { useEffect, useRef, useState } from 'react';
 
 export const Route = createFileRoute('/demo/sentry/testing')({
   component: RouteComponent,
   errorComponent: ({ error }) => {
     useEffect(() => {
-      Sentry.captureException(error)
-    }, [error])
-    return <div>Error: {error.message}</div>
+      Sentry.captureException(error);
+    }, [error]);
+    return <div>Error: {error.message}</div>;
   },
-})
+});
 
 // Server function that will error
 const badServerFunc = createServerFn({
@@ -33,15 +33,15 @@ const badServerFunc = createServerFn({
     },
     async () => {
       try {
-        await fs.readFile('./doesnt-exist', 'utf-8')
-        return true
+        await fs.readFile('./doesnt-exist', 'utf-8');
+        return true;
       } catch (error) {
-        Sentry.captureException(error)
-        throw error
+        Sentry.captureException(error);
+        throw error;
       }
     },
-  )
-})
+  );
+});
 
 // Server function that will succeed but be traced
 const goodServerFunc = createServerFn({
@@ -53,50 +53,50 @@ const goodServerFunc = createServerFn({
       op: 'demo.success',
     },
     async () => {
-      await new Promise((resolve) => setTimeout(resolve, 500))
-      return { success: true }
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      return { success: true };
     },
-  )
-})
+  );
+});
 
 function RouteComponent() {
-  const [isLoading, setIsLoading] = useState<Record<string, boolean>>({})
-  const [hasError, setHasError] = useState<Record<string, boolean>>({})
-  const [showTrace, setShowTrace] = useState<Record<string, boolean>>({})
-  const [spanOps, setSpanOps] = useState<Record<string, string>>({})
-  const [demoStep, setDemoStep] = useState(0)
-  const [replayEvents, setReplayEvents] = useState<string[]>([])
-  const [copiedSpan, setCopiedSpan] = useState<string | null>(null)
-  const startTimeRef = useRef<string>('')
+  const [isLoading, setIsLoading] = useState<Record<string, boolean>>({});
+  const [hasError, setHasError] = useState<Record<string, boolean>>({});
+  const [showTrace, setShowTrace] = useState<Record<string, boolean>>({});
+  const [spanOps, setSpanOps] = useState<Record<string, string>>({});
+  const [demoStep, setDemoStep] = useState(0);
+  const [_replayEvents, setReplayEvents] = useState<string[]>([]);
+  const [copiedSpan, setCopiedSpan] = useState<string | null>(null);
+  const startTimeRef = useRef<string>('');
 
   useEffect(() => {
     // Set initial timestamp only once on client
     if (!startTimeRef.current) {
-      startTimeRef.current = new Date().toISOString()
+      startTimeRef.current = new Date().toISOString();
     }
 
     if (demoStep > 0) {
       const secondsElapsed = (
-        (new Date().getTime() - new Date(startTimeRef.current).getTime()) /
+        (Date.now() - new Date(startTimeRef.current).getTime()) /
         1000
-      ).toFixed(1)
+      ).toFixed(1);
       setReplayEvents((prev) => [
         ...prev,
         `Step ${demoStep}: +${secondsElapsed}s`,
-      ])
+      ]);
     }
-  }, [demoStep])
+  }, [demoStep]);
 
   const handleCopy = (operation: string) => {
-    navigator.clipboard.writeText(operation)
-    setCopiedSpan(operation)
-    setTimeout(() => setCopiedSpan(null), 2000)
-  }
+    navigator.clipboard.writeText(operation);
+    setCopiedSpan(operation);
+    setTimeout(() => setCopiedSpan(null), 2000);
+  };
 
   const handleClientError = async () => {
-    setIsLoading((prev) => ({ ...prev, clientError: true }))
-    setHasError((prev) => ({ ...prev, clientError: false }))
-    setShowTrace((prev) => ({ ...prev, clientError: true }))
+    setIsLoading((prev) => ({ ...prev, clientError: true }));
+    setHasError((prev) => ({ ...prev, clientError: false }));
+    setShowTrace((prev) => ({ ...prev, clientError: true }));
 
     try {
       await Sentry.startSpan(
@@ -108,25 +108,28 @@ function RouteComponent() {
           Sentry.setContext('demo', {
             feature: 'client-error-demo',
             triggered_at: new Date().toISOString(),
-          })
+          });
 
           // Simulate a client-side error
-          throw new Error('Client-side error demonstration')
+          throw new Error('Client-side error demonstration');
         },
-      )
+      );
     } catch (error) {
-      setHasError((prev) => ({ ...prev, clientError: true }))
-      setSpanOps((prev) => ({ ...prev, clientError: 'demo.client-error-flow' }))
-      Sentry.captureException(error)
+      setHasError((prev) => ({ ...prev, clientError: true }));
+      setSpanOps((prev) => ({
+        ...prev,
+        clientError: 'demo.client-error-flow',
+      }));
+      Sentry.captureException(error);
     } finally {
-      setIsLoading((prev) => ({ ...prev, clientError: false }))
+      setIsLoading((prev) => ({ ...prev, clientError: false }));
     }
-  }
+  };
 
   const handleServerError = async () => {
-    setIsLoading((prev) => ({ ...prev, serverError: true }))
-    setHasError((prev) => ({ ...prev, serverError: false }))
-    setShowTrace((prev) => ({ ...prev, serverError: true }))
+    setIsLoading((prev) => ({ ...prev, serverError: true }));
+    setHasError((prev) => ({ ...prev, serverError: false }));
+    setShowTrace((prev) => ({ ...prev, serverError: true }));
 
     try {
       await Sentry.startSpan(
@@ -138,23 +141,26 @@ function RouteComponent() {
           Sentry.setContext('demo', {
             feature: 'server-error-demo',
             triggered_at: new Date().toISOString(),
-          })
+          });
 
-          await badServerFunc()
+          await badServerFunc();
         },
-      )
+      );
     } catch (error) {
-      setHasError((prev) => ({ ...prev, serverError: true }))
-      setSpanOps((prev) => ({ ...prev, serverError: 'demo.server-error-flow' }))
-      Sentry.captureException(error)
+      setHasError((prev) => ({ ...prev, serverError: true }));
+      setSpanOps((prev) => ({
+        ...prev,
+        serverError: 'demo.server-error-flow',
+      }));
+      Sentry.captureException(error);
     } finally {
-      setIsLoading((prev) => ({ ...prev, serverError: false }))
+      setIsLoading((prev) => ({ ...prev, serverError: false }));
     }
-  }
+  };
 
   const handleClientTrace = async () => {
-    setIsLoading((prev) => ({ ...prev, client: true }))
-    setShowTrace((prev) => ({ ...prev, client: true }))
+    setIsLoading((prev) => ({ ...prev, client: true }));
+    setShowTrace((prev) => ({ ...prev, client: true }));
 
     await Sentry.startSpan(
       {
@@ -163,17 +169,17 @@ function RouteComponent() {
       },
       async () => {
         // Simulate some client-side work
-        await new Promise((resolve) => setTimeout(resolve, 1000))
+        await new Promise((resolve) => setTimeout(resolve, 1000));
       },
-    )
+    );
 
-    setSpanOps((prev) => ({ ...prev, client: 'demo.client' }))
-    setIsLoading((prev) => ({ ...prev, client: false }))
-  }
+    setSpanOps((prev) => ({ ...prev, client: 'demo.client' }));
+    setIsLoading((prev) => ({ ...prev, client: false }));
+  };
 
   const handleServerTrace = async () => {
-    setIsLoading((prev) => ({ ...prev, server: true }))
-    setShowTrace((prev) => ({ ...prev, server: true }))
+    setIsLoading((prev) => ({ ...prev, server: true }));
+    setShowTrace((prev) => ({ ...prev, server: true }));
 
     try {
       await Sentry.startSpan(
@@ -182,14 +188,14 @@ function RouteComponent() {
           op: 'demo.server',
         },
         async () => {
-          await goodServerFunc()
+          await goodServerFunc();
         },
-      )
-      setSpanOps((prev) => ({ ...prev, server: 'demo.server' }))
+      );
+      setSpanOps((prev) => ({ ...prev, server: 'demo.server' }));
     } finally {
-      setIsLoading((prev) => ({ ...prev, server: false }))
+      setIsLoading((prev) => ({ ...prev, server: false }));
     }
-  }
+  };
 
   return (
     <>
@@ -207,18 +213,18 @@ function RouteComponent() {
         }}
       />
       <div
-        className="min-h-[calc(100vh-32px)] text-white p-8"
+        className="min-h-[calc(100vh-32px)] p-8 text-white"
         style={{
           backgroundImage:
             'radial-gradient(41.11% 49.93% at 50% 49.93%, #8d5494 0%, #563275 52.26%, #1f1633 100%)',
         }}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="mx-auto max-w-7xl">
           {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-8xl font-bold mb-4 text-white">Sentry</h1>
-            <p className="text-4xl font-semibold text-white">
-              Code <span className="inline-block -rotate-9">breaks</span>, fix
+          <div className="mb-12 text-center">
+            <h1 className="mb-4 font-bold text-8xl text-white">Sentry</h1>
+            <p className="font-semibold text-4xl text-white">
+              Code <span className="-rotate-9 inline-block">breaks</span>, fix
               it faster
             </p>
           </div>
@@ -226,7 +232,7 @@ function RouteComponent() {
           {/* Content Grid */}
           <div className="space-y-8">
             {/* Information Section - Top */}
-            <div className="bg-[#1C2333] rounded-lg border border-gray-800 p-6">
+            <div className="rounded-lg border border-gray-800 bg-[#1C2333] p-6">
               <div className="space-y-4 text-gray-300">
                 <p>
                   The Sentry integration monitors this application across all
@@ -235,27 +241,27 @@ function RouteComponent() {
                   packages.
                 </p>
                 <div className="grid grid-cols-4 gap-4">
-                  <div className="bg-[#2D3555] rounded-lg p-4 border border-gray-700 hover:border-purple-500/50 transition-colors">
-                    <div className="font-bold mb-1">Error Monitoring</div>
-                    <div className="text-sm text-gray-400">
+                  <div className="rounded-lg border border-gray-700 bg-[#2D3555] p-4 transition-colors hover:border-purple-500/50">
+                    <div className="mb-1 font-bold">Error Monitoring</div>
+                    <div className="text-gray-400 text-sm">
                       across client side and server functions
                     </div>
                   </div>
-                  <div className="bg-[#2D3555] rounded-lg p-4 border border-gray-700 hover:border-purple-500/50 transition-colors">
-                    <div className="font-bold mb-1">Tracing and Spans</div>
-                    <div className="text-sm text-gray-400">
+                  <div className="rounded-lg border border-gray-700 bg-[#2D3555] p-4 transition-colors hover:border-purple-500/50">
+                    <div className="mb-1 font-bold">Tracing and Spans</div>
+                    <div className="text-gray-400 text-sm">
                       for client and server side performance
                     </div>
                   </div>
-                  <div className="bg-[#2D3555] rounded-lg p-4 border border-gray-700 hover:border-purple-500/50 transition-colors">
-                    <div className="font-bold mb-1">Session replay</div>
-                    <div className="text-sm text-gray-400">
+                  <div className="rounded-lg border border-gray-700 bg-[#2D3555] p-4 transition-colors hover:border-purple-500/50">
+                    <div className="mb-1 font-bold">Session replay</div>
+                    <div className="text-gray-400 text-sm">
                       real user session playback
                     </div>
                   </div>
-                  <div className="bg-[#2D3555] rounded-lg p-4 border border-gray-700 hover:border-purple-500/50 transition-colors">
-                    <div className="font-bold mb-1">Real-time alerts</div>
-                    <div className="text-sm text-gray-400">
+                  <div className="rounded-lg border border-gray-700 bg-[#2D3555] p-4 transition-colors hover:border-purple-500/50">
+                    <div className="mb-1 font-bold">Real-time alerts</div>
+                    <div className="text-gray-400 text-sm">
                       because sleep is overrated anyway
                     </div>
                   </div>
@@ -266,8 +272,8 @@ function RouteComponent() {
             {/* Testing Sections - Bottom Grid */}
             <div className="grid grid-cols-2 gap-8">
               {/* Client Side Testing */}
-              <div className="bg-[#1C2333] rounded-lg p-6 border border-gray-800">
-                <h2 className="text-xl font-semibold text-white mb-6">
+              <div className="rounded-lg border border-gray-800 bg-[#1C2333] p-6">
+                <h2 className="mb-6 font-semibold text-white text-xl">
                   Client-Side Testing
                 </h2>
                 <div className="space-y-6">
@@ -275,10 +281,10 @@ function RouteComponent() {
                     <button
                       type="button"
                       onClick={() => {
-                        setDemoStep((prev) => prev + 1)
-                        handleClientError()
+                        setDemoStep((prev) => prev + 1);
+                        handleClientError();
                       }}
-                      className="w-full text-white rounded-md p-4 relative overflow-hidden group"
+                      className="group relative w-full overflow-hidden rounded-md p-4 text-white"
                       style={{
                         background:
                           'linear-gradient(120deg, #c83852, #b44092 25%, #6a5fc1 50%, #452650 55%, #452650)',
@@ -286,9 +292,9 @@ function RouteComponent() {
                         backgroundSize: '250% 100%',
                       }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-orange-500/10 opacity-0 transition-opacity group-hover:opacity-100" />
                       <div className="relative">
-                        <div className="flex items-center mb-2">
+                        <div className="mb-2 flex items-center">
                           <span className="font-medium">
                             Trigger Client-Side Error
                           </span>
@@ -297,10 +303,10 @@ function RouteComponent() {
                     </button>
                     {hasError.clientError && (
                       <div className="mt-4 space-y-2">
-                        <div className="bg-red-900/20 border border-red-500/50 rounded-lg p-2">
+                        <div className="rounded-lg border border-red-500/50 bg-red-900/20 p-2">
                           <div className="flex items-center text-red-400 text-sm">
                             <svg
-                              className="w-4 h-4 mr-2"
+                              className="mr-2 h-4 w-4"
                               fill="none"
                               strokeLinecap="round"
                               strokeLinejoin="round"
@@ -314,24 +320,24 @@ function RouteComponent() {
                             Client-side error captured and traced
                           </div>
                         </div>
-                        <div className="bg-purple-900/20 border border-purple-500/50 rounded-lg p-3">
+                        <div className="rounded-lg border border-purple-500/50 bg-purple-900/20 p-3">
                           <div className="flex items-center justify-between">
                             <div className="relative">
                               <button
                                 type="button"
-                                className={`inline-flex items-center bg-purple-900/40 px-3 py-1.5 rounded-lg border border-purple-500/50 cursor-pointer hover:bg-purple-900/60 transition-all ${copiedSpan === spanOps.clientError ? 'scale-95' : ''}`}
+                                className={`inline-flex cursor-pointer items-center rounded-lg border border-purple-500/50 bg-purple-900/40 px-3 py-1.5 transition-all hover:bg-purple-900/60 ${copiedSpan === spanOps.clientError ? 'scale-95' : ''}`}
                                 onClick={() => handleCopy(spanOps.clientError)}
                                 title="Click to copy operation name"
                               >
-                                <span className="text-purple-300 text-sm font-medium mr-2">
+                                <span className="mr-2 font-medium text-purple-300 text-sm">
                                   span.op
                                 </span>
-                                <code className="text-purple-400 text-sm font-mono">
+                                <code className="font-mono text-purple-400 text-sm">
                                   {spanOps.clientError}
                                 </code>
                               </button>
                               {copiedSpan === spanOps.clientError && (
-                                <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-green-500/90 text-white text-xs px-2 py-1 rounded animate-fade-out">
+                                <div className="-top-8 -translate-x-1/2 absolute left-1/2 animate-fade-out rounded bg-green-500/90 px-2 py-1 text-white text-xs">
                                   Copied!
                                 </div>
                               )}
@@ -346,10 +352,10 @@ function RouteComponent() {
                     <button
                       type="button"
                       onClick={() => {
-                        setDemoStep((prev) => prev + 1)
-                        handleClientTrace()
+                        setDemoStep((prev) => prev + 1);
+                        handleClientTrace();
                       }}
-                      className="w-full text-white rounded-md p-4 relative overflow-hidden group"
+                      className="group relative w-full overflow-hidden rounded-md p-4 text-white"
                       style={{
                         background:
                           'linear-gradient(120deg, #c83852, #b44092 25%, #6a5fc1 50%, #452650 55%, #452650)',
@@ -357,9 +363,9 @@ function RouteComponent() {
                         backgroundSize: '250% 100%',
                       }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 transition-opacity group-hover:opacity-100" />
                       <div className="relative">
-                        <div className="flex items-center mb-2">
+                        <div className="mb-2 flex items-center">
                           <span className="font-medium">
                             Test Client-Side Span
                           </span>
@@ -370,12 +376,12 @@ function RouteComponent() {
                       <div className="mt-4 space-y-2">
                         <div className="flex items-center">
                           <div
-                            className={`w-3 h-3 rounded-full ${isLoading.client ? 'bg-blue-500 animate-pulse' : 'bg-green-500'}`}
+                            className={`h-3 w-3 rounded-full ${isLoading.client ? 'animate-pulse bg-blue-500' : 'bg-green-500'}`}
                           />
                           <div className="ml-2 flex-1">
-                            <div className="h-1.5 bg-[#2D3555] rounded">
+                            <div className="h-1.5 rounded bg-[#2D3555]">
                               <div
-                                className="h-full bg-blue-500 rounded transition-all duration-500"
+                                className="h-full rounded bg-blue-500 transition-all duration-500"
                                 style={{
                                   width: isLoading.client ? '60%' : '100%',
                                 }}
@@ -384,24 +390,24 @@ function RouteComponent() {
                           </div>
                         </div>
                         {!isLoading.client && spanOps.client && (
-                          <div className="bg-purple-900/20 border border-purple-500/50 rounded-lg p-3">
+                          <div className="rounded-lg border border-purple-500/50 bg-purple-900/20 p-3">
                             <div className="flex items-center justify-between">
                               <div className="relative">
                                 <button
                                   type="button"
-                                  className={`inline-flex items-center bg-purple-900/40 px-3 py-1.5 rounded-lg border border-purple-500/50 cursor-pointer hover:bg-purple-900/60 transition-all ${copiedSpan === spanOps.client ? 'scale-95' : ''}`}
+                                  className={`inline-flex cursor-pointer items-center rounded-lg border border-purple-500/50 bg-purple-900/40 px-3 py-1.5 transition-all hover:bg-purple-900/60 ${copiedSpan === spanOps.client ? 'scale-95' : ''}`}
                                   onClick={() => handleCopy(spanOps.client)}
                                   title="Click to copy operation name"
                                 >
-                                  <span className="text-purple-300 text-sm font-medium mr-2">
+                                  <span className="mr-2 font-medium text-purple-300 text-sm">
                                     span.op
                                   </span>
-                                  <code className="text-purple-400 text-sm font-mono">
+                                  <code className="font-mono text-purple-400 text-sm">
                                     {spanOps.client}
                                   </code>
                                 </button>
                                 {copiedSpan === spanOps.client && (
-                                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-green-500/90 text-white text-xs px-2 py-1 rounded animate-fade-out">
+                                  <div className="-top-8 -translate-x-1/2 absolute left-1/2 animate-fade-out rounded bg-green-500/90 px-2 py-1 text-white text-xs">
                                     Copied!
                                   </div>
                                 )}
@@ -416,8 +422,8 @@ function RouteComponent() {
               </div>
 
               {/* Server Side Testing */}
-              <div className="bg-[#1C2333] rounded-lg p-6 border border-gray-800">
-                <h2 className="text-xl font-semibold text-white mb-6">
+              <div className="rounded-lg border border-gray-800 bg-[#1C2333] p-6">
+                <h2 className="mb-6 font-semibold text-white text-xl">
                   Server-Side Testing
                 </h2>
                 <div className="space-y-6">
@@ -425,10 +431,10 @@ function RouteComponent() {
                     <button
                       type="button"
                       onClick={() => {
-                        setDemoStep((prev) => prev + 1)
-                        handleServerError()
+                        setDemoStep((prev) => prev + 1);
+                        handleServerError();
                       }}
-                      className="w-full text-white rounded-md p-4 relative overflow-hidden group"
+                      className="group relative w-full overflow-hidden rounded-md p-4 text-white"
                       style={{
                         background:
                           'linear-gradient(120deg, #c83852, #b44092 25%, #6a5fc1 50%, #452650 55%, #452650)',
@@ -436,9 +442,9 @@ function RouteComponent() {
                         backgroundSize: '250% 100%',
                       }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-orange-500/10 opacity-0 transition-opacity group-hover:opacity-100" />
                       <div className="relative">
-                        <div className="flex items-center mb-2">
+                        <div className="mb-2 flex items-center">
                           <span className="font-medium">
                             Trigger Server Error
                           </span>
@@ -447,10 +453,10 @@ function RouteComponent() {
                     </button>
                     {hasError.serverError && (
                       <div className="mt-4 space-y-2">
-                        <div className="bg-red-900/20 border border-red-500/50 rounded-lg p-3">
+                        <div className="rounded-lg border border-red-500/50 bg-red-900/20 p-3">
                           <div className="flex items-center text-red-400 text-sm">
                             <svg
-                              className="w-4 h-4 mr-2"
+                              className="mr-2 h-4 w-4"
                               fill="none"
                               strokeLinecap="round"
                               strokeLinejoin="round"
@@ -464,24 +470,24 @@ function RouteComponent() {
                             Server-side error captured and traced
                           </div>
                         </div>
-                        <div className="bg-purple-900/20 border border-purple-500/50 rounded-lg p-3">
+                        <div className="rounded-lg border border-purple-500/50 bg-purple-900/20 p-3">
                           <div className="flex items-center justify-between">
                             <div className="relative">
                               <button
                                 type="button"
-                                className={`inline-flex items-center bg-purple-900/40 px-3 py-1.5 rounded-lg border border-purple-500/50 cursor-pointer hover:bg-purple-900/60 transition-all ${copiedSpan === spanOps.serverError ? 'scale-95' : ''}`}
+                                className={`inline-flex cursor-pointer items-center rounded-lg border border-purple-500/50 bg-purple-900/40 px-3 py-1.5 transition-all hover:bg-purple-900/60 ${copiedSpan === spanOps.serverError ? 'scale-95' : ''}`}
                                 onClick={() => handleCopy(spanOps.serverError)}
                                 title="Click to copy operation name"
                               >
-                                <span className="text-purple-300 text-sm font-medium mr-2">
+                                <span className="mr-2 font-medium text-purple-300 text-sm">
                                   span.op
                                 </span>
-                                <code className="text-purple-400 text-sm font-mono">
+                                <code className="font-mono text-purple-400 text-sm">
                                   {spanOps.serverError}
                                 </code>
                               </button>
                               {copiedSpan === spanOps.serverError && (
-                                <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-green-500/90 text-white text-xs px-2 py-1 rounded animate-fade-out">
+                                <div className="-top-8 -translate-x-1/2 absolute left-1/2 animate-fade-out rounded bg-green-500/90 px-2 py-1 text-white text-xs">
                                   Copied!
                                 </div>
                               )}
@@ -496,10 +502,10 @@ function RouteComponent() {
                     <button
                       type="button"
                       onClick={() => {
-                        setDemoStep((prev) => prev + 1)
-                        handleServerTrace()
+                        setDemoStep((prev) => prev + 1);
+                        handleServerTrace();
                       }}
-                      className="w-full text-white rounded-md p-4 relative overflow-hidden group"
+                      className="group relative w-full overflow-hidden rounded-md p-4 text-white"
                       style={{
                         background:
                           'linear-gradient(120deg, #c83852, #b44092 25%, #6a5fc1 50%, #452650 55%, #452650)',
@@ -507,9 +513,9 @@ function RouteComponent() {
                         backgroundSize: '250% 100%',
                       }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 transition-opacity group-hover:opacity-100" />
                       <div className="relative">
-                        <div className="flex items-center mb-2">
+                        <div className="mb-2 flex items-center">
                           <span className="font-medium">Test server Trace</span>
                         </div>
                       </div>
@@ -518,12 +524,12 @@ function RouteComponent() {
                       <div className="mt-4 space-y-2">
                         <div className="flex items-center">
                           <div
-                            className={`w-3 h-3 rounded-full ${isLoading.server ? 'bg-purple-500 animate-pulse' : 'bg-green-500'}`}
+                            className={`h-3 w-3 rounded-full ${isLoading.server ? 'animate-pulse bg-purple-500' : 'bg-green-500'}`}
                           />
                           <div className="ml-2 flex-1">
-                            <div className="h-1.5 bg-[#2D3555] rounded">
+                            <div className="h-1.5 rounded bg-[#2D3555]">
                               <div
-                                className="h-full bg-purple-500 rounded transition-all duration-500"
+                                className="h-full rounded bg-purple-500 transition-all duration-500"
                                 style={{
                                   width: isLoading.server ? '60%' : '100%',
                                 }}
@@ -532,24 +538,24 @@ function RouteComponent() {
                           </div>
                         </div>
                         {!isLoading.server && spanOps.server && (
-                          <div className="bg-purple-900/20 border border-purple-500/50 rounded-lg p-3">
+                          <div className="rounded-lg border border-purple-500/50 bg-purple-900/20 p-3">
                             <div className="flex items-center justify-between">
                               <div className="relative">
                                 <button
                                   type="button"
-                                  className={`inline-flex items-center bg-purple-900/40 px-3 py-1.5 rounded-lg border border-purple-500/50 cursor-pointer hover:bg-purple-900/60 transition-all ${copiedSpan === spanOps.server ? 'scale-95' : ''}`}
+                                  className={`inline-flex cursor-pointer items-center rounded-lg border border-purple-500/50 bg-purple-900/40 px-3 py-1.5 transition-all hover:bg-purple-900/60 ${copiedSpan === spanOps.server ? 'scale-95' : ''}`}
                                   onClick={() => handleCopy(spanOps.server)}
                                   title="Click to copy operation name"
                                 >
-                                  <span className="text-purple-300 text-sm font-medium mr-2">
+                                  <span className="mr-2 font-medium text-purple-300 text-sm">
                                     span.op
                                   </span>
-                                  <code className="text-purple-400 text-sm font-mono">
+                                  <code className="font-mono text-purple-400 text-sm">
                                     {spanOps.server}
                                   </code>
                                 </button>
                                 {copiedSpan === spanOps.server && (
-                                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-green-500/90 text-white text-xs px-2 py-1 rounded animate-fade-out">
+                                  <div className="-top-8 -translate-x-1/2 absolute left-1/2 animate-fade-out rounded bg-green-500/90 px-2 py-1 text-white text-xs">
                                     Copied!
                                   </div>
                                 )}
@@ -567,5 +573,5 @@ function RouteComponent() {
         </div>
       </div>
     </>
-  )
+  );
 }
