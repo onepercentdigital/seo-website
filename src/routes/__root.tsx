@@ -14,7 +14,6 @@ import { brand } from '../config/brand';
 import ClerkProvider from '../integrations/clerk/provider';
 import ConvexProvider from '../integrations/convex/provider';
 import TanStackQueryDevtools from '../integrations/tanstack-query/devtools';
-import StoreDevtools from '../lib/demo-store-devtools';
 import appCss from '../styles.css?url';
 
 interface MyRouterContext {
@@ -69,7 +68,6 @@ function RootComponent() {
             name: 'Tanstack Router',
             render: <TanStackRouterDevtoolsPanel />,
           },
-          StoreDevtools,
           TanStackQueryDevtools,
         ]}
       />

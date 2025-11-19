@@ -20,9 +20,10 @@ export const Route = createFileRoute('/')({
   component: HomePage,
   head: () =>
     generateMetaTags({
-      title: 'Capture total mind share through AI and search optimization',
+      title: 'Dominate Your Industry With AI and Search Optimization',
       description:
-        'Helping companies become the top 1% talked about brands in AI and traditional search through GEO and SEO optimization.',
+        'Takeover Both AI and Traditional Search with proven GEO and SEO strategies.',
+      url: 'https://onepercentseo.com/',
     }),
 });
 
@@ -43,17 +44,14 @@ function HomePage() {
         <div className="relative mx-auto max-w-7xl">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="mb-6 font-bold text-5xl leading-tight tracking-tight lg:text-7xl">
-              Capture total mind share through{' '}
+              Dominate Your Industry With{' '}
               <span className="bg-gradient-to-r from-accent to-accent/70 bg-clip-text text-transparent">
-                AI and search optimization
+                AI and Search Optimization
               </span>
             </h1>
             <p className="mx-auto mb-8 max-w-2xl text-muted-foreground text-xl leading-relaxed lg:text-2xl">
               Helping companies become the top 1% talked about brands in AI and
-              traditional search through{' '}
-              <span className="font-semibold text-foreground">GEO</span> and{' '}
-              <span className="font-semibold text-foreground">SEO</span>{' '}
-              optimization.
+              traditional search through GEO and SEO optimization.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button
@@ -67,7 +65,7 @@ function HomePage() {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link to="/resources/case-studies">View Case Studies</Link>
+                <Link to="/case-studies">View Case Studies</Link>
               </Button>
             </div>
           </div>
@@ -79,9 +77,9 @@ function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-16 text-center">
             <h2 className="mb-4 font-bold text-4xl lg:text-5xl">
-              Dominate Both AI and Traditional Search
+              Takeover Both AI and Traditional Search
             </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground text-lg">
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
               Our comprehensive approach ensures your brand is discovered
               everywhere your customers are looking.
             </p>
@@ -89,12 +87,12 @@ function HomePage() {
 
           <div className="grid gap-8 lg:grid-cols-2">
             {/* GEO Service */}
-            <div className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 transition-all hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10">
+            <div className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 transition-all hover:border-accent/50 hover:shadow-accent/10 hover:shadow-lg">
               <div className="mb-6 inline-flex rounded-lg bg-accent/10 p-3">
                 <Brain className="h-8 w-8 text-accent" />
               </div>
               <h3 className="mb-4 font-bold text-3xl">GEO</h3>
-              <p className="mb-6 text-muted-foreground text-lg leading-relaxed">
+              <p className="mb-6 text-lg text-muted-foreground leading-relaxed">
                 Generative Engine Optimization (GEO) positions your brand at the
                 forefront of AI-powered search experiences. Be the answer when
                 AI assistants recommend solutions to your target audience.
@@ -124,7 +122,7 @@ function HomePage() {
                 variant="outline"
                 className="group-hover:border-accent"
               >
-                <Link to="/services/geo">
+                <Link to="/geo">
                   Learn More About GEO
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
@@ -132,12 +130,12 @@ function HomePage() {
             </div>
 
             {/* SEO Service */}
-            <div className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 transition-all hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10">
+            <div className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 transition-all hover:border-accent/50 hover:shadow-accent/10 hover:shadow-lg">
               <div className="mb-6 inline-flex rounded-lg bg-accent/10 p-3">
                 <TrendingUp className="h-8 w-8 text-accent" />
               </div>
               <h3 className="mb-4 font-bold text-3xl">SEO</h3>
-              <p className="mb-6 text-muted-foreground text-lg leading-relaxed">
+              <p className="mb-6 text-lg text-muted-foreground leading-relaxed">
                 Search Engine Optimization (SEO) delivers sustainable organic
                 growth through proven strategies that drive qualified traffic
                 and convert visitors into customers.
@@ -167,7 +165,7 @@ function HomePage() {
                 variant="outline"
                 className="group-hover:border-accent"
               >
-                <Link to="/services/seo">
+                <Link to="/seo">
                   Learn More About SEO
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
@@ -218,13 +216,13 @@ function HomePage() {
           <div className="overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-card to-secondary/20">
             <div className="grid gap-8 lg:grid-cols-2">
               <div className="p-8 lg:p-12">
-                <div className="mb-4 inline-block rounded-full bg-accent/10 px-4 py-1 text-accent text-sm font-medium">
+                <div className="mb-4 inline-block rounded-full bg-accent/10 px-4 py-1 font-medium text-accent text-sm">
                   Case Study
                 </div>
                 <h2 className="mb-4 font-bold text-3xl lg:text-4xl">
                   From Invisible to Industry Leader
                 </h2>
-                <p className="mb-6 text-muted-foreground text-lg leading-relaxed">
+                <p className="mb-6 text-lg text-muted-foreground leading-relaxed">
                   See how we helped a B2B SaaS company achieve 1444% organic
                   traffic growth and dominate their market through our combined
                   GEO and SEO strategy.
@@ -253,7 +251,7 @@ function HomePage() {
                   asChild
                   className="bg-accent text-accent-foreground hover:bg-accent/90"
                 >
-                  <Link to="/resources/case-studies">
+                  <Link to="/case-studies">
                     Read Full Case Study
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -279,7 +277,7 @@ function HomePage() {
             <h2 className="mb-4 font-bold text-4xl lg:text-5xl">
               Trusted by Industry Leaders
             </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground text-lg">
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
               Don't just take our word for it. Here's what our clients say about
               working with us.
             </p>

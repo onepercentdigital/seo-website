@@ -7,6 +7,7 @@ export const Route = createFileRoute('/schedule')({
     generateMetaTags({
       title: 'Schedule a Call',
       description: 'Schedule a free consultation with our SEO and GEO experts.',
+      url: 'https://onepercentseo.com/schedule',
     }),
 });
 
