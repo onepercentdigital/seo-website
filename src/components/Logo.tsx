@@ -32,8 +32,10 @@ export function Logo({
         viewBox="0 0 300 178"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        role="img"
         aria-label="One Percent logo"
       >
+        <title>One Percent logo</title>
         <path
           d="M157.015 85.7143C180.684 85.7143 199.872 66.5265 199.872 42.8571C199.872 19.1878 180.684 0 157.015 0C133.346 0 114.158 19.1878 114.158 42.8571C114.158 66.5265 133.346 85.7143 157.015 85.7143Z"
           fill="currentColor"

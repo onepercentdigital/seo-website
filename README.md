@@ -26,10 +26,10 @@ Full-stack TypeScript marketing website featuring:
 
 ### Styling & UI
 - **Tailwind CSS 4.1.17** - Utility-first CSS framework (latest v4)
-- **DM Sans** - Primary font family (400, 500, 700 weights via @fontsource)
+- **Plus Jakarta Sans Variable** - Primary font family (weights 200-800 via @fontsource-variable)
 - **Shadcn/ui** - High-quality, accessible component library on Radix UI
 - **Lucide React** - Beautiful, consistent icon system
-- **Design System**: `#00cccc` accent color, high-contrast themes
+- **Design System**: `#00cccc` accent color, extreme typography scale, high-contrast themes
 
 ### Developer Experience
 - **TypeScript 5.9.3** - Strict mode with comprehensive type safety
@@ -213,10 +213,17 @@ The build process:
 - **Secondary**: Subtle background variations
 
 ### Typography
-- **Primary Font**: DM Sans (Google Fonts via @fontsource)
-- **Weights**: 400 (regular), 500 (medium), 700 (bold)
-- **Headings**: Bold (700) with tight tracking
-- **Body**: Regular (400) with relaxed line height
+- **Primary Font**: Plus Jakarta Sans Variable (Google Fonts via @fontsource-variable)
+- **Variable Weights**: 200-800 available, primarily using 400 (regular), 700 (bold), 800 (extrabold)
+- **Extreme Scale**: Up to `text-8xl` on desktop for hero headlines and stats
+- **Headings**: 
+  - Hero: `text-5xl lg:text-7xl xl:text-8xl` with `font-extrabold` and `tracking-tighter`
+  - Stats: `text-5xl lg:text-7xl xl:text-8xl` with `font-extrabold` and `tracking-tight`
+  - H2: `text-4xl lg:text-6xl` with `font-bold` and `tracking-tight`
+  - H3: `text-3xl lg:text-4xl xl:text-5xl` with `font-bold` and `leading-tight`
+- **Body Text**: Regular (400) with `tracking-wide` for generous letter spacing
+- **Labels/Badges**: `text-xs font-semibold uppercase tracking-widest`
+- **Philosophy**: Massive, dramatic headlines balanced with readable body text
 
 ### Visual Style
 - Inspired by **Vercel.com** design language

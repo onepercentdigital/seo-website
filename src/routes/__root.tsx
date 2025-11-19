@@ -82,6 +82,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
         {/* Blocking script to prevent FOUC - runs before any rendering */}
         <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: Required inline script to prevent flash of unstyled content (FOUC) - no user input
           dangerouslySetInnerHTML={{
             __html: `
               (function() {

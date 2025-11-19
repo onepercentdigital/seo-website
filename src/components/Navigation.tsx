@@ -19,6 +19,7 @@ export function Navigation() {
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-1 md:flex">
           {navigation.main.map((item) => (
+            // biome-ignore lint/a11y/noStaticElementInteractions: Dropdown menu wrapper requires mouse events for hover behavior
             <div
               key={item.label}
               className="relative"

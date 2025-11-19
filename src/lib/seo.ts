@@ -118,7 +118,7 @@ export interface StructuredDataConfig {
     | 'FAQPage'
     | 'Service'
     | 'WebPage';
-  data: Record<string, any>;
+  data: Record<string, unknown>;
 }
 
 export function generateStructuredData(config: StructuredDataConfig) {
