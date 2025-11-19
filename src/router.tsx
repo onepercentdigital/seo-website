@@ -14,6 +14,11 @@ export const getRouter = () => {
     routeTree,
     context: { ...rqContext },
     defaultPreload: 'intent',
+    // Enable automatic scroll restoration
+    // - Scrolls to top on forward navigation (clicking links)
+    // - Restores scroll position on back/forward buttons
+    // - Handles hash links (#section) automatically
+    scrollRestoration: true,
     Wrap: (props: { children: React.ReactNode }) => {
       return (
         <TanstackQuery.Provider {...rqContext}>
