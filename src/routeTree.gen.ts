@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TestUploadRouteImport } from './routes/test-upload'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as SeoRouteImport } from './routes/seo'
 import { Route as GeoRouteImport } from './routes/geo'
@@ -19,6 +20,11 @@ import { Route as AuditRouteImport } from './routes/audit'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 
+const TestUploadRoute = TestUploadRouteImport.update({
+  id: '/test-upload',
+  path: '/test-upload',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/geo': typeof GeoRoute
   '/seo': typeof SeoRoute
   '/solutions': typeof SolutionsRoute
+  '/test-upload': typeof TestUploadRoute
   '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/geo': typeof GeoRoute
   '/seo': typeof SeoRoute
   '/solutions': typeof SolutionsRoute
+  '/test-upload': typeof TestUploadRoute
   '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/geo': typeof GeoRoute
   '/seo': typeof SeoRoute
   '/solutions': typeof SolutionsRoute
+  '/test-upload': typeof TestUploadRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/geo'
     | '/seo'
     | '/solutions'
+    | '/test-upload'
     | '/blog'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/geo'
     | '/seo'
     | '/solutions'
+    | '/test-upload'
     | '/blog'
   id:
     | '__root__'
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/geo'
     | '/seo'
     | '/solutions'
+    | '/test-upload'
     | '/blog/'
   fileRoutesById: FileRoutesById
 }
@@ -144,11 +156,19 @@ export interface RootRouteChildren {
   GeoRoute: typeof GeoRoute
   SeoRoute: typeof SeoRoute
   SolutionsRoute: typeof SolutionsRoute
+  TestUploadRoute: typeof TestUploadRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/test-upload': {
+      id: '/test-upload'
+      path: '/test-upload'
+      fullPath: '/test-upload'
+      preLoaderRoute: typeof TestUploadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solutions': {
       id: '/solutions'
       path: '/solutions'
@@ -224,6 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   GeoRoute: GeoRoute,
   SeoRoute: SeoRoute,
   SolutionsRoute: SolutionsRoute,
+  TestUploadRoute: TestUploadRoute,
   BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport

@@ -1074,8 +1074,8 @@ Built a production-ready customers page with easy-to-update data structure:
 
 ## Project Status
 
-- **Phase**: Homepage, service pages, and customers page complete - blog CMS next priority
-- **Current State**: Production-ready marketing site with 5 complete pages
+- **Phase**: Cloudflare Images integration complete - blog CMS implementation next
+- **Current State**: Production-ready marketing site with 5 complete pages + image infrastructure
 - **Deployment Ready**: Homepage, GEO page, SEO page, Customers page, and 404 page can be deployed immediately
 - **Font System**: ✅ Plus Jakarta Sans Variable fully implemented (weights 200-800)
 - **Typography**: ✅ Extreme scale with balanced readability across all pages
@@ -1087,13 +1087,65 @@ Built a production-ready customers page with easy-to-update data structure:
 - **Footer**: ✅ Multi-column with synchronized theme toggle
 - **404 Page**: ✅ Branded NotFound component with quick links
 - **CTA System**: ✅ Updated to "Get Your Free AI Search Audit" → `/audit`
-- **Blog Backend**: ✅ Schema ready in Convex
+- **Cloudflare Images**: ✅ **COMPLETE** - Upload/delivery working, all variants configured
+- **Blog Backend**: ✅ Schema ready in Convex, ⏳ Queries/mutations needed
 - **Blog Frontend**: 🚧 To be implemented (Phase 1 priority)
 - **Content Pages**: 🚧 Placeholders need content (case-studies, enterprise, solutions, audit)
 - **SEO/Performance**: 🚧 Sitemap and analytics needed (Phase 3)
-- **Migration**: 🚧 WordPress import script needed (Phase 4)
+- **WordPress Migration**: 🚧 Import script needed (Phase 4)
 - **Ready for**: Blog CMS implementation - start with Phase 1.1 (Convex queries/mutations)
-- **Stats**: 5 production-ready pages, 5 placeholder pages, 0 technical debt
+- **Stats**: 5 production-ready pages, 1 test route, 5 placeholder pages, 0 technical debt
+
+### 📍 Current Session End Point (2025-11-20)
+
+**What Was Completed Today:**
+1. ✅ Cloudflare Images account setup and configuration
+2. ✅ Environment variables configured for Cloudflare API
+3. ✅ Created `src/lib/cloudflare-images.ts` utility library
+4. ✅ Configured 5 image variants (thumbnail, medium, large, og, public)
+5. ✅ Built and tested image upload with TanStack Start server functions
+6. ✅ Verified image delivery via Cloudflare CDN
+7. ✅ Created test route at `/test-upload` (temporary, for reference)
+8. ✅ Documented complete Cloudflare Images setup guide in CLAUDE.md
+
+**What's Next (Resume Here Tomorrow):**
+
+**Immediate Next Steps:**
+1. **Build Convex Queries/Mutations** (`convex/posts.ts`, `convex/categories.ts`)
+   - Create, read, update, delete operations for blog posts
+   - Category management functions
+   - Query for published posts, drafts, by category
+   
+2. **Build Blog Editor Component** (`src/components/BlogEditor.tsx`)
+   - Simple markdown textarea + live preview (MVP approach)
+   - Featured image upload using Cloudflare Images
+   - Category selection, status toggle (draft/published)
+   - SEO meta fields (title, description, OG image)
+   
+3. **Build Admin Routes** (`/admin/posts/*`)
+   - Protected routes with Clerk authentication
+   - Post listing, create new, edit existing
+   
+4. **Build Public Blog Routes** (`/blog`, `/blog/[slug]`)
+   - Blog index with Vercel-inspired design
+   - Individual post pages with markdown rendering
+   
+5. **WordPress Migration Script** (`scripts/migrate-wordpress.ts`)
+   - Parse WordPress XML export
+   - Download images from live site
+   - Upload to Cloudflare Images
+   - Import posts to Convex with updated image URLs
+
+**Files Ready for Next Session:**
+- ✅ `convex/schema.ts` - Blog schema already defined
+- ✅ `src/lib/cloudflare-images.ts` - Image upload utilities ready
+- ✅ `.env.local` - Cloudflare credentials configured
+- ⏳ Need to create: `convex/posts.ts`, `convex/categories.ts`
+- ⏳ Need to create: Admin routes and blog editor component
+
+**WordPress Export:**
+- User has WordPress XML export file ready
+- Will be used for migration script once Convex backend is ready
 
 ## Quick Start Guide for Future AI Assistants
 
@@ -1144,5 +1196,366 @@ When resuming work on this project:
 
 ---
 
-*Last Updated: 2025-11-19*
+## Recent Updates (2025-11-20)
+
+### Session: Blog Implementation Planning & Cloudflare Images Setup
+
+#### User Requirements Gathered
+Based on conversation with user, established the following priorities and approach for blog implementation:
+
+**Strategic Decisions:**
+1. **WordPress Migration**: Build CMS first, then migrate WordPress content (Option A)
+2. **Editor Approach**: Simple textarea + markdown preview for MVP, upgrade to WYSIWYG later (Option A)
+3. **Image Strategy**: Build Cloudflare Images integration FIRST before blog implementation
+4. **Authentication**: Keep simple - any authenticated Clerk user can manage posts (role-based permissions later)
+5. **Publishing**: Manual publish for scheduled posts initially, auto-publish via Convex cron later (Option A)
+6. **Related Posts**: Nice-to-have feature, not critical for MVP
+7. **Timeline**: Quick MVP approach - get live ASAP (~1.5-2 days development)
+8. **Design**: Match dramatic typography of service pages but toned down to Vercel blog style
+9. **Sorting**: Blog posts sorted by most recently modified/updated (not just publish date)
+
+**SEO Priorities (Must-Have for Launch):**
+- ✅ **CRITICAL**: Structured data (Article schema) - preserve all WordPress metadata
+- ✅ **CRITICAL**: Automatic sitemap generation
+- ⚠️ **MEDIUM**: Social sharing/Open Graph optimization
+- 🔮 **LATER**: Internal linking suggestions in editor
+
+**Blog Index Requirements:**
+- Simple chronological list (no filtering/search for MVP)
+- Vercel-inspired design with toned-down typography
+- Responsive card grid layout
+- Sort by last modified date
+
+**Future Enhancements Logged:**
+1. Role-based permissions (Admin/Editor/Viewer with Clerk)
+2. Auto-publish scheduled posts (Convex cron job)
+3. Manual related posts selection UI
+4. Rich WYSIWYG editor (TipTap upgrade)
+5. Internal linking suggestions
+6. Blog search and category filtering
+7. Pagination or infinite scroll
+8. Featured post highlighting
+9. Draft preview sharing
+10. Post analytics and engagement metrics
+
+#### Cloudflare Images Setup (Phase 0 - CURRENT PRIORITY)
+
+**Current Status:**
+- User has Cloudflare Workers account (paid plan)
+- Site connected to Cloudflare via GitHub repo
+- Cloudflare Images NOT yet enabled (needs setup)
+- Custom domain NOT yet connected (waiting for go-live)
+
+**User Action Required:**
+1. Enable Cloudflare Images in dashboard (paid add-on: $5/month + $1 per 100k images)
+2. Create API Token with "Cloudflare Images" permissions
+3. Provide `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`
+
+**Image Variants Configuration:**
+- `thumbnail` - 400px wide (blog index cards)
+- `medium` - 800px wide (inline blog content)
+- `large` - 1200px wide (featured images)
+- `og` - 1200x630 (Open Graph social sharing)
+
+**WordPress Image Migration Strategy:**
+WordPress XML export contains image URLs pointing to live site. Migration script will:
+1. Parse WordPress XML to extract all image URLs
+2. **Automatically download** images from live WordPress site
+3. **Automatically upload** to Cloudflare Images
+4. Get Cloudflare Image IDs back
+5. **Replace old URLs** with new Cloudflare URLs in post content
+6. Import posts to Convex with updated image URLs
+
+This approach chosen as "Option 1" - build Cloudflare integration + migration script as one atomic operation for safety and reliability.
+
+#### Implementation Plan Overview
+
+**Phase 0: Cloudflare Images Foundation** (~2-3 hours) - **STARTING NOW**
+1. Add environment variables to `src/env.ts` and `.env.local`
+2. Build `src/lib/cloudflare-images.ts` utility with upload/download/URL generation
+3. Configure image variants
+4. Test manual upload
+
+**Phase 1: WordPress Migration + Convex Backend** (~3-4 hours)
+1. Build `scripts/migrate-wordpress.ts` with automated image migration
+2. Create `convex/posts.ts` with queries/mutations
+3. Create `convex/categories.ts`
+4. Run migration script
+
+**Phase 2: Public Blog Routes** (~2-3 hours)
+1. Update `src/routes/blog.index.tsx` with Vercel-inspired design
+2. Create `src/routes/blog.$slug.tsx` for individual posts
+3. Implement markdown rendering with `react-markdown`
+
+**Phase 3: Admin Blog Editor** (~3-4 hours)
+1. Create auth guard utility
+2. Build admin routes (`/admin`, `/admin/posts`, `/admin/posts/new`, `/admin/posts/$id/edit`)
+3. Create simple `BlogEditor` component with textarea + preview
+4. Implement featured image upload to Cloudflare
+
+**Phase 4: SEO & Sitemap** (~1-2 hours)
+1. Create `src/routes/sitemap.xml.tsx` with blog posts
+2. Ensure Article structured data includes all metadata
+3. Implement social sharing tags
+
+**Total Estimated Time:** 12-16 hours (~1.5-2 days with testing)
+
+#### Blog Typography Guidelines (Vercel-Inspired)
+
+Toned down from extreme service page typography:
+
+**Blog Index:**
+- Page headline: `text-4xl lg:text-5xl font-bold leading-tight tracking-tight`
+- Post card titles: `text-2xl lg:text-3xl font-bold leading-tight`
+- Metadata: `text-sm text-muted-foreground tracking-wide`
+
+**Individual Post Pages:**
+- Post headline: `text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight`
+- Body text: `text-base lg:text-lg tracking-wide leading-relaxed`
+- Section spacing: `py-16 lg:py-24` (less dramatic than service pages)
+
+**Layout:**
+- Blog index: `max-w-7xl` container
+- Post content: `max-w-4xl` for better readability
+- Card grids: `grid gap-8 md:grid-cols-2 lg:grid-cols-3`
+
+#### Template Philosophy
+
+This blog implementation is designed to be **replicable and reusable**:
+- Keep as lightweight as possible (no heavy CMS)
+- Only blog content manageable via GUI
+- All code patterns should work for multiple marketing sites
+- This site serves as testing ground for template
+- Future sites can clone this approach
+
+#### Available Dependencies
+
+Already installed for markdown rendering:
+- ✅ `react-markdown` (v10.1.0)
+- ✅ `remark-gfm` (v4.0.1) - GitHub Flavored Markdown
+- ✅ `rehype-highlight` (v7.0.2) - Syntax highlighting
+- ✅ `rehype-raw` (v7.0.0) - HTML in markdown
+- ✅ `rehype-sanitize` (v6.0.0) - Security
+- ✅ `highlight.js` (v11.11.1) - Code highlighting
+- ✅ `@tanstack/react-form` (v1.25.0) - Form handling
+
+No TipTap or rich editors installed yet - keeping MVP simple.
+
+#### Cloudflare Images Integration - COMPLETED ✅
+
+**Status:** Fully implemented and tested (2025-11-20)
+
+##### What Was Implemented
+
+1. **Environment Variables** - Added to `src/env.ts` and `.env.local`:
+   - `CLOUDFLARE_ACCOUNT_ID` (server-only)
+   - `CLOUDFLARE_API_TOKEN` (server-only)
+
+2. **Utility Library** - Created `src/lib/cloudflare-images.ts` with:
+   - `uploadImage(file, metadata)` - Upload files from browser
+   - `uploadImageFromUrl(url, metadata)` - Upload from URLs (WordPress migration)
+   - `getImageUrl(imageId, variant)` - Generate CDN URLs (client-safe)
+   - `deleteImage(imageId)` - Delete images
+   - `getResponsiveImageUrls(imageId)` - Generate srcset for responsive images
+
+3. **Image Variants Configured** (in Cloudflare Dashboard):
+   - `thumbnail` - 400px wide, auto height, scale-down
+   - `medium` - 800px wide, auto height, scale-down
+   - `large` - 1200px wide, auto height, scale-down
+   - `og` - 1200x630px, cover (Open Graph social sharing)
+   - `public` - Original size (default variant)
+
+4. **Test Route** - Created `src/routes/test-upload.tsx` for verification (to be deleted after blog editor is built)
+
+##### Step-by-Step Setup Guide for Future Projects
+
+**Step 1: Enable Cloudflare Images**
+1. Go to Cloudflare Dashboard → Images
+2. Enable Cloudflare Images ($5/month + $1 per 100k images delivered)
+3. Note your Account Hash from the sidebar (format: `uIVQ6NXJhv6uJPgWapIyVQ`)
+
+**Step 2: Create API Token**
+1. Profile → API Tokens → Create Token
+2. Use template: "Edit Cloudflare Images"
+3. Permissions: Account → Cloudflare Images → Edit
+4. Copy the token (shown only once!)
+
+**Step 3: Configure Image Variants**
+In Cloudflare Dashboard → Images → Variants, create these 4 variants:
+
+```
+thumbnail:
+- Variant ID: thumbnail
+- Width: 400px
+- Height: (leave blank for auto)
+- Fit: Scale down
+
+medium:
+- Variant ID: medium
+- Width: 800px
+- Height: (leave blank for auto)
+- Fit: Scale down
+
+large:
+- Variant ID: large
+- Width: 1200px
+- Height: (leave blank for auto)
+- Fit: Scale down
+
+og:
+- Variant ID: og
+- Width: 1200px
+- Height: 630px
+- Fit: Cover
+```
+
+**Step 4: Add Environment Variables**
+
+Add to `src/env.ts` (server-side validation):
+```typescript
+export const env = createEnv({
+  server: {
+    CLOUDFLARE_ACCOUNT_ID: z.string().min(1),
+    CLOUDFLARE_API_TOKEN: z.string().min(1),
+    // ... other server vars
+  },
+  // ... rest of config
+})
+```
+
+Add to `.env.local` (never commit this file!):
+```bash
+CLOUDFLARE_ACCOUNT_ID=your_account_id_here
+CLOUDFLARE_API_TOKEN=your_api_token_here
+```
+
+**Step 5: Create Utility Library**
+
+Create `src/lib/cloudflare-images.ts`:
+
+```typescript
+// Hardcode account hash (safe - it's public in image URLs anyway)
+const ACCOUNT_HASH = 'your_account_hash_here';
+
+export async function uploadImage(
+  file: File,
+  metadata?: Record<string, string>
+): Promise<string> {
+  // Use process.env for server-side secrets (TanStack Start best practice)
+  const apiUrl = `https://api.cloudflare.com/client/v4/accounts/${process.env.CLOUDFLARE_ACCOUNT_ID}/images/v1`;
+  
+  const formData = new FormData();
+  formData.append('file', file);
+  if (metadata) {
+    formData.append('metadata', JSON.stringify(metadata));
+  }
+
+  const response = await fetch(apiUrl, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${process.env.CLOUDFLARE_API_TOKEN}`,
+    },
+    body: formData,
+  });
+
+  const data = await response.json();
+  if (!data.success || !data.result) {
+    throw new Error(`Upload failed: ${data.errors?.[0]?.message}`);
+  }
+  
+  return data.result.id;
+}
+
+export function getImageUrl(
+  imageId: string,
+  variant: string = 'public'
+): string {
+  // Client-safe: uses hardcoded account hash
+  return `https://imagedelivery.net/${ACCOUNT_HASH}/${imageId}/${variant}`;
+}
+```
+
+**Step 6: Create Server Function for Uploads**
+
+In your route file:
+
+```typescript
+import { createServerFn } from '@tanstack/react-start';
+import { uploadImage } from '@/lib/cloudflare-images';
+
+const uploadImageServer = createServerFn({ method: 'POST' })
+  .inputValidator((data) => {
+    if (!(data instanceof FormData)) {
+      throw new Error('Expected FormData');
+    }
+    const file = data.get('file');
+    if (!file || !(file instanceof File)) {
+      throw new Error('No file provided');
+    }
+    return { file, alt: data.get('alt')?.toString() || '' };
+  })
+  .handler(async ({ data }) => {
+    const { file, alt } = data;
+    const imageId = await uploadImage(file, { alt });
+    return { imageId };
+  });
+```
+
+**Step 7: Use in Component**
+
+```typescript
+function UploadComponent() {
+  const handleUpload = async (file: File) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('alt', 'My image');
+    
+    const result = await uploadImageServer({ data: formData });
+    const imageUrl = getImageUrl(result.imageId, 'large');
+    // Use imageUrl...
+  };
+  
+  return <input type="file" onChange={(e) => handleUpload(e.target.files[0])} />;
+}
+```
+
+##### Critical Security Notes
+
+1. **NEVER** use `VITE_` prefix for Cloudflare credentials - they're secrets!
+2. **ALWAYS** use `process.env` in server functions (not imported `env` object)
+3. **Account hash is public** - safe to hardcode for client-side URL generation
+4. **Server functions only** - Upload/delete operations must happen server-side
+5. **FormData validation** - Always validate file type and size in server functions
+
+##### Testing
+
+Created temporary test route at `/test-upload` to verify:
+- ✅ Image uploads to Cloudflare
+- ✅ All variants working (thumbnail, medium, large, og)
+- ✅ Image delivery via CDN
+- ✅ Server-side security (API token never exposed)
+
+**Note:** Delete `/test-upload` route after blog editor is implemented.
+
+##### Common Issues & Solutions
+
+**Issue:** "Attempted to access a server-side environment variable on the client"
+**Solution:** Ensure server functions use `process.env` directly, not imported `env` object. Client code should use hardcoded ACCOUNT_HASH for URLs.
+
+**Issue:** "createServerFn(...).validator is not a function"
+**Solution:** Use `.inputValidator()` not `.validator()` (correct method name in TanStack Start v1.138+)
+
+**Issue:** Images not displaying
+**Solution:** Verify account hash is correct from Cloudflare Dashboard sidebar. Test with: `https://imagedelivery.net/{ACCOUNT_HASH}/{imageId}/public`
+
+##### Files Modified
+
+- ✅ `src/env.ts` - Added Cloudflare env validation
+- ✅ `.env.local` - Added credentials (gitignored)
+- ✅ `src/lib/cloudflare-images.ts` - Complete utility library
+- ✅ `src/routes/test-upload.tsx` - Test/verification route (temporary)
+
+---
+
+*Last Updated: 2025-11-20*
 *Maintained for: AI-assisted development with Claude and other AI tools*
