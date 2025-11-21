@@ -4,6 +4,8 @@ import { z } from 'zod';
 export const env = createEnv({
   server: {
     SERVER_URL: z.string().url().optional(),
+    CLOUDFLARE_ACCOUNT_ID: z.string().min(1),
+    CLOUDFLARE_API_TOKEN: z.string().min(1),
   },
 
   /**
