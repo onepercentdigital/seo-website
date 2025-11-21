@@ -49,6 +49,7 @@ All branding is centralized in `src/config/brand.ts` for quick updates.
 - **Typography**: Plus Jakarta Sans Variable - Extreme scale with 800 for hero headings, 700 for section headings, 400 for body text
 - **Visual Style**: Inspired by Vercel.com with subtle animations and dramatic typography
 - **Theme Toggle**: Respects system preferences with manual override
+- **Heading Style**: Single-color headlines only - NO two-tone coloring with accent spans (avoid `<span className="text-accent">` within headings)
 
 ### AI Integration
 - **Anthropic AI SDK 2.0.45** - Claude AI integration for chat and assistance
@@ -95,8 +96,8 @@ seo-website/
 │   │   ├── seo.tsx         # SEO service page ✅ COMPLETE
 │   │   ├── geo.tsx         # GEO service page ✅ COMPLETE
 │   │   ├── customers.tsx   # Customer showcase ✅ COMPLETE
+│   │   ├── case-studies.tsx # Case studies page ✅ COMPLETE
 │   │   ├── audit.tsx       # Free AI Search Audit booking (Calendly placeholder)
-│   │   ├── case-studies.tsx # Case studies (placeholder)
 │   │   ├── enterprise.tsx  # Enterprise solutions page (placeholder)
 │   │   ├── solutions.tsx   # Solutions landing (placeholder)
 │   │   └── blog.index.tsx  # Blog listing (to be implemented)
@@ -237,11 +238,11 @@ Indexes: by_slug, by_status, by_published_date, by_modified_date, by_category, b
 - `/geo` - GEO service page with 7 comprehensive sections and FAQ
 - `/seo` - SEO service page with 7 comprehensive sections and FAQ
 - `/customers` - Customer showcase with 10 client logos, testimonials, and industry breakdown
+- `/case-studies` - Case studies page with 5 detailed case studies, featured study, aggregate stats
 - `404` - Branded NotFound component with quick links
 
 **⚠️ Placeholder Routes** (Basic structure, needs content):
 - `/audit` - Free AI Search Audit booking (needs Calendly embed)
-- `/case-studies` - Case studies (needs case study content)
 - `/solutions` - Solutions landing (needs content strategy)
 - `/enterprise` - Enterprise solutions (needs enterprise-specific content)
 - `/blog` - Blog index (needs blog CMS implementation)
@@ -1074,15 +1075,16 @@ Built a production-ready customers page with easy-to-update data structure:
 
 ## Project Status
 
-- **Phase**: Cloudflare Images integration complete - blog CMS implementation next
-- **Current State**: Production-ready marketing site with 5 complete pages + image infrastructure
-- **Deployment Ready**: Homepage, GEO page, SEO page, Customers page, and 404 page can be deployed immediately
+- **Phase**: Case studies page complete - blog CMS implementation next
+- **Current State**: Production-ready marketing site with 6 complete pages + image infrastructure
+- **Deployment Ready**: Homepage, GEO page, SEO page, Customers page, Case Studies page, and 404 page can be deployed immediately
 - **Font System**: ✅ Plus Jakarta Sans Variable fully implemented (weights 200-800)
 - **Typography**: ✅ Extreme scale with balanced readability across all pages
 - **Homepage**: ✅ Fully implemented with 6 sections, SEO, and dramatic typography
 - **GEO Service Page**: ✅ Fully implemented with 7 sections and FAQ accordion
 - **SEO Service Page**: ✅ Fully implemented with 7 sections and FAQ accordion
 - **Customers Page**: ✅ Fully implemented with 7 sections, 10 client logos, data-driven
+- **Case Studies Page**: ✅ Fully implemented with 5 case studies, featured study, aggregate stats, data-driven
 - **Navigation**: ✅ Complete with dropdowns (no gaps) and theme sync
 - **Footer**: ✅ Multi-column with synchronized theme toggle
 - **404 Page**: ✅ Branded NotFound component with quick links
@@ -1090,11 +1092,11 @@ Built a production-ready customers page with easy-to-update data structure:
 - **Cloudflare Images**: ✅ **COMPLETE** - Upload/delivery working, all variants configured
 - **Blog Backend**: ✅ Schema ready in Convex, ⏳ Queries/mutations needed
 - **Blog Frontend**: 🚧 To be implemented (Phase 1 priority)
-- **Content Pages**: 🚧 Placeholders need content (case-studies, enterprise, solutions, audit)
+- **Content Pages**: 🚧 Placeholders need content (enterprise, solutions, audit)
 - **SEO/Performance**: 🚧 Sitemap and analytics needed (Phase 3)
 - **WordPress Migration**: 🚧 Import script needed (Phase 4)
 - **Ready for**: Blog CMS implementation - start with Phase 1.1 (Convex queries/mutations)
-- **Stats**: 5 production-ready pages, 1 test route, 5 placeholder pages, 0 technical debt
+- **Stats**: 6 production-ready pages, 1 test route, 4 placeholder pages, 0 technical debt
 
 ### 📍 Current Session End Point (2025-11-20)
 
@@ -1557,5 +1559,81 @@ Created temporary test route at `/test-upload` to verify:
 
 ---
 
-*Last Updated: 2025-11-20*
+## Recent Updates (2025-11-21)
+
+### Session: Case Studies Page Implementation
+
+#### Case Studies Page - COMPLETED ✅
+
+**Status:** Fully implemented and production-ready (2025-11-21)
+
+##### What Was Implemented
+
+1. **Data Structure** - Created `src/data/case-studies.ts` (550 lines):
+   - TypeScript interfaces: `CaseStudy`, `CaseStudyMetric`, `CaseStudyTestimonial`
+   - 5 detailed case studies with real client data:
+     - Grove Bay Hospitality (Featured) - 425% traffic growth, $12M revenue impact
+     - Stubborn Seed - 92% AI search visibility, 70% organic reservations
+     - H&R Agri-Power - 200+ keyword rankings, 58% organic leads
+     - AFNI - $15M new business from search, 85% page-one rankings
+     - Revology Cars - $8M vehicle sales, 75% qualified leads from search
+   - Helper functions: `getFeaturedCaseStudies()`, `getCaseStudiesByIndustry()`, `getCaseStudiesByService()`
+   - Aggregate metrics calculator
+
+2. **Complete Page Layout** - Updated `src/routes/case-studies.tsx` (6 sections):
+   - **Hero Section**: "Real Results from Real Businesses" with extreme typography
+   - **Aggregate Stats**: 350% average growth, 5+ success stories, 4 industries (bordered section)
+   - **Featured Case Study**: Grove Bay Hospitality with full challenge/solution/results narrative
+   - **Case Studies Grid**: Responsive 3-column grid with industry badges, metrics, testimonials
+   - **Final CTA**: "See What We Can Do For You" with dual CTAs
+   - **SEO**: Complete meta tags with canonical URL, og:url, twitter:url
+
+##### Design Consistency
+
+✅ **Matches existing pages perfectly:**
+- Extreme typography scale (`text-5xl lg:text-7xl xl:text-8xl` for hero)
+- Accent color `#00cccc` for icons, stats, badges
+- No gradients (per design system requirements)
+- **Single-color headings** (removed two-tone accent spans per user feedback)
+- Proper spacing: `py-20 lg:py-32` between sections
+- Cards: `rounded-2xl` with hover states (`hover:border-accent/50 hover:shadow-lg`)
+- Icons wrapped in `bg-accent/10 p-3` containers
+- Mobile-first responsive design
+
+##### Design System Update
+
+**Added guideline to prevent two-tone headings:**
+- Design System now explicitly states: "Single-color headlines only - NO two-tone coloring with accent spans"
+- Removed `<span className="text-accent">` from all case studies page headings
+- This maintains consistency with Vercel-inspired design language
+
+##### Technical Details
+
+- **Data-driven rendering**: All case studies render from TypeScript data file
+- **Type-safe**: Full TypeScript interfaces with proper typing
+- **Extensible**: Easy to add more case studies by updating data array
+- **SEO optimized**: Structured meta tags, semantic HTML
+- **Production-ready**: No placeholder content, all text is final
+
+##### Files Modified
+
+- ✅ `src/data/case-studies.ts` - New file (complete data structure)
+- ✅ `src/routes/case-studies.tsx` - Updated from placeholder to full implementation
+- ✅ `CLAUDE.md` - Updated route status, project status, design guidelines, stats
+
+##### Project Status Update
+
+**Production-Ready Pages: 6** (was 5)
+- Homepage, GEO, SEO, Customers, Case Studies, 404
+
+**Placeholder Pages: 4** (was 5)
+- Audit, Enterprise, Solutions, Blog
+
+**Next Priority:**
+- Blog CMS implementation (Convex queries/mutations)
+- Or fill remaining placeholder pages (audit, enterprise, solutions)
+
+---
+
+*Last Updated: 2025-11-21*
 *Maintained for: AI-assisted development with Claude and other AI tools*
