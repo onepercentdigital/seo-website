@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
 import {
   ArrowRight,
-  Award,
   BarChart3,
   BookOpen,
   Building2,
@@ -130,11 +129,11 @@ function HospitalityPage() {
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {solution.challenges.map((challenge, index) => {
+            {solution.challenges.map((challenge, _index) => {
               const Icon = iconMap[challenge.icon];
               return (
                 <div
-                  key={index}
+                  key={challenge.title}
                   className="flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:border-accent/50 hover:shadow-lg"
                 >
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 p-3">
@@ -169,7 +168,7 @@ function HospitalityPage() {
             {solution.approach.map((step, index) => {
               const Icon = iconMap[step.icon];
               return (
-                <div key={index} className="relative">
+                <div key={step.title} className="relative">
                   <div className="flex flex-col rounded-2xl border border-border bg-card p-6">
                     <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 p-3">
                       <Icon className="h-6 w-6 text-accent" />
@@ -204,9 +203,9 @@ function HospitalityPage() {
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {solution.services.map((service, index) => (
+            {solution.services.map((service, _index) => (
               <div
-                key={index}
+                key={service.title}
                 className="flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:border-accent/50 hover:shadow-lg"
               >
                 <h3 className="mb-3 font-bold text-xl leading-tight">
@@ -216,9 +215,9 @@ function HospitalityPage() {
                   {service.description}
                 </p>
                 <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
+                  {service.features.map((feature) => (
                     <li
-                      key={featureIndex}
+                      key={feature}
                       className="flex items-start gap-2 text-muted-foreground text-sm"
                     >
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
@@ -251,7 +250,7 @@ function HospitalityPage() {
               </p>
 
               <div className="grid gap-8 lg:grid-cols-3">
-                <div className="lg:col-span-2 space-y-6">
+                <div className="space-y-6 lg:col-span-2">
                   <div>
                     <h3 className="mb-3 font-bold text-xl">The Challenge</h3>
                     <p className="text-muted-foreground leading-relaxed tracking-wide">
@@ -273,9 +272,9 @@ function HospitalityPage() {
                 </div>
 
                 <div className="space-y-4">
-                  {caseStudy.metrics.map((metric, index) => (
+                  {caseStudy.metrics.map((metric, _index) => (
                     <div
-                      key={index}
+                      key={metric.label}
                       className="rounded-xl border border-border bg-background p-4"
                     >
                       <div className="font-extrabold text-4xl text-accent tracking-tight lg:text-5xl">
@@ -294,11 +293,11 @@ function HospitalityPage() {
 
               {caseStudy.testimonial && (
                 <div className="mt-8 border-accent/20 border-l-4 bg-accent/5 p-6">
-                  <blockquote className="italic text-lg leading-relaxed tracking-wide">
+                  <blockquote className="text-lg italic leading-relaxed tracking-wide">
                     "{caseStudy.testimonial.quote}"
                   </blockquote>
                   <div className="mt-4 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-accent-foreground font-semibold">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent font-semibold text-accent-foreground">
                       {caseStudy.testimonial.initials}
                     </div>
                     <div>
@@ -335,8 +334,8 @@ function HospitalityPage() {
             </h2>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
-            {solution.aggregateStats.map((stat, index) => (
-              <div key={index} className="text-center">
+            {solution.aggregateStats.map((stat, _index) => (
+              <div key={stat.label} className="text-center">
                 <div className="font-extrabold text-5xl tracking-tight lg:text-7xl xl:text-8xl">
                   {stat.value}
                 </div>
@@ -360,7 +359,7 @@ function HospitalityPage() {
           </div>
           <Accordion type="single" collapsible className="w-full">
             {solution.faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
+              <AccordionItem key={faq.question} value={`item-${index}`}>
                 <AccordionTrigger className="text-left font-semibold text-lg">
                   {faq.question}
                 </AccordionTrigger>

@@ -19,7 +19,6 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
-import { getCaseStudyById } from '@/data/case-studies';
 import { getSolutionBySlug } from '@/data/solutions';
 import { generateMetaTags } from '@/lib/seo';
 
@@ -36,9 +35,6 @@ export const Route = createFileRoute('/solutions/technology')({
 
 function TechnologyPage() {
   const solution = getSolutionBySlug('technology');
-  const caseStudy = solution?.featuredClient
-    ? getCaseStudyById(solution.featuredClient.caseStudyId)
-    : undefined;
 
   if (!solution) {
     return <div>Solution not found</div>;
@@ -112,16 +108,16 @@ function TechnologyPage() {
               Challenges Facing Technology Companies
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
-              Technology and SaaS companies face unique growth challenges. Here's what we help you
-              overcome.
+              Technology and SaaS companies face unique growth challenges.
+              Here's what we help you overcome.
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {solution.challenges.map((challenge, index) => {
+            {solution.challenges.map((challenge, _index) => {
               const Icon = iconMap[challenge.icon];
               return (
                 <div
-                  key={index}
+                  key={challenge.title}
                   className="flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:border-accent/50 hover:shadow-lg"
                 >
                   <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 p-3">
@@ -156,7 +152,7 @@ function TechnologyPage() {
             {solution.approach.map((step, index) => {
               const Icon = iconMap[step.icon];
               return (
-                <div key={index} className="relative">
+                <div key={step.title} className="relative">
                   <div className="flex flex-col rounded-2xl border border-border bg-card p-6">
                     <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 p-3">
                       <Icon className="h-6 w-6 text-accent" />
@@ -191,9 +187,9 @@ function TechnologyPage() {
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {solution.services.map((service, index) => (
+            {solution.services.map((service, _index) => (
               <div
-                key={index}
+                key={service.title}
                 className="flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:border-accent/50 hover:shadow-lg"
               >
                 <h3 className="mb-3 font-bold text-xl leading-tight">
@@ -203,9 +199,9 @@ function TechnologyPage() {
                   {service.description}
                 </p>
                 <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
+                  {service.features.map((feature) => (
                     <li
-                      key={featureIndex}
+                      key={feature}
                       className="flex items-start gap-2 text-muted-foreground text-sm"
                     >
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
@@ -228,8 +224,8 @@ function TechnologyPage() {
             </h2>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
-            {solution.aggregateStats.map((stat, index) => (
-              <div key={index} className="text-center">
+            {solution.aggregateStats.map((stat, _index) => (
+              <div key={stat.label} className="text-center">
                 <div className="font-extrabold text-5xl tracking-tight lg:text-7xl xl:text-8xl">
                   {stat.value}
                 </div>
@@ -253,7 +249,7 @@ function TechnologyPage() {
           </div>
           <Accordion type="single" collapsible className="w-full">
             {solution.faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
+              <AccordionItem key={faq.question} value={`item-${index}`}>
                 <AccordionTrigger className="text-left font-semibold text-lg">
                   {faq.question}
                 </AccordionTrigger>
@@ -273,8 +269,8 @@ function TechnologyPage() {
             Ready to Dominate Tech Search?
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
-            Let's accelerate your SaaS growth and reach decision-makers with proven SEO and GEO
-            strategies.
+            Let's accelerate your SaaS growth and reach decision-makers with
+            proven SEO and GEO strategies.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button

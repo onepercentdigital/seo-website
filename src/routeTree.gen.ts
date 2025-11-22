@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TestUploadRouteImport } from './routes/test-upload'
 import { Route as SeoRouteImport } from './routes/seo'
 import { Route as GeoRouteImport } from './routes/geo'
 import { Route as EnterpriseRouteImport } from './routes/enterprise'
@@ -30,11 +29,6 @@ import { Route as SolutionsConstructionRouteImport } from './routes/solutions.co
 import { Route as SolutionsAutomotiveRouteImport } from './routes/solutions.automotive'
 import { Route as SolutionsAgricultureRouteImport } from './routes/solutions.agriculture'
 
-const TestUploadRoute = TestUploadRouteImport.update({
-  id: '/test-upload',
-  path: '/test-upload',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SeoRoute = SeoRouteImport.update({
   id: '/seo',
   path: '/seo',
@@ -140,7 +134,6 @@ export interface FileRoutesByFullPath {
   '/enterprise': typeof EnterpriseRoute
   '/geo': typeof GeoRoute
   '/seo': typeof SeoRoute
-  '/test-upload': typeof TestUploadRoute
   '/solutions/agriculture': typeof SolutionsAgricultureRoute
   '/solutions/automotive': typeof SolutionsAutomotiveRoute
   '/solutions/construction': typeof SolutionsConstructionRoute
@@ -162,7 +155,6 @@ export interface FileRoutesByTo {
   '/enterprise': typeof EnterpriseRoute
   '/geo': typeof GeoRoute
   '/seo': typeof SeoRoute
-  '/test-upload': typeof TestUploadRoute
   '/solutions/agriculture': typeof SolutionsAgricultureRoute
   '/solutions/automotive': typeof SolutionsAutomotiveRoute
   '/solutions/construction': typeof SolutionsConstructionRoute
@@ -185,7 +177,6 @@ export interface FileRoutesById {
   '/enterprise': typeof EnterpriseRoute
   '/geo': typeof GeoRoute
   '/seo': typeof SeoRoute
-  '/test-upload': typeof TestUploadRoute
   '/solutions/agriculture': typeof SolutionsAgricultureRoute
   '/solutions/automotive': typeof SolutionsAutomotiveRoute
   '/solutions/construction': typeof SolutionsConstructionRoute
@@ -209,7 +200,6 @@ export interface FileRouteTypes {
     | '/enterprise'
     | '/geo'
     | '/seo'
-    | '/test-upload'
     | '/solutions/agriculture'
     | '/solutions/automotive'
     | '/solutions/construction'
@@ -231,7 +221,6 @@ export interface FileRouteTypes {
     | '/enterprise'
     | '/geo'
     | '/seo'
-    | '/test-upload'
     | '/solutions/agriculture'
     | '/solutions/automotive'
     | '/solutions/construction'
@@ -253,7 +242,6 @@ export interface FileRouteTypes {
     | '/enterprise'
     | '/geo'
     | '/seo'
-    | '/test-upload'
     | '/solutions/agriculture'
     | '/solutions/automotive'
     | '/solutions/construction'
@@ -276,7 +264,6 @@ export interface RootRouteChildren {
   EnterpriseRoute: typeof EnterpriseRoute
   GeoRoute: typeof GeoRoute
   SeoRoute: typeof SeoRoute
-  TestUploadRoute: typeof TestUploadRoute
   SolutionsAgricultureRoute: typeof SolutionsAgricultureRoute
   SolutionsAutomotiveRoute: typeof SolutionsAutomotiveRoute
   SolutionsConstructionRoute: typeof SolutionsConstructionRoute
@@ -293,13 +280,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/test-upload': {
-      id: '/test-upload'
-      path: '/test-upload'
-      fullPath: '/test-upload'
-      preLoaderRoute: typeof TestUploadRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/seo': {
       id: '/seo'
       path: '/seo'
@@ -444,7 +424,6 @@ const rootRouteChildren: RootRouteChildren = {
   EnterpriseRoute: EnterpriseRoute,
   GeoRoute: GeoRoute,
   SeoRoute: SeoRoute,
-  TestUploadRoute: TestUploadRoute,
   SolutionsAgricultureRoute: SolutionsAgricultureRoute,
   SolutionsAutomotiveRoute: SolutionsAutomotiveRoute,
   SolutionsConstructionRoute: SolutionsConstructionRoute,

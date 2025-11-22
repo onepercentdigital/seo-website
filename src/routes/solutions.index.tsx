@@ -157,7 +157,8 @@ function SolutionsLandingPage() {
               return (
                 <Link
                   key={solution.id}
-                  to={`/solutions/${solution.slug}` as any}
+                  // @ts-expect-error - Dynamic route path from solutions data
+                  to={`/solutions/${solution.slug}`}
                   className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:border-accent/50 hover:shadow-lg"
                 >
                   <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-accent/10 p-3 transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
