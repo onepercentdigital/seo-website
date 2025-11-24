@@ -22,14 +22,15 @@ Production-ready full-stack TypeScript marketing website featuring:
 ## 🛠️ Tech Stack
 
 ### Framework & Routing
-- **TanStack Start** - Full-stack React framework with SSR and streaming
-- **TanStack Router** - File-based, type-safe routing with built-in code splitting
-- **TanStack Query** - Powerful server state management and caching
+- **TanStack Start 1.139.3** - Full-stack React framework with SSR and streaming
+- **TanStack Router 1.139.3** - File-based, type-safe routing with built-in code splitting
+- **TanStack Query 5.90.10** - Powerful server state management and caching
 - **React 19.2.0** - Latest React with concurrent features
 
 ### Backend & Database
-- **Convex 1.29.2** - Real-time database with TypeScript schema and reactive queries
-- **Clerk 5.55.0** - Authentication and user management
+- **Convex 1.29.3** - Real-time database with TypeScript schema and reactive queries
+- **Clerk 5.56.2** - Authentication and user management
+- **Zod 4.1.13** - TypeScript-first schema validation
 
 ### Styling & UI
 - **Tailwind CSS 4.1.17** - Utility-first CSS framework (latest v4)
@@ -40,18 +41,19 @@ Production-ready full-stack TypeScript marketing website featuring:
 
 ### Developer Experience
 - **TypeScript 5.9.3** - Strict mode with comprehensive type safety
-- **Biome 2.3.6** - Ultra-fast linting and formatting (replaces ESLint/Prettier)
-- **Vitest 4.0.10** - Blazing fast unit testing framework
-- **Bun 1.3.2** - Fast package manager and JavaScript runtime
+- **Biome 2.3.7** - Ultra-fast linting and formatting (replaces ESLint/Prettier)
+- **Vitest 4.0.13** - Blazing fast unit testing framework
+- **Bun 1.3.3** - Fast package manager and JavaScript runtime
 
 ### Deployment & Monitoring
 - **Cloudflare Workers** - Edge deployment with global CDN
 - **Cloudflare Images** - Image optimization and delivery ✅ **CONFIGURED**
-- **Sentry 10.25.0** - Error tracking, performance monitoring, and instrumentation
+- **Wrangler 4.50.0** - Cloudflare deployment tooling
+- **Sentry 10.26.0** - Error tracking, performance monitoring, and instrumentation
 
 ## 📋 Prerequisites
 
-- **Bun** 1.3.2 or later ([Install Bun](https://bun.sh))
+- **Bun** 1.3.3 or later ([Install Bun](https://bun.sh))
 - **Node.js** 18 or later
 - **Convex account** ([Sign up](https://www.convex.dev))
 - **Clerk account** ([Sign up](https://clerk.com))
@@ -339,6 +341,159 @@ This project uses **flat URLs** for better UX, SEO, and AI citations:
 - Persistent selection via localStorage
 - Smooth transitions
 
+## 📝 Blog CMS
+
+This project includes a production-ready blog CMS built with Convex and Cloudflare Images.
+
+### Quick Start
+
+**1. Create Categories:**
+```bash
+# Create initial blog categories
+bun run scripts/seed-categories.ts
+```
+
+**2. Create Your First Post:**
+1. Navigate to http://localhost:3000/admin/posts/new
+2. Fill in the title (slug auto-generates)
+3. Write content in Markdown
+4. Upload a featured image
+5. Select category and set status
+6. Click "Create Post"
+
+**3. View Your Blog:**
+- **Blog index**: http://localhost:3000/blog
+- **Individual posts**: http://localhost:3000/blog/{slug}
+- **Admin panel**: http://localhost:3000/admin/posts
+
+### Blog Workflow
+
+**Writing Posts:**
+- Use Markdown syntax for formatting
+- Upload images via the featured image uploader (Cloudflare Images)
+- Preview your content in real-time
+- Save as draft or publish immediately
+
+**Publishing Posts:**
+- **Draft**: Work-in-progress, not visible on public site
+- **Published**: Live on the blog immediately
+- **Scheduled**: Set a future publish date (manual trigger for now)
+
+**Managing Posts:**
+- Edit existing posts at `/admin/posts/{id}/edit`
+- Delete posts from the post listing page
+- Filter posts by status (draft, published, scheduled)
+- Posts display by most recently modified
+
+### WordPress Migration
+
+If you have an existing WordPress blog:
+
+**1. Export from WordPress:**
+- WordPress Admin → Tools → Export
+- Select "All content" and download XML file
+
+**2. Run Migration Script:**
+```bash
+# Dry run first (no changes)
+bun run scripts/migrate-wordpress.ts /path/to/export.xml --dry-run
+
+# Real migration
+bun run scripts/migrate-wordpress.ts /path/to/export.xml
+```
+
+**What gets migrated:**
+- ✅ All posts (with publish dates preserved)
+- ✅ Categories
+- ✅ Featured images (auto-uploaded to Cloudflare)
+- ✅ Post content (HTML converted to Markdown)
+- ✅ Authors and metadata
+- ✅ SEO meta information
+
+**3. Verify Migration:**
+Check your blog at http://localhost:3000/blog to ensure all posts migrated correctly.
+
+**4. Fix Any Missing Images (if needed):**
+```bash
+bun run scripts/fix-featured-images.ts
+```
+
+### Blog Features
+
+**Content:**
+- Markdown editing with live preview
+- Syntax highlighting for code blocks
+- Image optimization via Cloudflare CDN
+- Internal link suggestions (TanStack Router)
+
+**SEO:**
+- Custom meta titles and descriptions per post
+- Automatic Article structured data (Schema.org)
+- Open Graph and Twitter Card tags
+- Dynamic sitemap generation (updates at build time)
+- Canonical URLs
+
+**Performance:**
+- Server-side rendering (SSR) support
+- Code splitting per route
+- Cloudflare CDN delivery for images
+- Optimized Markdown rendering
+
+### Markdown Support
+
+**Basic Formatting:**
+```markdown
+# Heading 1
+## Heading 2
+### Heading 3
+
+**Bold text**
+*Italic text*
+~~Strikethrough~~
+
+- Unordered list
+- Another item
+
+1. Ordered list
+2. Another item
+
+[Link text](https://example.com)
+![Image alt text](image-url)
+```
+
+**Code Blocks:**
+```markdown
+\`\`\`typescript
+const greeting = "Hello World"
+console.log(greeting)
+\`\`\`
+```
+
+**Tables:**
+```markdown
+| Column 1 | Column 2 |
+|----------|----------|
+| Value 1  | Value 2  |
+```
+
+### Troubleshooting
+
+**Blog posts not loading?**
+- Ensure Convex is running: `npx convex dev`
+- Check environment variable: `VITE_CONVEX_URL`
+- Verify schema is deployed in Convex dashboard
+
+**Images not uploading?**
+- Check Cloudflare environment variables in `.env.local`
+- Verify API token has "Edit Cloudflare Images" permission
+- Ensure image variants are configured in Cloudflare dashboard
+
+**Navigation causing full page reload?**
+- This was a known issue and has been fixed
+- All blog post cards now use TanStack Router's `<Link>` component
+
+For detailed technical documentation, troubleshooting, and architecture details, see the **[Blog CMS Implementation Guide](./CLAUDE.md#blog-cms-implementation-guide)** section in CLAUDE.md.
+
 ## 📖 Documentation
 
 For comprehensive project documentation, including:
@@ -385,9 +540,10 @@ See **[CLAUDE.md](./CLAUDE.md)**
 - ✅ Navigation with dropdowns (including Solutions dropdown) and theme toggle
 - ✅ **Cloudflare Images integration** (upload, delivery, 5 variants configured)
 - ✅ **Data-driven architecture** - 4 data files (team.ts, solutions.ts, customers.ts, case-studies.ts)
-- ✅ **SEO Infrastructure** - sitemap.xml (build-time generation), robots.txt configured
+- ✅ **SEO Infrastructure** - sitemap.xml with all 20 pages (build-time generation), robots.txt configured
 - ✅ **Code Quality** - 0 TypeScript errors, 0 linting errors, 0 linting warnings, 100% type-safe
 - ✅ **Suppression Hygiene** - All 9 code suppressions documented and legitimate
+- ✅ **Codebase Cleanup** - No legacy directories, no unused assets, 280KB space savings
 
 **🚧 Next Priority - Blog CMS:**
 - 🚧 Convex queries/mutations for blog posts
