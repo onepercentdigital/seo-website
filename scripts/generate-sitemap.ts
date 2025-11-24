@@ -3,17 +3,24 @@
  * Generate sitemap.xml at build time
  *
  * This script generates a static sitemap.xml file in the public directory.
- * It includes all static pages and dynamic solution pages.
+ * It includes all static pages, dynamic solution pages, and published blog posts.
  *
  * Run: bun run scripts/generate-sitemap.ts
  */
 
-import { writeFileSync } from 'node:fs';
-import { resolve } from 'node:path';
-import { getAllSolutions } from '../src/data/solutions';
+import { writeFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+import { ConvexHttpClient } from 'convex/browser'
+import { getAllSolutions } from '../src/data/solutions'
+import { api } from '../convex/_generated/api'
 
-const baseUrl = 'https://onepercentseo.com';
-const currentDate = new Date().toISOString().split('T')[0];
+const baseUrl = 'https://onepercentseo.com'
+const currentDate = new Date().toISOString().split('T')[0]
+
+// Initialize Convex client
+const convex = new ConvexHttpClient(
+  process.env.VITE_CONVEX_URL || 'https://your-convex-url.convex.cloud'
+)
 
 // Static pages with their priorities and change frequencies
 const staticPages = [
@@ -27,41 +34,82 @@ const staticPages = [
   { url: '/solutions', priority: '0.8', changefreq: 'monthly' },
   { url: '/enterprise', priority: '0.7', changefreq: 'monthly' },
   { url: '/blog', priority: '0.7', changefreq: 'daily' },
-];
+]
 
-// Get dynamic solution pages
-const solutions = getAllSolutions();
-const solutionPages = solutions.map((solution) => ({
-  url: `/solutions/${solution.slug}`,
-  priority: '0.8',
-  changefreq: 'monthly',
-}));
+/**
+ * Fetch published blog posts from Convex
+ */
+async function fetchBlogPosts() {
+  try {
+    const posts = await convex.query(api.posts.getPublishedForSitemap, {})
+    return posts.map((post) => ({
+      url: `/blog/${post.slug}`,
+      lastmod: new Date(post.modifiedAt).toISOString().split('T')[0],
+      priority: '0.7',
+      changefreq: 'weekly',
+    }))
+  } catch (error) {
+    console.warn('⚠️  Could not fetch blog posts:', error)
+    console.warn('   Sitemap will be generated without blog posts')
+    return []
+  }
+}
 
-// Combine all pages
-const allPages = [...staticPages, ...solutionPages];
+/**
+ * Main sitemap generation function
+ */
+async function generateSitemap() {
+  console.log('🗺️  Generating sitemap.xml...')
 
-// Generate XML
-const xml = `<?xml version="1.0" encoding="UTF-8"?>
+  // Get dynamic solution pages
+  const solutions = getAllSolutions()
+  const solutionPages = solutions.map((solution) => ({
+    url: `/solutions/${solution.slug}`,
+    lastmod: currentDate,
+    priority: '0.8',
+    changefreq: 'monthly',
+  }))
+
+  // Fetch blog posts
+  const blogPosts = await fetchBlogPosts()
+
+  // Combine all pages
+  const allPages = [
+    ...staticPages.map((page) => ({ ...page, lastmod: currentDate })),
+    ...solutionPages,
+    ...blogPosts,
+  ]
+
+  // Generate XML
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allPages
   .map(
     (page) => `  <url>
     <loc>${baseUrl}${page.url}</loc>
-    <lastmod>${currentDate}</lastmod>
+    <lastmod>${page.lastmod}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
-  </url>`,
+  </url>`
   )
   .join('\n')}
 </urlset>
-`;
+`
 
-// Write to public directory
-const outputPath = resolve(process.cwd(), 'public', 'sitemap.xml');
-writeFileSync(outputPath, xml, 'utf-8');
+  // Write to public directory
+  const outputPath = resolve(process.cwd(), 'public', 'sitemap.xml')
+  writeFileSync(outputPath, xml, 'utf-8')
 
-console.log(`✅ Sitemap generated successfully!`);
-console.log(`   Location: public/sitemap.xml`);
-console.log(`   Pages: ${allPages.length} total`);
-console.log(`   - Static pages: ${staticPages.length}`);
-console.log(`   - Solution pages: ${solutionPages.length}`);
+  console.log(`✅ Sitemap generated successfully!`)
+  console.log(`   Location: public/sitemap.xml`)
+  console.log(`   Pages: ${allPages.length} total`)
+  console.log(`   - Static pages: ${staticPages.length}`)
+  console.log(`   - Solution pages: ${solutionPages.length}`)
+  console.log(`   - Blog posts: ${blogPosts.length}`)
+}
+
+// Run sitemap generation
+generateSitemap().catch((error) => {
+  console.error('❌ Failed to generate sitemap:', error)
+  process.exit(1)
+})

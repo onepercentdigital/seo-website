@@ -19,6 +19,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SolutionsIndexRouteImport } from './routes/solutions.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as SolutionsTechnologyRouteImport } from './routes/solutions.technology'
 import { Route as SolutionsManufacturingRouteImport } from './routes/solutions.manufacturing'
 import { Route as SolutionsLogisticsRouteImport } from './routes/solutions.logistics'
@@ -29,6 +30,10 @@ import { Route as SolutionsConsultingCoachingRouteImport } from './routes/soluti
 import { Route as SolutionsConstructionRouteImport } from './routes/solutions.construction'
 import { Route as SolutionsAutomotiveRouteImport } from './routes/solutions.automotive'
 import { Route as SolutionsAgricultureRouteImport } from './routes/solutions.agriculture'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AdminPostsIndexRouteImport } from './routes/admin.posts.index'
+import { Route as AdminPostsNewRouteImport } from './routes/admin.posts.new'
+import { Route as AdminPostsIdEditRouteImport } from './routes/admin.posts.$id.edit'
 
 const SeoRoute = SeoRouteImport.update({
   id: '/seo',
@@ -78,6 +83,11 @@ const SolutionsIndexRoute = SolutionsIndexRouteImport.update({
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SolutionsTechnologyRoute = SolutionsTechnologyRouteImport.update({
@@ -131,6 +141,26 @@ const SolutionsAgricultureRoute = SolutionsAgricultureRouteImport.update({
   path: '/solutions/agriculture',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPostsIndexRoute = AdminPostsIndexRouteImport.update({
+  id: '/admin/posts/',
+  path: '/admin/posts/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPostsNewRoute = AdminPostsNewRouteImport.update({
+  id: '/admin/posts/new',
+  path: '/admin/posts/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPostsIdEditRoute = AdminPostsIdEditRouteImport.update({
+  id: '/admin/posts/$id/edit',
+  path: '/admin/posts/$id/edit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -141,6 +171,7 @@ export interface FileRoutesByFullPath {
   '/enterprise': typeof EnterpriseRoute
   '/geo': typeof GeoRoute
   '/seo': typeof SeoRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/solutions/agriculture': typeof SolutionsAgricultureRoute
   '/solutions/automotive': typeof SolutionsAutomotiveRoute
   '/solutions/construction': typeof SolutionsConstructionRoute
@@ -151,8 +182,12 @@ export interface FileRoutesByFullPath {
   '/solutions/logistics': typeof SolutionsLogisticsRoute
   '/solutions/manufacturing': typeof SolutionsManufacturingRoute
   '/solutions/technology': typeof SolutionsTechnologyRoute
+  '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
   '/solutions': typeof SolutionsIndexRoute
+  '/admin/posts/new': typeof AdminPostsNewRoute
+  '/admin/posts': typeof AdminPostsIndexRoute
+  '/admin/posts/$id/edit': typeof AdminPostsIdEditRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -163,6 +198,7 @@ export interface FileRoutesByTo {
   '/enterprise': typeof EnterpriseRoute
   '/geo': typeof GeoRoute
   '/seo': typeof SeoRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/solutions/agriculture': typeof SolutionsAgricultureRoute
   '/solutions/automotive': typeof SolutionsAutomotiveRoute
   '/solutions/construction': typeof SolutionsConstructionRoute
@@ -173,8 +209,12 @@ export interface FileRoutesByTo {
   '/solutions/logistics': typeof SolutionsLogisticsRoute
   '/solutions/manufacturing': typeof SolutionsManufacturingRoute
   '/solutions/technology': typeof SolutionsTechnologyRoute
+  '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
   '/solutions': typeof SolutionsIndexRoute
+  '/admin/posts/new': typeof AdminPostsNewRoute
+  '/admin/posts': typeof AdminPostsIndexRoute
+  '/admin/posts/$id/edit': typeof AdminPostsIdEditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -186,6 +226,7 @@ export interface FileRoutesById {
   '/enterprise': typeof EnterpriseRoute
   '/geo': typeof GeoRoute
   '/seo': typeof SeoRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/solutions/agriculture': typeof SolutionsAgricultureRoute
   '/solutions/automotive': typeof SolutionsAutomotiveRoute
   '/solutions/construction': typeof SolutionsConstructionRoute
@@ -196,8 +237,12 @@ export interface FileRoutesById {
   '/solutions/logistics': typeof SolutionsLogisticsRoute
   '/solutions/manufacturing': typeof SolutionsManufacturingRoute
   '/solutions/technology': typeof SolutionsTechnologyRoute
+  '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/solutions/': typeof SolutionsIndexRoute
+  '/admin/posts/new': typeof AdminPostsNewRoute
+  '/admin/posts/': typeof AdminPostsIndexRoute
+  '/admin/posts/$id/edit': typeof AdminPostsIdEditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -210,6 +255,7 @@ export interface FileRouteTypes {
     | '/enterprise'
     | '/geo'
     | '/seo'
+    | '/blog/$slug'
     | '/solutions/agriculture'
     | '/solutions/automotive'
     | '/solutions/construction'
@@ -220,8 +266,12 @@ export interface FileRouteTypes {
     | '/solutions/logistics'
     | '/solutions/manufacturing'
     | '/solutions/technology'
+    | '/admin'
     | '/blog'
     | '/solutions'
+    | '/admin/posts/new'
+    | '/admin/posts'
+    | '/admin/posts/$id/edit'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -232,6 +282,7 @@ export interface FileRouteTypes {
     | '/enterprise'
     | '/geo'
     | '/seo'
+    | '/blog/$slug'
     | '/solutions/agriculture'
     | '/solutions/automotive'
     | '/solutions/construction'
@@ -242,8 +293,12 @@ export interface FileRouteTypes {
     | '/solutions/logistics'
     | '/solutions/manufacturing'
     | '/solutions/technology'
+    | '/admin'
     | '/blog'
     | '/solutions'
+    | '/admin/posts/new'
+    | '/admin/posts'
+    | '/admin/posts/$id/edit'
   id:
     | '__root__'
     | '/'
@@ -254,6 +309,7 @@ export interface FileRouteTypes {
     | '/enterprise'
     | '/geo'
     | '/seo'
+    | '/blog/$slug'
     | '/solutions/agriculture'
     | '/solutions/automotive'
     | '/solutions/construction'
@@ -264,8 +320,12 @@ export interface FileRouteTypes {
     | '/solutions/logistics'
     | '/solutions/manufacturing'
     | '/solutions/technology'
+    | '/admin/'
     | '/blog/'
     | '/solutions/'
+    | '/admin/posts/new'
+    | '/admin/posts/'
+    | '/admin/posts/$id/edit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -277,6 +337,7 @@ export interface RootRouteChildren {
   EnterpriseRoute: typeof EnterpriseRoute
   GeoRoute: typeof GeoRoute
   SeoRoute: typeof SeoRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   SolutionsAgricultureRoute: typeof SolutionsAgricultureRoute
   SolutionsAutomotiveRoute: typeof SolutionsAutomotiveRoute
   SolutionsConstructionRoute: typeof SolutionsConstructionRoute
@@ -287,8 +348,12 @@ export interface RootRouteChildren {
   SolutionsLogisticsRoute: typeof SolutionsLogisticsRoute
   SolutionsManufacturingRoute: typeof SolutionsManufacturingRoute
   SolutionsTechnologyRoute: typeof SolutionsTechnologyRoute
+  AdminIndexRoute: typeof AdminIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
   SolutionsIndexRoute: typeof SolutionsIndexRoute
+  AdminPostsNewRoute: typeof AdminPostsNewRoute
+  AdminPostsIndexRoute: typeof AdminPostsIndexRoute
+  AdminPostsIdEditRoute: typeof AdminPostsIdEditRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -363,6 +428,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solutions/technology': {
       id: '/solutions/technology'
       path: '/solutions/technology'
@@ -433,6 +505,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsAgricultureRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/posts/': {
+      id: '/admin/posts/'
+      path: '/admin/posts'
+      fullPath: '/admin/posts'
+      preLoaderRoute: typeof AdminPostsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/posts/new': {
+      id: '/admin/posts/new'
+      path: '/admin/posts/new'
+      fullPath: '/admin/posts/new'
+      preLoaderRoute: typeof AdminPostsNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/posts/$id/edit': {
+      id: '/admin/posts/$id/edit'
+      path: '/admin/posts/$id/edit'
+      fullPath: '/admin/posts/$id/edit'
+      preLoaderRoute: typeof AdminPostsIdEditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -445,6 +545,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnterpriseRoute: EnterpriseRoute,
   GeoRoute: GeoRoute,
   SeoRoute: SeoRoute,
+  BlogSlugRoute: BlogSlugRoute,
   SolutionsAgricultureRoute: SolutionsAgricultureRoute,
   SolutionsAutomotiveRoute: SolutionsAutomotiveRoute,
   SolutionsConstructionRoute: SolutionsConstructionRoute,
@@ -455,8 +556,12 @@ const rootRouteChildren: RootRouteChildren = {
   SolutionsLogisticsRoute: SolutionsLogisticsRoute,
   SolutionsManufacturingRoute: SolutionsManufacturingRoute,
   SolutionsTechnologyRoute: SolutionsTechnologyRoute,
+  AdminIndexRoute: AdminIndexRoute,
   BlogIndexRoute: BlogIndexRoute,
   SolutionsIndexRoute: SolutionsIndexRoute,
+  AdminPostsNewRoute: AdminPostsNewRoute,
+  AdminPostsIndexRoute: AdminPostsIndexRoute,
+  AdminPostsIdEditRoute: AdminPostsIdEditRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
