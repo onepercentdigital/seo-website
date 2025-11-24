@@ -1,6 +1,5 @@
-import { convexQuery } from '@convex-dev/react-query';
-import { useQuery } from '@tanstack/react-query';
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { useQuery } from 'convex/react';
 import { Calendar, Clock, FileText, User } from 'lucide-react';
 import { generateMetaTags } from '@/lib/seo';
 import { api } from '../../convex/_generated/api';
@@ -18,9 +17,8 @@ export const Route = createFileRoute('/blog/')({
 
 function BlogIndexPage() {
   // Fetch published posts from Convex
-  const { data: posts, isLoading } = useQuery(
-    convexQuery(api.posts.list, { status: 'published' }),
-  );
+  const posts = useQuery(api.posts.list, { status: 'published' });
+  const isLoading = posts === undefined;
 
   return (
     <>
@@ -120,7 +118,7 @@ function BlogPostCard({ post }: BlogPostCardProps) {
       .substring(0, 160)}...`;
 
   return (
-    <a href={`/blog/${post.slug}`} className="block h-full">
+    <Link to={`/blog/${post.slug}` as any} className="block h-full">
       <article className="flex h-full flex-col rounded-2xl border border-border bg-card transition-all hover:border-accent/50 hover:shadow-accent/10 hover:shadow-lg">
         {/* Featured Image */}
         {post.featuredImage ? (
@@ -164,6 +162,6 @@ function BlogPostCard({ post }: BlogPostCardProps) {
           </div>
         </div>
       </article>
-    </a>
+    </Link>
   );
 }

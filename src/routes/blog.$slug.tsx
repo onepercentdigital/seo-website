@@ -1,6 +1,5 @@
-import { convexQuery } from '@convex-dev/react-query';
-import { useQuery } from '@tanstack/react-query';
 import { createFileRoute, Link, notFound } from '@tanstack/react-router';
+import { useQuery } from 'convex/react';
 import { Calendar, ChevronRight, Clock, User } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
@@ -28,12 +27,10 @@ export const Route = createFileRoute('/blog/$slug')({
 
 function BlogPostPage() {
   const { slug } = Route.useParams();
-  const { data: postData, isLoading } = useQuery(
-    convexQuery(api.posts.getBySlug, { slug }),
-  );
+  const postData = useQuery(api.posts.getBySlug, { slug });
 
   // Handle loading state
-  if (isLoading) {
+  if (postData === undefined) {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
         <div className="text-center">
@@ -45,7 +42,7 @@ function BlogPostPage() {
   }
 
   // Handle not found
-  if (!postData) {
+  if (postData === null) {
     throw notFound();
   }
 

@@ -274,6 +274,30 @@ export const publish = mutation({
 })
 
 /**
+ * Update featured image for a post
+ * Used by: WordPress migration scripts
+ */
+export const updateFeaturedImage = mutation({
+  args: {
+    id: v.id('posts'),
+    featuredImage: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const post = await ctx.db.get(args.id)
+    if (!post) {
+      throw new Error('Post not found')
+    }
+
+    await ctx.db.patch(args.id, {
+      featuredImage: args.featuredImage,
+      modifiedAt: Date.now(),
+    })
+
+    return args.id
+  },
+})
+
+/**
  * Get all published posts for sitemap generation
  * Used by: Sitemap generation script
  */

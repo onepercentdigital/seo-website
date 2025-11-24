@@ -7,7 +7,9 @@
  * Downloads images from live WordPress site and uploads to Cloudflare Images
  * Converts HTML content to Markdown
  *
- * Usage: bun run scripts/migrate-wordpress.ts /path/to/wordpress-export.xml
+ * Usage:
+ *   bun run scripts/migrate-wordpress.ts /path/to/wordpress-export.xml
+ *   bun run scripts/migrate-wordpress.ts /path/to/wordpress-export.xml --dry-run
  */
 
 import { promises as fs } from 'node:fs'
@@ -25,6 +27,9 @@ const turndownService = new TurndownService({
   headingStyle: 'atx',
   codeBlockStyle: 'fenced',
 })
+
+// Check for dry-run mode
+const isDryRun = process.argv.includes('--dry-run')
 
 interface WordPressPost {
   title: string
@@ -53,16 +58,35 @@ async function parseWordPressXML(filePath: string): Promise<WordPressPost[]> {
 
   console.log(`📝 Found ${items.length} items in export`)
 
+  // First pass: Build attachment map (post ID -> image URL)
+  const attachments: Record<string, string> = {}
+  for (const item of items) {
+    const postType = item['wp:post_type']?.[0]
+    if (postType === 'attachment') {
+      const attachmentId = item['wp:post_id']?.[0]
+      const attachmentUrl = item['wp:attachment_url']?.[0]
+      if (attachmentId && attachmentUrl) {
+        attachments[attachmentId] = attachmentUrl
+      }
+    }
+  }
+
+  console.log(`📎 Found ${Object.keys(attachments).length} attachments`)
+
+  // Second pass: Extract blog posts
   const posts: WordPressPost[] = []
 
   for (const item of items) {
-    // Skip if not a post (could be page, attachment, etc.)
+    // Skip if not a post
     const postType = item['wp:post_type']?.[0]
     if (postType !== 'post') continue
 
-    // Skip if post status is trash
+    // Skip if post status is not publish
     const status = item['wp:status']?.[0]
-    if (status === 'trash') continue
+    if (status !== 'publish') {
+      console.log(`  ⏭️  Skipping non-published post: ${item.title?.[0] || 'Untitled'}`)
+      continue
+    }
 
     // Extract post data
     const title = item.title?.[0] || 'Untitled'
@@ -78,10 +102,12 @@ async function parseWordPressXML(filePath: string): Promise<WordPressPost[]> {
         ?.filter((cat: any) => cat.$.domain === 'category')
         .map((cat: any) => cat._) || []
 
-    // Extract featured image
-    const featuredImageUrl = item['wp:postmeta']?.find(
+    // Extract featured image URL from attachment map
+    const thumbnailId = item['wp:postmeta']?.find(
       (meta: any) => meta['wp:meta_key']?.[0] === '_thumbnail_id'
-    )
+    )?.['wp:meta_value']?.[0]
+
+    const featuredImageUrl = thumbnailId ? attachments[thumbnailId] : undefined
 
     posts.push({
       title,
@@ -91,7 +117,7 @@ async function parseWordPressXML(filePath: string): Promise<WordPressPost[]> {
       publishDate: pubDate,
       author,
       categories,
-      status: status === 'publish' ? 'publish' : 'draft',
+      status: 'publish',
       featuredImageUrl,
     })
   }
@@ -109,6 +135,13 @@ async function migrateImage(
 ): Promise<string | null> {
   try {
     console.log(`  📸 Migrating image: ${imageUrl}`)
+
+    // Validate URL
+    if (!imageUrl || !imageUrl.startsWith('http')) {
+      console.log(`  ⚠️  Invalid image URL: ${imageUrl}`)
+      return null
+    }
+
     const imageId = await uploadImageFromUrl(imageUrl, { alt })
     const newUrl = getImageUrl(imageId, 'large')
     console.log(`  ✅ Image uploaded: ${newUrl}`)
@@ -125,7 +158,9 @@ async function migrateImage(
 async function convertContentToMarkdown(
   html: string,
   title: string
-): Promise<string> {
+): Promise<{ content: string; imagesFailed: number }> {
+  let imagesFailed = 0
+
   // Extract image URLs from HTML
   const imgRegex = /<img[^>]+src="([^">]+)"/g
   const imageUrls: string[] = []
@@ -141,6 +176,8 @@ async function convertContentToMarkdown(
     const newUrl = await migrateImage(oldUrl, title)
     if (newUrl) {
       imageMapping[oldUrl] = newUrl
+    } else {
+      imagesFailed++
     }
   }
 
@@ -152,7 +189,7 @@ async function convertContentToMarkdown(
 
   // Convert to Markdown
   const markdown = turndownService.turndown(updatedHtml)
-  return markdown
+  return { content: markdown, imagesFailed }
 }
 
 /**
@@ -178,6 +215,11 @@ async function getOrCreateCategory(
   }
 
   // Create new category
+  if (isDryRun) {
+    console.log(`  [DRY RUN] Would create category: ${categoryName}`)
+    return undefined
+  }
+
   console.log(`  📁 Creating category: ${categoryName}`)
   const categoryId = await convex.mutation(api.categories.create, {
     name: categoryName,
@@ -191,18 +233,43 @@ async function getOrCreateCategory(
  * Import posts to Convex
  */
 async function importPosts(posts: WordPressPost[]) {
-  console.log('\n📦 Importing posts to Convex...')
+  console.log(`\n${isDryRun ? '🔍 DRY RUN MODE - No changes will be made\n' : '📦 Importing posts to Convex...\n'}`)
 
   let successCount = 0
+  let skipCount = 0
   let failCount = 0
+  let imageFailCount = 0
 
   for (let i = 0; i < posts.length; i++) {
     const post = posts[i]
     console.log(`\n[${i + 1}/${posts.length}] Processing: ${post.title}`)
 
     try {
+      // Check if post already exists
+      const existingPost = await convex.query(api.posts.getBySlug, {
+        slug: post.slug,
+      })
+
+      if (existingPost) {
+        console.log(`  ⏭️  Already exists, skipping...`)
+        skipCount++
+        continue
+      }
+
+      if (isDryRun) {
+        console.log(`  [DRY RUN] Would import post: ${post.title}`)
+        console.log(`    - Slug: ${post.slug}`)
+        console.log(`    - Categories: ${post.categories.join(', ') || 'None'}`)
+        console.log(`    - Featured image: ${post.featuredImageUrl || 'None'}`)
+        successCount++
+        continue
+      }
+
       // Convert content to Markdown and migrate images
-      const content = await convertContentToMarkdown(post.content, post.title)
+      const { content, imagesFailed } = await convertContentToMarkdown(
+        post.content,
+        post.title
+      )
       const excerpt = post.excerpt
         ? turndownService.turndown(post.excerpt)
         : undefined
@@ -214,6 +281,8 @@ async function importPosts(posts: WordPressPost[]) {
 
       // Migrate featured image if exists
       let featuredImage: string | undefined
+      let featuredImageFailed = false
+
       if (post.featuredImageUrl) {
         const migratedImage = await migrateImage(
           post.featuredImageUrl,
@@ -221,6 +290,8 @@ async function importPosts(posts: WordPressPost[]) {
         )
         if (migratedImage) {
           featuredImage = migratedImage
+        } else {
+          featuredImageFailed = true
         }
       }
 
@@ -231,9 +302,9 @@ async function importPosts(posts: WordPressPost[]) {
         content,
         excerpt,
         featuredImage,
-        categoryId,
+        categoryId: categoryId as any,
         authorName: post.author,
-        status: post.status === 'publish' ? 'published' : 'draft',
+        status: 'published',
         seo: {
           metaTitle: post.title,
           metaDescription: excerpt?.substring(0, 160),
@@ -241,6 +312,12 @@ async function importPosts(posts: WordPressPost[]) {
       })
 
       console.log(`  ✅ Imported successfully`)
+
+      if (featuredImageFailed || imagesFailed > 0) {
+        console.log(`  ⚠️  Post created but ${featuredImageFailed ? 'featured image' : ''} ${imagesFailed > 0 ? `${imagesFailed} inline image(s)` : ''} failed - review manually`)
+        imageFailCount++
+      }
+
       successCount++
     } catch (error) {
       console.error(`  ❌ Failed to import: ${error}`)
@@ -248,20 +325,25 @@ async function importPosts(posts: WordPressPost[]) {
     }
   }
 
-  console.log(`\n📊 Migration complete!`)
+  console.log(`\n📊 Migration ${isDryRun ? 'preview' : 'complete'}!`)
   console.log(`  ✅ Successful: ${successCount}`)
+  console.log(`  ⏭️  Skipped: ${skipCount}`)
   console.log(`  ❌ Failed: ${failCount}`)
+  if (imageFailCount > 0) {
+    console.log(`  ⚠️  Posts with image failures: ${imageFailCount} (review manually)`)
+  }
 }
 
 /**
  * Main migration function
  */
 async function main() {
-  const args = process.argv.slice(2)
+  const args = process.argv.slice(2).filter(arg => arg !== '--dry-run')
 
   if (args.length === 0) {
     console.error('❌ Error: Please provide path to WordPress XML export file')
     console.log('Usage: bun run scripts/migrate-wordpress.ts /path/to/export.xml')
+    console.log('       bun run scripts/migrate-wordpress.ts /path/to/export.xml --dry-run')
     process.exit(1)
   }
 
@@ -277,6 +359,10 @@ async function main() {
 
   console.log('🚀 Starting WordPress to Convex migration...\n')
 
+  if (isDryRun) {
+    console.log('⚠️  DRY RUN MODE - No actual changes will be made\n')
+  }
+
   // Parse WordPress XML
   const posts = await parseWordPressXML(xmlFilePath)
 
@@ -285,20 +371,26 @@ async function main() {
     return
   }
 
-  // Confirm before proceeding
-  console.log(`\n⚠️  About to import ${posts.length} posts to Convex`)
-  console.log('⚠️  Images will be downloaded and uploaded to Cloudflare')
-  console.log('\nPress Ctrl+C to cancel, or Enter to continue...')
+  if (!isDryRun) {
+    // Confirm before proceeding
+    console.log(`\n⚠️  About to import ${posts.length} posts to Convex`)
+    console.log('⚠️  Images will be downloaded and uploaded to Cloudflare')
+    console.log('\nPress Ctrl+C to cancel, or Enter to continue...')
 
-  // Wait for user confirmation
-  await new Promise((resolve) => {
-    process.stdin.once('data', resolve)
-  })
+    // Wait for user confirmation
+    await new Promise((resolve) => {
+      process.stdin.once('data', resolve)
+    })
+  }
 
   // Import posts
   await importPosts(posts)
 
-  console.log('\n✨ Migration complete!')
+  if (isDryRun) {
+    console.log('\n✨ Dry run complete! Run without --dry-run to execute migration.')
+  } else {
+    console.log('\n✨ Migration complete!')
+  }
 }
 
 // Run migration

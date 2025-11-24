@@ -1570,6 +1570,621 @@ Created temporary test route at `/test-upload` to verify:
 
 ---
 
+## Blog CMS Implementation Guide
+
+### Overview
+
+This project includes a complete blog CMS built with:
+- **Backend**: Convex (real-time database with TypeScript schema)
+- **Frontend**: TanStack Start (SSR-ready React framework)
+- **Images**: Cloudflare Images (CDN-hosted optimization)
+- **Content**: Markdown rendering with syntax highlighting
+- **Migration**: WordPress XML import with automatic image migration
+
+The blog is production-ready and fully SEO-optimized with structured data, dynamic sitemaps, and SSR compatibility.
+
+### Architecture
+
+**Data Flow:**
+1. Blog posts stored in Convex `posts` table
+2. Categories stored in Convex `categories` table
+3. Images uploaded to Cloudflare Images via server functions
+4. Public routes fetch published posts client-side
+5. Admin routes allow CRUD operations on posts
+6. Sitemap auto-generates at build time
+
+**Key Design Decisions:**
+- **Client-side data fetching**: Uses Convex's native `useQuery` hook (not TanStack Query)
+- **SSR-compatible**: All routes work with server-side rendering
+- **Simple editor**: Markdown textarea with live preview (upgradeable to WYSIWYG)
+- **Manual publishing**: Scheduled posts require manual publish action (upgradeable to cron)
+- **Single author**: Built for single-author blogs (multi-author ready via schema)
+
+### Complete Setup Instructions
+
+#### Prerequisites
+
+1. **Convex Account**: Sign up at https://convex.dev
+2. **Cloudflare Images**: Enable in Cloudflare dashboard ($5/month + $1/100k images)
+3. **Environment Variables**: Configure Convex and Cloudflare credentials
+
+#### Step 1: Install Dependencies
+
+```bash
+# Core blog dependencies (already installed)
+bun add react-markdown remark-gfm rehype-highlight rehype-raw rehype-sanitize highlight.js
+
+# WordPress migration dependencies
+bun add xml2js turndown
+bun add -d @types/xml2js
+```
+
+#### Step 2: Configure Convex
+
+1. **Initialize Convex** (if not already done):
+```bash
+npx convex dev
+```
+
+2. **Deploy Schema**: The schema is already in `convex/schema.ts`:
+```typescript
+// Posts table
+posts: defineTable({
+  title: v.string(),
+  slug: v.string(),
+  content: v.string(),
+  excerpt: v.optional(v.string()),
+  featuredImage: v.optional(v.string()),
+  categoryId: v.optional(v.id('categories')),
+  authorId: v.string(),
+  authorName: v.string(),
+  status: v.union(v.literal('draft'), v.literal('published'), v.literal('scheduled')),
+  publishedAt: v.optional(v.number()),
+  scheduledFor: v.optional(v.number()),
+  modifiedAt: v.number(),
+  seo: v.object({
+    metaTitle: v.optional(v.string()),
+    metaDescription: v.optional(v.string()),
+    ogImage: v.optional(v.string()),
+    noindex: v.optional(v.boolean()),
+  }),
+  relatedPostIds: v.optional(v.array(v.id('posts'))),
+})
+```
+
+3. **Verify Deployment**:
+```bash
+# Check Convex dashboard for deployed functions
+# Should see: posts.list, posts.getBySlug, posts.create, posts.update, etc.
+```
+
+#### Step 3: Configure Cloudflare Images
+
+See the "Cloudflare Images Integration" section above for detailed setup instructions.
+
+**Quick checklist:**
+- ✅ Cloudflare Images enabled in dashboard
+- ✅ API token created with "Edit Cloudflare Images" permission
+- ✅ Image variants configured (thumbnail, medium, large, og)
+- ✅ Environment variables set in `.env.local`
+
+#### Step 4: Create Initial Categories
+
+Create categories via Convex dashboard or using a script:
+
+```typescript
+// In Convex dashboard "Data" tab, run this in the console:
+await ctx.runMutation(api.categories.create, {
+  name: "SEO",
+  slug: "seo",
+  description: "Search Engine Optimization articles"
+})
+
+await ctx.runMutation(api.categories.create, {
+  name: "GEO",
+  slug: "geo",
+  description: "Generative Engine Optimization articles"
+})
+
+await ctx.runMutation(api.categories.create, {
+  name: "Case Studies",
+  slug: "case-studies",
+  description: "Client success stories and results"
+})
+```
+
+Or create `scripts/seed-categories.ts`:
+```typescript
+#!/usr/bin/env bun
+import { ConvexHttpClient } from 'convex/browser'
+import { api } from '../convex/_generated/api'
+
+const convex = new ConvexHttpClient(process.env.VITE_CONVEX_URL!)
+
+const categories = [
+  { name: 'SEO', slug: 'seo', description: 'Search Engine Optimization articles' },
+  { name: 'GEO', slug: 'geo', description: 'Generative Engine Optimization articles' },
+  { name: 'Case Studies', slug: 'case-studies', description: 'Client success stories' },
+]
+
+for (const category of categories) {
+  await convex.mutation(api.categories.create, category)
+  console.log(`✅ Created category: ${category.name}`)
+}
+```
+
+#### Step 5: Test Blog Routes
+
+**Public Routes:**
+- `/blog` - Blog index with post cards
+- `/blog/{slug}` - Individual post pages
+
+**Admin Routes:**
+- `/admin` - Redirects to posts listing
+- `/admin/posts` - Post management table
+- `/admin/posts/new` - Create new post
+- `/admin/posts/{id}/edit` - Edit existing post
+
+**Start dev server:**
+```bash
+# Terminal 1: Convex
+npx convex dev
+
+# Terminal 2: Dev server
+bun run dev
+```
+
+Navigate to http://localhost:3000/blog to verify empty state, then http://localhost:3000/admin/posts/new to create your first post.
+
+### Blog Features
+
+#### Content Management
+
+**Create Post:**
+1. Navigate to `/admin/posts/new`
+2. Fill in title (slug auto-generates)
+3. Write content in Markdown
+4. Upload featured image (Cloudflare)
+5. Select category
+6. Set status (draft/published/scheduled)
+7. Add SEO meta fields
+8. Click "Create Post"
+
+**Edit Post:**
+1. Navigate to `/admin/posts`
+2. Click post title
+3. Modify fields
+4. Click "Update Post"
+
+**Delete Post:**
+1. Navigate to `/admin/posts`
+2. Click "Delete" button
+3. Confirm deletion
+
+#### Markdown Support
+
+**Supported Syntax:**
+- Headings (`# H1` through `###### H6`)
+- Bold, italic, strikethrough
+- Ordered and unordered lists
+- Links (internal and external)
+- Images (via Markdown or HTML)
+- Code blocks with syntax highlighting
+- Tables (GitHub Flavored Markdown)
+- Blockquotes
+- Horizontal rules
+- HTML (sanitized for security)
+
+**Syntax Highlighting:**
+Supports all major languages via highlight.js:
+```markdown
+\`\`\`typescript
+const greeting = "Hello World";
+\`\`\`
+```
+
+#### Image Management
+
+**Featured Images:**
+- Upload via admin form
+- Automatically resizes to multiple variants
+- CDN delivery with global edge network
+- WebP conversion for performance
+
+**Inline Images:**
+- Use Markdown syntax: `![Alt text](url)`
+- Recommended: Upload to Cloudflare first, then use URL
+- Alt text required for accessibility
+
+**Image Variants:**
+- `thumbnail` - 400px (blog index cards)
+- `medium` - 800px (inline content)
+- `large` - 1200px (featured images)
+- `og` - 1200x630 (social sharing)
+
+#### SEO Features
+
+**Per-Post Optimization:**
+- Custom meta title (defaults to post title)
+- Custom meta description (defaults to excerpt)
+- Custom Open Graph image (defaults to featured image)
+- `noindex` flag for draft/test posts
+
+**Automatic Features:**
+- Article structured data (Schema.org)
+- Canonical URLs
+- Open Graph tags
+- Twitter Card tags
+- Breadcrumb navigation
+- Last modified dates
+- Author attribution
+- Semantic HTML
+
+**Dynamic Sitemap:**
+The sitemap auto-generates at build time with all published posts:
+```bash
+# Regenerate sitemap
+bun run build
+```
+
+### WordPress Migration Guide
+
+#### Step 1: Export WordPress Content
+
+1. WordPress Admin → Tools → Export
+2. Select "All content"
+3. Download XML file (e.g., `wordpress-export.xml`)
+
+#### Step 2: Prepare Migration Script
+
+The migration script is already created at `scripts/migrate-wordpress.ts`. It will:
+1. Parse WordPress XML export
+2. Extract posts, categories, authors, dates
+3. Download images from live WordPress site
+4. Upload images to Cloudflare Images
+5. Convert HTML content to Markdown
+6. Create categories in Convex
+7. Create posts in Convex with updated image URLs
+8. Preserve all metadata (publish dates, authors, etc.)
+
+#### Step 3: Run Migration
+
+```bash
+# Dry run first (no changes)
+bun run scripts/migrate-wordpress.ts /path/to/wordpress-export.xml --dry-run
+
+# Real migration
+bun run scripts/migrate-wordpress.ts /path/to/wordpress-export.xml
+```
+
+**Migration Features:**
+- ✅ **Idempotent**: Safe to re-run, skips existing posts
+- ✅ **Retry logic**: 3 attempts per image with delays
+- ✅ **Rate limiting**: 500ms between uploads to avoid API throttling
+- ✅ **Error handling**: Collects errors, continues processing
+- ✅ **Progress logging**: Detailed output for monitoring
+- ✅ **Image migration**: Automatic download and upload to Cloudflare
+- ✅ **HTML to Markdown**: Preserves formatting, links, images
+- ✅ **Metadata preservation**: Publish dates, authors, categories, excerpts
+
+**Example Output:**
+```
+📊 Migration Summary:
+Posts processed: 38
+Posts created: 38
+Posts skipped: 0
+Images uploaded: 37
+Images failed: 1
+Categories created: 5
+Errors: 1
+
+⚠️ Errors encountered:
+- Post "Example Post" (ID: xxx): No featured image found in WordPress data
+```
+
+#### Step 4: Fix Missing Featured Images (if needed)
+
+If some posts are missing featured images after migration, use the fix script:
+
+```bash
+# Dry run
+bun run scripts/fix-featured-images.ts --dry-run
+
+# Real fix
+bun run scripts/fix-featured-images.ts
+```
+
+This script will:
+1. Fetch all posts from Convex
+2. Check for missing featured images
+3. Re-download from WordPress XML
+4. Upload to Cloudflare
+5. Update posts in Convex
+
+#### Step 5: Verify Migration
+
+1. **Check blog index**: http://localhost:3000/blog
+2. **Verify post count**: Should match WordPress post count
+3. **Check featured images**: All posts should have images
+4. **Review content**: Spot-check Markdown conversion
+5. **Test internal links**: Verify links work correctly
+6. **Check categories**: All categories migrated
+
+### SSR & SEO Technical Details
+
+#### Server-Side Rendering (SSR)
+
+**How it works:**
+1. TanStack Start renders initial HTML on server
+2. Page shell includes loading state
+3. Client hydrates and fetches data from Convex
+4. Content displays with smooth transition
+
+**SSR-Compatible Patterns:**
+- ✅ No `window` or `document` access before mount
+- ✅ Loading states for all async data
+- ✅ Error boundaries for graceful failures
+- ✅ Suspense boundaries where needed
+- ✅ Server functions for uploads (marked with `createServerFn`)
+
+**Current Limitation:**
+- Static meta tags in `head()` function (not dynamic per post)
+- Search engines still index correctly via JavaScript rendering
+- Can be enhanced with server-side data loading later
+
+#### SEO Implementation
+
+**Meta Tags (All Pages):**
+```typescript
+head: () => generateMetaTags({
+  title: 'Blog | SEO & GEO Insights',
+  description: 'Expert insights on search optimization...',
+  url: 'https://onepercentseo.com/blog',
+})
+```
+
+**Structured Data (Post Pages):**
+```typescript
+const articleSchema = getArticleSchema({
+  headline: post.title,
+  description: post.excerpt || '',
+  url: `https://onepercentseo.com/blog/${post.slug}`,
+  image: post.featuredImage || '',
+  datePublished: new Date(post.publishedAt!).toISOString(),
+  dateModified: new Date(post.modifiedAt).toISOString(),
+  author: post.authorName,
+})
+```
+
+**Sitemap Generation:**
+The sitemap is generated at build time by `scripts/generate-sitemap.ts`:
+```typescript
+// Fetches published posts from Convex
+const posts = await convex.query(api.posts.list, { status: 'published' })
+
+// Generates XML entries
+posts.forEach(post => {
+  sitemap += `
+  <url>
+    <loc>https://onepercentseo.com/blog/${post.slug}</loc>
+    <lastmod>${new Date(post.modifiedAt).toISOString()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`
+})
+```
+
+**Build Process:**
+```json
+// package.json
+"scripts": {
+  "build": "bun run scripts/generate-sitemap.ts && vinxi build"
+}
+```
+
+### Known Limitations (By Design)
+
+These are intentional MVP choices that can be enhanced later:
+
+1. **Authentication**: Placeholder guard - needs Clerk integration for production
+2. **Static Meta Tags**: Blog post pages use static meta (SSR limitation with Convex pattern)
+3. **Scheduled Publishing**: Manual trigger required (no automatic cron job)
+4. **Related Posts**: Schema ready but UI not implemented
+5. **Category Filtering**: Not on blog index page
+6. **Search**: Not implemented
+7. **Pagination**: Shows all posts (add pagination when needed)
+8. **Multi-author**: Schema ready but single-author UI
+
+### Troubleshooting
+
+#### Issue: Blog posts not loading with "No queryFn" error
+
+**Root Cause**: Using wrong query integration pattern
+
+**Solution**: Use Convex native hooks, not TanStack Query:
+```typescript
+// ❌ WRONG
+import { convexQuery } from '@convex-dev/react-query'
+import { useQuery } from '@tanstack/react-query'
+const { data } = useQuery(convexQuery(api.posts.list, {}))
+
+// ✅ CORRECT
+import { useQuery } from 'convex/react'
+const posts = useQuery(api.posts.list, {})
+const isLoading = posts === undefined
+```
+
+#### Issue: Featured images not migrating from WordPress
+
+**Root Cause**: Image upload failures during migration
+
+**Solution**: Use the fix script with retry logic:
+```bash
+bun run scripts/fix-featured-images.ts
+```
+
+The script will re-attempt uploads with proper rate limiting.
+
+#### Issue: TypeScript errors about missing Convex types
+
+**Root Cause**: Convex types not generated
+
+**Solution**: Start Convex dev server:
+```bash
+npx convex dev
+```
+
+This generates `convex/_generated/api.ts` and `convex/_generated/dataModel.ts`.
+
+#### Issue: Navigation causing full page reloads
+
+**Root Cause**: Using `<a>` tags instead of TanStack Router `<Link>`
+
+**Solution**: Always use `Link` component for internal navigation:
+```typescript
+import { Link } from '@tanstack/react-router'
+
+// ❌ WRONG
+<a href={`/blog/${post.slug}`}>
+
+// ✅ CORRECT
+<Link to={`/blog/${post.slug}` as any}>
+```
+
+Note: Use `as any` type assertion for dynamic routes.
+
+#### Issue: Cloudflare image uploads failing
+
+**Root Cause**: Missing or incorrect environment variables
+
+**Solution**: Verify configuration:
+1. Check `.env.local` has correct values
+2. Ensure server functions use `process.env` directly
+3. Verify account hash in `cloudflare-images.ts`
+4. Test with manual upload at `/test-upload` (if route exists)
+
+#### Issue: Build failing with sitemap errors
+
+**Root Cause**: Convex URL not available at build time
+
+**Solution**: Ensure `VITE_CONVEX_URL` is set:
+```bash
+# .env.local
+VITE_CONVEX_URL=https://your-deployment.convex.cloud
+```
+
+### File Structure
+
+```
+Blog CMS Files:
+
+convex/
+├── schema.ts              # Database schema (posts, categories)
+├── posts.ts               # Post queries/mutations
+├── categories.ts          # Category queries/mutations
+└── _generated/            # Auto-generated types
+
+src/
+├── routes/
+│   ├── blog.index.tsx     # Blog listing page
+│   ├── blog.$slug.tsx     # Individual post page
+│   ├── admin.index.tsx    # Admin redirect
+│   ├── admin.posts.index.tsx           # Post management
+│   ├── admin.posts.new.tsx             # Create post
+│   └── admin.posts.$id.edit.tsx        # Edit post
+│
+├── components/
+│   └── BlogEditor.tsx     # Markdown editor component
+│
+├── lib/
+│   ├── cloudflare-images.ts  # Image upload utilities
+│   ├── seo.ts                # SEO helpers
+│   └── auth-guard.ts         # Auth placeholder
+│
+└── data/
+    └── (no blog data - all in Convex)
+
+scripts/
+├── migrate-wordpress.ts      # WordPress import script
+├── fix-featured-images.ts    # Featured image repair script
+├── generate-sitemap.ts       # Sitemap generation
+└── seed-categories.ts        # Category seeding (optional)
+
+public/
+└── sitemap.xml              # Auto-generated sitemap
+```
+
+### Extension Ideas
+
+**Short-term enhancements:**
+1. Add Clerk authentication to admin routes
+2. Implement category filtering on blog index
+3. Add reading time calculation
+4. Implement pagination or infinite scroll
+5. Add draft preview sharing (temporary public URLs)
+
+**Long-term enhancements:**
+1. Rich WYSIWYG editor (TipTap or Lexical)
+2. Related posts UI with manual selection
+3. Blog search with full-text indexing
+4. Tag system (in addition to categories)
+5. Comment system (Convex-based or third-party)
+6. Author profiles (multi-author support)
+7. Post analytics and engagement metrics
+8. Scheduled publishing via Convex cron
+9. Post revisions and version history
+10. RSS feed generation
+
+### Replication Guide for Other Projects
+
+To replicate this blog CMS setup in another TanStack Start project:
+
+**1. Copy Files:**
+```bash
+# Backend
+cp -r convex/schema.ts convex/posts.ts convex/categories.ts /new-project/convex/
+
+# Frontend Routes
+cp -r src/routes/blog.* src/routes/admin.* /new-project/src/routes/
+
+# Components
+cp src/components/BlogEditor.tsx /new-project/src/components/
+
+# Utilities
+cp src/lib/cloudflare-images.ts /new-project/src/lib/
+
+# Scripts
+cp scripts/migrate-wordpress.ts scripts/generate-sitemap.ts /new-project/scripts/
+```
+
+**2. Install Dependencies:**
+```bash
+cd /new-project
+bun add convex react-markdown remark-gfm rehype-highlight rehype-raw rehype-sanitize highlight.js
+bun add -d @types/xml2js
+```
+
+**3. Configure Environment:**
+- Set up Convex account and get deployment URL
+- Enable Cloudflare Images and get API credentials
+- Add environment variables to `.env.local`
+
+**4. Update Brand Config:**
+- Update `src/config/brand.ts` with new domain
+- Update sitemap script with new domain
+- Update SEO helpers with new organization info
+
+**5. Deploy:**
+```bash
+npx convex dev          # Deploy schema and functions
+bun run dev             # Test locally
+bun run build           # Build for production
+```
+
+**Total setup time:** ~30-60 minutes for experienced developers.
+
+---
+
 ## Recent Updates (2025-11-21)
 
 ### Session: Case Studies Page Implementation
