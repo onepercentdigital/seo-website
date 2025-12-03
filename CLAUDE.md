@@ -8,7 +8,7 @@ This is a **full-stack TypeScript web application** being developed as a replace
 - **Name**: seo-website
 - **Organization**: onepercentdigital
 - **Git Repository**: https://github.com/onepercentdigital/seo-website.git
-- **Current Branch**: feat/blog
+- **Current Branch**: fix/content
 - **Package Manager**: Bun 1.3.3
 
 ### Future Rebranding
@@ -21,18 +21,18 @@ All branding is centralized in `src/config/brand.ts` for quick updates.
 ## Tech Stack
 
 ### Core Framework
-- **TanStack Start 1.139.6** - Full-stack React framework with SSR, streaming, and server functions
-- **TanStack Router 1.139.6** - File-based routing with type-safe navigation
-- **TanStack Router Plugin 1.139.6** - Vite plugin for file-based routing
-- **React 19.2.0** - Latest React with concurrent features
+- **TanStack Start 1.139.14** - Full-stack React framework with SSR, streaming, and server functions
+- **TanStack Router 1.139.14** - File-based routing with type-safe navigation
+- **TanStack Router Plugin 1.139.14** - Vite plugin for file-based routing
+- **React 19.2.1** - Latest React with concurrent features
 - **TypeScript 5.9.3** - Strict mode with no unused variables
-- **Vite 7.2.4** - Lightning-fast build tool and dev server
+- **Vite 7.2.6** - Lightning-fast build tool and dev server
 
 ### State Management & Data Fetching
 - **TanStack Query 5.90.11** - Async state management, caching, and server synchronization
 - **TanStack Store 0.8.0** - Lightweight client state with derived state support
-- **TanStack Form 1.26.0** - Type-safe form handling with validation
-- **Convex 1.29.3** - Real-time backend database with TypeScript schema
+- **TanStack Form 1.27.0** - Type-safe form handling with validation
+- **Convex 1.30.0** - Real-time backend database with TypeScript schema
 - **Zod 4.1.13** - TypeScript-first schema validation (v4 with breaking changes from v3)
 
 ### UI & Styling
@@ -54,12 +54,12 @@ All branding is centralized in `src/config/brand.ts` for quick updates.
 - **Heading Style**: Single-color headlines only - NO two-tone coloring with accent spans (avoid `<span className="text-accent">` within headings)
 
 ### AI Integration
-- **Anthropic AI SDK 2.0.49** - Claude AI integration for chat and assistance
-- **Vercel AI SDK 5.0.102** - Unified AI/ML interface
-- **MCP (Model Context Protocol) 1.23.0** - AI context management and tool use
+- **Anthropic AI SDK 2.0.53** - Claude AI integration for chat and assistance
+- **Vercel AI SDK 5.0.106** - Unified AI/ML interface
+- **MCP (Model Context Protocol) 1.24.2** - AI context management and tool use
 
 ### Authentication & Backend
-- **Clerk 5.57.0** - Complete authentication and user management
+- **Clerk 5.57.1** - Complete authentication and user management
 - **User Roles**: Admin, Editor, Viewer
 - **App Domain**: app.onepercentseo.com (for client/admin dashboard)
 - **Convex** - Real-time backend with comprehensive blog schema
@@ -67,13 +67,13 @@ All branding is centralized in `src/config/brand.ts` for quick updates.
 ### Deployment & Monitoring
 - **Cloudflare Workers** - Edge deployment with global CDN
 - **Cloudflare Images** - Image optimization and CDN delivery (fully configured)
-- **Wrangler 4.50.0** - Cloudflare deployment tooling
-- **Sentry 10.27.0** - Error tracking, performance monitoring, and instrumentation
+- **Wrangler 4.52.1** - Cloudflare deployment tooling
+- **Sentry 10.28.0** - Error tracking, performance monitoring, and instrumentation
 - **Plausible Analytics** - Privacy-focused web analytics (planned)
 
 ### Developer Experience
-- **Biome 2.3.7** - Ultra-fast linting and formatting (ESLint/Prettier replacement)
-- **Vitest 4.0.14** - Blazing fast unit test framework
+- **Biome 2.3.8** - Ultra-fast linting and formatting (ESLint/Prettier replacement)
+- **Vitest 4.0.15** - Blazing fast unit test framework
 - **Testing Library** - React component testing utilities
 - **TanStack DevTools** - Integrated debugging for Router, Query, and Store
 - **TypeScript path aliases**: `@/*` → `./src/*`
@@ -3085,5 +3085,44 @@ Added to project structure:
 
 ---
 
-*Last Updated: 2025-11-25*
+## Recent Updates (2025-12-03)
+
+### Session: Documentation Version Sync
+
+#### What Was Updated
+
+Updated all dependency versions in CLAUDE.md to match current package.json:
+
+**Core Framework:**
+- TanStack Start/Router/Plugin: 1.139.6 → 1.139.14
+- React: 19.2.0 → 19.2.1
+- Vite: 7.2.4 → 7.2.6
+
+**State Management:**
+- TanStack Form: 1.26.0 → 1.27.0
+- Convex: 1.29.3 → 1.30.0
+
+**AI Integration:**
+- Anthropic AI SDK: 2.0.49 → 2.0.53
+- Vercel AI SDK: 5.0.102 → 5.0.106
+- MCP: 1.23.0 → 1.24.2
+
+**Auth & Deployment:**
+- Clerk: 5.57.0 → 5.57.1
+- Wrangler: 4.50.0 → 4.52.1
+- Sentry: 10.27.0 → 10.28.0
+
+**Dev Experience:**
+- Biome: 2.3.7 → 2.3.8
+- Vitest: 4.0.14 → 4.0.15
+
+**Git Branch:**
+- Updated: feat/blog → fix/content
+
+##### Files Modified
+- ✅ `CLAUDE.md` - 15 version updates + git branch correction
+
+---
+
+*Last Updated: 2025-12-03*
 *Maintained for: AI-assisted development with Claude and other AI tools*

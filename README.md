@@ -24,14 +24,14 @@ Production-ready full-stack TypeScript marketing website featuring:
 ## 🛠️ Tech Stack
 
 ### Framework & Routing
-- **TanStack Start 1.139.6** - Full-stack React framework with SSR and streaming
-- **TanStack Router 1.139.6** - File-based, type-safe routing with built-in code splitting
+- **TanStack Start 1.139.14** - Full-stack React framework with SSR and streaming
+- **TanStack Router 1.139.14** - File-based, type-safe routing with built-in code splitting
 - **TanStack Query 5.90.11** - Powerful server state management and caching
-- **React 19.2.0** - Latest React with concurrent features
+- **React 19.2.1** - Latest React with concurrent features
 
 ### Backend & Database
-- **Convex 1.29.3** - Real-time database with TypeScript schema and reactive queries
-- **Clerk 5.57.0** - Authentication and user management
+- **Convex 1.30.0** - Real-time database with TypeScript schema and reactive queries
+- **Clerk 5.57.1** - Authentication and user management
 - **Zod 4.1.13** - TypeScript-first schema validation
 
 ### Styling & UI
@@ -43,15 +43,15 @@ Production-ready full-stack TypeScript marketing website featuring:
 
 ### Developer Experience
 - **TypeScript 5.9.3** - Strict mode with comprehensive type safety
-- **Biome 2.3.7** - Ultra-fast linting and formatting (replaces ESLint/Prettier)
-- **Vitest 4.0.14** - Blazing fast unit testing framework
+- **Biome 2.3.8** - Ultra-fast linting and formatting (replaces ESLint/Prettier)
+- **Vitest 4.0.15** - Blazing fast unit testing framework
 - **Bun 1.3.3** - Fast package manager and JavaScript runtime
 
 ### Deployment & Monitoring
 - **Cloudflare Workers** - Edge deployment with global CDN
 - **Cloudflare Images** - Image optimization and delivery ✅ **CONFIGURED**
-- **Wrangler 4.50.0** - Cloudflare deployment tooling
-- **Sentry 10.27.0** - Error tracking, performance monitoring, and instrumentation
+- **Wrangler 4.52.1** - Cloudflare deployment tooling
+- **Sentry 10.28.0** - Error tracking, performance monitoring, and instrumentation
 
 ## 📋 Prerequisites
 
