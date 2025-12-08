@@ -9,10 +9,13 @@ import {
   Filter,
   HeartHandshake,
   Layout,
+  Lock,
   Megaphone,
   Palette,
+  Phone,
   PieChart,
   Shield,
+  Target,
   TrendingUp,
   UserCheck,
   Users,
@@ -184,7 +187,7 @@ function PerformanceMarketingPage() {
               {
                 number: '04',
                 icon: Users,
-                title: 'Receive Qualified Leads',
+                title: 'Receive Exclusive Pre-Qualified Leads',
                 description:
                   'Pre-qualified prospects are delivered to you in real-time via your preferred method—CRM, email, webhook, or custom integration.',
               },
@@ -255,10 +258,10 @@ function PerformanceMarketingPage() {
                   'Increase or decrease lead volume to match your sales capacity. Scale up during growth periods, dial back when needed.',
               },
               {
-                icon: HeartHandshake,
-                title: 'No Marketing Team Required',
+                icon: Lock,
+                title: 'Exclusive To You',
                 description:
-                  'We handle everything from strategy to execution. No need to hire, train, or manage an internal marketing department.',
+                  'Your leads are never shared or resold. Every prospect goes directly to you—you are the first and only stop. No competing with other buyers for the same lead.',
               },
             ].map((benefit) => (
               <div
@@ -273,6 +276,64 @@ function PerformanceMarketingPage() {
                 </h3>
                 <p className="text-muted-foreground leading-relaxed tracking-wide">
                   {benefit.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lead Quality Guarantee Section */}
+      <section className="px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-16 text-center">
+            <h2 className="font-bold text-4xl tracking-tight lg:text-6xl">
+              Lead Quality Guarantee
+            </h2>
+            <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground tracking-wide">
+              Unlike platforms that share leads or deliver unverified prospects,
+              we validate everything before delivery
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: Phone,
+                title: 'Verified Contact Info',
+                description:
+                  'One-time passcode verification ensures every phone number is real and contactable. No more dead numbers or fake contacts.',
+              },
+              {
+                icon: CheckCircle2,
+                title: 'Validated Qualifications',
+                description:
+                  'We verify stated information—credit scores, asset sizes, budget ranges—before delivery. What prospects tell us is confirmed, not guessed.',
+              },
+              {
+                icon: Lock,
+                title: 'Exclusive Delivery',
+                description:
+                  'Unlike Zillow, SmartAsset, and other platforms that share leads with multiple buyers, your leads go only to you. First and last stop.',
+              },
+              {
+                icon: Target,
+                title: 'Higher Intent Prospects',
+                description:
+                  'Longer qualification quizzes mean prospects invest more time before reaching you. AI-powered live transfers and follow-up systems increase conversion rates.',
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-border bg-card p-8"
+              >
+                <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
+                  <item.icon className="size-6 text-accent" />
+                </div>
+                <h3 className="mb-3 font-bold text-xl lg:text-2xl">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed tracking-wide">
+                  {item.description}
                 </p>
               </div>
             ))}
@@ -471,11 +532,15 @@ function PerformanceMarketingPage() {
                 How do you ensure leads are actually qualified?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                We work with you to define precise qualification criteria before
-                any campaign launches. Our intake forms and landing pages are
-                designed to filter out unqualified prospects. You only receive
-                leads that match the exact specifications we agree upon—no
-                exceptions.
+                Unlike platforms that share leads or deliver unverified
+                information, we validate everything before delivery. Phone
+                numbers are verified through one-time passcode
+                confirmation—every number you receive is contactable. Stated
+                qualifications like credit scores, 401k sizes, and budget ranges
+                are validated against our criteria. Our longer intake quizzes
+                filter out casual browsers, ensuring prospects are invested
+                before they reach you. AI-assisted qualification and follow-up
+                systems further increase lead quality and conversion rates.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">

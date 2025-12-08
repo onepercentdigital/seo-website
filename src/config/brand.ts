@@ -88,7 +88,6 @@ export const navigation = {
       type: 'dropdown' as const,
       items: [
         { label: 'Customers', href: '/customers' },
-        { label: 'Blog', href: '/blog' },
         { label: 'Case Studies', href: '/case-studies' },
       ],
     },
@@ -145,7 +144,6 @@ export const footer = {
       title: 'Resources',
       links: [
         { label: 'Customers', href: '/customers' },
-        { label: 'Blog', href: '/blog' },
         { label: 'Case Studies', href: '/case-studies' },
       ],
     },
