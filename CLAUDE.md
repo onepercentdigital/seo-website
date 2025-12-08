@@ -109,7 +109,7 @@ website/
 │   │   ├── index.tsx        # Homepage
 │   │   ├── seo.tsx          # SEO service page
 │   │   ├── geo.tsx          # GEO service page
-│   │   ├── performance-marketing.tsx # Performance Marketing service page
+│   │   ├── pm.tsx           # PM (Performance Marketing) service page
 │   │   ├── customers.tsx    # Customer showcase
 │   │   ├── case-studies.tsx # Case studies
 │   │   ├── apply.tsx        # Calendly booking
@@ -370,7 +370,7 @@ Detailed guides for specific features:
 - **[docs/BLOG-CMS.md](docs/BLOG-CMS.md)** - Blog system architecture and features
 - **[docs/CLOUDFLARE-IMAGES.md](docs/CLOUDFLARE-IMAGES.md)** - Image upload setup guide
 - **[docs/WORDPRESS-MIGRATION.md](docs/WORDPRESS-MIGRATION.md)** - WordPress import instructions
-- **[docs/SOLUTIONS-NAMING.md](docs/SOLUTIONS-NAMING.md)** - Why "Solutions" vs "Industries" naming
+- **[docs/STRUCTURE-REASONING.md](docs/STRUCTURE-REASONING.md)** - Navigation structure and naming rationale
 
 ---
 

@@ -27,14 +27,14 @@ import {
 import { Button } from '@/components/ui/button';
 import { generateMetaTags } from '@/lib/seo';
 
-export const Route = createFileRoute('/performance-marketing')({
+export const Route = createFileRoute('/pm')({
   component: PerformanceMarketingPage,
   head: () =>
     generateMetaTags({
-      title: 'Performance Marketing - Pay Per Lead',
+      title: 'PM - Performance Marketing | Pay Per Lead',
       description:
-        'Qualified leads delivered on demand. No retainers, no contracts, no upfront fees. We fund your marketing—you only pay for pre-qualified prospects ready to convert.',
-      url: 'https://onepercentseo.com/performance-marketing',
+        'Exclusive pre-qualified leads delivered on demand. No retainers, no contracts, no set-up fees. We fund your marketing—you only pay for results.',
+      url: 'https://onepercentseo.com/pm',
     }),
 });
 
@@ -42,10 +42,10 @@ function PerformanceMarketingPage() {
   const serviceSchema = {
     type: 'Service' as const,
     data: {
-      name: 'Performance Marketing (Pay Per Lead)',
+      name: 'PM (Performance Marketing) - Pay Per Lead',
       description:
-        'Qualified leads delivered on demand. No retainers, no contracts, no upfront fees. We fund your marketing—you only pay for pre-qualified prospects ready to convert.',
-      url: 'https://onepercentseo.com/performance-marketing',
+        'Exclusive pre-qualified leads delivered on demand. No retainers, no contracts, no set-up fees. We fund your marketing—you only pay for results.',
+      url: 'https://onepercentseo.com/pm',
       serviceType: 'Lead Generation',
       provider: {
         '@type': 'Organization',
@@ -65,7 +65,7 @@ function PerformanceMarketingPage() {
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="mb-6 font-extrabold text-5xl leading-[0.95] tracking-tighter lg:text-7xl xl:text-8xl">
-              Qualified Leads, Delivered. Pay Only for Results.
+              Exclusive Pre-Qualified Leads. Pay Only for Results.
             </h1>
             <p className="mx-auto mb-8 max-w-2xl text-muted-foreground text-xl leading-relaxed tracking-wide lg:text-2xl">
               No retainers. No long-term contracts. No upfront fees. We fund
@@ -97,7 +97,7 @@ function PerformanceMarketingPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <h2 className="mb-4 font-bold text-4xl leading-[1.1] tracking-tight lg:text-6xl">
-                What is Performance Marketing?
+                What is PM (Performance Marketing)?
               </h2>
               <p className="mt-6 text-lg text-muted-foreground leading-relaxed tracking-wide">
                 Performance marketing is a results-based model where you only
@@ -123,10 +123,10 @@ function PerformanceMarketingPage() {
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4">
                   <div className="font-extrabold text-3xl text-accent tracking-tight">
-                    24hrs
+                    100%
                   </div>
                   <div className="mt-1 text-muted-foreground text-sm tracking-wide">
-                    Time to First Lead
+                    Exclusive Leads
                   </div>
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4">
@@ -134,7 +134,7 @@ function PerformanceMarketingPage() {
                     $0
                   </div>
                   <div className="mt-1 text-muted-foreground text-sm tracking-wide">
-                    Upfront Investment
+                    Set-Up Fees
                   </div>
                 </div>
               </div>
@@ -411,10 +411,10 @@ function PerformanceMarketingPage() {
                 </div>
                 <div>
                   <div className="font-extrabold text-5xl text-accent tracking-tight lg:text-7xl">
-                    24hr
+                    100%
                   </div>
                   <div className="mt-2 text-muted-foreground tracking-wide">
-                    Average Time to First Lead
+                    Exclusive Leads
                   </div>
                 </div>
                 <div>
@@ -422,7 +422,7 @@ function PerformanceMarketingPage() {
                     $0
                   </div>
                   <div className="mt-2 text-muted-foreground tracking-wide">
-                    Upfront Investment
+                    Set-Up Fees
                   </div>
                 </div>
                 <div>
