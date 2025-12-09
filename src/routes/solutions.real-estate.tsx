@@ -49,7 +49,7 @@ function RealEstatePage() {
       serviceType: 'Search Engine Optimization',
       provider: {
         '@type': 'Organization',
-        name: 'One Percent SEO',
+        name: 'One Percent Digital',
         url: 'https://onepercentseo.com',
       },
       areaServed: 'Worldwide',
@@ -242,7 +242,7 @@ function RealEstatePage() {
       <section className="px-6 py-20 lg:py-32">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="mb-6 font-bold text-4xl leading-tight tracking-tight lg:text-5xl">
-            Ready to Own Your Real Estate Market?
+            Close More Deals
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
             Let's generate qualified buyer and seller leads with proven SEO,

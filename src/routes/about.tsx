@@ -16,9 +16,9 @@ export const Route = createFileRoute('/about')({
   component: AboutPage,
   head: () =>
     generateMetaTags({
-      title: 'About One Percent SEO | Meet the Team Behind Your Success',
+      title: 'About One Percent Digital | Meet the Team Behind Your Success',
       description:
-        'Meet the entrepreneurs behind One Percent SEO. With 12+ years of combined experience and multiple successful E-commerce brands, we understand what it takes to grow your business.',
+        'Meet the entrepreneurs behind One Percent Digital. With 12+ years of combined experience and multiple successful E-commerce brands, we understand what it takes to grow your business.',
       url: 'https://onepercentseo.com/about',
     }),
 });
@@ -30,7 +30,7 @@ function AboutPage() {
     type: 'Organization' as const,
     data: {
       '@type': 'Organization',
-      name: 'One Percent SEO',
+      name: 'One Percent Digital',
       url: 'https://onepercentseo.com',
       description:
         'Enterprise-grade SEO, GEO, and Performance Marketing services for businesses that demand results at scale.',
@@ -135,11 +135,12 @@ function AboutPage() {
                 Our Story
               </h2>
               <p className="mb-6 text-lg text-muted-foreground leading-relaxed tracking-wide">
-                One Percent SEO was founded on a simple principle: the best SEO
-                experts are the ones who run their own businesses. We're not
-                consultants who learned SEO from textbooks—we're entrepreneurs
-                who've scaled multiple E-commerce brands from the ground up and
-                understand the real challenges of growing a business online.
+                One Percent Digital was founded on a simple principle: the best
+                marketing experts are the ones who run their own businesses.
+                We're not consultants who learned SEO from textbooks—we're
+                entrepreneurs who've scaled multiple E-commerce brands from the
+                ground up and understand the real challenges of growing a
+                business online.
               </p>
               <p className="mb-6 text-lg text-muted-foreground leading-relaxed tracking-wide">
                 Since 2012, our team has worked with over 300 brands across
@@ -150,8 +151,8 @@ function AboutPage() {
                 experience running our own companies.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed tracking-wide">
-                When you work with One Percent SEO, you're not just hiring an
-                agency—you're partnering with fellow entrepreneurs who treat
+                When you work with One Percent Digital, you're not just hiring
+                an agency—you're partnering with fellow entrepreneurs who treat
                 your business like our own. We understand ROI, budget
                 constraints, competitive pressures, and the need for strategies
                 that actually move the needle. That's the One Percent

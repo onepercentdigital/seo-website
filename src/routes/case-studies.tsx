@@ -245,11 +245,12 @@ function CaseStudiesPage() {
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-6 font-bold text-4xl leading-tight tracking-tight lg:text-5xl xl:text-6xl">
-              See What We Can Do For You
+              Your Success Story Is Next
             </h2>
             <p className="mb-8 text-muted-foreground text-xl leading-relaxed tracking-wide lg:text-2xl">
-              Your success story could be next. Schedule a consultation to
-              discover how we can help you win in search.
+              Every case study started with a conversation. Let's talk about how
+              SEO, GEO, and Performance Marketing can drive the leads you need
+              to scale.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button

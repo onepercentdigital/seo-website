@@ -62,7 +62,7 @@ export const solutions: IndustrySolution[] = [
     slug: 'hospitality',
     description:
       'Own local search and AI recommendations for restaurants, hotels, and hospitality venues. Fill every table and room with search-driven customers.',
-    heroHeadline: 'Own Your Market in Hospitality & Restaurants',
+    heroHeadline: 'Pack Your Restaurant, Fill Your Rooms',
     heroSubheadline:
       'Fill tables and drive reservations with SEO, GEO, and Performance Marketing strategies built for hospitality. Beat OTAs, outrank chains, and capture your local market.',
     challenges: [
@@ -240,7 +240,7 @@ export const solutions: IndustrySolution[] = [
     slug: 'ecommerce',
     description:
       'Drive qualified traffic and sales for online retailers. Compete with Amazon and win product searches with SEO, GEO, and Performance Marketing.',
-    heroHeadline: 'Win Product Search and Drive E-commerce Sales',
+    heroHeadline: 'Convert More Shoppers Into Customers',
     heroSubheadline:
       'Compete with Amazon, outrank competitors, and capture high-intent buyers with SEO, GEO, and Performance Marketing built for e-commerce. Turn search traffic into revenue.',
     challenges: [
@@ -417,7 +417,7 @@ export const solutions: IndustrySolution[] = [
     slug: 'manufacturing',
     description:
       'Drive qualified B2B leads for manufacturers and industrial companies. Lead high-value searches and reach decision-makers.',
-    heroHeadline: 'Lead B2B Search for Manufacturing & Industrial',
+    heroHeadline: 'Close More Contracts, Grow Your Pipeline',
     heroSubheadline:
       'Generate qualified leads and reach procurement decision-makers with SEO, GEO, and Performance Marketing strategies built for complex B2B sales cycles.',
     challenges: [
@@ -594,7 +594,7 @@ export const solutions: IndustrySolution[] = [
     slug: 'logistics',
     description:
       'Generate qualified shipping and logistics leads through search. Capture industry keywords and reach shippers searching for reliable partners.',
-    heroHeadline: 'Capture Logistics & Transportation Search Results',
+    heroHeadline: 'Book More Freight, Grow Your Fleet',
     heroSubheadline:
       'Generate high-value shipping contracts and freight leads with SEO, GEO, and Performance Marketing built for logistics. Get found by shippers who need you.',
     challenges: [
@@ -771,7 +771,7 @@ export const solutions: IndustrySolution[] = [
     slug: 'automotive',
     description:
       'Drive qualified leads for automotive businesses. Excel in local and specialty vehicle searches with proven SEO, GEO, and Performance Marketing.',
-    heroHeadline: 'Excel in Automotive Search and Drive Qualified Leads',
+    heroHeadline: 'Move More Inventory, Grow Your Business',
     heroSubheadline:
       'Fill your lot and drive revenue with SEO, GEO, and Performance Marketing built for automotive businesses. From classic cars to luxury rentals.',
     challenges: [
@@ -949,7 +949,7 @@ export const solutions: IndustrySolution[] = [
     slug: 'construction',
     description:
       'Generate qualified project leads for construction and contracting businesses. Win local searches and reach property owners who need you.',
-    heroHeadline: 'Win Local Search for Construction & Contractors',
+    heroHeadline: 'Win More Bids, Book More Projects',
     heroSubheadline:
       'Fill your pipeline with qualified project leads through SEO, GEO, and Performance Marketing. Get found by property owners searching for trusted contractors.',
     challenges: [
@@ -1126,7 +1126,7 @@ export const solutions: IndustrySolution[] = [
     slug: 'agriculture',
     description:
       'Drive qualified leads for agricultural equipment dealers and agribusinesses. Reach farmers and ranchers searching for machinery and solutions.',
-    heroHeadline: 'Succeed in Agricultural Search and Drive Equipment Sales',
+    heroHeadline: 'Sell More Equipment, Grow Your Territory',
     heroSubheadline:
       'Reach farmers researching equipment purchases. Generate qualified leads for tractors, implements, and agricultural services with SEO, GEO, and Performance Marketing.',
     challenges: [
@@ -1305,7 +1305,7 @@ export const solutions: IndustrySolution[] = [
     slug: 'technology',
     description:
       'Drive qualified leads for technology companies and SaaS products. Command competitive tech searches and reach decision-makers.',
-    heroHeadline: 'Command Tech Search and Drive SaaS Growth',
+    heroHeadline: 'Acquire More Users, Scale Your SaaS',
     heroSubheadline:
       'Generate qualified enterprise leads and product signups with SEO, GEO, and Performance Marketing built for technology companies. Reach decision-makers searching for solutions.',
     challenges: [
@@ -1482,7 +1482,7 @@ export const solutions: IndustrySolution[] = [
     slug: 'health-wellness',
     description:
       'Drive qualified clients for health and wellness businesses. Lead local searches and reach people seeking health solutions.',
-    heroHeadline: 'Lead Health & Wellness Search Results',
+    heroHeadline: 'Attract More Clients, Grow Your Practice',
     heroSubheadline:
       'Fill your calendar with qualified clients through SEO, GEO, and Performance Marketing. Get found by people ready to invest in their wellbeing.',
     challenges: [
@@ -1661,7 +1661,7 @@ export const solutions: IndustrySolution[] = [
     slug: 'finance-insurance',
     description:
       'Drive qualified leads for financial services and insurance providers. Capture high-value searches and reach clients seeking financial guidance.',
-    heroHeadline: 'Capture Financial Services Search Results',
+    heroHeadline: 'Grow Your Book of Business',
     heroSubheadline:
       'Generate qualified leads for financial advisors, insurance agents, and financial services firms through SEO, GEO, and Performance Marketing. Reach clients actively searching for guidance.',
     challenges: [
@@ -1839,7 +1839,7 @@ export const solutions: IndustrySolution[] = [
     slug: 'legal',
     description:
       'Drive qualified client inquiries for law firms. Own local legal searches and reach potential clients actively seeking legal representation.',
-    heroHeadline: 'Own Legal Search and Generate Qualified Cases',
+    heroHeadline: 'Build Your Caseload, Grow Your Firm',
     heroSubheadline:
       'Fill your caseload with qualified client inquiries through SEO, GEO, and Performance Marketing. Get found by people searching for legal representation.',
     challenges: [
@@ -2017,7 +2017,7 @@ export const solutions: IndustrySolution[] = [
     slug: 'real-estate',
     description:
       'Drive qualified leads for real estate agents, brokerages, developers, and luxury home builders. Control property searches in your market.',
-    heroHeadline: 'Control Real Estate Search in Your Market',
+    heroHeadline: 'Close More Deals, Dominate Your Market',
     heroSubheadline:
       'Generate qualified buyer and seller leads through SEO, GEO, and Performance Marketing. Get found by people searching for real estate agents and properties.',
     challenges: [

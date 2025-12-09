@@ -22,7 +22,7 @@ export const Route = createFileRoute('/apply')({
   component: ApplyPage,
   head: () =>
     generateMetaTags({
-      title: 'Apply To Work With Us | One Percent SEO',
+      title: 'Apply To Work With Us | One Percent Digital',
       description:
         'Apply to see if you qualify to work with us. We help serious brands grow through SEO, GEO, and Performance Marketing.',
       url: 'https://onepercentseo.com/apply',

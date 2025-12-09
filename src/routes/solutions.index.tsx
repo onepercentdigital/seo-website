@@ -192,12 +192,12 @@ function SolutionsLandingPage() {
       <section className="px-6 py-20 lg:py-32">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="mb-6 font-bold text-4xl leading-tight tracking-tight lg:text-5xl">
-            Don't See Your Industry?
+            Ready to Generate More Leads?
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
-            We work with businesses across all verticals. Our industry-specific
-            approach applies to any market. Let's discuss your unique
-            challenges.
+            No matter your industry, we help you scale with qualified leads
+            through SEO, GEO, and Performance Marketing. Let's discuss which
+            approach fits your goals.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button

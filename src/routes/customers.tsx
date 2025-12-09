@@ -24,9 +24,9 @@ export const Route = createFileRoute('/customers')({
   component: CustomersPage,
   head: () =>
     generateMetaTags({
-      title: 'Our Customers - Industry Leaders Powered by One Percent SEO',
+      title: 'Our Customers - Industry Leaders Powered by One Percent Digital',
       description:
-        'Join industry-leading companies like Grove Bay Hospitality, Afni Careers, Sorting Robotics, and more who trust One Percent SEO to lead search results and drive real revenue growth.',
+        'Join industry-leading companies like Grove Bay Hospitality, Afni Careers, Sorting Robotics, and more who trust One Percent Digital to lead search results and drive real revenue growth.',
       url: 'https://onepercentseo.com/customers',
     }),
 });
@@ -310,12 +310,12 @@ function CustomersPage() {
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-6 font-bold text-4xl leading-[1.1] tracking-tight lg:text-6xl">
-              Join These Industry Leaders
+              Your Growth Story Starts Here
             </h2>
             <p className="mb-8 text-lg text-muted-foreground leading-relaxed tracking-wide lg:text-xl">
-              Whether you're in hospitality, technology, manufacturing, or
-              professional services, we have the expertise to help you succeed
-              in search and drive revenue growth. Let's talk about your goals.
+              SEO for organic visibility. GEO for AI discovery. Performance
+              Marketing for immediate leads. Pick one or combine all three—we
+              help you scale with the right leads for your business.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button
