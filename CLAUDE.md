@@ -117,7 +117,7 @@ website/
 │   │   ├── blog.index.tsx   # Blog listing
 │   │   ├── blog.$slug.tsx   # Blog post
 │   │   ├── solutions.index.tsx # Solutions hub
-│   │   └── solutions.*.tsx  # 13 industry pages
+│   │   └── solutions.*.tsx  # 12 industry pages
 │   │
 │   ├── config/
 │   │   └── brand.ts         # Brand config (nav, footer, SEO)
