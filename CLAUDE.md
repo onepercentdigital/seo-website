@@ -275,7 +275,7 @@ website/
 │   └── categories.ts        # Category operations
 │
 ├── docs/                    # Extended documentation
-│   ├── MAIA-MIGRATION-CONVERSATION.md # Design system migration notes
+│   ├── MAIA-STYLE-GUIDE.md  # Design system style guide
 │   └── ...
 │
 └── public/
