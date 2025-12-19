@@ -1,6 +1,12 @@
+import {
+  ArrowRight01Icon,
+  Calendar01Icon,
+  Clock01Icon,
+  UserIcon,
+} from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 import { createFileRoute, Link, notFound } from '@tanstack/react-router';
 import { useQuery } from 'convex/react';
-import { Calendar, ChevronRight, Clock, User } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
@@ -34,7 +40,7 @@ function BlogPostPage() {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
         <div className="text-center">
-          <div className="mb-4 inline-flex h-12 w-12 animate-spin rounded-full border-4 border-accent border-t-transparent" />
+          <div className="mb-4 inline-flex h-12 w-12 animate-spin rounded-full border-4 border-primary border-t-transparent" />
           <p className="text-muted-foreground">Loading post...</p>
         </div>
       </div>
@@ -94,14 +100,24 @@ function BlogPostPage() {
             >
               Home
             </Link>
-            <ChevronRight className="h-4 w-4 text-muted-foreground" />
+            <HugeiconsIcon
+              icon={ArrowRight01Icon}
+              size={16}
+              strokeWidth={1.5}
+              className="text-muted-foreground"
+            />
             <Link
               to="/blog"
               className="text-muted-foreground transition-colors hover:text-foreground"
             >
               Blog
             </Link>
-            <ChevronRight className="h-4 w-4 text-muted-foreground" />
+            <HugeiconsIcon
+              icon={ArrowRight01Icon}
+              size={16}
+              strokeWidth={1.5}
+              className="text-muted-foreground"
+            />
             <span className="text-foreground">{post.title}</span>
           </div>
         </div>
@@ -113,7 +129,7 @@ function BlogPostPage() {
           <header className="mb-12">
             {/* Category Badge */}
             {category && (
-              <div className="mb-4 inline-block rounded-full bg-accent/10 px-3 py-1 font-medium text-accent text-xs uppercase tracking-wider">
+              <div className="mb-4 inline-block rounded-full bg-primary/10 px-3 py-1 font-medium text-primary text-xs uppercase tracking-wider">
                 {category.name}
               </div>
             )}
@@ -126,17 +142,21 @@ function BlogPostPage() {
             {/* Metadata */}
             <div className="flex flex-wrap items-center gap-4 border-border border-y py-4 text-muted-foreground text-sm tracking-wide">
               <div className="flex items-center gap-2">
-                <User className="h-4 w-4" />
+                <HugeiconsIcon icon={UserIcon} size={16} strokeWidth={1.5} />
                 <span>{post.authorName}</span>
               </div>
               {publishedDate && (
                 <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4" />
+                  <HugeiconsIcon
+                    icon={Calendar01Icon}
+                    size={16}
+                    strokeWidth={1.5}
+                  />
                   <span>{publishedDate}</span>
                 </div>
               )}
               <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4" />
+                <HugeiconsIcon icon={Clock01Icon} size={16} strokeWidth={1.5} />
                 <span>{readTime} min read</span>
               </div>
             </div>
@@ -189,7 +209,7 @@ function BlogPostPage() {
         <div className="mx-auto max-w-4xl text-center">
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-6 py-3 font-semibold text-foreground transition-colors hover:border-accent hover:bg-accent/5"
+            className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-6 py-3 font-semibold text-foreground transition-colors hover:border-primary hover:bg-primary/5"
           >
             ← Back to All Posts
           </Link>

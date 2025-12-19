@@ -1,16 +1,18 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
 import {
-  ArrowRight,
-  Award,
-  CheckCircle2,
-  DollarSign,
-  Fingerprint,
-  Map as MapIcon,
-  MapPin,
-  Settings,
-  TrendingUp,
-  Truck,
-} from 'lucide-react';
+  ArrowRight01Icon,
+  Award01Icon,
+  ChartIncreaseIcon,
+  CheckmarkCircle02Icon,
+  DeliveryTruck01Icon,
+  DollarCircleIcon,
+  FingerPrintIcon,
+  Location01Icon,
+  MapsLocation01Icon,
+  Settings01Icon,
+} from '@hugeicons/core-free-icons';
+
+import { HugeiconsIcon } from '@hugeicons/react';
+import { createFileRoute, Link } from '@tanstack/react-router';
 import { SEO } from '@/components/SEO';
 import {
   Accordion,
@@ -56,15 +58,15 @@ function LogisticsPage() {
     },
   };
 
-  const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-    Truck,
-    Fingerprint,
-    Map: MapIcon,
-    DollarSign,
-    MapPin,
-    Settings,
-    Award,
-    TrendingUp,
+  const iconMap: Record<string, typeof DeliveryTruck01Icon> = {
+    Truck: DeliveryTruck01Icon,
+    Fingerprint: FingerPrintIcon,
+    Map: MapsLocation01Icon,
+    DollarSign: DollarCircleIcon,
+    MapPin: Location01Icon,
+    Settings: Settings01Icon,
+    Award: Award01Icon,
+    TrendingUp: ChartIncreaseIcon,
   };
 
   return (
@@ -82,18 +84,21 @@ function LogisticsPage() {
               {solution.heroSubheadline}
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
-              >
-                <Link to="/apply">
-                  Apply To Work With Us
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+              <Button render={<Link to="/apply" />} size="lg">
+                Apply To Work With Us
+                <HugeiconsIcon
+                  icon={ArrowRight01Icon}
+                  size={20}
+                  strokeWidth={2}
+                  data-icon="inline-end"
+                />
               </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/case-studies">View Case Studies</Link>
+              <Button
+                render={<Link to="/case-studies" />}
+                size="lg"
+                variant="outline"
+              >
+                View Case Studies
               </Button>
             </div>
           </div>
@@ -114,15 +119,18 @@ function LogisticsPage() {
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {solution.challenges.map((challenge, _index) => {
-              const Icon = iconMap[challenge.icon];
+              const icon = iconMap[challenge.icon];
               return (
                 <div
                   key={challenge.title}
-                  className="flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:border-accent/50 hover:shadow-lg"
+                  className="flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg"
                 >
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 p-3">
-                    <Icon className="h-6 w-6 text-accent" />
-                  </div>
+                  <HugeiconsIcon
+                    icon={icon}
+                    size={32}
+                    strokeWidth={1.5}
+                    className="mb-4 text-primary"
+                  />
                   <h3 className="mb-3 font-bold text-xl leading-tight">
                     {challenge.title}
                   </h3>
@@ -150,15 +158,20 @@ function LogisticsPage() {
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {solution.approach.map((step, index) => {
-              const Icon = iconMap[step.icon];
+              const icon = iconMap[step.icon];
               return (
                 <div key={step.title} className="relative">
                   <div className="flex flex-col rounded-2xl border border-border bg-card p-6">
-                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 p-3">
-                      <Icon className="h-6 w-6 text-accent" />
-                    </div>
-                    <div className="mb-2 font-semibold text-accent text-sm uppercase tracking-widest">
-                      Step {index + 1}
+                    <div className="mb-4 flex items-start justify-between">
+                      <div className="font-bold text-4xl text-primary">
+                        0{index + 1}
+                      </div>
+                      <HugeiconsIcon
+                        icon={icon}
+                        size={24}
+                        strokeWidth={1.5}
+                        className="text-muted-foreground"
+                      />
                     </div>
                     <h3 className="mb-3 font-bold text-2xl leading-tight">
                       {step.title}
@@ -190,7 +203,7 @@ function LogisticsPage() {
             {solution.services.map((service, _index) => (
               <div
                 key={service.title}
-                className="flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:border-accent/50 hover:shadow-lg"
+                className="flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg"
               >
                 <h3 className="mb-3 font-bold text-xl leading-tight">
                   {service.title}
@@ -204,7 +217,12 @@ function LogisticsPage() {
                       key={feature}
                       className="flex items-start gap-2 text-muted-foreground text-sm"
                     >
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                      <HugeiconsIcon
+                        icon={CheckmarkCircle02Icon}
+                        size={16}
+                        strokeWidth={1.5}
+                        className="mt-0.5 shrink-0 text-primary"
+                      />
                       <span className="tracking-wide">{feature}</span>
                     </li>
                   ))}
@@ -223,7 +241,7 @@ function LogisticsPage() {
               Frequently Asked Questions
             </h2>
           </div>
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion className="w-full">
             {solution.faqs.map((faq, index) => (
               <AccordionItem key={faq.question} value={`item-${index}`}>
                 <AccordionTrigger className="text-left font-semibold text-lg">
@@ -249,18 +267,21 @@ function LogisticsPage() {
             business with proven SEO, GEO, and Performance Marketing strategies.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
-              asChild
-              size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90"
-            >
-              <Link to="/apply">
-                Apply To Work With Us
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+            <Button render={<Link to="/apply" />} size="lg">
+              Apply To Work With Us
+              <HugeiconsIcon
+                icon={ArrowRight01Icon}
+                size={20}
+                strokeWidth={2}
+                data-icon="inline-end"
+              />
             </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link to="/case-studies">View Our Results</Link>
+            <Button
+              render={<Link to="/case-studies" />}
+              size="lg"
+              variant="outline"
+            >
+              View Our Results
             </Button>
           </div>
         </div>

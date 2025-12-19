@@ -1,4 +1,5 @@
-import { Moon, Sun } from 'lucide-react';
+import { Moon01Icon, Sun01Icon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 import { useEffect, useState } from 'react';
 
 export function ThemeToggle() {
@@ -66,10 +67,10 @@ export function ThemeToggle() {
     return (
       <button
         type="button"
-        className="relative inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-background text-foreground transition-colors hover:bg-secondary"
+        className="relative inline-flex size-9 items-center justify-center rounded-4xl border border-input bg-input/30 text-foreground transition-all hover:bg-input/50"
         aria-label="Toggle theme"
       >
-        <Sun className="h-4 w-4" />
+        <HugeiconsIcon icon={Sun01Icon} size={16} strokeWidth={2} />
       </button>
     );
   }
@@ -78,13 +79,13 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="relative inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-background text-foreground transition-colors hover:bg-secondary"
+      className="relative inline-flex size-9 items-center justify-center rounded-4xl border border-input bg-input/30 text-foreground transition-all hover:bg-input/50"
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
       {theme === 'light' ? (
-        <Moon className="h-4 w-4 transition-transform" />
+        <HugeiconsIcon icon={Moon01Icon} size={16} strokeWidth={2} />
       ) : (
-        <Sun className="h-4 w-4 transition-transform" />
+        <HugeiconsIcon icon={Sun01Icon} size={16} strokeWidth={2} />
       )}
     </button>
   );

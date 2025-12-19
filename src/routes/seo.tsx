@@ -1,20 +1,21 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
 import {
-  ArrowRight,
-  Award,
-  BarChart3,
-  CheckCircle2,
-  Clock,
-  DollarSign,
-  FileText,
-  Globe,
-  Link2,
-  Search,
-  Shield,
-  Target,
-  Users,
-  Zap,
-} from 'lucide-react';
+  Analytics01Icon,
+  ArrowRight01Icon,
+  Award01Icon,
+  BrowserIcon,
+  CheckmarkCircle02Icon,
+  Clock01Icon,
+  DollarCircleIcon,
+  File01Icon,
+  Link01Icon,
+  Search01Icon,
+  SecurityCheckIcon,
+  Target01Icon,
+  UserGroupIcon,
+  ZapIcon,
+} from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { createFileRoute, Link } from '@tanstack/react-router';
 import { SEO } from '@/components/SEO';
 import {
   Accordion,
@@ -23,6 +24,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
+import { getImageUrl } from '@/lib/cloudflare-images';
 import { generateMetaTags } from '@/lib/seo';
 
 export const Route = createFileRoute('/seo')({
@@ -35,6 +37,183 @@ export const Route = createFileRoute('/seo')({
       url: 'https://onepercentseo.com/seo',
     }),
 });
+
+const processSteps = [
+  {
+    number: '01',
+    icon: Search01Icon,
+    title: 'Comprehensive Audit',
+    description:
+      'Deep analysis of your current SEO performance, technical issues, content gaps, and competitive landscape to identify opportunities.',
+  },
+  {
+    number: '02',
+    icon: Target01Icon,
+    title: 'Strategic Planning',
+    description:
+      'Custom SEO strategy aligned with your business goals, focusing on high-value keywords and conversion-driving content.',
+  },
+  {
+    number: '03',
+    icon: ZapIcon,
+    title: 'Technical Implementation',
+    description:
+      'Execute technical optimizations, content creation, link building, and on-page improvements that drive rankings.',
+  },
+  {
+    number: '04',
+    icon: Analytics01Icon,
+    title: 'Continuous Growth',
+    description:
+      'Monitor performance, refine strategy, and scale successful tactics. SEO compounds over time—we maximize that advantage.',
+  },
+];
+
+const benefits = [
+  {
+    icon: DollarCircleIcon,
+    title: 'Highest ROI Channel',
+    description:
+      'SEO delivers the best return on investment of any marketing channel. Organic traffic costs nothing and compounds over time.',
+  },
+  {
+    icon: Target01Icon,
+    title: 'Qualified Traffic',
+    description:
+      'Users searching for your solutions have high intent. SEO targets people actively looking for what you offer.',
+  },
+  {
+    icon: Clock01Icon,
+    title: 'Compounding Returns',
+    description:
+      "Every month's work builds on the last. SEO results accelerate over time as authority and rankings improve.",
+  },
+  {
+    icon: SecurityCheckIcon,
+    title: 'Sustainable Growth',
+    description:
+      'Unlike paid ads that stop when budgets end, organic rankings provide consistent traffic month after month.',
+  },
+  {
+    icon: UserGroupIcon,
+    title: 'Brand Authority',
+    description:
+      'High search rankings establish credibility. Users trust organic results more than paid advertisements.',
+  },
+  {
+    icon: Award01Icon,
+    title: 'Competitive Advantage',
+    description:
+      'Outrank competitors for valuable keywords and capture market share. The top 3 results get 75% of all clicks.',
+  },
+];
+
+const services = [
+  {
+    icon: ZapIcon,
+    title: 'Technical SEO',
+    features: [
+      'Site speed optimization',
+      'Mobile responsiveness',
+      'Core Web Vitals improvement',
+      'Crawlability and indexation',
+      'Schema markup implementation',
+    ],
+  },
+  {
+    icon: File01Icon,
+    title: 'Content Strategy',
+    features: [
+      'Keyword research and mapping',
+      'Content gap analysis',
+      'SEO-optimized content creation',
+      'Editorial calendar management',
+      'Content refresh and updates',
+    ],
+  },
+  {
+    icon: Link01Icon,
+    title: 'Link Building',
+    features: [
+      'High-authority backlink acquisition',
+      'Strategic outreach campaigns',
+      'Digital PR and media placement',
+      'Competitor backlink analysis',
+      'Link profile monitoring',
+    ],
+  },
+  {
+    icon: Target01Icon,
+    title: 'On-Page Optimization',
+    features: [
+      'Title and meta description optimization',
+      'Header tag structure',
+      'Internal linking strategy',
+      'Image optimization and alt text',
+      'URL structure improvements',
+    ],
+  },
+  {
+    icon: BrowserIcon,
+    title: 'Local SEO',
+    features: [
+      'Google Business Profile optimization',
+      'Local citation building',
+      'Review management strategy',
+      'Local content creation',
+      'Map pack optimization',
+    ],
+  },
+  {
+    icon: Analytics01Icon,
+    title: 'Analytics & Reporting',
+    features: [
+      'Comprehensive ranking tracking',
+      'Traffic and conversion analysis',
+      'Competitor monitoring',
+      'Custom performance dashboards',
+      'Monthly strategy reviews',
+    ],
+  },
+];
+
+const faqs = [
+  {
+    question: 'How long does SEO take to show results?',
+    answer:
+      'Most clients see initial improvements within 3-4 months, with significant growth by month 6-8. SEO is a compound investment— results accelerate over time as authority builds. Unlike paid ads with immediate but temporary results, SEO creates lasting value that continues growing month after month.',
+  },
+  {
+    question: 'Do you guarantee first-page rankings?',
+    answer:
+      "We don't make ranking guarantees because Google's algorithm is constantly evolving and no agency can control it. Instead, we focus on the metrics that matter: qualified traffic, lead generation, and revenue growth. Our industry-leading client retention speaks to the consistent results we deliver.",
+  },
+  {
+    question: 'What makes your SEO approach different?',
+    answer:
+      "We focus on sustainable, white-hat strategies that create long-term value rather than quick wins that risk penalties. Our approach combines technical excellence, high-quality content, and strategic link building with a deep understanding of your business goals. We're not just driving traffic—we're driving revenue.",
+  },
+  {
+    question: 'Is SEO a one-time project or ongoing work?',
+    answer:
+      'SEO requires ongoing optimization to maintain and improve rankings. Search algorithms evolve, competitors adjust their strategies, and new content opportunities emerge. Our clients see the best results with continuous optimization that adapts to changes and scales successful tactics over time.',
+  },
+  {
+    question: 'What kind of reporting do you provide?',
+    answer:
+      "We provide comprehensive monthly reports covering ranking improvements, traffic growth, conversion metrics, and competitive analysis. You'll also have access to a real-time dashboard showing your key SEO metrics. Most importantly, we translate data into actionable insights and strategic recommendations.",
+  },
+  {
+    question: 'Can SEO work for my industry/business type?',
+    answer:
+      "Yes. We've successfully implemented SEO strategies across B2B SaaS, E-commerce, professional services, healthcare, finance, and more. Every industry has people searching for solutions. Our approach adapts to your specific market dynamics, competition level, and business model to deliver results.",
+  },
+  {
+    question: "What's the investment for SEO services?",
+    answer:
+      "Investment varies based on your goals, market competition, and current SEO foundation. Most clients invest between $5,000- $15,000 per month for comprehensive SEO services. We'll provide a custom proposal after understanding your specific needs and growth objectives. Schedule a call to discuss your situation.",
+  },
+];
 
 function SEOPage() {
   const serviceSchema = {
@@ -71,18 +250,21 @@ function SEOPage() {
               reliable growth channel.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
-              >
-                <Link to="/apply">
-                  Apply To Work With Us
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+              <Button render={<Link to="/apply" />} size="lg">
+                Apply To Work With Us
+                <HugeiconsIcon
+                  icon={ArrowRight01Icon}
+                  size={18}
+                  strokeWidth={2}
+                  data-icon="inline-end"
+                />
               </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/case-studies">View Case Studies</Link>
+              <Button
+                render={<Link to="/case-studies" />}
+                size="lg"
+                variant="outline"
+              >
+                View Case Studies
               </Button>
             </div>
           </div>
@@ -110,24 +292,24 @@ function SEOPage() {
                 revenue month after month.
               </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                <div className="rounded-xl border border-border bg-card p-4">
-                  <div className="font-extrabold text-3xl text-accent tracking-tight">
+                <div className="rounded-xl bg-card p-4 ring-1 ring-foreground/10">
+                  <div className="font-extrabold text-3xl text-primary tracking-tight">
                     300+
                   </div>
                   <div className="mt-1 text-muted-foreground text-sm tracking-wide">
                     Businesses Served
                   </div>
                 </div>
-                <div className="rounded-xl border border-border bg-card p-4">
-                  <div className="font-extrabold text-3xl text-accent tracking-tight">
+                <div className="rounded-xl bg-card p-4 ring-1 ring-foreground/10">
+                  <div className="font-extrabold text-3xl text-primary tracking-tight">
                     8X
                   </div>
                   <div className="mt-1 text-muted-foreground text-sm tracking-wide">
                     Avg Traffic Growth
                   </div>
                 </div>
-                <div className="rounded-xl border border-border bg-card p-4">
-                  <div className="font-extrabold text-3xl text-accent tracking-tight">
+                <div className="rounded-xl bg-card p-4 ring-1 ring-foreground/10">
+                  <div className="font-extrabold text-3xl text-primary tracking-tight">
                     $200M+
                   </div>
                   <div className="mt-1 text-muted-foreground text-sm tracking-wide">
@@ -136,8 +318,13 @@ function SEOPage() {
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify-center">
-              {/* Placeholder for future visualization */}
+            <div className="relative aspect-video overflow-hidden rounded-2xl">
+              <div className="absolute inset-0 z-30 bg-primary opacity-50 mix-blend-color" />
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop"
+                alt="Search analytics and data visualization"
+                className="relative z-20 h-full w-full object-cover brightness-[0.6] grayscale"
+              />
             </div>
           </div>
         </div>
@@ -155,47 +342,21 @@ function SEOPage() {
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                number: '01',
-                icon: Search,
-                title: 'Comprehensive Audit',
-                description:
-                  'Deep analysis of your current SEO performance, technical issues, content gaps, and competitive landscape to identify opportunities.',
-              },
-              {
-                number: '02',
-                icon: Target,
-                title: 'Strategic Planning',
-                description:
-                  'Custom SEO strategy aligned with your business goals, focusing on high-value keywords and conversion-driving content.',
-              },
-              {
-                number: '03',
-                icon: Zap,
-                title: 'Technical Implementation',
-                description:
-                  'Execute technical optimizations, content creation, link building, and on-page improvements that drive rankings.',
-              },
-              {
-                number: '04',
-                icon: BarChart3,
-                title: 'Continuous Growth',
-                description:
-                  'Monitor performance, refine strategy, and scale successful tactics. SEO compounds over time—we maximize that advantage.',
-              },
-            ].map((step) => (
+            {processSteps.map((step) => (
               <div
                 key={step.number}
-                className="group rounded-2xl border border-border bg-card p-8 transition-all hover:border-accent/50 hover:shadow-accent/10 hover:shadow-lg"
+                className="group rounded-2xl bg-card p-8 ring-1 ring-foreground/10 transition-all hover:shadow-lg hover:shadow-primary/10 hover:ring-primary/50"
               >
                 <div className="mb-4 flex items-start justify-between">
-                  <div className="rounded-lg bg-accent/10 p-3">
-                    <step.icon className="size-6 text-accent" />
-                  </div>
-                  <div className="font-bold text-3xl text-accent/30 tracking-tight">
+                  <div className="font-bold text-4xl text-primary">
                     {step.number}
                   </div>
+                  <HugeiconsIcon
+                    icon={step.icon}
+                    size={24}
+                    strokeWidth={1.5}
+                    className="text-muted-foreground"
+                  />
                 </div>
                 <h3 className="mb-3 font-bold text-2xl">{step.title}</h3>
                 <p className="text-muted-foreground leading-relaxed tracking-wide">
@@ -219,51 +380,17 @@ function SEOPage() {
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                icon: DollarSign,
-                title: 'Highest ROI Channel',
-                description:
-                  'SEO delivers the best return on investment of any marketing channel. Organic traffic costs nothing and compounds over time.',
-              },
-              {
-                icon: Target,
-                title: 'Qualified Traffic',
-                description:
-                  'Users searching for your solutions have high intent. SEO targets people actively looking for what you offer.',
-              },
-              {
-                icon: Clock,
-                title: 'Compounding Returns',
-                description:
-                  "Every month's work builds on the last. SEO results accelerate over time as authority and rankings improve.",
-              },
-              {
-                icon: Shield,
-                title: 'Sustainable Growth',
-                description:
-                  'Unlike paid ads that stop when budgets end, organic rankings provide consistent traffic month after month.',
-              },
-              {
-                icon: Users,
-                title: 'Brand Authority',
-                description:
-                  'High search rankings establish credibility. Users trust organic results more than paid advertisements.',
-              },
-              {
-                icon: Award,
-                title: 'Competitive Advantage',
-                description:
-                  'Outrank competitors for valuable keywords and capture market share. The top 3 results get 75% of all clicks.',
-              },
-            ].map((benefit) => (
+            {benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="rounded-2xl border border-border bg-card p-8"
+                className="rounded-2xl bg-card p-8 ring-1 ring-foreground/10"
               >
-                <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                  <benefit.icon className="size-6 text-accent" />
-                </div>
+                <HugeiconsIcon
+                  icon={benefit.icon}
+                  size={32}
+                  strokeWidth={1.5}
+                  className="mb-4 text-primary"
+                />
                 <h3 className="mb-3 font-bold text-xl lg:text-2xl">
                   {benefit.title}
                 </h3>
@@ -288,88 +415,29 @@ function SEOPage() {
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                icon: Zap,
-                title: 'Technical SEO',
-                features: [
-                  'Site speed optimization',
-                  'Mobile responsiveness',
-                  'Core Web Vitals improvement',
-                  'Crawlability and indexation',
-                  'Schema markup implementation',
-                ],
-              },
-              {
-                icon: FileText,
-                title: 'Content Strategy',
-                features: [
-                  'Keyword research and mapping',
-                  'Content gap analysis',
-                  'SEO-optimized content creation',
-                  'Editorial calendar management',
-                  'Content refresh and updates',
-                ],
-              },
-              {
-                icon: Link2,
-                title: 'Link Building',
-                features: [
-                  'High-authority backlink acquisition',
-                  'Strategic outreach campaigns',
-                  'Digital PR and media placement',
-                  'Competitor backlink analysis',
-                  'Link profile monitoring',
-                ],
-              },
-              {
-                icon: Target,
-                title: 'On-Page Optimization',
-                features: [
-                  'Title and meta description optimization',
-                  'Header tag structure',
-                  'Internal linking strategy',
-                  'Image optimization and alt text',
-                  'URL structure improvements',
-                ],
-              },
-              {
-                icon: Globe,
-                title: 'Local SEO',
-                features: [
-                  'Google Business Profile optimization',
-                  'Local citation building',
-                  'Review management strategy',
-                  'Local content creation',
-                  'Map pack optimization',
-                ],
-              },
-              {
-                icon: BarChart3,
-                title: 'Analytics & Reporting',
-                features: [
-                  'Comprehensive ranking tracking',
-                  'Traffic and conversion analysis',
-                  'Competitor monitoring',
-                  'Custom performance dashboards',
-                  'Monthly strategy reviews',
-                ],
-              },
-            ].map((service) => (
+            {services.map((service) => (
               <div
                 key={service.title}
-                className="rounded-2xl border border-border bg-card p-8"
+                className="rounded-2xl bg-card p-8 ring-1 ring-foreground/10"
               >
-                <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                  <service.icon className="size-6 text-accent" />
-                </div>
+                <HugeiconsIcon
+                  icon={service.icon}
+                  size={32}
+                  strokeWidth={1.5}
+                  className="mb-4 text-primary"
+                />
                 <h3 className="mb-4 font-bold text-xl lg:text-2xl">
                   {service.title}
                 </h3>
                 <ul className="space-y-2">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2">
-                      <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-accent" />
+                      <HugeiconsIcon
+                        icon={CheckmarkCircle02Icon}
+                        size={20}
+                        strokeWidth={2}
+                        className="mt-0.5 shrink-0 text-primary"
+                      />
                       <span className="text-muted-foreground text-sm tracking-wide">
                         {feature}
                       </span>
@@ -397,7 +465,7 @@ function SEOPage() {
               </p>
               <div className="mt-8 grid gap-6 sm:grid-cols-2">
                 <div>
-                  <div className="font-extrabold text-5xl text-accent tracking-tight lg:text-7xl">
+                  <div className="font-extrabold text-5xl text-primary tracking-tight lg:text-7xl">
                     $200M+
                   </div>
                   <div className="mt-2 text-muted-foreground tracking-wide">
@@ -405,7 +473,7 @@ function SEOPage() {
                   </div>
                 </div>
                 <div>
-                  <div className="font-extrabold text-5xl text-accent tracking-tight lg:text-7xl">
+                  <div className="font-extrabold text-5xl text-primary tracking-tight lg:text-7xl">
                     8X
                   </div>
                   <div className="mt-2 text-muted-foreground tracking-wide">
@@ -413,7 +481,7 @@ function SEOPage() {
                   </div>
                 </div>
                 <div>
-                  <div className="font-extrabold text-5xl text-accent tracking-tight lg:text-7xl">
+                  <div className="font-extrabold text-5xl text-primary tracking-tight lg:text-7xl">
                     300+
                   </div>
                   <div className="mt-2 text-muted-foreground tracking-wide">
@@ -421,7 +489,7 @@ function SEOPage() {
                   </div>
                 </div>
                 <div>
-                  <div className="font-extrabold text-5xl text-accent tracking-tight lg:text-7xl">
+                  <div className="font-extrabold text-5xl text-primary tracking-tight lg:text-7xl">
                     13+
                   </div>
                   <div className="mt-2 text-muted-foreground tracking-wide">
@@ -429,16 +497,21 @@ function SEOPage() {
                   </div>
                 </div>
               </div>
-              <div className="mt-10 rounded-2xl border border-border bg-card p-6">
+              <div className="mt-10 rounded-2xl bg-card p-6 ring-1 ring-foreground/10">
                 <p className="text-muted-foreground italic leading-relaxed tracking-wide">
                   "Working with One Percent Digital transformed our online
                   presence. We went from page 5 to the top 3 results for our key
                   terms. The leads just keep coming."
                 </p>
                 <div className="mt-4 flex items-center gap-3">
-                  <div className="flex size-12 items-center justify-center rounded-full bg-accent/10">
-                    <Users className="size-6 text-accent" />
-                  </div>
+                  <img
+                    src={getImageUrl(
+                      '51e5ac33-a0d2-4cdb-668e-581cba411a00',
+                      'thumbnail',
+                    )}
+                    alt="Goldfarb & Associates"
+                    className="h-10 w-auto object-contain dark:invert"
+                  />
                   <div>
                     <div className="font-semibold">Scott Goldfarb</div>
                     <div className="text-muted-foreground text-sm">
@@ -448,8 +521,13 @@ function SEOPage() {
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify-center">
-              {/* Placeholder for future chart/visualization */}
+            <div className="relative aspect-video overflow-hidden rounded-2xl">
+              <div className="absolute inset-0 z-30 bg-primary opacity-50 mix-blend-color" />
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop"
+                alt="Growth charts and analytics dashboard"
+                className="relative z-20 h-full w-full object-cover brightness-[0.6] grayscale"
+              />
             </div>
           </div>
         </div>
@@ -466,93 +544,17 @@ function SEOPage() {
               Everything you need to know about SEO
             </p>
           </div>
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="item-1">
-              <AccordionTrigger className="text-left font-semibold text-lg">
-                How long does SEO take to show results?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Most clients see initial improvements within 3-4 months, with
-                significant growth by month 6-8. SEO is a compound investment—
-                results accelerate over time as authority builds. Unlike paid
-                ads with immediate but temporary results, SEO creates lasting
-                value that continues growing month after month.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger className="text-left font-semibold text-lg">
-                Do you guarantee first-page rankings?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                We don't make ranking guarantees because Google's algorithm is
-                constantly evolving and no agency can control it. Instead, we
-                focus on the metrics that matter: qualified traffic, lead
-                generation, and revenue growth. Our industry-leading client
-                retention speaks to the consistent results we deliver.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-3">
-              <AccordionTrigger className="text-left font-semibold text-lg">
-                What makes your SEO approach different?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                We focus on sustainable, white-hat strategies that create
-                long-term value rather than quick wins that risk penalties. Our
-                approach combines technical excellence, high-quality content,
-                and strategic link building with a deep understanding of your
-                business goals. We're not just driving traffic—we're driving
-                revenue.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-4">
-              <AccordionTrigger className="text-left font-semibold text-lg">
-                Is SEO a one-time project or ongoing work?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                SEO requires ongoing optimization to maintain and improve
-                rankings. Search algorithms evolve, competitors adjust their
-                strategies, and new content opportunities emerge. Our clients
-                see the best results with continuous optimization that adapts to
-                changes and scales successful tactics over time.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-5">
-              <AccordionTrigger className="text-left font-semibold text-lg">
-                What kind of reporting do you provide?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                We provide comprehensive monthly reports covering ranking
-                improvements, traffic growth, conversion metrics, and
-                competitive analysis. You'll also have access to a real-time
-                dashboard showing your key SEO metrics. Most importantly, we
-                translate data into actionable insights and strategic
-                recommendations.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-6">
-              <AccordionTrigger className="text-left font-semibold text-lg">
-                Can SEO work for my industry/business type?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Yes. We've successfully implemented SEO strategies across B2B
-                SaaS, E-commerce, professional services, healthcare, finance,
-                and more. Every industry has people searching for solutions. Our
-                approach adapts to your specific market dynamics, competition
-                level, and business model to deliver results.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-7">
-              <AccordionTrigger className="text-left font-semibold text-lg">
-                What's the investment for SEO services?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Investment varies based on your goals, market competition, and
-                current SEO foundation. Most clients invest between $5,000-
-                $15,000 per month for comprehensive SEO services. We'll provide
-                a custom proposal after understanding your specific needs and
-                growth objectives. Schedule a call to discuss your situation.
-              </AccordionContent>
-            </AccordionItem>
+          <Accordion className="w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={faq.question} value={`item-${index + 1}`}>
+                <AccordionTrigger className="text-left font-semibold text-lg">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
           </Accordion>
         </div>
       </section>
@@ -569,15 +571,14 @@ function SEOPage() {
             you can afford to wait any longer.
           </p>
           <div className="mt-10">
-            <Button
-              asChild
-              size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90"
-            >
-              <Link to="/apply">
-                Apply To Work With Us
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+            <Button render={<Link to="/apply" />} size="lg">
+              Apply To Work With Us
+              <HugeiconsIcon
+                icon={ArrowRight01Icon}
+                size={18}
+                strokeWidth={2}
+                data-icon="inline-end"
+              />
             </Button>
           </div>
           <p className="mt-6 text-muted-foreground text-sm tracking-wide">

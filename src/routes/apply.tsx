@@ -1,14 +1,15 @@
-import { createFileRoute } from '@tanstack/react-router';
 import {
-  ArrowRight,
-  BarChart3,
-  DollarSign,
-  Lightbulb,
-  Shield,
-  Target,
-  TrendingUp,
-  Users,
-} from 'lucide-react';
+  ArrowRight01Icon,
+  ChartIncreaseIcon,
+  ChartLineData01Icon,
+  DollarCircleIcon,
+  Idea01Icon,
+  Shield01Icon,
+  Target01Icon,
+  UserGroupIcon,
+} from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { createFileRoute } from '@tanstack/react-router';
 import { useEffect } from 'react';
 import {
   Accordion,
@@ -50,9 +51,12 @@ function ApplyPage() {
               {/* Key Benefits List */}
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 rounded-lg bg-accent/10 p-2">
-                    <Target className="size-5 text-accent" />
-                  </div>
+                  <HugeiconsIcon
+                    icon={Target01Icon}
+                    size={24}
+                    strokeWidth={1.5}
+                    className="mt-0.5 shrink-0 text-primary"
+                  />
                   <div>
                     <h3 className="mb-1 font-semibold text-foreground">
                       Strategic Assessment
@@ -65,9 +69,12 @@ function ApplyPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 rounded-lg bg-accent/10 p-2">
-                    <TrendingUp className="size-5 text-accent" />
-                  </div>
+                  <HugeiconsIcon
+                    icon={ChartIncreaseIcon}
+                    size={24}
+                    strokeWidth={1.5}
+                    className="mt-0.5 shrink-0 text-primary"
+                  />
                   <div>
                     <h3 className="mb-1 font-semibold text-foreground">
                       Competitive Analysis
@@ -80,9 +87,12 @@ function ApplyPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 rounded-lg bg-accent/10 p-2">
-                    <Lightbulb className="size-5 text-accent" />
-                  </div>
+                  <HugeiconsIcon
+                    icon={Idea01Icon}
+                    size={24}
+                    strokeWidth={1.5}
+                    className="mt-0.5 shrink-0 text-primary"
+                  />
                   <div>
                     <h3 className="mb-1 font-semibold text-foreground">
                       Growth Strategy Discussion
@@ -95,9 +105,12 @@ function ApplyPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 rounded-lg bg-accent/10 p-2">
-                    <DollarSign className="size-5 text-accent" />
-                  </div>
+                  <HugeiconsIcon
+                    icon={DollarCircleIcon}
+                    size={24}
+                    strokeWidth={1.5}
+                    className="mt-0.5 shrink-0 text-primary"
+                  />
                   <div>
                     <h3 className="mb-1 font-semibold text-foreground">
                       Custom Recommendations
@@ -110,9 +123,12 @@ function ApplyPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 rounded-lg bg-accent/10 p-2">
-                    <Shield className="size-5 text-accent" />
-                  </div>
+                  <HugeiconsIcon
+                    icon={Shield01Icon}
+                    size={24}
+                    strokeWidth={1.5}
+                    className="mt-0.5 shrink-0 text-primary"
+                  />
                   <div>
                     <h3 className="mb-1 font-semibold text-foreground">
                       Selective Partnership
@@ -149,14 +165,15 @@ function ApplyPage() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {/* Step 1 */}
-            <div className="text-center">
-              <div className="mb-4 flex items-center justify-between">
-                <div className="rounded-lg bg-accent/10 p-3">
-                  <ArrowRight className="size-6 text-accent" />
-                </div>
-                <div className="font-bold text-3xl text-accent/30 tracking-tight">
-                  01
-                </div>
+            <div className="rounded-2xl bg-card p-8 ring-1 ring-foreground/10">
+              <div className="mb-4 flex items-start justify-between">
+                <div className="font-bold text-4xl text-primary">01</div>
+                <HugeiconsIcon
+                  icon={ArrowRight01Icon}
+                  size={24}
+                  strokeWidth={1.5}
+                  className="text-muted-foreground"
+                />
               </div>
               <h3 className="mb-3 font-bold text-2xl">Schedule a Call</h3>
               <p className="text-muted-foreground leading-relaxed tracking-wide">
@@ -166,14 +183,15 @@ function ApplyPage() {
             </div>
 
             {/* Step 2 */}
-            <div className="text-center">
-              <div className="mb-4 flex items-center justify-between">
-                <div className="rounded-lg bg-accent/10 p-3">
-                  <Target className="size-6 text-accent" />
-                </div>
-                <div className="font-bold text-3xl text-accent/30 tracking-tight">
-                  02
-                </div>
+            <div className="rounded-2xl bg-card p-8 ring-1 ring-foreground/10">
+              <div className="mb-4 flex items-start justify-between">
+                <div className="font-bold text-4xl text-primary">02</div>
+                <HugeiconsIcon
+                  icon={Target01Icon}
+                  size={24}
+                  strokeWidth={1.5}
+                  className="text-muted-foreground"
+                />
               </div>
               <h3 className="mb-3 font-bold text-2xl">We Do Our Homework</h3>
               <p className="text-muted-foreground leading-relaxed tracking-wide">
@@ -183,14 +201,15 @@ function ApplyPage() {
             </div>
 
             {/* Step 3 */}
-            <div className="text-center">
-              <div className="mb-4 flex items-center justify-between">
-                <div className="rounded-lg bg-accent/10 p-3">
-                  <Users className="size-6 text-accent" />
-                </div>
-                <div className="font-bold text-3xl text-accent/30 tracking-tight">
-                  03
-                </div>
+            <div className="rounded-2xl bg-card p-8 ring-1 ring-foreground/10">
+              <div className="mb-4 flex items-start justify-between">
+                <div className="font-bold text-4xl text-primary">03</div>
+                <HugeiconsIcon
+                  icon={UserGroupIcon}
+                  size={24}
+                  strokeWidth={1.5}
+                  className="text-muted-foreground"
+                />
               </div>
               <h3 className="mb-3 font-bold text-2xl">Qualification Call</h3>
               <p className="text-muted-foreground leading-relaxed tracking-wide">
@@ -200,14 +219,15 @@ function ApplyPage() {
             </div>
 
             {/* Step 4 */}
-            <div className="text-center">
-              <div className="mb-4 flex items-center justify-between">
-                <div className="rounded-lg bg-accent/10 p-3">
-                  <Lightbulb className="size-6 text-accent" />
-                </div>
-                <div className="font-bold text-3xl text-accent/30 tracking-tight">
-                  04
-                </div>
+            <div className="rounded-2xl bg-card p-8 ring-1 ring-foreground/10">
+              <div className="mb-4 flex items-start justify-between">
+                <div className="font-bold text-4xl text-primary">04</div>
+                <HugeiconsIcon
+                  icon={Idea01Icon}
+                  size={24}
+                  strokeWidth={1.5}
+                  className="text-muted-foreground"
+                />
               </div>
               <h3 className="mb-3 font-bold text-2xl">Next Steps</h3>
               <p className="text-muted-foreground leading-relaxed tracking-wide">
@@ -224,9 +244,12 @@ function ApplyPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                <TrendingUp className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={ChartIncreaseIcon}
+                size={32}
+                strokeWidth={1.5}
+                className="mx-auto mb-3 text-primary"
+              />
               <div className="mb-2 font-extrabold text-5xl leading-none tracking-tight lg:text-7xl">
                 300+
               </div>
@@ -236,9 +259,12 @@ function ApplyPage() {
             </div>
 
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                <DollarSign className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={DollarCircleIcon}
+                size={32}
+                strokeWidth={1.5}
+                className="mx-auto mb-3 text-primary"
+              />
               <div className="mb-2 font-extrabold text-5xl leading-none tracking-tight lg:text-7xl">
                 $200M+
               </div>
@@ -248,9 +274,12 @@ function ApplyPage() {
             </div>
 
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                <BarChart3 className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={ChartLineData01Icon}
+                size={32}
+                strokeWidth={1.5}
+                className="mx-auto mb-3 text-primary"
+              />
               <div className="mb-2 font-extrabold text-5xl leading-none tracking-tight lg:text-7xl">
                 8X
               </div>
@@ -274,7 +303,7 @@ function ApplyPage() {
             </p>
           </div>
 
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion className="w-full">
             <AccordionItem value="item-1">
               <AccordionTrigger className="text-left font-semibold text-lg">
                 What happens during the qualification call?
@@ -347,7 +376,7 @@ function CalendlyEmbed() {
   }, []);
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-border shadow-lg dark:shadow-accent/5 dark:[&_.calendly-inline-widget]:hue-rotate-180 dark:[&_.calendly-inline-widget]:invert">
+    <div className="overflow-hidden rounded-2xl border border-border shadow-lg dark:shadow-primary/5 dark:[&_.calendly-inline-widget]:hue-rotate-180 dark:[&_.calendly-inline-widget]:invert">
       <div
         className="calendly-inline-widget"
         data-url="https://calendly.com/onepercentseo/marketing-strategy-session?hide_gdpr_banner=1&text_color=121212&primary_color=00cccc"

@@ -55,12 +55,8 @@ export function Footer() {
           </p>
 
           <div className="flex items-center gap-4">
-            <Button
-              asChild
-              size="sm"
-              className="bg-accent text-accent-foreground hover:bg-accent/90"
-            >
-              <Link to={footer.cta.href}>{footer.cta.label}</Link>
+            <Button render={<Link to={footer.cta.href} />} size="sm">
+              {footer.cta.label}
             </Button>
             <ThemeToggle />
           </div>

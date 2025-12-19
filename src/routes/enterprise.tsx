@@ -1,22 +1,23 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
 import {
-  ArrowRight,
-  BarChart3,
-  Brain,
-  CheckCircle2,
-  DollarSign,
-  FileText,
-  Globe2,
-  GraduationCap,
-  Headphones,
-  Network,
-  Search,
-  Shield,
-  Target,
-  TrendingUp,
-  Users2,
-  Zap,
-} from 'lucide-react';
+  ArrowRight01Icon,
+  Brain01Icon,
+  ChartIncreaseIcon,
+  ChartLineData01Icon,
+  CheckmarkCircle02Icon,
+  DollarCircleIcon,
+  File01Icon,
+  FlashIcon,
+  Globe02Icon,
+  GraduationScrollIcon,
+  HeadphonesIcon,
+  HierarchySquare01Icon,
+  Search01Icon,
+  Shield01Icon,
+  Target01Icon,
+  UserGroupIcon,
+} from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { createFileRoute, Link } from '@tanstack/react-router';
 import { SEO } from '@/components/SEO';
 import {
   Accordion,
@@ -73,18 +74,21 @@ function EnterprisePage() {
               support, and guaranteed results.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
-              >
-                <Link to="/apply">
-                  Apply To Work With Us
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+              <Button render={<Link to="/apply" />} size="lg">
+                Apply To Work With Us
+                <HugeiconsIcon
+                  icon={ArrowRight01Icon}
+                  size={20}
+                  strokeWidth={2}
+                  data-icon="inline-end"
+                />
               </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/case-studies">View Case Studies</Link>
+              <Button
+                render={<Link to="/case-studies" />}
+                size="lg"
+                variant="outline"
+              >
+                View Case Studies
               </Button>
             </div>
           </div>
@@ -119,16 +123,20 @@ function EnterprisePage() {
                 drives success.
               </p>
             </div>
-            <div className="flex items-center justify-center">
-              {/* Placeholder for future visualization */}
-              <div className="h-full w-full" />
+            <div className="relative aspect-video overflow-hidden rounded-2xl">
+              <div className="absolute inset-0 z-30 bg-primary opacity-50 mix-blend-color" />
+              <img
+                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=450&fit=crop"
+                alt="Corporate strategy session"
+                className="relative z-20 h-full w-full object-cover brightness-[0.6] grayscale"
+              />
             </div>
           </div>
 
           {/* Mini Stats */}
           <div className="mt-16 grid gap-8 sm:grid-cols-2">
             <div className="rounded-2xl border border-border bg-card p-8 text-center">
-              <div className="mb-2 font-extrabold text-4xl text-accent tracking-tight lg:text-6xl">
+              <div className="mb-2 font-extrabold text-4xl text-primary tracking-tight lg:text-6xl">
                 Worldwide
               </div>
               <div className="text-muted-foreground text-sm tracking-wide">
@@ -136,7 +144,7 @@ function EnterprisePage() {
               </div>
             </div>
             <div className="rounded-2xl border border-border bg-card p-8 text-center">
-              <div className="mb-2 font-extrabold text-5xl text-accent tracking-tight lg:text-7xl">
+              <div className="mb-2 font-extrabold text-5xl text-primary tracking-tight lg:text-7xl">
                 24/7
               </div>
               <div className="text-muted-foreground text-sm tracking-wide">
@@ -161,10 +169,15 @@ function EnterprisePage() {
           </div>
 
           <div className="grid gap-8 lg:grid-cols-4">
-            <div className="rounded-2xl border border-border bg-card p-8 transition-all hover:border-accent/50 hover:shadow-lg">
-              <div className="mb-4 font-bold text-3xl text-accent/30">01</div>
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <Target className="h-8 w-8 text-accent" />
+            <div className="rounded-2xl border border-border bg-card p-8 ring-1 ring-foreground/10 transition-all hover:shadow-lg hover:shadow-primary/10 hover:ring-primary/50">
+              <div className="mb-4 flex items-start justify-between">
+                <div className="font-bold text-4xl text-primary">01</div>
+                <HugeiconsIcon
+                  icon={Target01Icon}
+                  size={24}
+                  strokeWidth={1.5}
+                  className="text-muted-foreground"
+                />
               </div>
               <h3 className="mb-3 font-bold text-2xl">
                 Discovery & Enterprise Audit
@@ -176,10 +189,15 @@ function EnterprisePage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-8 transition-all hover:border-accent/50 hover:shadow-lg">
-              <div className="mb-4 font-bold text-3xl text-accent/30">02</div>
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <FileText className="h-8 w-8 text-accent" />
+            <div className="rounded-2xl border border-border bg-card p-8 ring-1 ring-foreground/10 transition-all hover:shadow-lg hover:shadow-primary/10 hover:ring-primary/50">
+              <div className="mb-4 flex items-start justify-between">
+                <div className="font-bold text-4xl text-primary">02</div>
+                <HugeiconsIcon
+                  icon={File01Icon}
+                  size={24}
+                  strokeWidth={1.5}
+                  className="text-muted-foreground"
+                />
               </div>
               <h3 className="mb-3 font-bold text-2xl">
                 Custom Strategy Development
@@ -191,10 +209,15 @@ function EnterprisePage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-8 transition-all hover:border-accent/50 hover:shadow-lg">
-              <div className="mb-4 font-bold text-3xl text-accent/30">03</div>
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <Network className="h-8 w-8 text-accent" />
+            <div className="rounded-2xl border border-border bg-card p-8 ring-1 ring-foreground/10 transition-all hover:shadow-lg hover:shadow-primary/10 hover:ring-primary/50">
+              <div className="mb-4 flex items-start justify-between">
+                <div className="font-bold text-4xl text-primary">03</div>
+                <HugeiconsIcon
+                  icon={HierarchySquare01Icon}
+                  size={24}
+                  strokeWidth={1.5}
+                  className="text-muted-foreground"
+                />
               </div>
               <h3 className="mb-3 font-bold text-2xl">
                 Implementation & Integration
@@ -206,10 +229,15 @@ function EnterprisePage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-8 transition-all hover:border-accent/50 hover:shadow-lg">
-              <div className="mb-4 font-bold text-3xl text-accent/30">04</div>
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <TrendingUp className="h-8 w-8 text-accent" />
+            <div className="rounded-2xl border border-border bg-card p-8 ring-1 ring-foreground/10 transition-all hover:shadow-lg hover:shadow-primary/10 hover:ring-primary/50">
+              <div className="mb-4 flex items-start justify-between">
+                <div className="font-bold text-4xl text-primary">04</div>
+                <HugeiconsIcon
+                  icon={ChartIncreaseIcon}
+                  size={24}
+                  strokeWidth={1.5}
+                  className="text-muted-foreground"
+                />
               </div>
               <h3 className="mb-3 font-bold text-2xl">
                 Ongoing Optimization & Support
@@ -239,9 +267,12 @@ function EnterprisePage() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <Users2 className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={UserGroupIcon}
+                size={32}
+                strokeWidth={1.5}
+                className="mb-4 text-primary"
+              />
               <h3 className="mb-3 font-bold text-xl lg:text-2xl">
                 Dedicated Account Management
               </h3>
@@ -253,9 +284,12 @@ function EnterprisePage() {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <BarChart3 className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={ChartLineData01Icon}
+                size={32}
+                strokeWidth={1.5}
+                className="mb-4 text-primary"
+              />
               <h3 className="mb-3 font-bold text-xl lg:text-2xl">
                 Custom Reporting & Analytics
               </h3>
@@ -267,9 +301,12 @@ function EnterprisePage() {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <Shield className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={Shield01Icon}
+                size={32}
+                strokeWidth={1.5}
+                className="mb-4 text-primary"
+              />
               <h3 className="mb-3 font-bold text-xl lg:text-2xl">
                 Enterprise Security & Compliance
               </h3>
@@ -280,9 +317,12 @@ function EnterprisePage() {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <Globe2 className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={Globe02Icon}
+                size={32}
+                strokeWidth={1.5}
+                className="mb-4 text-primary"
+              />
               <h3 className="mb-3 font-bold text-xl lg:text-2xl">
                 Multi-Location/Brand Coordination
               </h3>
@@ -294,9 +334,12 @@ function EnterprisePage() {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <Headphones className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={HeadphonesIcon}
+                size={32}
+                strokeWidth={1.5}
+                className="mb-4 text-primary"
+              />
               <h3 className="mb-3 font-bold text-xl lg:text-2xl">
                 White-Glove Support
               </h3>
@@ -308,9 +351,12 @@ function EnterprisePage() {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <Zap className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={FlashIcon}
+                size={32}
+                strokeWidth={1.5}
+                className="mb-4 text-primary"
+              />
               <h3 className="mb-3 font-bold text-xl lg:text-2xl">
                 Advanced Integration Capabilities
               </h3>
@@ -339,39 +385,67 @@ function EnterprisePage() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <Target className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={Target01Icon}
+                size={32}
+                strokeWidth={1.5}
+                className="mb-4 text-primary"
+              />
               <h3 className="mb-4 font-bold text-xl lg:text-2xl">
                 Strategic Consulting & Planning
               </h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Quarterly strategic planning sessions
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Executive stakeholder reporting
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Competitive intelligence & market analysis
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Multi-year roadmap development
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Budget planning & ROI forecasting
                   </span>
@@ -380,39 +454,67 @@ function EnterprisePage() {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <Search className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={Search01Icon}
+                size={32}
+                strokeWidth={1.5}
+                className="mb-4 text-primary"
+              />
               <h3 className="mb-4 font-bold text-xl lg:text-2xl">
                 Enterprise SEO
               </h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Enterprise site architecture optimization
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     International SEO & hreflang management
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Advanced schema markup & structured data
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Core Web Vitals optimization at scale
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Multi-location search presence
                   </span>
@@ -421,39 +523,67 @@ function EnterprisePage() {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <Brain className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={Brain01Icon}
+                size={32}
+                strokeWidth={1.5}
+                className="mb-4 text-primary"
+              />
               <h3 className="mb-4 font-bold text-xl lg:text-2xl">
                 Enterprise GEO
               </h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Multi-brand AI visibility strategy
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     ChatGPT, Claude & Perplexity optimization
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Enterprise knowledge graph development
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     AI citation monitoring at scale
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Competitive AI positioning
                   </span>
@@ -462,39 +592,67 @@ function EnterprisePage() {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <Globe2 className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={Globe02Icon}
+                size={32}
+                strokeWidth={1.5}
+                className="mb-4 text-primary"
+              />
               <h3 className="mb-4 font-bold text-xl lg:text-2xl">
                 Multi-Location Management
               </h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Centralized local listings management
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Multi-location review management
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Location-specific landing pages
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Regional performance tracking
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Franchise/dealer network optimization
                   </span>
@@ -503,39 +661,67 @@ function EnterprisePage() {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <GraduationCap className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={GraduationScrollIcon}
+                size={32}
+                strokeWidth={1.5}
+                className="mb-4 text-primary"
+              />
               <h3 className="mb-4 font-bold text-xl lg:text-2xl">
                 Enterprise Training & Onboarding
               </h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Custom training programs for stakeholders
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     White-glove onboarding process
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Documentation & playbook development
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Ongoing education & certification
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Change management support
                   </span>
@@ -544,39 +730,67 @@ function EnterprisePage() {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <DollarSign className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={DollarCircleIcon}
+                size={32}
+                strokeWidth={1.5}
+                className="mb-4 text-primary"
+              />
               <h3 className="mb-4 font-bold text-xl lg:text-2xl">
                 Enterprise Lead Generation
               </h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Scalable pay-per-lead programs
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Multi-location campaign management
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Enterprise CRM integration
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Volume-based pricing tiers
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" />
+                  <HugeiconsIcon
+                    icon={CheckmarkCircle02Icon}
+                    size={20}
+                    strokeWidth={1.5}
+                    className="mt-1 shrink-0 text-primary"
+                  />
                   <span className="text-muted-foreground text-sm tracking-wide">
                     Dedicated lead quality management
                   </span>
@@ -611,7 +825,7 @@ function EnterprisePage() {
 
               <div className="grid gap-6 sm:grid-cols-3">
                 <div className="rounded-2xl border border-border bg-card p-6">
-                  <div className="mb-2 font-extrabold text-3xl text-accent tracking-tight sm:text-4xl">
+                  <div className="mb-2 font-extrabold text-3xl text-primary tracking-tight sm:text-4xl">
                     $200M
                   </div>
                   <div className="text-muted-foreground text-sm leading-relaxed tracking-wide">
@@ -619,7 +833,7 @@ function EnterprisePage() {
                   </div>
                 </div>
                 <div className="rounded-2xl border border-border bg-card p-6">
-                  <div className="mb-2 font-extrabold text-3xl text-accent tracking-tight sm:text-4xl">
+                  <div className="mb-2 font-extrabold text-3xl text-primary tracking-tight sm:text-4xl">
                     8X
                   </div>
                   <div className="text-muted-foreground text-sm leading-relaxed tracking-wide">
@@ -627,7 +841,7 @@ function EnterprisePage() {
                   </div>
                 </div>
                 <div className="rounded-2xl border border-border bg-card p-6">
-                  <div className="mb-2 font-extrabold text-3xl text-accent tracking-tight sm:text-4xl">
+                  <div className="mb-2 font-extrabold text-3xl text-primary tracking-tight sm:text-4xl">
                     1000%
                   </div>
                   <div className="text-muted-foreground text-sm leading-relaxed tracking-wide">
@@ -636,9 +850,13 @@ function EnterprisePage() {
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify-center">
-              {/* Placeholder for future visualization */}
-              <div className="h-full w-full" />
+            <div className="relative aspect-video overflow-hidden rounded-2xl">
+              <div className="absolute inset-0 z-30 bg-primary opacity-50 mix-blend-color" />
+              <img
+                src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=450&fit=crop"
+                alt="Executive business presentation"
+                className="relative z-20 h-full w-full object-cover brightness-[0.6] grayscale"
+              />
             </div>
           </div>
         </div>
@@ -656,7 +874,7 @@ function EnterprisePage() {
             </p>
           </div>
 
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion className="w-full">
             <AccordionItem value="item-1">
               <AccordionTrigger className="text-left font-semibold text-lg">
                 What's the minimum engagement for enterprise services?
@@ -686,10 +904,8 @@ function EnterprisePage() {
                 $15,000-$75,000+ per month on annual contracts. Pricing includes
                 dedicated account management, unlimited stakeholder support,
                 custom reporting dashboards, SLA guarantees, and access to all
-                enterprise features. We provide transparent ROI projections and
-                work within your budget to maximize impact. Volume discounts and
-                multi-year agreements are available for qualifying
-                organizations.
+                enterprise features. Volume discounts and multi-year agreements
+                are available for qualifying organizations.
               </AccordionContent>
             </AccordionItem>
 
@@ -808,15 +1024,14 @@ function EnterprisePage() {
             Performance Marketing. See how we can transform your visibility and
             lead generation at scale.
           </p>
-          <Button
-            asChild
-            size="lg"
-            className="bg-accent text-accent-foreground hover:bg-accent/90"
-          >
-            <Link to="/apply">
-              Apply To Work With Us
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
+          <Button render={<Link to="/apply" />} size="lg">
+            Apply To Work With Us
+            <HugeiconsIcon
+              icon={ArrowRight01Icon}
+              size={20}
+              strokeWidth={2}
+              data-icon="inline-end"
+            />
           </Button>
           <p className="mt-6 text-muted-foreground text-sm">
             No obligation • No sales pressure • Just a conversation

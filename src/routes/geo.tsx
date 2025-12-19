@@ -1,20 +1,20 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
 import {
-  ArrowRight,
-  Award,
-  BarChart3,
-  Brain,
-  CheckCircle2,
-  Globe,
-  Lightbulb,
-  MessageSquare,
-  Shield,
-  Sparkles,
-  Target,
-  TrendingUp,
-  Users,
-  Zap,
-} from 'lucide-react';
+  Analytics01Icon,
+  ArrowRight01Icon,
+  Award01Icon,
+  BrowserIcon,
+  BubbleChatIcon,
+  ChartIncreaseIcon,
+  CheckmarkCircle02Icon,
+  Idea01Icon,
+  NeuralNetworkIcon,
+  SecurityCheckIcon,
+  SparklesIcon,
+  Target01Icon,
+  ZapIcon,
+} from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { createFileRoute, Link } from '@tanstack/react-router';
 import { SEO } from '@/components/SEO';
 import {
   Accordion,
@@ -23,6 +23,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
+import { getImageUrl } from '@/lib/cloudflare-images';
 import { generateMetaTags } from '@/lib/seo';
 
 export const Route = createFileRoute('/geo')({
@@ -35,6 +36,178 @@ export const Route = createFileRoute('/geo')({
       url: 'https://onepercentseo.com/geo',
     }),
 });
+
+const processSteps = [
+  {
+    number: '01',
+    icon: Target01Icon,
+    title: 'AI Research',
+    description:
+      'We analyze how AI engines currently perceive your brand and identify optimization opportunities across ChatGPT, Claude, Perplexity, and Gemini.',
+  },
+  {
+    number: '02',
+    icon: Idea01Icon,
+    title: 'Content Optimization',
+    description:
+      'Optimize existing content and create new authoritative resources structured for AI comprehension and citation.',
+  },
+  {
+    number: '03',
+    icon: BrowserIcon,
+    title: 'Authority Building',
+    description:
+      'Build entity relationships, structured data, and high-quality citations that AI systems recognize as trustworthy sources.',
+  },
+  {
+    number: '04',
+    icon: Analytics01Icon,
+    title: 'Monitoring & Refinement',
+    description:
+      'Track AI citations, brand mentions, and recommendation frequency. Continuously refine strategy based on AI behavior.',
+  },
+];
+
+const benefits = [
+  {
+    icon: ZapIcon,
+    title: 'First-Mover Advantage',
+    description:
+      "Most brands haven't optimized for AI search yet. Establish leadership before your competitors catch on.",
+  },
+  {
+    icon: ChartIncreaseIcon,
+    title: 'Exponential Visibility',
+    description:
+      'One AI citation can reach millions of users. Your brand becomes the default recommendation.',
+  },
+  {
+    icon: SecurityCheckIcon,
+    title: 'Future-Proof Strategy',
+    description:
+      'AI search is growing 400% year-over-year. Position your brand for the next decade of search.',
+  },
+  {
+    icon: Award01Icon,
+    title: 'Trust & Authority',
+    description:
+      'Being cited by AI systems establishes your brand as the authoritative source in your industry.',
+  },
+  {
+    icon: BubbleChatIcon,
+    title: 'Direct Engagement',
+    description:
+      'AI delivers your brand directly in conversation, bypassing traditional search result competition.',
+  },
+  {
+    icon: Analytics01Icon,
+    title: 'Measurable Impact',
+    description:
+      'Track AI citations, brand mentions, and recommendation frequency across all major platforms.',
+  },
+];
+
+const services = [
+  {
+    icon: NeuralNetworkIcon,
+    title: 'AI Engine Analysis',
+    features: [
+      'ChatGPT brand perception audit',
+      'Claude citation analysis',
+      'Perplexity source tracking',
+      'Gemini recommendation review',
+      'Competitor AI presence analysis',
+    ],
+  },
+  {
+    icon: SparklesIcon,
+    title: 'Content Optimization',
+    features: [
+      'AI-readable content structure',
+      'Entity-based content strategy',
+      'Knowledge graph optimization',
+      'FAQ and Q&A formatting',
+      'Authoritative source development',
+    ],
+  },
+  {
+    icon: BrowserIcon,
+    title: 'Authority Building',
+    features: [
+      'High-quality citation development',
+      'Industry partnership outreach',
+      'Thought leadership placement',
+      'Expert profile optimization',
+      'Knowledge base expansion',
+    ],
+  },
+  {
+    icon: Target01Icon,
+    title: 'Structured Data',
+    features: [
+      'Schema.org implementation',
+      'Knowledge panel optimization',
+      'Entity relationship mapping',
+      'Rich snippet enhancement',
+      'OpenGraph optimization',
+    ],
+  },
+  {
+    icon: Analytics01Icon,
+    title: 'Performance Tracking',
+    features: [
+      'AI citation monitoring',
+      'Brand mention tracking',
+      'Recommendation frequency analysis',
+      'Competitive positioning reports',
+      'Monthly performance reviews',
+    ],
+  },
+  {
+    icon: Idea01Icon,
+    title: 'Strategy & Consulting',
+    features: [
+      'Quarterly GEO strategy sessions',
+      'AI trend analysis and reporting',
+      'Content recommendations',
+      'Emerging platform evaluation',
+      'Executive briefings',
+    ],
+  },
+];
+
+const faqs = [
+  {
+    question: 'How is GEO different from traditional SEO?',
+    answer:
+      "Traditional SEO focuses on ranking in search engine results pages where users click links. GEO optimizes for AI engines that synthesize information and provide direct answers. Instead of competing for clicks, you're ensuring your brand is the authoritative source that AI systems cite and recommend. Both are essential for comprehensive digital visibility.",
+  },
+  {
+    question: 'Which AI platforms do you optimize for?',
+    answer:
+      'We optimize for all major generative AI platforms including ChatGPT (OpenAI), Claude (Anthropic), Perplexity, Gemini (Google), Microsoft Copilot, and emerging platforms. Our strategy is platform-agnostic, focusing on fundamental authority building that works across all AI systems.',
+  },
+  {
+    question: 'How long does it take to see results?',
+    answer:
+      'Initial AI citations typically appear within 6-8 weeks. However, GEO is an ongoing strategy. The first-mover advantage means early adopters establish leadership that becomes increasingly difficult for competitors to overcome. Most clients see significant improvements in AI visibility within 3-4 months.',
+  },
+  {
+    question: 'Can GEO work alongside our existing SEO strategy?',
+    answer:
+      'Absolutely. GEO and SEO are complementary strategies. Many optimizations (like structured data, authoritative content, and entity building) benefit both traditional search engines and AI platforms. We design our GEO strategy to enhance, not replace, your existing SEO efforts.',
+  },
+  {
+    question: 'How do you measure GEO success?',
+    answer:
+      "We track AI citation frequency, brand mention sentiment, recommendation positioning, and share of voice across AI platforms. Our custom monitoring tools query AI engines with industry-relevant prompts and track when and how your brand is referenced. You'll receive monthly reports with clear metrics and competitive benchmarking.",
+  },
+  {
+    question: 'Is GEO worth it if AI search is still emerging?',
+    answer:
+      'This is precisely why GEO is critical now. AI search is growing 400% year-over-year, and early adopters are establishing category authority that will be difficult to displace. By the time AI search becomes mainstream, you want to already be the default recommendation—not fighting for visibility against established competitors.',
+  },
+];
 
 function GEOPage() {
   const serviceSchema = {
@@ -71,18 +244,21 @@ function GEOPage() {
               AI recommends solutions.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
-              >
-                <Link to="/apply">
-                  Apply To Work With Us
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+              <Button render={<Link to="/apply" />} size="lg">
+                Apply To Work With Us
+                <HugeiconsIcon
+                  icon={ArrowRight01Icon}
+                  size={18}
+                  strokeWidth={2}
+                  data-icon="inline-end"
+                />
               </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/case-studies">View Case Studies</Link>
+              <Button
+                render={<Link to="/case-studies" />}
+                size="lg"
+                variant="outline"
+              >
+                View Case Studies
               </Button>
             </div>
           </div>
@@ -110,24 +286,24 @@ function GEOPage() {
                 trust and reference.
               </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                <div className="rounded-xl border border-border bg-card p-4">
-                  <div className="font-extrabold text-3xl text-accent tracking-tight">
+                <div className="rounded-xl bg-card p-4 ring-1 ring-foreground/10">
+                  <div className="font-extrabold text-3xl text-primary tracking-tight">
                     400%
                   </div>
                   <div className="mt-1 text-muted-foreground text-sm tracking-wide">
                     Increase in AI Searches Monthly
                   </div>
                 </div>
-                <div className="rounded-xl border border-border bg-card p-4">
-                  <div className="font-extrabold text-3xl text-accent tracking-tight">
+                <div className="rounded-xl bg-card p-4 ring-1 ring-foreground/10">
+                  <div className="font-extrabold text-3xl text-primary tracking-tight">
                     10%
                   </div>
                   <div className="mt-1 text-muted-foreground text-sm tracking-wide">
                     Increase in AI Usage Monthly
                   </div>
                 </div>
-                <div className="rounded-xl border border-border bg-card p-4">
-                  <div className="font-extrabold text-3xl text-accent tracking-tight">
+                <div className="rounded-xl bg-card p-4 ring-1 ring-foreground/10">
+                  <div className="font-extrabold text-3xl text-primary tracking-tight">
                     First
                   </div>
                   <div className="mt-1 text-muted-foreground text-sm tracking-wide">
@@ -136,8 +312,13 @@ function GEOPage() {
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify-center">
-              {/* Placeholder for future visualization */}
+            <div className="relative aspect-video overflow-hidden rounded-2xl">
+              <div className="absolute inset-0 z-30 bg-primary opacity-50 mix-blend-color" />
+              <img
+                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=450&fit=crop"
+                alt="Server hardware and data infrastructure"
+                className="relative z-20 h-full w-full object-cover brightness-[0.6] grayscale"
+              />
             </div>
           </div>
         </div>
@@ -155,47 +336,21 @@ function GEOPage() {
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                number: '01',
-                icon: Target,
-                title: 'AI Research',
-                description:
-                  'We analyze how AI engines currently perceive your brand and identify optimization opportunities across ChatGPT, Claude, Perplexity, and Gemini.',
-              },
-              {
-                number: '02',
-                icon: Lightbulb,
-                title: 'Content Optimization',
-                description:
-                  'Optimize existing content and create new authoritative resources structured for AI comprehension and citation.',
-              },
-              {
-                number: '03',
-                icon: Globe,
-                title: 'Authority Building',
-                description:
-                  'Build entity relationships, structured data, and high-quality citations that AI systems recognize as trustworthy sources.',
-              },
-              {
-                number: '04',
-                icon: BarChart3,
-                title: 'Monitoring & Refinement',
-                description:
-                  'Track AI citations, brand mentions, and recommendation frequency. Continuously refine strategy based on AI behavior.',
-              },
-            ].map((step) => (
+            {processSteps.map((step) => (
               <div
                 key={step.number}
-                className="group rounded-2xl border border-border bg-card p-8 transition-all hover:border-accent/50 hover:shadow-accent/10 hover:shadow-lg"
+                className="group rounded-2xl bg-card p-8 ring-1 ring-foreground/10 transition-all hover:shadow-lg hover:shadow-primary/10 hover:ring-primary/50"
               >
                 <div className="mb-4 flex items-start justify-between">
-                  <div className="rounded-lg bg-accent/10 p-3">
-                    <step.icon className="size-6 text-accent" />
-                  </div>
-                  <div className="font-bold text-3xl text-accent/30 tracking-tight">
+                  <div className="font-bold text-4xl text-primary">
                     {step.number}
                   </div>
+                  <HugeiconsIcon
+                    icon={step.icon}
+                    size={24}
+                    strokeWidth={1.5}
+                    className="text-muted-foreground"
+                  />
                 </div>
                 <h3 className="mb-3 font-bold text-2xl">{step.title}</h3>
                 <p className="text-muted-foreground leading-relaxed tracking-wide">
@@ -219,51 +374,17 @@ function GEOPage() {
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                icon: Zap,
-                title: 'First-Mover Advantage',
-                description:
-                  "Most brands haven't optimized for AI search yet. Establish leadership before your competitors catch on.",
-              },
-              {
-                icon: TrendingUp,
-                title: 'Exponential Visibility',
-                description:
-                  'One AI citation can reach millions of users. Your brand becomes the default recommendation.',
-              },
-              {
-                icon: Shield,
-                title: 'Future-Proof Strategy',
-                description:
-                  'AI search is growing 400% year-over-year. Position your brand for the next decade of search.',
-              },
-              {
-                icon: Users,
-                title: 'Trust & Authority',
-                description:
-                  'Being cited by AI systems establishes your brand as the authoritative source in your industry.',
-              },
-              {
-                icon: MessageSquare,
-                title: 'Direct Engagement',
-                description:
-                  'AI delivers your brand directly in conversation, bypassing traditional search result competition.',
-              },
-              {
-                icon: Award,
-                title: 'Measurable Impact',
-                description:
-                  'Track AI citations, brand mentions, and recommendation frequency across all major platforms.',
-              },
-            ].map((benefit) => (
+            {benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="rounded-2xl border border-border bg-card p-8"
+                className="rounded-2xl bg-card p-8 ring-1 ring-foreground/10"
               >
-                <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                  <benefit.icon className="size-6 text-accent" />
-                </div>
+                <HugeiconsIcon
+                  icon={benefit.icon}
+                  size={32}
+                  strokeWidth={1.5}
+                  className="mb-4 text-primary"
+                />
                 <h3 className="mb-3 font-bold text-xl lg:text-2xl">
                   {benefit.title}
                 </h3>
@@ -288,88 +409,29 @@ function GEOPage() {
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                icon: Brain,
-                title: 'AI Engine Analysis',
-                features: [
-                  'ChatGPT brand perception audit',
-                  'Claude citation analysis',
-                  'Perplexity source tracking',
-                  'Gemini recommendation review',
-                  'Competitor AI presence analysis',
-                ],
-              },
-              {
-                icon: Sparkles,
-                title: 'Content Optimization',
-                features: [
-                  'AI-readable content structure',
-                  'Entity-based content strategy',
-                  'Knowledge graph optimization',
-                  'FAQ and Q&A formatting',
-                  'Authoritative source development',
-                ],
-              },
-              {
-                icon: Globe,
-                title: 'Authority Building',
-                features: [
-                  'High-quality citation development',
-                  'Industry partnership outreach',
-                  'Thought leadership placement',
-                  'Expert profile optimization',
-                  'Knowledge base expansion',
-                ],
-              },
-              {
-                icon: Target,
-                title: 'Structured Data',
-                features: [
-                  'Schema.org implementation',
-                  'Knowledge panel optimization',
-                  'Entity relationship mapping',
-                  'Rich snippet enhancement',
-                  'OpenGraph optimization',
-                ],
-              },
-              {
-                icon: BarChart3,
-                title: 'Performance Tracking',
-                features: [
-                  'AI citation monitoring',
-                  'Brand mention tracking',
-                  'Recommendation frequency analysis',
-                  'Competitive positioning reports',
-                  'Monthly performance reviews',
-                ],
-              },
-              {
-                icon: Lightbulb,
-                title: 'Strategy & Consulting',
-                features: [
-                  'Quarterly GEO strategy sessions',
-                  'AI trend analysis and reporting',
-                  'Content recommendations',
-                  'Emerging platform evaluation',
-                  'Executive briefings',
-                ],
-              },
-            ].map((service) => (
+            {services.map((service) => (
               <div
                 key={service.title}
-                className="rounded-2xl border border-border bg-card p-8"
+                className="rounded-2xl bg-card p-8 ring-1 ring-foreground/10"
               >
-                <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                  <service.icon className="size-6 text-accent" />
-                </div>
+                <HugeiconsIcon
+                  icon={service.icon}
+                  size={32}
+                  strokeWidth={1.5}
+                  className="mb-4 text-primary"
+                />
                 <h3 className="mb-4 font-bold text-xl lg:text-2xl">
                   {service.title}
                 </h3>
                 <ul className="space-y-2">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2">
-                      <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-accent" />
+                      <HugeiconsIcon
+                        icon={CheckmarkCircle02Icon}
+                        size={20}
+                        strokeWidth={2}
+                        className="mt-0.5 shrink-0 text-primary"
+                      />
                       <span className="text-muted-foreground text-sm tracking-wide">
                         {feature}
                       </span>
@@ -397,7 +459,7 @@ function GEOPage() {
               </p>
               <div className="mt-8 grid gap-6 sm:grid-cols-2">
                 <div>
-                  <div className="font-extrabold text-5xl text-accent tracking-tight lg:text-7xl">
+                  <div className="font-extrabold text-5xl text-primary tracking-tight lg:text-7xl">
                     400%
                   </div>
                   <div className="mt-2 text-muted-foreground tracking-wide">
@@ -405,7 +467,7 @@ function GEOPage() {
                   </div>
                 </div>
                 <div>
-                  <div className="font-extrabold text-5xl text-accent tracking-tight lg:text-7xl">
+                  <div className="font-extrabold text-5xl text-primary tracking-tight lg:text-7xl">
                     10%
                   </div>
                   <div className="mt-2 text-muted-foreground tracking-wide">
@@ -413,16 +475,21 @@ function GEOPage() {
                   </div>
                 </div>
               </div>
-              <div className="mt-10 rounded-2xl border border-border bg-card p-6">
+              <div className="mt-10 rounded-2xl bg-card p-6 ring-1 ring-foreground/10">
                 <p className="text-muted-foreground italic leading-relaxed tracking-wide">
                   "One Percent Digital helped us become the go-to recommendation
                   in ChatGPT for diesel injection pumps. When AI platforms
                   recommend you by name, that's when you know you've made it."
                 </p>
                 <div className="mt-4 flex items-center gap-3">
-                  <div className="flex size-12 items-center justify-center rounded-full bg-accent/10">
-                    <Users className="size-6 text-accent" />
-                  </div>
+                  <img
+                    src={getImageUrl(
+                      '51e5ac33-a0d2-4cdb-668e-581cba411a00',
+                      'thumbnail',
+                    )}
+                    alt="Goldfarb & Associates"
+                    className="h-10 w-auto object-contain dark:invert"
+                  />
                   <div>
                     <div className="font-semibold">Scott Goldfarb</div>
                     <div className="text-muted-foreground text-sm">
@@ -432,8 +499,13 @@ function GEOPage() {
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify-center">
-              {/* Placeholder for future chart/visualization */}
+            <div className="relative aspect-video overflow-hidden rounded-2xl">
+              <div className="absolute inset-0 z-30 bg-primary opacity-50 mix-blend-color" />
+              <img
+                src="https://images.unsplash.com/photo-1484557052118-f32bd25b45b5?w=800&h=450&fit=crop"
+                alt="Data center server racks"
+                className="relative z-20 h-full w-full object-cover brightness-[0.6] grayscale"
+              />
             </div>
           </div>
         </div>
@@ -450,82 +522,17 @@ function GEOPage() {
               Everything you need to know about GEO
             </p>
           </div>
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="item-1">
-              <AccordionTrigger className="text-left font-semibold text-lg">
-                How is GEO different from traditional SEO?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Traditional SEO focuses on ranking in search engine results
-                pages where users click links. GEO optimizes for AI engines that
-                synthesize information and provide direct answers. Instead of
-                competing for clicks, you're ensuring your brand is the
-                authoritative source that AI systems cite and recommend. Both
-                are essential for comprehensive digital visibility.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger className="text-left font-semibold text-lg">
-                Which AI platforms do you optimize for?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                We optimize for all major generative AI platforms including
-                ChatGPT (OpenAI), Claude (Anthropic), Perplexity, Gemini
-                (Google), Microsoft Copilot, and emerging platforms. Our
-                strategy is platform-agnostic, focusing on fundamental authority
-                building that works across all AI systems.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-3">
-              <AccordionTrigger className="text-left font-semibold text-lg">
-                How long does it take to see results?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Initial AI citations typically appear within 6-8 weeks. However,
-                GEO is an ongoing strategy. The first-mover advantage means
-                early adopters establish leadership that becomes increasingly
-                difficult for competitors to overcome. Most clients see
-                significant improvements in AI visibility within 3-4 months.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-4">
-              <AccordionTrigger className="text-left font-semibold text-lg">
-                Can GEO work alongside our existing SEO strategy?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                Absolutely. GEO and SEO are complementary strategies. Many
-                optimizations (like structured data, authoritative content, and
-                entity building) benefit both traditional search engines and AI
-                platforms. We design our GEO strategy to enhance, not replace,
-                your existing SEO efforts.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-5">
-              <AccordionTrigger className="text-left font-semibold text-lg">
-                How do you measure GEO success?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                We track AI citation frequency, brand mention sentiment,
-                recommendation positioning, and share of voice across AI
-                platforms. Our custom monitoring tools query AI engines with
-                industry-relevant prompts and track when and how your brand is
-                referenced. You'll receive monthly reports with clear metrics
-                and competitive benchmarking.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-6">
-              <AccordionTrigger className="text-left font-semibold text-lg">
-                Is GEO worth it if AI search is still emerging?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
-                This is precisely why GEO is critical now. AI search is growing
-                400% year-over-year, and early adopters are establishing
-                category authority that will be difficult to displace. By the
-                time AI search becomes mainstream, you want to already be the
-                default recommendation—not fighting for visibility against
-                established competitors.
-              </AccordionContent>
-            </AccordionItem>
+          <Accordion className="w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={faq.question} value={`item-${index + 1}`}>
+                <AccordionTrigger className="text-left font-semibold text-lg">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
           </Accordion>
         </div>
       </section>
@@ -542,15 +549,14 @@ function GEOPage() {
             let your competitors define your category to AI.
           </p>
           <div className="mt-10">
-            <Button
-              asChild
-              size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90"
-            >
-              <Link to="/apply">
-                Apply To Work With Us
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+            <Button render={<Link to="/apply" />} size="lg">
+              Apply To Work With Us
+              <HugeiconsIcon
+                icon={ArrowRight01Icon}
+                size={18}
+                strokeWidth={2}
+                data-icon="inline-end"
+              />
             </Button>
           </div>
           <p className="mt-6 text-muted-foreground text-sm tracking-wide">

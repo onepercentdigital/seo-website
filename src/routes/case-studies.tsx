@@ -1,12 +1,13 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
 import {
-  ArrowRight,
-  BarChart3,
-  Building2,
-  CheckCircle2,
-  TrendingUp,
-  Users,
-} from 'lucide-react';
+  ArrowRight01Icon,
+  Building01Icon,
+  ChartIncreaseIcon,
+  ChartLineData01Icon,
+  CheckmarkCircle02Icon,
+  UserGroupIcon,
+} from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { createFileRoute, Link } from '@tanstack/react-router';
 import { Button } from '@/components/ui/button';
 import {
   type CaseStudy,
@@ -14,7 +15,15 @@ import {
   getAllCaseStudies,
   getFeaturedCaseStudies,
 } from '@/data/case-studies';
+import { getImageUrl } from '@/lib/cloudflare-images';
 import { generateMetaTags } from '@/lib/seo';
+
+// Map case study IDs to their logo image IDs
+const caseStudyLogos: Record<string, string> = {
+  'revology-cars': '7ab278bc-37c8-4d7e-21ee-ba2d463fa200',
+  'goldfarb-associates': '51e5ac33-a0d2-4cdb-668e-581cba411a00',
+  'royal-covers': '5bacc41c-abd7-4b66-feeb-da11c01c8f00',
+};
 
 export const Route = createFileRoute('/case-studies')({
   component: CaseStudiesPage,
@@ -49,18 +58,21 @@ function CaseStudiesPage() {
               drive measurable revenue growth.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
-              >
-                <Link to="/apply">
-                  Apply To Work With Us
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+              <Button render={<Link to="/apply" />} size="lg">
+                Apply To Work With Us
+                <HugeiconsIcon
+                  icon={ArrowRight01Icon}
+                  size={20}
+                  strokeWidth={2}
+                  data-icon="inline-end"
+                />
               </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/customers">View Featured Customers</Link>
+              <Button
+                render={<Link to="/customers" />}
+                size="lg"
+                variant="outline"
+              >
+                View Featured Customers
               </Button>
             </div>
           </div>
@@ -73,9 +85,12 @@ function CaseStudiesPage() {
           <div className="grid gap-8 lg:grid-cols-3">
             {/* Stat 1 */}
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                <TrendingUp className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={ChartIncreaseIcon}
+                size={32}
+                strokeWidth={1.5}
+                className="mx-auto mb-3 text-primary"
+              />
               <div className="mb-2 font-extrabold text-5xl leading-none tracking-tight lg:text-7xl xl:text-8xl">
                 {metrics.averageGrowth}
               </div>
@@ -89,9 +104,12 @@ function CaseStudiesPage() {
 
             {/* Stat 2 */}
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                <Users className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={UserGroupIcon}
+                size={32}
+                strokeWidth={1.5}
+                className="mx-auto mb-3 text-primary"
+              />
               <div className="mb-2 font-extrabold text-5xl leading-none tracking-tight lg:text-7xl xl:text-8xl">
                 {metrics.totalClients}+
               </div>
@@ -105,9 +123,12 @@ function CaseStudiesPage() {
 
             {/* Stat 3 */}
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                <Building2 className="h-8 w-8 text-accent" />
-              </div>
+              <HugeiconsIcon
+                icon={Building01Icon}
+                size={32}
+                strokeWidth={1.5}
+                className="mx-auto mb-3 text-primary"
+              />
               <div className="mb-2 font-extrabold text-5xl leading-none tracking-tight lg:text-7xl xl:text-8xl">
                 {metrics.industriesServed}
               </div>
@@ -127,7 +148,7 @@ function CaseStudiesPage() {
         <section className="bg-background px-6 py-20 lg:py-32">
           <div className="mx-auto max-w-7xl">
             <div className="mb-12 text-center">
-              <div className="mb-4 inline-block rounded-full bg-accent/10 px-4 py-1 font-semibold text-accent text-xs uppercase tracking-widest">
+              <div className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1 font-semibold text-primary text-xs uppercase tracking-widest">
                 Featured Case Study
               </div>
               <h2 className="mb-4 font-bold text-4xl leading-[1.1] tracking-tight lg:text-6xl">
@@ -143,7 +164,7 @@ function CaseStudiesPage() {
               <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                 {featuredStudy.metrics.map((metric) => (
                   <div key={metric.label} className="text-center">
-                    <div className="mb-2 font-extrabold text-3xl text-accent tracking-tight lg:text-4xl">
+                    <div className="mb-2 font-extrabold text-3xl text-primary tracking-tight lg:text-4xl">
                       {metric.value}
                     </div>
                     <div className="mb-1 font-semibold text-foreground text-sm">
@@ -161,7 +182,7 @@ function CaseStudiesPage() {
                 {featuredStudy.services.map((service) => (
                   <span
                     key={service}
-                    className="rounded-full bg-accent/10 px-3 py-1 font-medium text-accent text-xs uppercase tracking-wider"
+                    className="rounded-full bg-primary/10 px-3 py-1 font-medium text-primary text-xs uppercase tracking-wider"
                   >
                     {service}
                   </span>
@@ -195,14 +216,21 @@ function CaseStudiesPage() {
               {/* Testimonial */}
               {featuredStudy.testimonial && (
                 <div className="mt-8 border-border border-t pt-8">
-                  <div className="mb-4 text-3xl text-accent">"</div>
+                  <div className="mb-4 text-3xl text-primary">"</div>
                   <p className="mb-6 text-foreground text-lg leading-relaxed">
                     {featuredStudy.testimonial.quote}
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 font-bold text-accent">
-                      {featuredStudy.testimonial.initials}
-                    </div>
+                    {caseStudyLogos[featuredStudy.id] && (
+                      <img
+                        src={getImageUrl(
+                          caseStudyLogos[featuredStudy.id],
+                          'thumbnail',
+                        )}
+                        alt={featuredStudy.client}
+                        className="h-10 w-auto object-contain dark:invert"
+                      />
+                    )}
                     <div>
                       <div className="font-semibold text-foreground">
                         {featuredStudy.testimonial.author}
@@ -253,18 +281,17 @@ function CaseStudiesPage() {
               to scale.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
-              >
-                <Link to="/apply">
-                  Apply To Work With Us
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+              <Button render={<Link to="/apply" />} size="lg">
+                Apply To Work With Us
+                <HugeiconsIcon
+                  icon={ArrowRight01Icon}
+                  size={20}
+                  strokeWidth={2}
+                  data-icon="inline-end"
+                />
               </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/geo">Learn About GEO</Link>
+              <Button render={<Link to="/geo" />} size="lg" variant="outline">
+                Learn About GEO
               </Button>
             </div>
           </div>
@@ -286,9 +313,9 @@ function CaseStudyCard({ study }: CaseStudyCardProps) {
   // For now, cards are non-clickable but styled to indicate future interactivity
 
   return (
-    <div className="group flex h-full cursor-pointer flex-col rounded-2xl border border-border bg-card p-8 transition-all hover:border-accent/50 hover:shadow-accent/10 hover:shadow-lg">
+    <div className="group flex h-full cursor-pointer flex-col rounded-2xl border border-border bg-card p-8 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10">
       {/* Industry Badge */}
-      <div className="mb-4 inline-block self-start rounded-full bg-accent/10 px-3 py-1 font-medium text-accent text-xs uppercase tracking-wider">
+      <div className="mb-4 inline-block self-start rounded-full bg-primary/10 px-3 py-1 font-medium text-primary text-xs uppercase tracking-wider">
         {study.industry}
       </div>
 
@@ -312,7 +339,12 @@ function CaseStudyCard({ study }: CaseStudyCardProps) {
       <div className="mb-6 flex-1 space-y-3">
         {study.metrics.slice(0, 3).map((metric) => (
           <div key={metric.label} className="flex items-start gap-2">
-            <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-accent" />
+            <HugeiconsIcon
+              icon={CheckmarkCircle02Icon}
+              size={20}
+              strokeWidth={1.5}
+              className="mt-0.5 shrink-0 text-primary"
+            />
             <div>
               <div className="font-semibold text-foreground text-sm">
                 {metric.value} {metric.label}
@@ -333,14 +365,18 @@ function CaseStudyCard({ study }: CaseStudyCardProps) {
       {/* Testimonial or Learn More */}
       {study.testimonial ? (
         <div className="border-border border-t pt-4">
-          <div className="mb-2 text-accent text-xl">"</div>
+          <div className="mb-2 text-primary text-xl">"</div>
           <p className="mb-3 line-clamp-2 text-foreground text-sm italic leading-relaxed">
             {study.testimonial.quote}
           </p>
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/10 font-semibold text-accent text-xs">
-              {study.testimonial.initials}
-            </div>
+            {caseStudyLogos[study.id] && (
+              <img
+                src={getImageUrl(caseStudyLogos[study.id], 'thumbnail')}
+                alt={study.client}
+                className="h-8 w-auto object-contain dark:invert"
+              />
+            )}
             <div className="text-xs">
               <div className="font-semibold text-foreground">
                 {study.testimonial.author}
@@ -352,10 +388,19 @@ function CaseStudyCard({ study }: CaseStudyCardProps) {
           </div>
         </div>
       ) : (
-        <div className="flex items-center gap-2 font-semibold text-accent text-sm transition-all group-hover:gap-3">
-          <BarChart3 className="h-4 w-4" />
+        <div className="flex items-center gap-2 font-semibold text-primary text-sm transition-all group-hover:gap-3">
+          <HugeiconsIcon
+            icon={ChartLineData01Icon}
+            size={16}
+            strokeWidth={1.5}
+          />
           <span>Read Full Case Study</span>
-          <ArrowRight className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
+          <HugeiconsIcon
+            icon={ArrowRight01Icon}
+            size={16}
+            strokeWidth={1.5}
+            className="opacity-0 transition-opacity group-hover:opacity-100"
+          />
         </div>
       )}
     </div>
