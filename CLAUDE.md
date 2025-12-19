@@ -2,36 +2,127 @@
 
 ## Critical Rules
 
-### Design System
-- **Accent color**: `#00cccc` (cyan/teal)
-- **Font**: Plus Jakarta Sans Variable (weights 200-800)
-- **Single-color headlines only** - NO two-tone coloring with accent spans
-- **No gradients** on marketing pages
-- **Dark mode**: Black (`#0a0a0a`) with high contrast
-- **Light mode**: White (`#ffffff`) with high contrast
+### Design System (Maia Style)
+
+This project uses the **shadcn/ui Maia style** - a soft, rounded aesthetic with OKLCH colors.
+
+- **Primary color**: `#00cccc` cyan (OKLCH: `oklch(0.75 0.12 195)`)
+- **Font**: DM Sans Variable
+- **Style**: `base-maia` with aggressive rounding
+- **Icons**: HugeIcons (not Lucide)
+- **Color format**: OKLCH in CSS variables
+
+### Color Usage
+- `primary` = Brand/action color (cyan) - use for CTAs, links, accents
+- `accent` = Neutral gray for subtle backgrounds (Maia convention)
+- `muted` = Subdued backgrounds and text
+- `secondary` = Alternative button style
+
+### Border Radius Scale
+- `rounded-4xl` (32px) - Buttons, inputs, badges (pill shape)
+- `rounded-2xl` - Cards, dropdowns
+- `rounded-xl` - Icon containers
+- `rounded-lg` - Nav items, smaller elements
+
+### Button Patterns
+```tsx
+// Primary CTA (default variant)
+<Button render={<Link to="/apply" />} size="lg">
+  Apply To Work With Us
+  <HugeiconsIcon icon={ArrowRight01Icon} size={18} strokeWidth={2} data-icon="inline-end" />
+</Button>
+
+// Outline variant
+<Button render={<Link to="/case-studies" />} variant="outline">
+  View Case Studies
+</Button>
+
+// IMPORTANT: Use render prop, NOT asChild
+// WRONG: <Button asChild><Link>...</Link></Button>
+// RIGHT: <Button render={<Link to="..." />}>...</Button>
+```
+
+### Card Patterns
+```tsx
+// Cards use ring instead of border
+<Card className="group">
+  <CardHeader>
+    <CardTitle>Title</CardTitle>
+    <CardDescription>Description</CardDescription>
+  </CardHeader>
+  <CardContent>...</CardContent>
+  <CardFooter>...</CardFooter>
+</Card>
+```
+
+### Icon Usage (HugeIcons)
+```tsx
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowRight01Icon, Brain01Icon } from '@hugeicons/core-free-icons';
+
+// In buttons - add data-icon attribute
+<HugeiconsIcon icon={ArrowRight01Icon} size={18} strokeWidth={2} data-icon="inline-end" />
+
+// Standalone icons
+<HugeiconsIcon icon={Brain01Icon} size={24} strokeWidth={1.5} className="text-primary" />
+
+// Icon containers
+<div className="inline-flex size-10 items-center justify-center rounded-xl bg-primary/10">
+  <HugeiconsIcon icon={Brain01Icon} size={20} strokeWidth={1.5} className="text-primary" />
+</div>
+```
+
+### Icon Mapping (Lucide to HugeIcons)
+| Lucide | HugeIcons |
+|--------|-----------|
+| ArrowRight | ArrowRight01Icon |
+| ArrowLeft | ArrowLeft01Icon |
+| ArrowDown | ArrowDown01Icon |
+| Check | Tick02Icon |
+| ChevronDown | ArrowDown01Icon |
+| Menu | Menu01Icon |
+| X | Cancel01Icon |
+| Sun | Sun01Icon |
+| Moon | Moon01Icon |
+| Plus | PlusSignIcon |
+| Search | Search01Icon |
+| ExternalLink | LinkSquare01Icon |
 
 ### Typography Scale
-- **Hero**: `text-5xl lg:text-7xl xl:text-8xl font-extrabold leading-tight tracking-tight`
-- **Section**: `text-4xl lg:text-6xl font-bold tracking-tight`
+- **Hero**: `text-5xl lg:text-7xl xl:text-8xl font-extrabold leading-[0.95] tracking-tighter`
+- **Section**: `text-4xl lg:text-5xl font-bold tracking-tight`
 - **Subsection**: `text-3xl lg:text-4xl font-bold`
-- **Body**: `text-lg tracking-wide leading-relaxed`
-- **Stats**: `text-5xl lg:text-7xl font-extrabold tracking-tight`
+- **Card Title**: `text-xl lg:text-2xl` (use CardTitle component)
+- **Body**: `text-muted-foreground leading-relaxed`
+- **Stats**: `text-4xl lg:text-5xl font-extrabold tracking-tight`
+
+### Hover & Focus States
+- Buttons: Built-in via variants (`hover:bg-primary/80` for default)
+- Cards: Use `group` class, minimal hover changes
+- Focus: `focus-visible:ring-[3px] focus-visible:ring-ring/50`
+- Transitions: `transition-all` or `transition-colors`
 
 ### Required Patterns
 - Always use `Link` from `@tanstack/react-router` for internal navigation
+- Use `render` prop on Button for links (not `asChild`)
 - Use `generateMetaTags()` helper for SEO in route `head()` functions
-- Include `url` parameter for social sharing meta tags
-- Use `Accordion` component from shadcn/ui for FAQs
 - Use `@/` path alias instead of relative imports
+- Use Card/CardHeader/CardContent/CardFooter for card layouts
+- Use Badge component for labels/tags
+- Use Separator component for dividers
 
 ### CTA Standard
 - **Text**: "Apply To Work With Us"
 - **Route**: `/apply`
+- **Style**: Default Button with ArrowRight01Icon
 
 ### Do Not
+- Use `asChild` prop on buttons (use `render` prop instead)
+- Use Lucide icons (use HugeIcons)
+- Use `border border-border` on cards (use Card component's ring)
 - Add emojis unless user requests them
 - Use `<a>` tags for internal navigation (use `Link`)
-- Add two-tone coloring to headlines with `<span className="text-accent">`
+- Add two-tone coloring to headlines with `<span className="text-primary">`
 
 ---
 
@@ -67,10 +158,10 @@
 - **Zod 4** - Schema validation (v4 breaking changes from v3)
 
 ### UI & Styling
-- **Tailwind CSS 4** - Utility-first CSS
-- **Shadcn/ui** - Component library on Radix UI
-- **Lucide React** - Icon system
-- **Plus Jakarta Sans Variable** - Primary font
+- **Tailwind CSS 4** - Utility-first CSS with OKLCH colors
+- **Shadcn/ui (Maia style)** - Component library on Base UI
+- **HugeIcons** - Icon system (`@hugeicons/react`, `@hugeicons/core-free-icons`)
+- **DM Sans Variable** - Primary font
 
 ### Deployment
 - **Cloudflare Workers** - Edge deployment
@@ -82,8 +173,8 @@
 - **Vitest 4** - Unit testing
 
 ### Removed (Restorable)
-- **Clerk** - Authentication, removed from dependencies (see `docs/RESTORE-ADMIN-CMS.md`)
-- **Sentry** - Error tracking, removed from dependencies (see `docs/RESTORE-ADMIN-CMS.md`)
+- **Clerk** - Authentication (see `docs/RESTORE-ADMIN-CMS.md`)
+- **Sentry** - Error tracking (see `docs/RESTORE-ADMIN-CMS.md`)
 - **Admin CMS routes** - Blog management (code in git history)
 
 ---
@@ -94,8 +185,8 @@
 website/
 ├── src/
 │   ├── components/
-│   │   ├── ui/              # Shadcn components
-│   │   ├── BlogEditor.tsx   # Markdown editor (preserved)
+│   │   ├── ui/              # Shadcn Maia components
+│   │   ├── BlogEditor.tsx   # Markdown editor
 │   │   ├── Logo.tsx         # Theme-aware logo
 │   │   ├── Navigation.tsx   # Header with dropdowns
 │   │   ├── Footer.tsx       # Multi-column footer
@@ -105,10 +196,10 @@ website/
 │   │
 │   ├── routes/              # File-based routing
 │   │   ├── __root.tsx       # Root layout
-│   │   ├── index.tsx        # Homepage
+│   │   ├── index.tsx        # Homepage (reference implementation)
 │   │   ├── seo.tsx          # SEO service page
 │   │   ├── geo.tsx          # GEO service page
-│   │   ├── pm.tsx           # PM (Performance Marketing) service page
+│   │   ├── pm.tsx           # Performance Marketing page
 │   │   ├── customers.tsx    # Customer showcase
 │   │   ├── case-studies.tsx # Case studies
 │   │   ├── apply.tsx        # Calendly booking
@@ -125,7 +216,7 @@ website/
 │   ├── lib/
 │   │   ├── seo.ts           # SEO utilities
 │   │   ├── cloudflare-images.ts # Image upload
-│   │   └── utils.ts         # Shared utilities
+│   │   └── utils.ts         # Shared utilities (cn helper)
 │   │
 │   ├── data/
 │   │   ├── customers.ts     # Customer data
@@ -137,29 +228,17 @@ website/
 │       ├── convex/          # Database provider
 │       └── tanstack-query/  # Query client
 │
-├── convex/
+├── convex/                  # Backend
 │   ├── schema.ts            # Database schema
 │   ├── posts.ts             # Post queries/mutations
 │   └── categories.ts        # Category operations
 │
-├── scripts/
-│   ├── generate-sitemap.ts  # Sitemap generation
-│   ├── migrate-wordpress.ts # WordPress import
-│   ├── fix-featured-images.ts
-│   ├── migrate-customer-logos.ts
-│   └── seed-categories.ts
-│
 ├── docs/                    # Extended documentation
-│   ├── RESTORE-ADMIN-CMS.md
-│   ├── BLOG-CMS.md
-│   ├── BLOG-REDIRECTS.md
-│   ├── CLOUDFLARE-IMAGES.md
-│   ├── KNOWN-ISSUES.md
-│   ├── STRUCTURE-REASONING.md
-│   └── WORDPRESS-MIGRATION.md
+│   ├── MAIA-MIGRATION-CONVERSATION.md # Design system migration notes
+│   └── ...
 │
 └── public/
-    ├── sitemap.xml          # Auto-generated
+    ├── sitemap.xml
     └── robots.txt
 ```
 
@@ -169,16 +248,13 @@ website/
 
 | Purpose | File Path |
 |---------|-----------|
+| Global styles (OKLCH colors) | `src/styles.css` |
+| Shadcn config | `components.json` |
 | Brand config | `src/config/brand.ts` |
-| SEO utilities | `src/lib/seo.ts` |
-| Image upload | `src/lib/cloudflare-images.ts` |
-| Blog schema | `convex/schema.ts` |
-| Post operations | `convex/posts.ts` |
-| Category operations | `convex/categories.ts` |
-| Blog editor | `src/components/BlogEditor.tsx` |
-| Global styles | `src/styles.css` |
-| Root layout | `src/routes/__root.tsx` |
+| Homepage (reference) | `src/routes/index.tsx` |
 | Navigation | `src/components/Navigation.tsx` |
+| Button component | `src/components/ui/button.tsx` |
+| Card component | `src/components/ui/card.tsx` |
 
 ---
 
@@ -215,15 +291,13 @@ bun run build
 bun run deploy
 ```
 
-### Environment Variables
+### Adding a Shadcn Component
 
-Required in `.env.local`:
 ```bash
-VITE_CONVEX_URL=https://...convex.cloud
-CONVEX_DEPLOYMENT=...
-CLOUDFLARE_ACCOUNT_ID=...
-CLOUDFLARE_API_TOKEN=...
+bunx shadcn@latest add button
 ```
+
+Components are installed with Maia style (configured in `components.json`).
 
 ---
 
@@ -231,7 +305,7 @@ CLOUDFLARE_API_TOKEN=...
 
 ### TypeScript
 - Strict mode enabled
-- No unused variables (`noUnusedLocals`, `noUnusedParameters`)
+- No unused variables
 - Use `@/` path alias for imports
 
 ### Biome
@@ -244,6 +318,7 @@ CLOUDFLARE_API_TOKEN=...
 - Functional components only
 - File-based routing in `src/routes/`
 - Use `Link` for internal navigation
+- Use `render` prop for Button links
 
 ### Auto-Generated Files (Do Not Edit)
 - `src/routeTree.gen.ts`
@@ -255,56 +330,69 @@ CLOUDFLARE_API_TOKEN=...
 
 ### Adding a New Page
 
-1. Create file in `src/routes/` (e.g., `src/routes/pricing.tsx`)
-2. Use `createFileRoute` from `@tanstack/react-router`
-3. Include SEO meta tags in `head()` function
-4. Add to navigation in `src/config/brand.ts` if needed
-
 ```tsx
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
+import { HugeiconsIcon } from '@hugeicons/react'
+import { ArrowRight01Icon } from '@hugeicons/core-free-icons'
+import { Button } from '@/components/ui/button'
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { generateMetaTags } from '@/lib/seo'
 
-export const Route = createFileRoute('/pricing')({
-  component: PricingPage,
+export const Route = createFileRoute('/example')({
+  component: ExamplePage,
   head: () => generateMetaTags({
-    title: 'Pricing',
-    description: 'Our pricing plans.',
-    url: 'https://onepercentseo.com/pricing',
+    title: 'Example Page',
+    description: 'Page description.',
+    url: 'https://onepercentseo.com/example',
   }),
 })
 
-function PricingPage() {
-  return <div>Pricing content</div>
+function ExamplePage() {
+  return (
+    <section className="px-6 py-16 lg:py-24">
+      <div className="mx-auto max-w-7xl">
+        <h1 className="mb-6 font-extrabold text-5xl tracking-tighter lg:text-7xl">
+          Page Title
+        </h1>
+        <p className="mb-8 text-muted-foreground lg:text-lg">
+          Description text.
+        </p>
+        <Button render={<Link to="/apply" />} size="lg">
+          Apply To Work With Us
+          <HugeiconsIcon icon={ArrowRight01Icon} size={18} strokeWidth={2} data-icon="inline-end" />
+        </Button>
+      </div>
+    </section>
+  )
 }
 ```
 
-### Adding a Shadcn Component
-
-bunx shadcn@latest add button
-```
-
-### Adding SEO Structured Data
+### Creating a Card Grid
 
 ```tsx
-import { SEO } from '@/components/SEO'
-import { getServiceSchema } from '@/lib/seo'
-
-<SEO structuredData={[
-  { type: 'Service', data: getServiceSchema({...}) }
-]} />
+<div className="grid gap-6 lg:grid-cols-3">
+  {items.map((item) => (
+    <Card key={item.id} className="group">
+      <CardHeader>
+        <div className="mb-2 inline-flex size-10 items-center justify-center rounded-xl bg-primary/10">
+          <HugeiconsIcon icon={item.icon} size={20} strokeWidth={1.5} className="text-primary" />
+        </div>
+        <CardTitle>{item.title}</CardTitle>
+        <CardDescription>{item.description}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        {/* Content */}
+      </CardContent>
+      <CardFooter>
+        <Button render={<Link to={item.href} />} variant="outline" size="sm">
+          Learn more
+          <HugeiconsIcon icon={ArrowRight01Icon} size={14} strokeWidth={2} data-icon="inline-end" />
+        </Button>
+      </CardFooter>
+    </Card>
+  ))}
+</div>
 ```
-
-### Creating a Convex Table
-
-1. Add table to `convex/schema.ts`
-2. Create query/mutation file in `convex/`
-3. Use `useQuery` or `useMutation` hooks in React
-
-### Adding to Navigation
-
-Update `navigation.main` in `src/config/brand.ts`:
-- For dropdown items, add to `items` array
-- For direct links, use `type: 'link'`
 
 ---
 
@@ -327,13 +415,6 @@ For structured data:
 ]} />
 ```
 
-Available schema helpers in `src/lib/seo.ts`:
-- `getOrganizationSchema()`
-- `getLocalBusinessSchema()`
-- `getArticleSchema()`
-- `getBreadcrumbSchema()`
-- `getServiceSchema()`
-
 ---
 
 ## Blog System
@@ -341,51 +422,28 @@ Available schema helpers in `src/lib/seo.ts`:
 ### Current State
 - Public routes active (`/blog`, `/blog/[slug]`)
 - Admin routes disabled (manage via Convex dashboard)
-- BlogEditor component preserved for future use
-
-### Convex Schema
-```typescript
-posts: {
-  title, slug, content, excerpt, featuredImage,
-  categoryId, authorId, authorName,
-  relatedPostIds,
-  status: 'draft' | 'published' | 'scheduled',
-  publishedAt, scheduledFor, modifiedAt,
-  seo: { metaTitle, metaDescription, ogImage, noindex }
-}
-```
 
 ### Using Convex Queries
 ```typescript
 // CORRECT - Use Convex native hooks
 import { useQuery } from 'convex/react'
 const posts = useQuery(api.posts.list, {})
-
-// WRONG - Don't use TanStack Query wrapper
-import { useQuery } from '@tanstack/react-query'
 ```
 
 ---
 
 ## External Documentation
 
-Detailed guides for specific features:
-
-- **[docs/RESTORE-ADMIN-CMS.md](docs/RESTORE-ADMIN-CMS.md)** - Re-enable admin routes with Clerk auth
-- **[docs/BLOG-CMS.md](docs/BLOG-CMS.md)** - Blog system architecture and features
-- **[docs/BLOG-REDIRECTS.md](docs/BLOG-REDIRECTS.md)** - Blog URL redirect handling
-- **[docs/CLOUDFLARE-IMAGES.md](docs/CLOUDFLARE-IMAGES.md)** - Image upload setup guide
-- **[docs/KNOWN-ISSUES.md](docs/KNOWN-ISSUES.md)** - Known browser limitations and bugs
-- **[docs/WORDPRESS-MIGRATION.md](docs/WORDPRESS-MIGRATION.md)** - WordPress import instructions
-- **[docs/STRUCTURE-REASONING.md](docs/STRUCTURE-REASONING.md)** - Navigation structure and naming rationale
+- **[docs/MAIA-MIGRATION-CONVERSATION.md](docs/MAIA-MIGRATION-CONVERSATION.md)** - Design system migration notes
+- **[docs/RESTORE-ADMIN-CMS.md](docs/RESTORE-ADMIN-CMS.md)** - Re-enable admin routes
+- **[docs/BLOG-CMS.md](docs/BLOG-CMS.md)** - Blog system architecture
+- **[docs/CLOUDFLARE-IMAGES.md](docs/CLOUDFLARE-IMAGES.md)** - Image upload setup
 
 ---
 
 ## Resources
 
 - [TanStack Start Docs](https://tanstack.com/start)
-- [TanStack Router Docs](https://tanstack.com/router)
-- [Convex Docs](https://docs.convex.dev)
 - [Shadcn UI](https://ui.shadcn.com)
+- [HugeIcons](https://hugeicons.com)
 - [Tailwind CSS v4](https://tailwindcss.com)
-- [Cloudflare Images](https://developers.cloudflare.com/images/)

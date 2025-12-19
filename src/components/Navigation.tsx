@@ -1,5 +1,10 @@
+import {
+  ArrowDown01Icon,
+  Cancel01Icon,
+  Menu01Icon,
+} from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 import { Link } from '@tanstack/react-router';
-import { ChevronDown, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Logo } from '@/components/Logo';
 import { ThemeToggle } from '@/components/ThemeToggle';
@@ -32,10 +37,14 @@ export function Navigation() {
                 <>
                   <button
                     type="button"
-                    className="flex items-center gap-1 rounded-lg px-3 py-2 font-medium text-foreground text-sm transition-colors hover:bg-secondary"
+                    className="flex items-center gap-1 rounded-lg px-3 py-2 font-medium text-foreground text-sm transition-colors hover:bg-muted"
                   >
                     {item.label}
-                    <ChevronDown className="h-4 w-4" />
+                    <HugeiconsIcon
+                      icon={ArrowDown01Icon}
+                      size={16}
+                      strokeWidth={2}
+                    />
                   </button>
 
                   {/* Dropdown Menu */}
@@ -46,12 +55,12 @@ export function Navigation() {
 
                       {/* Dropdown menu with visual spacing */}
                       <div className="absolute top-[calc(100%+1rem)] left-0 min-w-[200px]">
-                        <div className="rounded-lg border border-border bg-background py-2 shadow-lg">
+                        <div className="rounded-xl border border-border bg-background py-2 shadow-lg">
                           {item.items.map((subItem) => (
                             <Link
                               key={subItem.href}
                               to={subItem.href}
-                              className="block px-4 py-2 text-foreground text-sm transition-colors hover:bg-secondary"
+                              className="block px-4 py-2 text-foreground text-sm transition-colors hover:bg-muted"
                             >
                               {subItem.label}
                             </Link>
@@ -64,7 +73,7 @@ export function Navigation() {
               ) : (
                 <Link
                   to={item.href}
-                  className="rounded-lg px-3 py-2 font-medium text-foreground text-sm transition-colors hover:bg-secondary"
+                  className="rounded-lg px-3 py-2 font-medium text-foreground text-sm transition-colors hover:bg-muted"
                 >
                   {item.label}
                 </Link>
@@ -75,11 +84,8 @@ export function Navigation() {
 
         {/* Right Side - CTA and Theme Toggle */}
         <div className="hidden items-center gap-3 md:flex">
-          <Button
-            asChild
-            className="bg-accent text-accent-foreground hover:bg-accent/90"
-          >
-            <Link to={navigation.cta.href}>{navigation.cta.label}</Link>
+          <Button render={<Link to={navigation.cta.href} />}>
+            {navigation.cta.label}
           </Button>
           <ThemeToggle />
         </div>
@@ -90,13 +96,13 @@ export function Navigation() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="rounded-lg p-2 text-foreground transition-colors hover:bg-secondary"
+            className="rounded-lg p-2 text-foreground transition-colors hover:bg-muted"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
+              <HugeiconsIcon icon={Cancel01Icon} size={24} strokeWidth={2} />
             ) : (
-              <Menu className="h-6 w-6" />
+              <HugeiconsIcon icon={Menu01Icon} size={24} strokeWidth={2} />
             )}
           </button>
         </div>
@@ -117,11 +123,14 @@ export function Navigation() {
                           activeDropdown === item.label ? null : item.label,
                         )
                       }
-                      className="flex w-full items-center justify-between rounded-lg px-3 py-2 font-medium text-foreground text-sm transition-colors hover:bg-secondary"
+                      className="flex w-full items-center justify-between rounded-lg px-3 py-2 font-medium text-foreground text-sm transition-colors hover:bg-muted"
                     >
                       {item.label}
-                      <ChevronDown
-                        className={`h-4 w-4 transition-transform ${
+                      <HugeiconsIcon
+                        icon={ArrowDown01Icon}
+                        size={16}
+                        strokeWidth={2}
+                        className={`transition-transform ${
                           activeDropdown === item.label ? 'rotate-180' : ''
                         }`}
                       />
@@ -133,7 +142,7 @@ export function Navigation() {
                             key={subItem.href}
                             to={subItem.href}
                             onClick={() => setMobileMenuOpen(false)}
-                            className="rounded-lg px-3 py-2 text-foreground text-sm transition-colors hover:bg-secondary"
+                            className="rounded-lg px-3 py-2 text-foreground text-sm transition-colors hover:bg-muted"
                           >
                             {subItem.label}
                           </Link>
@@ -145,7 +154,7 @@ export function Navigation() {
                   <Link
                     to={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block rounded-lg px-3 py-2 font-medium text-foreground text-sm transition-colors hover:bg-secondary"
+                    className="block rounded-lg px-3 py-2 font-medium text-foreground text-sm transition-colors hover:bg-muted"
                   >
                     {item.label}
                   </Link>
@@ -153,15 +162,15 @@ export function Navigation() {
               </div>
             ))}
             <Button
-              asChild
-              className="mt-4 w-full bg-accent text-accent-foreground hover:bg-accent/90"
+              render={
+                <Link
+                  to={navigation.cta.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                />
+              }
+              className="mt-4 w-full"
             >
-              <Link
-                to={navigation.cta.href}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {navigation.cta.label}
-              </Link>
+              {navigation.cta.label}
             </Button>
           </div>
         </div>
