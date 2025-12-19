@@ -1,21 +1,22 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
 import {
-  ArrowRight,
-  Briefcase,
-  Building2,
-  Code,
-  Factory,
-  Gavel,
-  Handshake,
-  Heart,
-  Home,
-  Landmark,
-  Package,
-  ShoppingCart,
-  Tractor,
-  Truck,
-  Utensils,
-} from 'lucide-react';
+  Agreement01Icon,
+  ArrowRight01Icon,
+  Briefcase01Icon,
+  Building06Icon,
+  CodeIcon,
+  DeliveryBox01Icon,
+  DeliveryTruck01Icon,
+  Factory01Icon,
+  FavouriteIcon,
+  Home01Icon,
+  JusticeScale01Icon,
+  LibraryIcon,
+  Restaurant01Icon,
+  ShoppingCart01Icon,
+  TractorIcon,
+} from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { createFileRoute, Link } from '@tanstack/react-router';
 import { SEO } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { getAllSolutions } from '@/data/solutions';
@@ -36,22 +37,19 @@ function SolutionsLandingPage() {
   const solutions = getAllSolutions();
 
   // Icon mapping for industries
-  const industryIcons: Record<
-    string,
-    React.ComponentType<{ className?: string }>
-  > = {
-    hospitality: Utensils,
-    ecommerce: ShoppingCart,
-    manufacturing: Factory,
-    logistics: Truck,
-    automotive: Package,
-    construction: Building2,
-    agriculture: Tractor,
-    technology: Code,
-    'health-wellness': Heart,
-    'finance-insurance': Landmark,
-    legal: Gavel,
-    'real-estate': Home,
+  const industryIcons: Record<string, typeof Restaurant01Icon> = {
+    hospitality: Restaurant01Icon,
+    ecommerce: ShoppingCart01Icon,
+    manufacturing: Factory01Icon,
+    logistics: DeliveryTruck01Icon,
+    automotive: DeliveryBox01Icon,
+    construction: Building06Icon,
+    agriculture: TractorIcon,
+    technology: CodeIcon,
+    'health-wellness': FavouriteIcon,
+    'finance-insurance': LibraryIcon,
+    legal: JusticeScale01Icon,
+    'real-estate': Home01Icon,
   };
 
   return (
@@ -71,18 +69,21 @@ function SolutionsLandingPage() {
               takes to win search in your vertical.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
-              >
-                <Link to="/apply">
-                  Apply To Work With Us
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+              <Button render={<Link to="/apply" />} size="lg">
+                Apply To Work With Us
+                <HugeiconsIcon
+                  icon={ArrowRight01Icon}
+                  size={20}
+                  strokeWidth={2}
+                  data-icon="inline-end"
+                />
               </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/case-studies">View Case Studies</Link>
+              <Button
+                render={<Link to="/case-studies" />}
+                size="lg"
+                variant="outline"
+              >
+                View Case Studies
               </Button>
             </div>
           </div>
@@ -105,8 +106,13 @@ function SolutionsLandingPage() {
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 p-3">
-                <Handshake className="h-6 w-6 text-accent" />
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 p-3">
+                <HugeiconsIcon
+                  icon={Agreement01Icon}
+                  size={24}
+                  strokeWidth={1.5}
+                  className="text-primary"
+                />
               </div>
               <h3 className="mb-3 font-bold text-2xl leading-tight">
                 We Speak Your Language
@@ -117,8 +123,13 @@ function SolutionsLandingPage() {
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 p-3">
-                <Building2 className="h-6 w-6 text-accent" />
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 p-3">
+                <HugeiconsIcon
+                  icon={Building06Icon}
+                  size={24}
+                  strokeWidth={1.5}
+                  className="text-primary"
+                />
               </div>
               <h3 className="mb-3 font-bold text-2xl leading-tight">
                 Proven Industry Results
@@ -129,8 +140,13 @@ function SolutionsLandingPage() {
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 p-3">
-                <ArrowRight className="h-6 w-6 text-accent" />
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 p-3">
+                <HugeiconsIcon
+                  icon={ArrowRight01Icon}
+                  size={24}
+                  strokeWidth={1.5}
+                  className="text-primary"
+                />
               </div>
               <h3 className="mb-3 font-bold text-2xl leading-tight">
                 Faster Time to Results
@@ -158,7 +174,7 @@ function SolutionsLandingPage() {
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {solutions.map((solution) => {
-              const Icon = industryIcons[solution.slug] || Briefcase;
+              const icon = industryIcons[solution.slug] || Briefcase01Icon;
               return (
                 <Link
                   key={solution.id}
@@ -166,10 +182,15 @@ function SolutionsLandingPage() {
                     // biome-ignore lint/suspicious/noExplicitAny: TanStack Router requires exact route paths, but solution.slug is dynamic from data - all slugs are valid routes
                     `/solutions/${solution.slug}` as any
                   }
-                  className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:border-accent/50 hover:shadow-lg"
+                  className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg"
                 >
-                  <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-accent/10 p-3 transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
-                    <Icon className="h-7 w-7 text-accent transition-colors group-hover:text-accent-foreground" />
+                  <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 p-3 transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <HugeiconsIcon
+                      icon={icon}
+                      size={28}
+                      strokeWidth={1.5}
+                      className="text-primary transition-colors group-hover:text-primary-foreground"
+                    />
                   </div>
                   <h3 className="mb-3 font-bold text-2xl leading-tight">
                     {solution.name}
@@ -177,9 +198,14 @@ function SolutionsLandingPage() {
                   <p className="mb-4 flex-1 text-muted-foreground leading-relaxed tracking-wide">
                     {solution.description}
                   </p>
-                  <div className="flex items-center font-semibold text-accent text-sm">
+                  <div className="flex items-center font-semibold text-primary text-sm">
                     Learn More
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <HugeiconsIcon
+                      icon={ArrowRight01Icon}
+                      size={16}
+                      strokeWidth={2}
+                      className="ml-2 transition-transform group-hover:translate-x-1"
+                    />
                   </div>
                 </Link>
               );
@@ -200,18 +226,21 @@ function SolutionsLandingPage() {
             approach fits your goals.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
-              asChild
-              size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90"
-            >
-              <Link to="/apply">
-                Apply To Work With Us
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+            <Button render={<Link to="/apply" />} size="lg">
+              Apply To Work With Us
+              <HugeiconsIcon
+                icon={ArrowRight01Icon}
+                size={20}
+                strokeWidth={2}
+                data-icon="inline-end"
+              />
             </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link to="/case-studies">View All Case Studies</Link>
+            <Button
+              render={<Link to="/case-studies" />}
+              size="lg"
+              variant="outline"
+            >
+              View All Case Studies
             </Button>
           </div>
         </div>

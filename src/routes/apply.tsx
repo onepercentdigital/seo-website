@@ -1,14 +1,15 @@
-import { createFileRoute } from '@tanstack/react-router';
 import {
-  ArrowRight,
-  BarChart3,
-  DollarSign,
-  Lightbulb,
-  Shield,
-  Target,
-  TrendingUp,
-  Users,
-} from 'lucide-react';
+  ArrowRight01Icon,
+  ChartIncreaseIcon,
+  ChartLineData01Icon,
+  DollarCircleIcon,
+  Idea01Icon,
+  Shield01Icon,
+  Target01Icon,
+  UserGroupIcon,
+} from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { createFileRoute } from '@tanstack/react-router';
 import { useEffect } from 'react';
 import {
   Accordion,
@@ -50,8 +51,13 @@ function ApplyPage() {
               {/* Key Benefits List */}
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 rounded-lg bg-accent/10 p-2">
-                    <Target className="size-5 text-accent" />
+                  <div className="mt-1 rounded-lg bg-primary/10 p-2">
+                    <HugeiconsIcon
+                      icon={Target01Icon}
+                      size={20}
+                      strokeWidth={1.5}
+                      className="text-primary"
+                    />
                   </div>
                   <div>
                     <h3 className="mb-1 font-semibold text-foreground">
@@ -65,8 +71,13 @@ function ApplyPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 rounded-lg bg-accent/10 p-2">
-                    <TrendingUp className="size-5 text-accent" />
+                  <div className="mt-1 rounded-lg bg-primary/10 p-2">
+                    <HugeiconsIcon
+                      icon={ChartIncreaseIcon}
+                      size={20}
+                      strokeWidth={1.5}
+                      className="text-primary"
+                    />
                   </div>
                   <div>
                     <h3 className="mb-1 font-semibold text-foreground">
@@ -80,8 +91,13 @@ function ApplyPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 rounded-lg bg-accent/10 p-2">
-                    <Lightbulb className="size-5 text-accent" />
+                  <div className="mt-1 rounded-lg bg-primary/10 p-2">
+                    <HugeiconsIcon
+                      icon={Idea01Icon}
+                      size={20}
+                      strokeWidth={1.5}
+                      className="text-primary"
+                    />
                   </div>
                   <div>
                     <h3 className="mb-1 font-semibold text-foreground">
@@ -95,8 +111,13 @@ function ApplyPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 rounded-lg bg-accent/10 p-2">
-                    <DollarSign className="size-5 text-accent" />
+                  <div className="mt-1 rounded-lg bg-primary/10 p-2">
+                    <HugeiconsIcon
+                      icon={DollarCircleIcon}
+                      size={20}
+                      strokeWidth={1.5}
+                      className="text-primary"
+                    />
                   </div>
                   <div>
                     <h3 className="mb-1 font-semibold text-foreground">
@@ -110,8 +131,13 @@ function ApplyPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 rounded-lg bg-accent/10 p-2">
-                    <Shield className="size-5 text-accent" />
+                  <div className="mt-1 rounded-lg bg-primary/10 p-2">
+                    <HugeiconsIcon
+                      icon={Shield01Icon}
+                      size={20}
+                      strokeWidth={1.5}
+                      className="text-primary"
+                    />
                   </div>
                   <div>
                     <h3 className="mb-1 font-semibold text-foreground">
@@ -151,10 +177,15 @@ function ApplyPage() {
             {/* Step 1 */}
             <div className="text-center">
               <div className="mb-4 flex items-center justify-between">
-                <div className="rounded-lg bg-accent/10 p-3">
-                  <ArrowRight className="size-6 text-accent" />
+                <div className="rounded-lg bg-primary/10 p-3">
+                  <HugeiconsIcon
+                    icon={ArrowRight01Icon}
+                    size={24}
+                    strokeWidth={1.5}
+                    className="text-primary"
+                  />
                 </div>
-                <div className="font-bold text-3xl text-accent/30 tracking-tight">
+                <div className="font-bold text-3xl text-primary/30 tracking-tight">
                   01
                 </div>
               </div>
@@ -168,10 +199,15 @@ function ApplyPage() {
             {/* Step 2 */}
             <div className="text-center">
               <div className="mb-4 flex items-center justify-between">
-                <div className="rounded-lg bg-accent/10 p-3">
-                  <Target className="size-6 text-accent" />
+                <div className="rounded-lg bg-primary/10 p-3">
+                  <HugeiconsIcon
+                    icon={Target01Icon}
+                    size={24}
+                    strokeWidth={1.5}
+                    className="text-primary"
+                  />
                 </div>
-                <div className="font-bold text-3xl text-accent/30 tracking-tight">
+                <div className="font-bold text-3xl text-primary/30 tracking-tight">
                   02
                 </div>
               </div>
@@ -185,10 +221,15 @@ function ApplyPage() {
             {/* Step 3 */}
             <div className="text-center">
               <div className="mb-4 flex items-center justify-between">
-                <div className="rounded-lg bg-accent/10 p-3">
-                  <Users className="size-6 text-accent" />
+                <div className="rounded-lg bg-primary/10 p-3">
+                  <HugeiconsIcon
+                    icon={UserGroupIcon}
+                    size={24}
+                    strokeWidth={1.5}
+                    className="text-primary"
+                  />
                 </div>
-                <div className="font-bold text-3xl text-accent/30 tracking-tight">
+                <div className="font-bold text-3xl text-primary/30 tracking-tight">
                   03
                 </div>
               </div>
@@ -202,10 +243,15 @@ function ApplyPage() {
             {/* Step 4 */}
             <div className="text-center">
               <div className="mb-4 flex items-center justify-between">
-                <div className="rounded-lg bg-accent/10 p-3">
-                  <Lightbulb className="size-6 text-accent" />
+                <div className="rounded-lg bg-primary/10 p-3">
+                  <HugeiconsIcon
+                    icon={Idea01Icon}
+                    size={24}
+                    strokeWidth={1.5}
+                    className="text-primary"
+                  />
                 </div>
-                <div className="font-bold text-3xl text-accent/30 tracking-tight">
+                <div className="font-bold text-3xl text-primary/30 tracking-tight">
                   04
                 </div>
               </div>
@@ -224,8 +270,13 @@ function ApplyPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                <TrendingUp className="h-8 w-8 text-accent" />
+              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+                <HugeiconsIcon
+                  icon={ChartIncreaseIcon}
+                  size={32}
+                  strokeWidth={1.5}
+                  className="text-primary"
+                />
               </div>
               <div className="mb-2 font-extrabold text-5xl leading-none tracking-tight lg:text-7xl">
                 300+
@@ -236,8 +287,13 @@ function ApplyPage() {
             </div>
 
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                <DollarSign className="h-8 w-8 text-accent" />
+              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+                <HugeiconsIcon
+                  icon={DollarCircleIcon}
+                  size={32}
+                  strokeWidth={1.5}
+                  className="text-primary"
+                />
               </div>
               <div className="mb-2 font-extrabold text-5xl leading-none tracking-tight lg:text-7xl">
                 $200M+
@@ -248,8 +304,13 @@ function ApplyPage() {
             </div>
 
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                <BarChart3 className="h-8 w-8 text-accent" />
+              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+                <HugeiconsIcon
+                  icon={ChartLineData01Icon}
+                  size={32}
+                  strokeWidth={1.5}
+                  className="text-primary"
+                />
               </div>
               <div className="mb-2 font-extrabold text-5xl leading-none tracking-tight lg:text-7xl">
                 8X
@@ -274,7 +335,7 @@ function ApplyPage() {
             </p>
           </div>
 
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion className="w-full">
             <AccordionItem value="item-1">
               <AccordionTrigger className="text-left font-semibold text-lg">
                 What happens during the qualification call?
@@ -347,7 +408,7 @@ function CalendlyEmbed() {
   }, []);
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-border shadow-lg dark:shadow-accent/5 dark:[&_.calendly-inline-widget]:hue-rotate-180 dark:[&_.calendly-inline-widget]:invert">
+    <div className="overflow-hidden rounded-2xl border border-border shadow-lg dark:shadow-primary/5 dark:[&_.calendly-inline-widget]:hue-rotate-180 dark:[&_.calendly-inline-widget]:invert">
       <div
         className="calendly-inline-widget"
         data-url="https://calendly.com/onepercentseo/marketing-strategy-session?hide_gdpr_banner=1&text_color=121212&primary_color=00cccc"

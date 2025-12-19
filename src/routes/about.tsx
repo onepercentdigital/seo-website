@@ -1,12 +1,13 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
 import {
-  ArrowRight,
-  Award,
-  Briefcase,
-  Clock,
-  TrendingUp,
-  Users2,
-} from 'lucide-react';
+  ArrowRight01Icon,
+  Award01Icon,
+  Briefcase01Icon,
+  ChartIncreaseIcon,
+  Clock01Icon,
+  UserGroupIcon,
+} from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { createFileRoute, Link } from '@tanstack/react-router';
 import { SEO } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { getAllTeamMembers } from '@/data/team';
@@ -67,18 +68,21 @@ function AboutPage() {
               them too.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
-              >
-                <Link to="/apply">
-                  Apply To Work With Us
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+              <Button render={<Link to="/apply" />} size="lg">
+                Apply To Work With Us
+                <HugeiconsIcon
+                  icon={ArrowRight01Icon}
+                  size={20}
+                  strokeWidth={2}
+                  data-icon="inline-end"
+                />
               </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/case-studies">View Our Work</Link>
+              <Button
+                render={<Link to="/case-studies" />}
+                size="lg"
+                variant="outline"
+              >
+                View Our Work
               </Button>
             </div>
           </div>
@@ -90,10 +94,15 @@ function AboutPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 sm:grid-cols-3">
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                <Clock className="h-8 w-8 text-accent" />
+              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+                <HugeiconsIcon
+                  icon={Clock01Icon}
+                  size={32}
+                  strokeWidth={1.5}
+                  className="text-primary"
+                />
               </div>
-              <div className="mb-2 font-extrabold text-5xl text-accent leading-none tracking-tight lg:text-7xl">
+              <div className="mb-2 font-extrabold text-5xl text-primary leading-none tracking-tight lg:text-7xl">
                 12+
               </div>
               <div className="text-muted-foreground tracking-wide">
@@ -101,10 +110,15 @@ function AboutPage() {
               </div>
             </div>
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                <Briefcase className="h-8 w-8 text-accent" />
+              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+                <HugeiconsIcon
+                  icon={Briefcase01Icon}
+                  size={32}
+                  strokeWidth={1.5}
+                  className="text-primary"
+                />
               </div>
-              <div className="mb-2 font-extrabold text-5xl text-accent leading-none tracking-tight lg:text-7xl">
+              <div className="mb-2 font-extrabold text-5xl text-primary leading-none tracking-tight lg:text-7xl">
                 300+
               </div>
               <div className="text-muted-foreground tracking-wide">
@@ -112,10 +126,15 @@ function AboutPage() {
               </div>
             </div>
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                <TrendingUp className="h-8 w-8 text-accent" />
+              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+                <HugeiconsIcon
+                  icon={ChartIncreaseIcon}
+                  size={32}
+                  strokeWidth={1.5}
+                  className="text-primary"
+                />
               </div>
-              <div className="mb-2 font-extrabold text-5xl text-accent leading-none tracking-tight lg:text-7xl">
+              <div className="mb-2 font-extrabold text-5xl text-primary leading-none tracking-tight lg:text-7xl">
                 $200M
               </div>
               <div className="text-muted-foreground tracking-wide">
@@ -184,10 +203,10 @@ function AboutPage() {
             {teamMembers.map((member) => (
               <div
                 key={member.name}
-                className="rounded-2xl border border-border bg-card p-8 transition-all hover:border-accent/50 hover:shadow-lg"
+                className="rounded-2xl border border-border bg-card p-8 transition-all hover:border-primary/50 hover:shadow-lg"
               >
                 <div className="mb-6 flex justify-center">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-accent/10 font-bold text-2xl text-accent">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary/10 font-bold text-2xl text-primary">
                     {member.initials}
                   </div>
                 </div>
@@ -227,8 +246,13 @@ function AboutPage() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <Briefcase className="h-8 w-8 text-accent" />
+              <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-3">
+                <HugeiconsIcon
+                  icon={Briefcase01Icon}
+                  size={32}
+                  strokeWidth={1.5}
+                  className="text-primary"
+                />
               </div>
               <h3 className="mb-3 font-bold text-2xl lg:text-3xl">
                 Entrepreneur-First Mindset
@@ -242,8 +266,13 @@ function AboutPage() {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <Users2 className="h-8 w-8 text-accent" />
+              <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-3">
+                <HugeiconsIcon
+                  icon={UserGroupIcon}
+                  size={32}
+                  strokeWidth={1.5}
+                  className="text-primary"
+                />
               </div>
               <h3 className="mb-3 font-bold text-2xl lg:text-3xl">
                 Hands-On Partnership
@@ -257,8 +286,13 @@ function AboutPage() {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                <Award className="h-8 w-8 text-accent" />
+              <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-3">
+                <HugeiconsIcon
+                  icon={Award01Icon}
+                  size={32}
+                  strokeWidth={1.5}
+                  className="text-primary"
+                />
               </div>
               <h3 className="mb-3 font-bold text-2xl lg:text-3xl">
                 Proven at Scale
@@ -287,18 +321,21 @@ function AboutPage() {
             company together.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
-              asChild
-              size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90"
-            >
-              <Link to="/apply">
-                Schedule a Consultation
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+            <Button render={<Link to="/apply" />} size="lg">
+              Schedule a Consultation
+              <HugeiconsIcon
+                icon={ArrowRight01Icon}
+                size={20}
+                strokeWidth={2}
+                data-icon="inline-end"
+              />
             </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link to="/case-studies">View Case Studies</Link>
+            <Button
+              render={<Link to="/case-studies" />}
+              size="lg"
+              variant="outline"
+            >
+              View Case Studies
             </Button>
           </div>
           <p className="mt-6 text-muted-foreground text-sm">

@@ -1,7 +1,14 @@
 import { convexQuery } from '@convex-dev/react-query';
+import {
+  FloppyDiskIcon,
+  Image01Icon,
+  Loading01Icon,
+  ViewIcon,
+  ViewOffIcon,
+} from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 import { useQuery } from '@tanstack/react-query';
 import { createServerFn } from '@tanstack/react-start';
-import { Eye, EyeOff, Image as ImageIcon, Loader2, Save } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
@@ -309,9 +316,14 @@ export function BlogEditor({
               disabled={isUploadingImage}
             >
               {isUploadingImage ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
+                <HugeiconsIcon
+                  icon={Loading01Icon}
+                  size={16}
+                  strokeWidth={2}
+                  className="animate-spin"
+                />
               ) : (
-                <ImageIcon className="h-4 w-4" />
+                <HugeiconsIcon icon={Image01Icon} size={16} strokeWidth={2} />
               )}
               Insert Image
             </Button>
@@ -324,12 +336,12 @@ export function BlogEditor({
             >
               {showPreview ? (
                 <>
-                  <EyeOff className="h-4 w-4" />
+                  <HugeiconsIcon icon={ViewOffIcon} size={16} strokeWidth={2} />
                   Hide Preview
                 </>
               ) : (
                 <>
-                  <Eye className="h-4 w-4" />
+                  <HugeiconsIcon icon={ViewIcon} size={16} strokeWidth={2} />
                   Show Preview
                 </>
               )}
@@ -352,7 +364,7 @@ export function BlogEditor({
 
           {/* Preview */}
           {showPreview && (
-            <div className="rounded-lg border border-border bg-card p-6">
+            <div className="rounded-lg ring-1 ring-foreground/10 bg-card p-6">
               <div className="prose prose-sm dark:prose-invert max-w-none">
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
@@ -402,9 +414,14 @@ export function BlogEditor({
               disabled={isUploadingImage}
             >
               {isUploadingImage ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
+                <HugeiconsIcon
+                  icon={Loading01Icon}
+                  size={16}
+                  strokeWidth={2}
+                  className="animate-spin"
+                />
               ) : (
-                <ImageIcon className="h-4 w-4" />
+                <HugeiconsIcon icon={Image01Icon} size={16} strokeWidth={2} />
               )}
               Upload Featured Image
             </Button>
@@ -413,7 +430,7 @@ export function BlogEditor({
                 <img
                   src={featuredImage}
                   alt="Featured"
-                  className="w-full rounded-lg border border-border object-cover"
+                  className="w-full rounded-lg ring-1 ring-foreground/10 object-cover"
                 />
                 <Button
                   type="button"
@@ -438,7 +455,7 @@ export function BlogEditor({
             }
           >
             <SelectTrigger className="mt-2">
-              <SelectValue placeholder="Select category" />
+              <SelectValue />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="">None</SelectItem>
@@ -453,7 +470,7 @@ export function BlogEditor({
       </div>
 
       {/* Publishing Options */}
-      <div className="space-y-4 rounded-lg border border-border bg-card p-6">
+      <div className="space-y-4 rounded-lg ring-1 ring-foreground/10 bg-card p-6">
         <h3 className="font-semibold text-lg">Publishing</h3>
         <div className="grid gap-6 lg:grid-cols-2">
           <div>
@@ -491,7 +508,7 @@ export function BlogEditor({
       </div>
 
       {/* SEO Section (Accordion) */}
-      <Accordion type="single" collapsible className="w-full">
+      <Accordion className="w-full">
         <AccordionItem value="seo">
           <AccordionTrigger>SEO Settings (Optional)</AccordionTrigger>
           <AccordionContent>
@@ -536,7 +553,7 @@ export function BlogEditor({
                   type="checkbox"
                   checked={noindex}
                   onChange={(e) => setNoindex(e.target.checked)}
-                  className="h-4 w-4 rounded border-border"
+                  className="h-4 w-4 rounded ring-1 ring-foreground/10"
                 />
                 <Label htmlFor="noindex" className="cursor-pointer">
                   Exclude from search engines (noindex)
@@ -548,7 +565,7 @@ export function BlogEditor({
       </Accordion>
 
       {/* Submit Buttons */}
-      <div className="flex items-center justify-end gap-3 border-border border-t pt-6">
+      <div className="flex items-center justify-end gap-3 ring-1 ring-foreground/10 border-t pt-6">
         <Button
           type="submit"
           size="lg"
@@ -557,12 +574,17 @@ export function BlogEditor({
         >
           {isSubmitting ? (
             <>
-              <Loader2 className="h-4 w-4 animate-spin" />
+              <HugeiconsIcon
+                icon={Loading01Icon}
+                size={16}
+                strokeWidth={2}
+                className="animate-spin"
+              />
               Saving...
             </>
           ) : (
             <>
-              <Save className="h-4 w-4" />
+              <HugeiconsIcon icon={FloppyDiskIcon} size={16} strokeWidth={2} />
               {initialData ? 'Update Post' : 'Create Post'}
             </>
           )}

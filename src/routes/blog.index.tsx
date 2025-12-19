@@ -1,6 +1,13 @@
+import {
+  ArrowRight01Icon,
+  Calendar01Icon,
+  Clock01Icon,
+  File01Icon,
+  UserIcon,
+} from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { useQuery } from 'convex/react';
-import { ArrowRight, Calendar, Clock, FileText, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { generateMetaTags } from '@/lib/seo';
 import { api } from '../../convex/_generated/api';
@@ -45,8 +52,13 @@ function BlogIndexPage() {
           {isLoading ? (
             <div className="flex min-h-100 items-center justify-center">
               <div className="text-center">
-                <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                  <FileText className="h-8 w-8 animate-pulse text-accent" />
+                <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+                  <HugeiconsIcon
+                    icon={File01Icon}
+                    size={32}
+                    strokeWidth={1.5}
+                    className="animate-pulse text-primary"
+                  />
                 </div>
                 <p className="text-muted-foreground">Loading posts...</p>
               </div>
@@ -54,8 +66,13 @@ function BlogIndexPage() {
           ) : !posts || posts.length === 0 ? (
             <div className="flex min-h-100 items-center justify-center">
               <div className="text-center">
-                <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                  <FileText className="h-8 w-8 text-accent" />
+                <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+                  <HugeiconsIcon
+                    icon={File01Icon}
+                    size={32}
+                    strokeWidth={1.5}
+                    className="text-primary"
+                  />
                 </div>
                 <h2 className="mb-3 font-bold text-2xl">No Posts Yet</h2>
                 <p className="text-muted-foreground leading-relaxed tracking-wide">
@@ -85,18 +102,21 @@ function BlogIndexPage() {
             leads. Let's discuss how to scale your business.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
-              asChild
-              size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90"
-            >
-              <Link to="/apply">
-                Apply To Work With Us
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+            <Button render={<Link to="/apply" />} size="lg">
+              Apply To Work With Us
+              <HugeiconsIcon
+                icon={ArrowRight01Icon}
+                size={20}
+                strokeWidth={2}
+                data-icon="inline-end"
+              />
             </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link to="/case-studies">View Case Studies</Link>
+            <Button
+              render={<Link to="/case-studies" />}
+              size="lg"
+              variant="outline"
+            >
+              View Case Studies
             </Button>
           </div>
         </div>
@@ -148,7 +168,7 @@ function BlogPostCard({ post }: BlogPostCardProps) {
 
   return (
     <Link to={`/blog/${post.slug}` as any} className="block h-full">
-      <article className="flex h-full flex-col rounded-2xl border border-border bg-card transition-all hover:border-accent/50 hover:shadow-accent/10 hover:shadow-lg">
+      <article className="flex h-full flex-col rounded-2xl border border-border bg-card transition-all hover:border-primary/50 hover:shadow-primary/10 hover:shadow-lg">
         {/* Featured Image */}
         {post.featuredImage ? (
           <img
@@ -158,7 +178,12 @@ function BlogPostCard({ post }: BlogPostCardProps) {
           />
         ) : (
           <div className="flex aspect-video items-center justify-center rounded-t-2xl bg-muted">
-            <FileText className="h-12 w-12 text-muted-foreground/30" />
+            <HugeiconsIcon
+              icon={File01Icon}
+              size={48}
+              strokeWidth={1}
+              className="text-muted-foreground/30"
+            />
           </div>
         )}
 
@@ -177,15 +202,19 @@ function BlogPostCard({ post }: BlogPostCardProps) {
           {/* Metadata */}
           <div className="flex flex-wrap items-center gap-4 border-border border-t pt-4 text-muted-foreground text-xs tracking-wide">
             <div className="flex items-center gap-1">
-              <Calendar className="h-3.5 w-3.5" />
+              <HugeiconsIcon
+                icon={Calendar01Icon}
+                size={14}
+                strokeWidth={1.5}
+              />
               <span>{formattedDate}</span>
             </div>
             <div className="flex items-center gap-1">
-              <Clock className="h-3.5 w-3.5" />
+              <HugeiconsIcon icon={Clock01Icon} size={14} strokeWidth={1.5} />
               <span>{readTime} min read</span>
             </div>
             <div className="flex items-center gap-1">
-              <User className="h-3.5 w-3.5" />
+              <HugeiconsIcon icon={UserIcon} size={14} strokeWidth={1.5} />
               <span>{post.authorName}</span>
             </div>
           </div>

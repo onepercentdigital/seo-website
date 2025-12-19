@@ -1,15 +1,16 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
 import {
-  ArrowRight,
-  Award,
-  Briefcase,
-  Building2,
-  Factory,
-  Laptop,
-  TrendingUp,
-  Users,
-  UtensilsCrossed,
-} from 'lucide-react';
+  ArrowRight01Icon,
+  Award01Icon,
+  Briefcase01Icon,
+  Building01Icon,
+  ChartIncreaseIcon,
+  Factory01Icon,
+  LaptopIcon,
+  Restaurant01Icon,
+  UserGroupIcon,
+} from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { createFileRoute, Link } from '@tanstack/react-router';
 import { Button } from '@/components/ui/button';
 import {
   customerCategories,
@@ -32,11 +33,11 @@ export const Route = createFileRoute('/customers')({
 });
 
 // Icon mapping for customer categories
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  UtensilsCrossed,
-  Laptop,
-  Factory,
-  Briefcase,
+const iconMap: Record<string, typeof Restaurant01Icon> = {
+  UtensilsCrossed: Restaurant01Icon,
+  Laptop: LaptopIcon,
+  Factory: Factory01Icon,
+  Briefcase: Briefcase01Icon,
 };
 
 function CustomersPage() {
@@ -58,17 +59,21 @@ function CustomersPage() {
               total mind share in their industries.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
-              >
-                <Link to="/apply">
-                  Apply To Work With Us <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+              <Button render={<Link to="/apply" />} size="lg">
+                Apply To Work With Us
+                <HugeiconsIcon
+                  icon={ArrowRight01Icon}
+                  size={20}
+                  strokeWidth={2}
+                  data-icon="inline-end"
+                />
               </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/case-studies">View Case Studies</Link>
+              <Button
+                render={<Link to="/case-studies" />}
+                size="lg"
+                variant="outline"
+              >
+                View Case Studies
               </Button>
             </div>
           </div>
@@ -90,10 +95,15 @@ function CustomersPage() {
 
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                <Building2 className="h-8 w-8 text-accent" />
+              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+                <HugeiconsIcon
+                  icon={Building01Icon}
+                  size={32}
+                  strokeWidth={1.5}
+                  className="text-primary"
+                />
               </div>
-              <div className="mb-2 font-extrabold text-5xl text-accent leading-none tracking-tight lg:text-7xl xl:text-8xl">
+              <div className="mb-2 font-extrabold text-5xl text-primary leading-none tracking-tight lg:text-7xl xl:text-8xl">
                 300+
               </div>
               <div className="text-muted-foreground tracking-wide">
@@ -102,10 +112,15 @@ function CustomersPage() {
             </div>
 
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                <TrendingUp className="h-8 w-8 text-accent" />
+              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+                <HugeiconsIcon
+                  icon={ChartIncreaseIcon}
+                  size={32}
+                  strokeWidth={1.5}
+                  className="text-primary"
+                />
               </div>
-              <div className="mb-2 font-extrabold text-5xl text-accent leading-none tracking-tight lg:text-7xl xl:text-8xl">
+              <div className="mb-2 font-extrabold text-5xl text-primary leading-none tracking-tight lg:text-7xl xl:text-8xl">
                 8X
               </div>
               <div className="text-muted-foreground tracking-wide">
@@ -114,10 +129,15 @@ function CustomersPage() {
             </div>
 
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-accent/10 p-4">
-                <Award className="h-8 w-8 text-accent" />
+              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+                <HugeiconsIcon
+                  icon={Award01Icon}
+                  size={32}
+                  strokeWidth={1.5}
+                  className="text-primary"
+                />
               </div>
-              <div className="mb-2 font-extrabold text-5xl text-accent leading-none tracking-tight lg:text-7xl xl:text-8xl">
+              <div className="mb-2 font-extrabold text-5xl text-primary leading-none tracking-tight lg:text-7xl xl:text-8xl">
                 $200M+
               </div>
               <div className="text-muted-foreground tracking-wide">
@@ -145,7 +165,7 @@ function CustomersPage() {
             {customers.map((customer) => (
               <div
                 key={customer.id}
-                className="group flex items-center justify-center rounded-2xl border border-border bg-card p-6 transition-all hover:border-accent/50 hover:shadow-accent/10 hover:shadow-lg"
+                className="group flex items-center justify-center rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-primary/10 hover:shadow-lg"
               >
                 {customer.logo ? (
                   <img
@@ -154,7 +174,7 @@ function CustomersPage() {
                     className="h-auto w-full max-w-[120px] object-contain dark:invert"
                   />
                 ) : (
-                  <div className="text-center font-bold text-foreground text-sm transition-colors group-hover:text-accent lg:text-base">
+                  <div className="text-center font-bold text-foreground text-sm transition-colors group-hover:text-primary lg:text-base">
                     {customer.name}
                   </div>
                 )}
@@ -184,12 +204,12 @@ function CustomersPage() {
                   key={customer.id}
                   className="rounded-2xl border-2 border-border bg-card p-8 shadow-sm"
                 >
-                  <div className="mb-6 text-2xl text-accent">"</div>
+                  <div className="mb-6 text-2xl text-primary">"</div>
                   <p className="mb-6 text-foreground leading-relaxed">
                     {customer.testimonial?.quote}
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 font-bold text-accent">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 font-bold text-primary">
                       {customer.testimonial?.initials}
                     </div>
                     <div>
@@ -223,15 +243,20 @@ function CustomersPage() {
 
           <div className="grid gap-8 md:grid-cols-2">
             {customerCategories.map((category) => {
-              const Icon = iconMap[category.icon] || Briefcase;
+              const IconComponent = iconMap[category.icon] || Briefcase01Icon;
 
               return (
                 <div
                   key={category.id}
                   className="rounded-2xl border border-border bg-card p-8"
                 >
-                  <div className="mb-4 inline-flex rounded-lg bg-accent/10 p-3">
-                    <Icon className="size-6 text-accent" />
+                  <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-3">
+                    <HugeiconsIcon
+                      icon={IconComponent}
+                      size={24}
+                      strokeWidth={1.5}
+                      className="text-primary"
+                    />
                   </div>
                   <h3 className="mb-3 font-bold text-2xl lg:text-3xl">
                     {category.name}
@@ -253,7 +278,7 @@ function CustomersPage() {
             <div className="overflow-hidden rounded-2xl border-2 border-border bg-card">
               <div className="grid gap-8 lg:grid-cols-2">
                 <div className="p-8 lg:p-12">
-                  <div className="mb-4 inline-block rounded-full bg-accent/10 px-4 py-1 font-semibold text-accent text-xs uppercase tracking-widest">
+                  <div className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1 font-semibold text-primary text-xs uppercase tracking-widest">
                     Featured Success Story
                   </div>
                   <h2 className="mb-4 font-bold text-3xl leading-tight lg:text-4xl xl:text-5xl">
@@ -268,7 +293,7 @@ function CustomersPage() {
                         key={metric.label}
                         className="flex items-center gap-4"
                       >
-                        <div className="font-bold text-3xl text-accent tracking-tight lg:text-4xl">
+                        <div className="font-bold text-3xl text-primary tracking-tight lg:text-4xl">
                           {metric.value}
                         </div>
                         <div className="text-muted-foreground tracking-wide">
@@ -279,20 +304,27 @@ function CustomersPage() {
                   </div>
                   {featuredCustomer.caseStudyUrl && (
                     <Button
-                      asChild
-                      className="bg-accent text-accent-foreground hover:bg-accent/90"
+                      render={<Link to={featuredCustomer.caseStudyUrl} />}
                     >
-                      <Link to={featuredCustomer.caseStudyUrl}>
-                        Read Full Case Study{' '}
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
+                      Read Full Case Study
+                      <HugeiconsIcon
+                        icon={ArrowRight01Icon}
+                        size={16}
+                        strokeWidth={2}
+                        data-icon="inline-end"
+                      />
                     </Button>
                   )}
                 </div>
                 <div className="relative min-h-[300px] bg-secondary/50 lg:min-h-[400px]">
                   <div className="flex h-full items-center justify-center p-8">
                     <div className="text-center">
-                      <Users className="mx-auto mb-4 h-24 w-24 text-accent/30" />
+                      <HugeiconsIcon
+                        icon={UserGroupIcon}
+                        size={96}
+                        strokeWidth={1}
+                        className="mx-auto mb-4 text-primary/30"
+                      />
                       <div className="font-bold text-2xl text-foreground/50">
                         Success Story
                       </div>
@@ -318,17 +350,21 @@ function CustomersPage() {
               help you scale with the right leads for your business.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
-              >
-                <Link to="/apply">
-                  Apply To Work With Us <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+              <Button render={<Link to="/apply" />} size="lg">
+                Apply To Work With Us
+                <HugeiconsIcon
+                  icon={ArrowRight01Icon}
+                  size={20}
+                  strokeWidth={2}
+                  data-icon="inline-end"
+                />
               </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/case-studies">View All Case Studies</Link>
+              <Button
+                render={<Link to="/case-studies" />}
+                size="lg"
+                variant="outline"
+              >
+                View All Case Studies
               </Button>
             </div>
           </div>
