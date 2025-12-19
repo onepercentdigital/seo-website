@@ -77,7 +77,7 @@ function CaseStudiesPage() {
           <div className="grid gap-8 lg:grid-cols-3">
             {/* Stat 1 */}
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+              <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4">
                 <HugeiconsIcon
                   icon={ChartIncreaseIcon}
                   size={32}
@@ -98,7 +98,7 @@ function CaseStudiesPage() {
 
             {/* Stat 2 */}
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+              <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4">
                 <HugeiconsIcon
                   icon={UserGroupIcon}
                   size={32}
@@ -119,7 +119,7 @@ function CaseStudiesPage() {
 
             {/* Stat 3 */}
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+              <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4">
                 <HugeiconsIcon
                   icon={Building01Icon}
                   size={32}

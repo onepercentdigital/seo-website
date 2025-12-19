@@ -94,7 +94,7 @@ function AboutPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 sm:grid-cols-3">
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+              <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4">
                 <HugeiconsIcon
                   icon={Clock01Icon}
                   size={32}
@@ -110,7 +110,7 @@ function AboutPage() {
               </div>
             </div>
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+              <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4">
                 <HugeiconsIcon
                   icon={Briefcase01Icon}
                   size={32}
@@ -126,7 +126,7 @@ function AboutPage() {
               </div>
             </div>
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+              <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4">
                 <HugeiconsIcon
                   icon={ChartIncreaseIcon}
                   size={32}
@@ -246,7 +246,7 @@ function AboutPage() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-3">
+              <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-3">
                 <HugeiconsIcon
                   icon={Briefcase01Icon}
                   size={32}
@@ -266,7 +266,7 @@ function AboutPage() {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-3">
+              <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-3">
                 <HugeiconsIcon
                   icon={UserGroupIcon}
                   size={32}
@@ -286,7 +286,7 @@ function AboutPage() {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-8">
-              <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-3">
+              <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-3">
                 <HugeiconsIcon
                   icon={Award01Icon}
                   size={32}

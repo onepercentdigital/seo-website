@@ -51,7 +51,7 @@ function ApplyPage() {
               {/* Key Benefits List */}
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 rounded-lg bg-primary/10 p-2">
+                  <div className="mt-1 rounded-xl bg-primary/10 p-2">
                     <HugeiconsIcon
                       icon={Target01Icon}
                       size={20}
@@ -71,7 +71,7 @@ function ApplyPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 rounded-lg bg-primary/10 p-2">
+                  <div className="mt-1 rounded-xl bg-primary/10 p-2">
                     <HugeiconsIcon
                       icon={ChartIncreaseIcon}
                       size={20}
@@ -91,7 +91,7 @@ function ApplyPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 rounded-lg bg-primary/10 p-2">
+                  <div className="mt-1 rounded-xl bg-primary/10 p-2">
                     <HugeiconsIcon
                       icon={Idea01Icon}
                       size={20}
@@ -111,7 +111,7 @@ function ApplyPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 rounded-lg bg-primary/10 p-2">
+                  <div className="mt-1 rounded-xl bg-primary/10 p-2">
                     <HugeiconsIcon
                       icon={DollarCircleIcon}
                       size={20}
@@ -131,7 +131,7 @@ function ApplyPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 rounded-lg bg-primary/10 p-2">
+                  <div className="mt-1 rounded-xl bg-primary/10 p-2">
                     <HugeiconsIcon
                       icon={Shield01Icon}
                       size={20}
@@ -177,7 +177,7 @@ function ApplyPage() {
             {/* Step 1 */}
             <div className="text-center">
               <div className="mb-4 flex items-center justify-between">
-                <div className="rounded-lg bg-primary/10 p-3">
+                <div className="rounded-xl bg-primary/10 p-3">
                   <HugeiconsIcon
                     icon={ArrowRight01Icon}
                     size={24}
@@ -199,7 +199,7 @@ function ApplyPage() {
             {/* Step 2 */}
             <div className="text-center">
               <div className="mb-4 flex items-center justify-between">
-                <div className="rounded-lg bg-primary/10 p-3">
+                <div className="rounded-xl bg-primary/10 p-3">
                   <HugeiconsIcon
                     icon={Target01Icon}
                     size={24}
@@ -221,7 +221,7 @@ function ApplyPage() {
             {/* Step 3 */}
             <div className="text-center">
               <div className="mb-4 flex items-center justify-between">
-                <div className="rounded-lg bg-primary/10 p-3">
+                <div className="rounded-xl bg-primary/10 p-3">
                   <HugeiconsIcon
                     icon={UserGroupIcon}
                     size={24}
@@ -243,7 +243,7 @@ function ApplyPage() {
             {/* Step 4 */}
             <div className="text-center">
               <div className="mb-4 flex items-center justify-between">
-                <div className="rounded-lg bg-primary/10 p-3">
+                <div className="rounded-xl bg-primary/10 p-3">
                   <HugeiconsIcon
                     icon={Idea01Icon}
                     size={24}
@@ -270,7 +270,7 @@ function ApplyPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+              <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4">
                 <HugeiconsIcon
                   icon={ChartIncreaseIcon}
                   size={32}
@@ -287,7 +287,7 @@ function ApplyPage() {
             </div>
 
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+              <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4">
                 <HugeiconsIcon
                   icon={DollarCircleIcon}
                   size={32}
@@ -304,7 +304,7 @@ function ApplyPage() {
             </div>
 
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+              <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4">
                 <HugeiconsIcon
                   icon={ChartLineData01Icon}
                   size={32}

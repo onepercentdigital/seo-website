@@ -483,7 +483,7 @@ function GEOPage() {
                   recommend you by name, that's when you know you've made it."
                 </p>
                 <div className="mt-4 flex items-center gap-3">
-                  <div className="flex size-12 items-center justify-center rounded-full bg-primary/10">
+                  <div className="flex size-12 items-center justify-center rounded-xl bg-primary/10">
                     <HugeiconsIcon
                       icon={UserGroupIcon}
                       size={24}

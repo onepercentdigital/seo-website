@@ -95,7 +95,7 @@ function CustomersPage() {
 
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+              <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4">
                 <HugeiconsIcon
                   icon={Building01Icon}
                   size={32}
@@ -112,7 +112,7 @@ function CustomersPage() {
             </div>
 
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+              <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4">
                 <HugeiconsIcon
                   icon={ChartIncreaseIcon}
                   size={32}
@@ -129,7 +129,7 @@ function CustomersPage() {
             </div>
 
             <div className="text-center">
-              <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+              <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4">
                 <HugeiconsIcon
                   icon={Award01Icon}
                   size={32}
@@ -250,7 +250,7 @@ function CustomersPage() {
                   key={category.id}
                   className="rounded-2xl border border-border bg-card p-8"
                 >
-                  <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-3">
+                  <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-3">
                     <HugeiconsIcon
                       icon={IconComponent}
                       size={24}

@@ -261,7 +261,7 @@ function HomePage() {
               },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="mb-3 inline-flex size-12 items-center justify-center rounded-full bg-primary/10">
+                <div className="mb-3 inline-flex size-12 items-center justify-center rounded-xl bg-primary/10">
                   <HugeiconsIcon
                     icon={stat.icon}
                     size={24}

@@ -52,7 +52,7 @@ function BlogIndexPage() {
           {isLoading ? (
             <div className="flex min-h-100 items-center justify-center">
               <div className="text-center">
-                <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+                <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4">
                   <HugeiconsIcon
                     icon={File01Icon}
                     size={32}
@@ -66,7 +66,7 @@ function BlogIndexPage() {
           ) : !posts || posts.length === 0 ? (
             <div className="flex min-h-100 items-center justify-center">
               <div className="text-center">
-                <div className="mb-4 inline-flex rounded-full bg-primary/10 p-4">
+                <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-4">
                   <HugeiconsIcon
                     icon={File01Icon}
                     size={32}
