@@ -357,7 +357,7 @@ export function BlogEditor({
               value={content}
               onChange={(e) => setContent(e.target.value)}
               placeholder="Write your post content in Markdown..."
-              className="min-h-[500px] font-mono text-sm"
+              className="min-h-125 font-mono text-sm"
               required
             />
           </div>
