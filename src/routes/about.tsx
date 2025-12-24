@@ -62,7 +62,7 @@ function AboutPage() {
               Meet the Team Behind Your Success
             </h1>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide lg:text-xl">
-              We're not just marketing experts—we're entrepreneurs who run our
+              We're not just marketing experts. We're entrepreneurs who run our
               own successful E-commerce brands. From GEO and SEO to Performance
               Marketing, we understand the challenges you face because we face
               them too.
@@ -150,7 +150,7 @@ function AboutPage() {
               <p className="mb-6 text-lg text-muted-foreground leading-relaxed tracking-wide">
                 One Percent Digital was founded on a simple principle: the best
                 marketing experts are the ones who run their own businesses.
-                We're not consultants who learned SEO from textbooks—we're
+                We're not consultants who learned SEO from textbooks. We're
                 entrepreneurs who've scaled multiple E-commerce brands from the
                 ground up and understand the real challenges of growing a
                 business online.
@@ -165,7 +165,7 @@ function AboutPage() {
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed tracking-wide">
                 When you work with One Percent Digital, you're not just hiring
-                an agency—you're partnering with fellow entrepreneurs who treat
+                an agency. You're partnering with fellow entrepreneurs who treat
                 your business like our own. We understand ROI, budget
                 constraints, competitive pressures, and the need for strategies
                 that actually move the needle. That's the One Percent
@@ -280,7 +280,7 @@ function AboutPage() {
               <p className="text-muted-foreground leading-relaxed tracking-wide">
                 We run our own successful E-commerce brands, so we understand
                 the challenges you face. We're not consultants reading from a
-                playbook—we're business owners who live and breathe the same
+                playbook. We're business owners who live and breathe the same
                 struggles and victories you experience every day.
               </p>
             </div>
@@ -299,7 +299,7 @@ function AboutPage() {
                 We treat your business like our own because we know what it
                 takes to succeed. From onboarding to execution, we delve deep
                 into your unique needs, understand your market, and deliver
-                strategies that add real value—not just vanity metrics.
+                strategies that add real value, not just vanity metrics.
               </p>
             </div>
 
@@ -315,7 +315,7 @@ function AboutPage() {
               </h3>
               <p className="text-muted-foreground leading-relaxed tracking-wide">
                 With over 300 brands served since 2012 and multiple co-founded
-                E-commerce ventures, our strategies aren't theoretical—they're
+                E-commerce ventures, our strategies aren't theoretical. They're
                 battle-tested. We've scaled businesses through algorithm
                 updates, market changes, and competitive pressures. We know what
                 works.

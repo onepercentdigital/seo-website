@@ -37,7 +37,7 @@ export const Route = createFileRoute('/ppl')({
     generateMetaTags({
       title: 'PPL - Pay Per Lead Generation',
       description:
-        'Exclusive pre-qualified leads delivered on demand. No retainers, no contracts, no set-up fees. We fund your marketing—you only pay for results.',
+        'Exclusive pre-qualified leads delivered on demand. No retainers, no contracts, no set-up fees. We fund your marketing. You only pay for results.',
       url: 'https://onepercentseo.com/ppl',
     }),
 });
@@ -69,7 +69,7 @@ const processSteps = [
     icon: UserGroupIcon,
     title: 'Receive Exclusive Pre-Qualified Leads',
     description:
-      'Pre-qualified prospects are delivered to you in real-time via your preferred method—CRM, email, webhook, or custom integration.',
+      'Pre-qualified prospects are delivered to you in real-time via your preferred method: CRM, email, webhook, or custom integration.',
   },
 ];
 
@@ -108,7 +108,7 @@ const benefits = [
     icon: LockIcon,
     title: 'Exclusive To You',
     description:
-      'Your leads are never shared or resold. Every prospect goes directly to you—you are the first and only stop. No competing with other buyers for the same lead.',
+      'Your leads are never shared or resold. Every prospect goes directly to you. You are the first and only stop. No competing with other buyers for the same lead.',
   },
 ];
 
@@ -123,7 +123,7 @@ const leadQualityItems = [
     icon: CheckmarkCircle02Icon,
     title: 'Validated Qualifications',
     description:
-      'We verify stated information—credit scores, asset sizes, budget ranges—before delivery. What prospects tell us is confirmed, not guessed.',
+      'We verify stated information like credit scores, asset sizes, and budget ranges before delivery. What prospects tell us is confirmed, not guessed.',
   },
   {
     icon: LockIcon,
@@ -217,12 +217,12 @@ const faqs = [
   {
     question: 'How do you ensure leads are actually qualified?',
     answer:
-      'Unlike platforms that share leads or deliver unverified information, we validate everything before delivery. Phone numbers are verified through one-time passcode confirmation—every number you receive is contactable. Stated qualifications like credit scores, 401k sizes, and budget ranges are validated against our criteria. Our longer intake quizzes filter out casual browsers, ensuring prospects are invested before they reach you. AI-assisted qualification and follow-up systems further increase lead quality and conversion rates.',
+      'Unlike platforms that share leads or deliver unverified information, we validate everything before delivery. Phone numbers are verified through one-time passcode confirmation, so every number you receive is contactable. Stated qualifications like credit scores, 401k sizes, and budget ranges are validated against our criteria. Our longer intake quizzes filter out casual browsers, ensuring prospects are invested before they reach you. AI-assisted qualification and follow-up systems further increase lead quality and conversion rates.',
   },
   {
     question: 'How quickly can I start receiving leads?',
     answer:
-      'Most clients start receiving qualified leads within 24 hours of campaign launch. The setup process—defining criteria, building landing pages, creating ads—typically takes 3-5 business days. Once live, leads flow immediately.',
+      'Most clients start receiving qualified leads within 24 hours of campaign launch. The setup process (defining criteria, building landing pages, creating ads) typically takes 3-5 business days. Once live, leads flow immediately.',
   },
   {
     question: 'What industries do you work with?',
@@ -242,7 +242,7 @@ const faqs = [
   {
     question: 'What if lead quality is unsatisfactory?',
     answer:
-      'We stand behind our qualification process. If a lead does not meet the agreed-upon criteria, we replace it at no charge. Our model only works when you succeed—we are invested in delivering leads that actually convert for your business.',
+      'We stand behind our qualification process. If a lead does not meet the agreed-upon criteria, we replace it at no charge. Our model only works when you succeed, so we are invested in delivering leads that actually convert for your business.',
   },
 ];
 
@@ -252,7 +252,7 @@ function PayPerLeadPage() {
     data: {
       name: 'PPL (Pay Per Lead Generation)',
       description:
-        'Exclusive pre-qualified leads delivered on demand. No retainers, no contracts, no set-up fees. We fund your marketing—you only pay for results.',
+        'Exclusive pre-qualified leads delivered on demand. No retainers, no contracts, no set-up fees. We fund your marketing. You only pay for results.',
       url: 'https://onepercentseo.com/ppl',
       serviceType: 'Lead Generation',
       provider: {
@@ -277,7 +277,7 @@ function PayPerLeadPage() {
             </h1>
             <p className="mx-auto mb-8 max-w-2xl text-muted-foreground text-xl leading-relaxed tracking-wide lg:text-2xl">
               No retainers. No long-term contracts. No upfront fees. We fund
-              your marketing and deliver pre-qualified leads in real-time—you
+              your marketing and deliver pre-qualified leads in real-time. You
               only pay for prospects ready to buy.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -313,8 +313,8 @@ function PayPerLeadPage() {
               <p className="mt-6 text-lg text-muted-foreground leading-relaxed tracking-wide">
                 Pay per lead generation is a results-based model where you only
                 pay for qualified leads delivered to your business. We invest in
-                your marketing campaigns—creating ads, landing pages, and
-                conversion funnels—while you pay exclusively for prospects that
+                your marketing campaigns (creating ads, landing pages, and
+                conversion funnels) while you pay exclusively for prospects that
                 meet your criteria.
               </p>
               <p className="mt-4 text-lg text-muted-foreground leading-relaxed tracking-wide">
@@ -370,7 +370,7 @@ function PayPerLeadPage() {
               How It Works
             </h2>
             <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground tracking-wide">
-              From setup to qualified leads in your pipeline—we handle
+              From setup to qualified leads in your pipeline, we handle
               everything
             </p>
           </div>

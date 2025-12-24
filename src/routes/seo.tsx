@@ -65,7 +65,7 @@ const processSteps = [
     icon: Analytics01Icon,
     title: 'Continuous Growth',
     description:
-      'Monitor performance, refine strategy, and scale successful tactics. SEO compounds over time—we maximize that advantage.',
+      'Monitor performance, refine strategy, and scale successful tactics. SEO compounds over time, and we maximize that advantage.',
   },
 ];
 
@@ -181,7 +181,7 @@ const faqs = [
   {
     question: 'How long does SEO take to show results?',
     answer:
-      'Most clients see initial improvements within 3-4 months, with significant growth by month 6-8. SEO is a compound investment— results accelerate over time as authority builds. Unlike paid ads with immediate but temporary results, SEO creates lasting value that continues growing month after month.',
+      'Most clients see initial improvements within 3-4 months, with significant growth by month 6-8. SEO is a compound investment, and results accelerate over time as authority builds. Unlike paid ads with immediate but temporary results, SEO creates lasting value that continues growing month after month.',
   },
   {
     question: 'Do you guarantee first-page rankings?',
@@ -191,7 +191,7 @@ const faqs = [
   {
     question: 'What makes your SEO approach different?',
     answer:
-      "We focus on sustainable, white-hat strategies that create long-term value rather than quick wins that risk penalties. Our approach combines technical excellence, high-quality content, and strategic link building with a deep understanding of your business goals. We're not just driving traffic—we're driving revenue.",
+      "We focus on sustainable, white-hat strategies that create long-term value rather than quick wins that risk penalties. Our approach combines technical excellence, high-quality content, and strategic link building with a deep understanding of your business goals. We're not just driving traffic. We're driving revenue.",
   },
   {
     question: 'Is SEO a one-time project or ongoing work?',
@@ -459,7 +459,7 @@ function SEOPage() {
                 Real Growth from Real Clients
               </h2>
               <p className="mt-6 text-lg text-muted-foreground leading-relaxed tracking-wide">
-                Our clients don't just see incremental improvements—they
+                Our clients don't just see incremental improvements. They
                 experience transformative growth that fundamentally changes
                 their business trajectory.
               </p>
@@ -567,7 +567,7 @@ function SEOPage() {
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
             Stop leaving money on the table. Your competitors are already
-            investing in SEO. The question isn't whether to start—it's whether
+            investing in SEO. The question isn't whether to start, it's whether
             you can afford to wait any longer.
           </p>
           <div className="mt-10">

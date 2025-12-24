@@ -118,7 +118,7 @@ function EnterprisePage() {
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed tracking-wide">
                 From stakeholder training to enterprise tool integration, we
-                become an extension of your team—delivering results at scale
+                become an extension of your team, delivering results at scale
                 while maintaining the precision and attention to detail that
                 drives success.
               </p>
@@ -815,9 +815,9 @@ function EnterprisePage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
               <p className="mb-8 text-lg text-muted-foreground leading-relaxed tracking-wide">
-                Our enterprise clients don't just see incremental
-                improvements—they achieve transformational results that impact
-                every location, brand, and market they serve. From enterprise
+                Our enterprise clients don't just see incremental improvements.
+                They achieve transformational results that impact every
+                location, brand, and market they serve. From enterprise
                 companies to rapidly scaling multi-location businesses, we
                 deliver measurable ROI with white-glove service.
               </p>
@@ -933,7 +933,7 @@ function EnterprisePage() {
                 marketing services?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">
-                Enterprise marketing isn't just "more marketing"—it's a
+                Enterprise marketing isn't just "more marketing." It's a
                 fundamentally different approach across GEO, SEO, and Pay Per
                 Lead Generation. You get a dedicated account team (not shared
                 resources), custom reporting dashboards tailored to your KPIs,
@@ -943,7 +943,7 @@ function EnterprisePage() {
                 HubSpot, etc.). We become an extension of your team with
                 quarterly business reviews, executive reporting, stakeholder
                 training, and strategic planning. Our systems are built to
-                manage complexity at scale—whether that's multiple locations,
+                manage complexity at scale, whether that's multiple locations,
                 brands, or international markets.
               </AccordionContent>
             </AccordionItem>
@@ -994,7 +994,7 @@ function EnterprisePage() {
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">
                 Multi-location management is one of our core competencies. We
-                provide centralized strategy with local execution—meaning
+                provide centralized strategy with local execution, meaning
                 consistent brand governance while optimizing for each location's
                 unique market. Our systems manage everything from local listings
                 and review monitoring to location-specific landing pages and

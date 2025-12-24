@@ -205,7 +205,7 @@ const faqs = [
   {
     question: 'Is GEO worth it if AI search is still emerging?',
     answer:
-      'This is precisely why GEO is critical now. AI search is growing 400% year-over-year, and early adopters are establishing category authority that will be difficult to displace. By the time AI search becomes mainstream, you want to already be the default recommendation—not fighting for visibility against established competitors.',
+      'This is precisely why GEO is critical now. AI search is growing 400% year-over-year, and early adopters are establishing category authority that will be difficult to displace. By the time AI search becomes mainstream, you want to already be the default recommendation, not fighting for visibility against established competitors.',
   },
 ];
 

@@ -88,7 +88,7 @@ function CustomersPage() {
               Proven Results Across Industries
             </h2>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
-              Our clients don't just rank well—they own their categories and
+              Our clients don't just rank well. They own their categories and
               drive measurable revenue growth.
             </p>
           </div>
@@ -342,7 +342,7 @@ function CustomersPage() {
             </h2>
             <p className="mb-8 text-lg text-muted-foreground leading-relaxed tracking-wide lg:text-xl">
               SEO for organic visibility. GEO for AI discovery. Performance
-              Marketing for immediate leads. Pick one or combine all three—we
+              Marketing for immediate leads. Pick one or combine all three. We
               help you scale with the right leads for your business.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">

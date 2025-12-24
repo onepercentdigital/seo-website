@@ -44,7 +44,7 @@ function ApplyPage() {
               </h1>
               <p className="mb-8 text-muted-foreground text-xl leading-relaxed tracking-wide lg:text-2xl">
                 We partner with serious brands ready to grow through GEO, SEO,
-                and PPL. Apply to see if you qualify—we'll evaluate your
+                and PPL. Apply to see if you qualify. We'll evaluate your
                 business and determine if we're the right fit.
               </p>
 
@@ -340,7 +340,7 @@ function ApplyPage() {
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
                 Since 2012, we've helped over 300 businesses across North
-                America in diverse industries — from hospitality and E-commerce
+                America in diverse industries, from hospitality and E-commerce
                 to manufacturing and professional services. We're frequently
                 approached by multinational companies, digital marketing
                 agencies, and other SEO agencies for consulting. Our strategies
