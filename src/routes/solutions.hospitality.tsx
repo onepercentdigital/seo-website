@@ -36,7 +36,7 @@ export const Route = createFileRoute('/solutions/hospitality')({
       title: 'Hospitality & Restaurant SEO | Fill Tables with Search',
       description:
         'Own local search and AI recommendations for restaurants, hotels, and hospitality venues. Beat OTAs, outrank chains, and fill every table with search-driven customers.',
-      url: 'https://onepercentseo.com/solutions/hospitality',
+      url: 'https://op.digital/solutions/hospitality',
     }),
 });
 
@@ -52,12 +52,12 @@ function HospitalityPage() {
     data: {
       name: 'Hospitality & Restaurant SEO',
       description: solution.description,
-      url: 'https://onepercentseo.com/solutions/hospitality',
+      url: 'https://op.digital/solutions/hospitality',
       serviceType: 'Search Engine Optimization',
       provider: {
         '@type': 'Organization',
         name: 'One Percent Digital',
-        url: 'https://onepercentseo.com',
+        url: 'https://op.digital',
       },
       areaServed: 'Worldwide',
     },

@@ -14,7 +14,7 @@ import { ConvexHttpClient } from 'convex/browser'
 import { getAllSolutions } from '../src/data/solutions'
 import { api } from '../convex/_generated/api'
 
-const baseUrl = 'https://onepercentseo.com'
+const baseUrl = 'https://op.digital'
 const currentDate = new Date().toISOString().split('T')[0]
 
 // Initialize Convex client

@@ -31,7 +31,7 @@ export const Route = createFileRoute('/solutions/legal')({
       title: 'Law Firm SEO | Generate Qualified Case Inquiries',
       description:
         'Drive qualified client inquiries for law firms. Own local legal searches and reach potential clients actively seeking legal representation.',
-      url: 'https://onepercentseo.com/solutions/legal',
+      url: 'https://op.digital/solutions/legal',
     }),
 });
 
@@ -47,12 +47,12 @@ function LegalPage() {
     data: {
       name: 'Law Firm SEO',
       description: solution.description,
-      url: 'https://onepercentseo.com/solutions/legal',
+      url: 'https://op.digital/solutions/legal',
       serviceType: 'Search Engine Optimization',
       provider: {
         '@type': 'Organization',
         name: 'One Percent Digital',
-        url: 'https://onepercentseo.com',
+        url: 'https://op.digital',
       },
       areaServed: 'Worldwide',
     },

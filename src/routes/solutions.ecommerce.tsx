@@ -34,7 +34,7 @@ export const Route = createFileRoute('/solutions/ecommerce')({
       title: 'E-commerce & Retail SEO | Drive Online Sales',
       description:
         'Drive qualified traffic and sales for online retailers. Compete with Amazon and win product searches with proven GEO, SEO, and PPL strategies.',
-      url: 'https://onepercentseo.com/solutions/ecommerce',
+      url: 'https://op.digital/solutions/ecommerce',
     }),
 });
 
@@ -50,12 +50,12 @@ function EcommercePage() {
     data: {
       name: 'E-commerce & Retail SEO',
       description: solution.description,
-      url: 'https://onepercentseo.com/solutions/ecommerce',
+      url: 'https://op.digital/solutions/ecommerce',
       serviceType: 'Search Engine Optimization',
       provider: {
         '@type': 'Organization',
         name: 'One Percent Digital',
-        url: 'https://onepercentseo.com',
+        url: 'https://op.digital',
       },
       areaServed: 'Worldwide',
     },

@@ -32,7 +32,7 @@ export const Route = createFileRoute('/case-studies')({
       title: 'Case Studies | Proven GEO & SEO Results',
       description:
         'Real results from real businesses. See how our GEO and SEO strategies helped Revology Cars exit, grew Goldfarb 10x, and made Royal Covers #1 in Arizona.',
-      url: 'https://onepercentseo.com/case-studies',
+      url: 'https://op.digital/case-studies',
     }),
 });
 

@@ -19,7 +19,7 @@ export const Route = createFileRoute('/blog/')({
       title: 'Blog | GEO & SEO Insights',
       description:
         'Expert insights, strategies, and case studies on GEO, SEO, and search optimization. Learn how to excel in AI-powered and traditional search.',
-      url: 'https://onepercentseo.com/blog',
+      url: 'https://op.digital/blog',
     }),
 });
 
@@ -39,8 +39,8 @@ function BlogIndexPage() {
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed tracking-wide lg:text-xl">
               Expert strategies, case studies, and insights on GEO, SEO, and
-              search optimization. Learn how to lead in traditional search, AI
-              discovery, and performance marketing.
+              PPL. Learn how to lead in traditional search, AI discovery, and
+              lead generation.
             </p>
           </div>
         </div>

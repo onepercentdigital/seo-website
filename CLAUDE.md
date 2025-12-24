@@ -384,7 +384,7 @@ export const Route = createFileRoute('/example')({
   head: () => generateMetaTags({
     title: 'Example Page',
     description: 'Page description.',
-    url: 'https://onepercentseo.com/example',
+    url: 'https://op.digital/example',
   }),
 })
 
@@ -461,7 +461,7 @@ Every route should include meta tags:
 head: () => generateMetaTags({
   title: 'Page Title',
   description: 'Page description under 160 chars.',
-  url: 'https://onepercentseo.com/page',
+  url: 'https://op.digital/page',
 })
 ```
 

@@ -31,7 +31,7 @@ export const Route = createFileRoute('/solutions/finance-insurance')({
       title: 'Finance & Insurance SEO | Generate Qualified Client Leads',
       description:
         'Drive qualified leads for financial advisors, insurance agents, and financial services firms. Capture high-value searches with proven GEO, SEO, and PPL strategies.',
-      url: 'https://onepercentseo.com/solutions/finance-insurance',
+      url: 'https://op.digital/solutions/finance-insurance',
     }),
 });
 
@@ -47,12 +47,12 @@ function FinanceInsurancePage() {
     data: {
       name: 'Finance & Insurance SEO',
       description: solution.description,
-      url: 'https://onepercentseo.com/solutions/finance-insurance',
+      url: 'https://op.digital/solutions/finance-insurance',
       serviceType: 'Search Engine Optimization',
       provider: {
         '@type': 'Organization',
         name: 'One Percent Digital',
-        url: 'https://onepercentseo.com',
+        url: 'https://op.digital',
       },
       areaServed: 'Worldwide',
     },

@@ -20,7 +20,7 @@ export const Route = createFileRoute('/about')({
       title: 'About One Percent Digital | Meet the Team Behind Your Success',
       description:
         'Meet the entrepreneurs behind One Percent Digital. With 12+ years of combined experience and multiple successful E-commerce brands, we understand what it takes to grow your business.',
-      url: 'https://onepercentseo.com/about',
+      url: 'https://op.digital/about',
     }),
 });
 
@@ -32,7 +32,7 @@ function AboutPage() {
     data: {
       '@type': 'Organization',
       name: 'One Percent Digital',
-      url: 'https://onepercentseo.com',
+      url: 'https://op.digital',
       description:
         'Enterprise-grade GEO, SEO, and PPL services for businesses that demand results at scale.',
       founder: [
@@ -63,9 +63,8 @@ function AboutPage() {
             </h1>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide lg:text-xl">
               We're not just marketing experts. We're entrepreneurs who run our
-              own successful E-commerce brands. From GEO and SEO to Performance
-              Marketing, we understand the challenges you face because we face
-              them too.
+              own successful E-commerce brands. From GEO and SEO to PPL, we
+              understand the challenges you face because we face them too.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button render={<Link to="/apply" />} size="lg">

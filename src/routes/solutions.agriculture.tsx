@@ -31,7 +31,7 @@ export const Route = createFileRoute('/solutions/agriculture')({
       title: 'Agriculture & Equipment SEO | Drive Equipment Sales',
       description:
         'Drive qualified leads for agricultural equipment dealers and agribusinesses. Reach farmers and ranchers searching for machinery and solutions.',
-      url: 'https://onepercentseo.com/solutions/agriculture',
+      url: 'https://op.digital/solutions/agriculture',
     }),
 });
 
@@ -47,12 +47,12 @@ function AgriculturePage() {
     data: {
       name: 'Agriculture & Equipment SEO',
       description: solution.description,
-      url: 'https://onepercentseo.com/solutions/agriculture',
+      url: 'https://op.digital/solutions/agriculture',
       serviceType: 'Search Engine Optimization',
       provider: {
         '@type': 'Organization',
         name: 'One Percent Digital',
-        url: 'https://onepercentseo.com',
+        url: 'https://op.digital',
       },
       areaServed: 'Worldwide',
     },

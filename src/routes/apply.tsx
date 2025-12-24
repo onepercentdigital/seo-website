@@ -26,7 +26,7 @@ export const Route = createFileRoute('/apply')({
       title: 'Apply To Work With Us | One Percent Digital',
       description:
         'Apply to see if you qualify to work with us. We help serious brands grow through GEO, SEO, and PPL.',
-      url: 'https://onepercentseo.com/apply',
+      url: 'https://op.digital/apply',
     }),
 });
 

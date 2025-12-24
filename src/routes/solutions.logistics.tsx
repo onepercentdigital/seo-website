@@ -31,7 +31,7 @@ export const Route = createFileRoute('/solutions/logistics')({
       title: 'Logistics & Transportation SEO | Generate Shipping Leads',
       description:
         'Generate qualified shipping and logistics leads through search. Capture industry keywords and reach shippers searching for reliable partners.',
-      url: 'https://onepercentseo.com/solutions/logistics',
+      url: 'https://op.digital/solutions/logistics',
     }),
 });
 
@@ -47,12 +47,12 @@ function LogisticsPage() {
     data: {
       name: 'Logistics & Transportation SEO',
       description: solution.description,
-      url: 'https://onepercentseo.com/solutions/logistics',
+      url: 'https://op.digital/solutions/logistics',
       serviceType: 'Search Engine Optimization',
       provider: {
         '@type': 'Organization',
         name: 'One Percent Digital',
-        url: 'https://onepercentseo.com',
+        url: 'https://op.digital',
       },
       areaServed: 'Worldwide',
     },

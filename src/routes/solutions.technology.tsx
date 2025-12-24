@@ -31,7 +31,7 @@ export const Route = createFileRoute('/solutions/technology')({
       title: 'Technology & SaaS SEO | Drive SaaS Growth',
       description:
         'Drive qualified leads for technology companies and SaaS products. Lead competitive tech searches and reach decision-makers with GEO, SEO, and PPL.',
-      url: 'https://onepercentseo.com/solutions/technology',
+      url: 'https://op.digital/solutions/technology',
     }),
 });
 
@@ -47,12 +47,12 @@ function TechnologyPage() {
     data: {
       name: 'Technology & SaaS SEO',
       description: solution.description,
-      url: 'https://onepercentseo.com/solutions/technology',
+      url: 'https://op.digital/solutions/technology',
       serviceType: 'Search Engine Optimization',
       provider: {
         '@type': 'Organization',
         name: 'One Percent Digital',
-        url: 'https://onepercentseo.com',
+        url: 'https://op.digital',
       },
       areaServed: 'Worldwide',
     },

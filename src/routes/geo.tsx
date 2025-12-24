@@ -33,7 +33,7 @@ export const Route = createFileRoute('/geo')({
       title: 'GEO - Generative Engine Optimization',
       description:
         'Lead AI search results and capture mind share. Position your brand at the forefront of ChatGPT, Claude, Perplexity, and other generative AI platforms.',
-      url: 'https://onepercentseo.com/geo',
+      url: 'https://op.digital/geo',
     }),
 });
 
@@ -216,12 +216,12 @@ function GEOPage() {
       name: 'Generative Engine Optimization (GEO)',
       description:
         'Lead AI search results and capture mind share. Position your brand at the forefront of ChatGPT, Claude, Perplexity, and other generative AI platforms.',
-      url: 'https://onepercentseo.com/geo',
+      url: 'https://op.digital/geo',
       serviceType: 'Generative Engine Optimization',
       provider: {
         '@type': 'Organization',
         name: 'One Percent Digital',
-        url: 'https://onepercentseo.com',
+        url: 'https://op.digital',
       },
       areaServed: 'Worldwide',
     },

@@ -29,7 +29,7 @@ export const Route = createFileRoute('/solutions/')({
       title: 'Industry-Specific SEO Solutions | Tailored Strategies',
       description:
         'Discover GEO, SEO, and PPL strategies tailored to your industry. From hospitality to technology, we drive results for businesses in 12 key verticals.',
-      url: 'https://onepercentseo.com/solutions',
+      url: 'https://op.digital/solutions',
     }),
 });
 

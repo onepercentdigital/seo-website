@@ -33,7 +33,7 @@ export const Route = createFileRoute('/')({
       title: 'Takeover Your Industry With AI and Search Optimization',
       description:
         'Dominate Both AI and Traditional Search with proven GEO and SEO strategies.',
-      url: 'https://onepercentseo.com/',
+      url: 'https://op.digital/',
     }),
 });
 
@@ -98,7 +98,8 @@ function HomePage() {
                 },
                 {
                   title: 'PPL',
-                  description: 'Pay Per Exclusive Pre-Qualified Lead',
+                  description:
+                    'Exclusive Pre-Qualified Pay Per Lead Generation',
                   href: '/ppl',
                   cta: 'More about PPL',
                 },
@@ -254,17 +255,17 @@ function HomePage() {
               {
                 icon: Award01Icon,
                 value: '300+',
-                label: 'Businesses served since 2012',
+                label: 'Businesses Served Since 2012',
               },
               {
                 icon: Target01Icon,
                 value: '$200M+',
-                label: 'SEO-driven revenue generated',
+                label: 'Revenue Generated',
               },
               {
                 icon: UserGroupIcon,
                 value: '8X',
-                label: 'Average organic traffic growth',
+                label: 'Average Organic Traffic Growth',
               },
             ].map((stat) => (
               <div key={stat.label} className="text-center">

@@ -38,7 +38,7 @@ export const Route = createFileRoute('/ppl')({
       title: 'PPL - Pay Per Lead Generation',
       description:
         'Exclusive pre-qualified leads delivered on demand. No retainers, no contracts, no set-up fees. We fund your marketing. You only pay for results.',
-      url: 'https://onepercentseo.com/ppl',
+      url: 'https://op.digital/ppl',
     }),
 });
 
@@ -210,11 +210,6 @@ const services = [
 
 const faqs = [
   {
-    question: 'How much does it cost per lead?',
-    answer:
-      'Lead pricing varies based on your industry, target audience, and qualification criteria. More specific targeting and higher-value leads command premium pricing. We will provide transparent pricing during our initial consultation based on your exact requirements.',
-  },
-  {
     question: 'How do you ensure leads are actually qualified?',
     answer:
       'Unlike platforms that share leads or deliver unverified information, we validate everything before delivery. Phone numbers are verified through one-time passcode confirmation, so every number you receive is contactable. Stated qualifications like credit scores, 401k sizes, and budget ranges are validated against our criteria. Our longer intake quizzes filter out casual browsers, ensuring prospects are invested before they reach you. AI-assisted qualification and follow-up systems further increase lead quality and conversion rates.',
@@ -253,12 +248,12 @@ function PayPerLeadPage() {
       name: 'PPL (Pay Per Lead Generation)',
       description:
         'Exclusive pre-qualified leads delivered on demand. No retainers, no contracts, no set-up fees. We fund your marketing. You only pay for results.',
-      url: 'https://onepercentseo.com/ppl',
+      url: 'https://op.digital/ppl',
       serviceType: 'Lead Generation',
       provider: {
         '@type': 'Organization',
         name: 'One Percent Digital',
-        url: 'https://onepercentseo.com',
+        url: 'https://op.digital',
       },
       areaServed: 'Worldwide',
     },
@@ -308,14 +303,14 @@ function PayPerLeadPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <h2 className="mb-4 font-bold text-4xl leading-[1.1] tracking-tight lg:text-6xl">
-                What is PPL (Pay Per Lead Generation)?
+                What is Pay Per Lead Generation?
               </h2>
               <p className="mt-6 text-lg text-muted-foreground leading-relaxed tracking-wide">
-                Pay per lead generation is a results-based model where you only
-                pay for qualified leads delivered to your business. We invest in
-                your marketing campaigns (creating ads, landing pages, and
-                conversion funnels) while you pay exclusively for prospects that
-                meet your criteria.
+                PPL (Pay Per Lead Generation) is a results-based model where you
+                only pay for qualified leads delivered to your business. We
+                invest in your marketing campaigns (creating ads, landing pages,
+                and conversion funnels) while you pay exclusively for prospects
+                that meet your criteria.
               </p>
               <p className="mt-4 text-lg text-muted-foreground leading-relaxed tracking-wide">
                 Unlike traditional agencies that charge monthly retainers

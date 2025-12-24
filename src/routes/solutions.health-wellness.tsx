@@ -31,7 +31,7 @@ export const Route = createFileRoute('/solutions/health-wellness')({
       title: 'Health & Wellness SEO | Drive Qualified Clients',
       description:
         'Drive qualified clients for health and wellness businesses. Lead local searches and reach people seeking health solutions with GEO, SEO, and PPL.',
-      url: 'https://onepercentseo.com/solutions/health-wellness',
+      url: 'https://op.digital/solutions/health-wellness',
     }),
 });
 
@@ -47,12 +47,12 @@ function HealthWellnessPage() {
     data: {
       name: 'Health & Wellness SEO',
       description: solution.description,
-      url: 'https://onepercentseo.com/solutions/health-wellness',
+      url: 'https://op.digital/solutions/health-wellness',
       serviceType: 'Search Engine Optimization',
       provider: {
         '@type': 'Organization',
         name: 'One Percent Digital',
-        url: 'https://onepercentseo.com',
+        url: 'https://op.digital',
       },
       areaServed: 'Worldwide',
     },

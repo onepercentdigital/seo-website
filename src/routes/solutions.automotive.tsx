@@ -31,7 +31,7 @@ export const Route = createFileRoute('/solutions/automotive')({
       title: 'Automotive SEO | Drive Qualified Leads',
       description:
         'Drive qualified leads for automotive businesses. Win local and specialty vehicle searches with proven GEO, SEO, and PPL strategies.',
-      url: 'https://onepercentseo.com/solutions/automotive',
+      url: 'https://op.digital/solutions/automotive',
     }),
 });
 
@@ -47,12 +47,12 @@ function AutomotivePage() {
     data: {
       name: 'Automotive SEO',
       description: solution.description,
-      url: 'https://onepercentseo.com/solutions/automotive',
+      url: 'https://op.digital/solutions/automotive',
       serviceType: 'Search Engine Optimization',
       provider: {
         '@type': 'Organization',
         name: 'One Percent Digital',
-        url: 'https://onepercentseo.com',
+        url: 'https://op.digital',
       },
       areaServed: 'Worldwide',
     },

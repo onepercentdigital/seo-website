@@ -31,7 +31,7 @@ export const Route = createFileRoute('/solutions/real-estate')({
       title: 'Real Estate SEO | Generate Buyer & Seller Leads',
       description:
         'Drive qualified leads for real estate agents, brokerages, developers, and luxury home builders. Own property searches in your market with GEO, SEO, and PPL.',
-      url: 'https://onepercentseo.com/solutions/real-estate',
+      url: 'https://op.digital/solutions/real-estate',
     }),
 });
 
@@ -47,12 +47,12 @@ function RealEstatePage() {
     data: {
       name: 'Real Estate SEO',
       description: solution.description,
-      url: 'https://onepercentseo.com/solutions/real-estate',
+      url: 'https://op.digital/solutions/real-estate',
       serviceType: 'Search Engine Optimization',
       provider: {
         '@type': 'Organization',
         name: 'One Percent Digital',
-        url: 'https://onepercentseo.com',
+        url: 'https://op.digital',
       },
       areaServed: 'Worldwide',
     },

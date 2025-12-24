@@ -31,7 +31,7 @@ export const Route = createFileRoute('/solutions/manufacturing')({
       title: 'Manufacturing & Industrial SEO | Drive B2B Leads',
       description:
         'Drive qualified B2B leads for manufacturers and industrial companies. Lead high-value searches and reach decision-makers with GEO, SEO, and PPL.',
-      url: 'https://onepercentseo.com/solutions/manufacturing',
+      url: 'https://op.digital/solutions/manufacturing',
     }),
 });
 
@@ -47,12 +47,12 @@ function ManufacturingPage() {
     data: {
       name: 'Manufacturing & Industrial SEO',
       description: solution.description,
-      url: 'https://onepercentseo.com/solutions/manufacturing',
+      url: 'https://op.digital/solutions/manufacturing',
       serviceType: 'Search Engine Optimization',
       provider: {
         '@type': 'Organization',
         name: 'One Percent Digital',
-        url: 'https://onepercentseo.com',
+        url: 'https://op.digital',
       },
       areaServed: 'Worldwide',
     },

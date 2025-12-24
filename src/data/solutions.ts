@@ -225,11 +225,6 @@ export const solutions: IndustrySolution[] = [
         answer:
           "Absolutely. Multi-location hospitality groups are actually our specialty. We've worked with restaurant groups managing multiple locations across different markets. Each location gets its own optimized Google Business Profile, location-specific landing pages, and localized content strategy. We implement enterprise-level tracking so you can see performance by location, and our strategies scale efficiently across your entire portfolio. The more locations you have, the more we can leverage shared content and authority across your brand.",
       },
-      {
-        question: 'How much does hospitality SEO cost?',
-        answer:
-          'Investment depends on your goals and competition level. For a single independent restaurant in a competitive market, expect $2,500-$5,000/month for comprehensive GEO and SEO services. Multi-location groups with 3-10 locations typically invest $5,000-$15,000/month. This includes technical optimization, content creation, review management, local citation building, and ongoing optimization. We offer custom packages based on your specific needs. Most hospitality clients see positive ROI within 6 months, with many achieving 10-20x returns as search becomes their primary customer acquisition channel.',
-      },
     ],
   },
 
@@ -401,11 +396,6 @@ export const solutions: IndustrySolution[] = [
         question: 'Can you help with marketplace SEO like Amazon and Etsy?',
         answer:
           'While our primary focus is driving traffic to YOUR website (where you own the customer relationship and avoid marketplace fees), we can provide strategic guidance on marketplace optimization. Many clients use a hybrid approach: optimize their owned site for organic search while maintaining marketplace presence for discovery. We focus on making your website the best buying experience so you can reduce reliance on marketplaces long-term. The goal is building a sustainable, owned channel rather than renting visibility on platforms that take 15-30% of every sale.',
-      },
-      {
-        question: 'How much does e-commerce SEO cost?',
-        answer:
-          'Investment depends on catalog size, competition, and goals. Small to medium e-commerce stores (under 500 products) typically invest $3,500-$7,500/month for comprehensive SEO including technical optimization, product page optimization, content marketing, and link building. Larger stores with 1,000+ products often invest $7,500-$20,000/month for enterprise-level strategies. Most e-commerce clients see positive ROI within 6-9 months, with many achieving 5-15x returns as organic search replaces expensive paid advertising. The best e-commerce SEO is self-funding within a year.',
       },
     ],
   },
@@ -579,11 +569,6 @@ export const solutions: IndustrySolution[] = [
         answer:
           'We track the entire funnel: keyword rankings, organic traffic, form submissions, quote requests, sales-qualified leads, closed deals, and revenue attributed to organic search. For manufacturers with long sales cycles, we implement multi-touch attribution to credit SEO appropriately when a prospect researches for months before converting. We also track cost-per-lead compared to trade shows, paid ads, and other channels. Most manufacturing clients see SEO become their lowest cost-per-lead channel within 12-18 months, with leads often pre-qualified and further along in the buying journey.',
       },
-      {
-        question: 'How much does manufacturing SEO cost?',
-        answer:
-          'Manufacturing and industrial SEO typically requires $4,000-$12,000/month depending on market competitiveness, product complexity, and content needs. This includes technical optimization, in-depth content creation (which requires more research for technical topics), link building from industry publications, and conversion optimization. Given the high value of manufacturing contracts (often $50K-$1M+), the ROI can be dramatic. Many clients find a single closed deal from organic search pays for a year of SEO. We offer custom packages based on your specific products, target markets, and growth goals.',
-      },
     ],
   },
 
@@ -755,11 +740,6 @@ export const solutions: IndustrySolution[] = [
         question: 'How do you track ROI for logistics SEO?',
         answer:
           'We track keyword rankings, organic traffic, quote requests, qualified leads, booked loads, and revenue from search-attributed customers. For logistics companies, we often implement CRM integration to track the full lifecycle: initial quote, win rate, load volume, and lifetime customer value. We calculate cost-per-acquisition from SEO versus brokers, load boards, and paid ads. Most logistics clients see SEO become their lowest-cost channel within 12 months, with customers from search often being higher-value, longer-term relationships than transactional load board shippers.',
-      },
-      {
-        question: 'How much does logistics SEO cost?',
-        answer:
-          'Logistics and transportation SEO typically requires $3,500-$10,000/month depending on geographic coverage, service complexity, and competitive markets. This includes technical optimization, lane-specific content creation, location pages, industry link building, and conversion optimization. Given the value of freight contracts (often thousands per load, with customers representing $50K-$500K+ in annual volume), ROI can be significant. Many logistics clients find SEO replaces expensive broker fees and paid advertising within the first year, becoming a profit center rather than a marketing expense.',
       },
     ],
   },
@@ -934,11 +914,6 @@ export const solutions: IndustrySolution[] = [
         answer:
           "Yes. Our automotive SEO expertise extends beyond dealerships to parts retailers, auto repair shops, detailing services, performance shops, and any automotive-related business. The strategies differ - parts retailers need e-commerce SEO, service businesses need local SEO, performance shops need enthusiast content - but the fundamentals apply across automotive verticals. We've worked with auto parts sellers (Goldfarb & Associates) and understand the unique challenges of automotive aftermarket.",
       },
-      {
-        question: 'How much does automotive SEO cost?',
-        answer:
-          'Automotive SEO investment depends on market size, inventory, and competition. Single-location dealerships typically invest $3,000-$7,000/month for comprehensive local SEO, inventory optimization, and content marketing. Multi-location dealer groups often invest $7,000-$15,000/month for enterprise strategies. Specialty automotive businesses (classic cars, exotic rentals) typically invest $2,500-$5,000/month. Most automotive clients see positive ROI within 6 months, with many achieving 8-15x returns as search becomes their primary customer acquisition channel, reducing expensive third-party lead costs.',
-      },
     ],
   },
 
@@ -1110,11 +1085,6 @@ export const solutions: IndustrySolution[] = [
         question: 'Can you help if we serve multiple trade specialties?',
         answer:
           "Yes. Many general contractors offer multiple services (roofing, remodeling, additions, etc.) or multi-trade businesses. We create service-specific content and optimization for each offering, ensuring you rank for all your capabilities. The strategy balances broad 'general contractor' visibility with specific service rankings. We often find specialized services (like commercial roofing or historic restoration) drive higher-quality leads than generic contractor searches, so we identify and prioritize your most profitable service areas.",
-      },
-      {
-        question: 'How much does contractor SEO cost?',
-        answer:
-          "Construction and contractor SEO typically requires $2,000-$6,000/month depending on market competitiveness, service area size, and service diversity. This includes Google Business Profile management, local citation building, service page optimization, content creation, review generation, and conversion optimization. Given that a single project can be worth $10K-$500K+, ROI is often dramatic. Most contractors see SEO become their lowest cost-per-lead channel within 6-12 months, eliminating expensive HomeAdvisor/Angie's List fees that never end.",
       },
     ],
   },
@@ -1290,11 +1260,6 @@ export const solutions: IndustrySolution[] = [
         answer:
           'Agricultural SEO typically shows results faster than general B2B because farmers actively research equipment purchases online. Initial improvements appear within 60-90 days from technical fixes and inventory optimization. Significant lead increases typically arrive around month 4-6 as content gains traction. The long research cycles mean early SEO investments pay dividends for months - a farmer who discovers you in January may purchase in March. Dealers who commit to 12+ months of SEO often replace expensive manufacturer co-op advertising and third-party leads entirely.',
       },
-      {
-        question: 'How much does agricultural SEO cost?',
-        answer:
-          'Agricultural and equipment dealer SEO typically requires $3,500-$8,000/month for single-location dealers, and $6,000-$15,000/month for multi-location dealerships. This includes technical optimization, equipment inventory SEO, location-specific content, agricultural content marketing, and parts/service optimization. Given that equipment sales range from $20K-$500K+ and service contracts provide recurring revenue, ROI can be substantial. Most agricultural dealers see SEO become their lowest cost-per-lead channel within 12 months, with higher lead quality than manufacturer programs or paid advertising.',
-      },
     ],
   },
 
@@ -1466,11 +1431,6 @@ export const solutions: IndustrySolution[] = [
         question: 'How do you measure ROI for SaaS SEO?',
         answer:
           'We track the full funnel: keyword rankings, organic traffic, demo requests, trial signups, product-qualified leads (PQLs), closed deals, and revenue attributed to organic search. For SaaS with long sales cycles, we implement multi-touch attribution to properly credit SEO when prospects research for months before converting. We also track cost-per-acquisition compared to paid channels. Most SaaS companies see SEO become their lowest-cost acquisition channel within 12-18 months, with customers from search often having higher LTV due to stronger product-fit from research-driven discovery.',
-      },
-      {
-        question: 'How much does technology and SaaS SEO cost?',
-        answer:
-          'Technology and SaaS SEO typically requires $5,000-$15,000/month depending on market competitiveness, product complexity, and growth stage. Early-stage startups often start at $4,000-$6,000/month focusing on fundamentals and quick wins. Growth-stage companies scaling enterprise sales typically invest $8,000-$15,000/month for comprehensive strategies including competitive alternative content, technical authority building, and conversion optimization. Given SaaS customer lifetime values (often $10K-$500K+ for enterprise), ROI can be dramatic. Many SaaS companies find a single enterprise customer from organic search pays for years of SEO investment.',
       },
     ],
   },
@@ -1646,11 +1606,6 @@ export const solutions: IndustrySolution[] = [
         answer:
           "We build all health and wellness SEO strategies with HIPAA compliance in mind. This means no patient information in testimonials without proper authorization, compliant review request processes that don't disclose protected health information, secure form handling for appointment requests, proper consent mechanisms for marketing communications, and guidance on what patient information can appear on your website. We work within healthcare privacy regulations while maximizing SEO impact. Compliance and effective marketing aren't mutually exclusive.",
       },
-      {
-        question: 'How much does health and wellness SEO cost?',
-        answer:
-          'Health and wellness SEO typically requires $2,500-$7,000/month depending on market competitiveness, service offerings, and practice size. Single-location practices often invest $2,500-$4,500/month for local SEO, content marketing, and review management. Multi-location wellness businesses typically invest $5,000-$10,000/month for enterprise strategies. Given that health and wellness clients often have high lifetime values ($2,000-$50,000+ depending on services), ROI can be exceptional. Most practices see SEO become their primary new patient source within 9-12 months, reducing dependence on expensive referral networks or paid advertising.',
-      },
     ],
   },
 
@@ -1823,11 +1778,6 @@ export const solutions: IndustrySolution[] = [
         question: 'How important are reviews for financial services SEO?',
         answer:
           'Reviews are critical for both rankings and trust. Google reviews are a major local ranking factor, and prospective clients heavily rely on reviews when choosing advisors. We implement compliant review generation strategies - some broker-dealers restrict soliciting reviews, so we work within your compliance framework. Even firms with restrictions can encourage organic reviews and respond professionally to build credibility.',
-      },
-      {
-        question: 'How much does financial services SEO cost?',
-        answer:
-          'Financial services SEO typically requires $3,500-$8,000/month depending on market competitiveness, service offerings, and firm size. Single-advisor practices often invest $3,500-$5,000/month for local SEO, compliant content marketing, and review management. Multi-advisor firms typically invest $6,000-$12,000/month for enterprise strategies. Given client lifetime values in financial services ($20,000-$500,000+ in fees over a relationship), ROI can be exceptional.',
       },
     ],
   },
@@ -2002,11 +1952,6 @@ export const solutions: IndustrySolution[] = [
         answer:
           "Legal SEO typically shows meaningful results in 4-8 months due to high competition. You'll see initial improvements within 60-90 days from technical fixes and local optimization. Significant case inquiry increases typically arrive around month 6 as content gains authority. Law firms that commit to 12-18 months of strategic SEO often see organic search become their primary client source, dramatically reducing dependence on expensive paid advertising and referral fees.",
       },
-      {
-        question: 'How much does law firm SEO cost?',
-        answer:
-          'Law firm SEO typically requires $4,000-$12,000/month depending on practice areas, market competitiveness, and firm size. Solo practitioners and small firms often invest $4,000-$6,000/month for local SEO and core practice area content. Mid-size firms typically invest $7,000-$12,000/month for comprehensive strategies across multiple practice areas. Given case values ($5,000-$500,000+), ROI can be exceptional. Most firms find SEO delivers lower cost-per-case than paid advertising within 12 months.',
-      },
     ],
   },
 
@@ -2178,11 +2123,6 @@ export const solutions: IndustrySolution[] = [
         question: 'How long does real estate SEO take?',
         answer:
           'Real estate SEO typically shows initial results in 3-4 months for local searches and neighborhood content. Building true market authority takes 6-12 months of consistent content and optimization. The compounding nature of SEO means year two delivers dramatically better results than year one. Agents who commit to sustained SEO often see it become their primary lead source, reducing dependence on purchased leads and expensive portal advertising.',
-      },
-      {
-        question: 'How much does real estate SEO cost?',
-        answer:
-          'Real estate SEO typically requires $2,500-$6,000/month for individual agents and small teams, $5,000-$12,000/month for brokerages and larger teams. Custom home builders and developers often invest $4,000-$10,000/month for project marketing and portfolio SEO. Given commission values ($10,000-$100,000+ per transaction), ROI can be exceptional. Most agents find SEO delivers lower cost-per-lead than portal advertising within 12 months, with leads that are more qualified and exclusive.',
       },
     ],
   },

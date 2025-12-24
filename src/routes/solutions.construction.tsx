@@ -31,7 +31,7 @@ export const Route = createFileRoute('/solutions/construction')({
       title: 'Construction & Contractors SEO | Generate Project Leads',
       description:
         'Generate qualified project leads for construction and contracting businesses. Win local searches and reach property owners who need you.',
-      url: 'https://onepercentseo.com/solutions/construction',
+      url: 'https://op.digital/solutions/construction',
     }),
 });
 
@@ -47,12 +47,12 @@ function ConstructionPage() {
     data: {
       name: 'Construction & Contractors SEO',
       description: solution.description,
-      url: 'https://onepercentseo.com/solutions/construction',
+      url: 'https://op.digital/solutions/construction',
       serviceType: 'Search Engine Optimization',
       provider: {
         '@type': 'Organization',
         name: 'One Percent Digital',
-        url: 'https://onepercentseo.com',
+        url: 'https://op.digital',
       },
       areaServed: 'Worldwide',
     },

@@ -34,7 +34,7 @@ export const Route = createFileRoute('/seo')({
       title: 'SEO - Search Engine Optimization',
       description:
         'Drive sustainable growth through search excellence. Proven SEO strategies that deliver qualified traffic, higher rankings, and measurable ROI.',
-      url: 'https://onepercentseo.com/seo',
+      url: 'https://op.digital/seo',
     }),
 });
 
@@ -208,11 +208,6 @@ const faqs = [
     answer:
       "Yes. We've successfully implemented SEO strategies across B2B SaaS, E-commerce, professional services, healthcare, finance, and more. Every industry has people searching for solutions. Our approach adapts to your specific market dynamics, competition level, and business model to deliver results.",
   },
-  {
-    question: "What's the investment for SEO services?",
-    answer:
-      "Investment varies based on your goals, market competition, and current SEO foundation. Most clients invest between $5,000- $15,000 per month for comprehensive SEO services. We'll provide a custom proposal after understanding your specific needs and growth objectives. Schedule a call to discuss your situation.",
-  },
 ];
 
 function SEOPage() {
@@ -222,12 +217,12 @@ function SEOPage() {
       name: 'Search Engine Optimization (SEO)',
       description:
         'Drive sustainable growth through search excellence. Proven SEO strategies that deliver qualified traffic, higher rankings, and measurable ROI.',
-      url: 'https://onepercentseo.com/seo',
+      url: 'https://op.digital/seo',
       serviceType: 'Search Engine Optimization',
       provider: {
         '@type': 'Organization',
         name: 'One Percent Digital',
-        url: 'https://onepercentseo.com',
+        url: 'https://op.digital',
       },
       areaServed: 'Worldwide',
     },

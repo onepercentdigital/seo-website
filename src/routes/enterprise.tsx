@@ -35,7 +35,7 @@ export const Route = createFileRoute('/enterprise')({
       title: 'Enterprise Solutions | GEO, SEO & PPL at Scale',
       description:
         'Enterprise-grade GEO, SEO, and PPL for multi-location businesses. Dedicated support, custom reporting, and white-glove service for organizations that demand results.',
-      url: 'https://onepercentseo.com/enterprise',
+      url: 'https://op.digital/enterprise',
     }),
 });
 
@@ -46,12 +46,12 @@ function EnterprisePage() {
       name: 'Enterprise GEO, SEO & PPL Solutions',
       description:
         'Enterprise-grade GEO, SEO, and PPL services for large organizations with multiple locations, brands, or complex needs.',
-      url: 'https://onepercentseo.com/enterprise',
+      url: 'https://op.digital/enterprise',
       serviceType: 'Search Engine Optimization',
       provider: {
         '@type': 'Organization',
         name: 'One Percent Digital',
-        url: 'https://onepercentseo.com',
+        url: 'https://op.digital',
       },
       areaServed: 'Worldwide',
     },
@@ -876,40 +876,6 @@ function EnterprisePage() {
           <Accordion className="w-full">
             <AccordionItem value="item-1">
               <AccordionTrigger className="text-left font-semibold text-lg">
-                What's the minimum engagement for enterprise services?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
-                Our enterprise solutions are designed for organizations with
-                significant search presence and complex needs. Typically, this
-                means businesses with 10+ locations, multiple brands, or
-                enterprise-level complexity. Minimum engagement is an annual
-                contract starting at $15,000/month. This includes dedicated
-                account management, custom reporting, SLA guarantees, and access
-                to our full suite of enterprise services. We customize each
-                engagement based on your specific needs, number of locations,
-                and strategic objectives.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-2">
-              <AccordionTrigger className="text-left font-semibold text-lg">
-                How does enterprise pricing work?
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
-                Enterprise pricing is customized based on several factors:
-                number of locations/brands, complexity of your digital
-                ecosystem, scope of services required, and your strategic
-                objectives. Most enterprise clients invest between
-                $15,000-$75,000+ per month on annual contracts. Pricing includes
-                dedicated account management, unlimited stakeholder support,
-                custom reporting dashboards, SLA guarantees, and access to all
-                enterprise features. Volume discounts and multi-year agreements
-                are available for qualifying organizations.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-3">
-              <AccordionTrigger className="text-left font-semibold text-lg">
                 What's the typical onboarding timeline?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">
@@ -927,7 +893,7 @@ function EnterprisePage() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-4">
+            <AccordionItem value="item-2">
               <AccordionTrigger className="text-left font-semibold text-lg">
                 What makes your enterprise solution different from standard
                 marketing services?
@@ -948,7 +914,7 @@ function EnterprisePage() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-5">
+            <AccordionItem value="item-3">
               <AccordionTrigger className="text-left font-semibold text-lg">
                 What kind of support do enterprise clients receive?
               </AccordionTrigger>
@@ -967,7 +933,7 @@ function EnterprisePage() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-6">
+            <AccordionItem value="item-4">
               <AccordionTrigger className="text-left font-semibold text-lg">
                 Can you integrate with our existing enterprise tools and
                 systems?
@@ -988,7 +954,7 @@ function EnterprisePage() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="item-7">
+            <AccordionItem value="item-5">
               <AccordionTrigger className="text-left font-semibold text-lg">
                 How do you handle multi-location or franchise networks?
               </AccordionTrigger>
@@ -1019,9 +985,9 @@ function EnterprisePage() {
           </h2>
           <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
             Join the enterprise companies and multi-location businesses that
-            trust One Percent Digital for enterprise-grade GEO, SEO, and Pay Per
-            Lead Generation. See how we can transform your visibility and lead
-            generation at scale.
+            trust One Percent Digital for enterprise-grade GEO, SEO, and PPL.
+            See how we can transform your visibility and lead generation at
+            scale.
           </p>
           <Button render={<Link to="/apply" />} size="lg">
             Apply To Work With Us
