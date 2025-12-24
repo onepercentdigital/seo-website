@@ -206,7 +206,7 @@ function HospitalityPage() {
               Services We Provide
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
-              Comprehensive SEO, GEO, and PPL solutions tailored for hospitality
+              Comprehensive GEO, SEO, and PPL solutions tailored for hospitality
               and restaurant businesses.
             </p>
           </div>
@@ -274,7 +274,7 @@ function HospitalityPage() {
             Fill More Tables, Book More Rooms
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
-            Let's fill your tables and drive reservations with proven SEO, GEO,
+            Let's fill your tables and drive reservations with proven GEO, SEO,
             and PPL strategies built for restaurants and hospitality businesses.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">

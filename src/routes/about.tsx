@@ -34,7 +34,7 @@ function AboutPage() {
       name: 'One Percent Digital',
       url: 'https://onepercentseo.com',
       description:
-        'Enterprise-grade SEO, GEO, and PPL services for businesses that demand results at scale.',
+        'Enterprise-grade GEO, SEO, and PPL services for businesses that demand results at scale.',
       founder: [
         {
           '@type': 'Person',
@@ -63,7 +63,7 @@ function AboutPage() {
             </h1>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide lg:text-xl">
               We're not just marketing experts—we're entrepreneurs who run our
-              own successful E-commerce brands. From SEO and GEO to Performance
+              own successful E-commerce brands. From GEO and SEO to Performance
               Marketing, we understand the challenges you face because we face
               them too.
             </p>
@@ -333,7 +333,7 @@ function AboutPage() {
           </h2>
           <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
             Join the 300+ brands that have partnered with entrepreneurs who
-            understand SEO, GEO, and PPL. Let's grow your company together.
+            understand GEO, SEO, and PPL. Let's grow your company together.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button render={<Link to="/apply" />} size="lg">

@@ -30,7 +30,7 @@ export const Route = createFileRoute('/solutions/health-wellness')({
     generateMetaTags({
       title: 'Health & Wellness SEO | Drive Qualified Clients',
       description:
-        'Drive qualified clients for health and wellness businesses. Lead local searches and reach people seeking health solutions with SEO, GEO, and PPL.',
+        'Drive qualified clients for health and wellness businesses. Lead local searches and reach people seeking health solutions with GEO, SEO, and PPL.',
       url: 'https://onepercentseo.com/solutions/health-wellness',
     }),
 });
@@ -195,7 +195,7 @@ function HealthWellnessPage() {
               Services We Provide
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
-              Comprehensive SEO, GEO, and PPL solutions tailored for health and
+              Comprehensive GEO, SEO, and PPL solutions tailored for health and
               wellness businesses.
             </p>
           </div>
@@ -264,7 +264,7 @@ function HealthWellnessPage() {
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
             Let's attract qualified clients and grow your wellness business with
-            proven SEO, GEO, and PPL strategies.
+            proven GEO, SEO, and PPL strategies.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button render={<Link to="/apply" />} size="lg">

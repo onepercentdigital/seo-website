@@ -422,7 +422,7 @@ function HomePage() {
             Ready to Scale Your Business?
           </h2>
           <p className="mx-auto mb-8 max-w-xl text-muted-foreground">
-            Whether through SEO, GEO, or PPL, we help you generate the leads you
+            Whether through GEO, SEO, or PPL, we help you generate the leads you
             need to grow.
           </p>
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">

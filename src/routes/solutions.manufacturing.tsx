@@ -30,7 +30,7 @@ export const Route = createFileRoute('/solutions/manufacturing')({
     generateMetaTags({
       title: 'Manufacturing & Industrial SEO | Drive B2B Leads',
       description:
-        'Drive qualified B2B leads for manufacturers and industrial companies. Lead high-value searches and reach decision-makers with SEO, GEO, and PPL.',
+        'Drive qualified B2B leads for manufacturers and industrial companies. Lead high-value searches and reach decision-makers with GEO, SEO, and PPL.',
       url: 'https://onepercentseo.com/solutions/manufacturing',
     }),
 });
@@ -195,7 +195,7 @@ function ManufacturingPage() {
               Services We Provide
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
-              Comprehensive SEO, GEO, and PPL solutions tailored for
+              Comprehensive GEO, SEO, and PPL solutions tailored for
               manufacturing and industrial companies.
             </p>
           </div>
@@ -264,7 +264,7 @@ function ManufacturingPage() {
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
             Let's generate qualified B2B leads and grow your manufacturing
-            business with proven SEO, GEO, and PPL strategies.
+            business with proven GEO, SEO, and PPL strategies.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button render={<Link to="/apply" />} size="lg">

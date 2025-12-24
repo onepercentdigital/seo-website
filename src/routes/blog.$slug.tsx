@@ -25,7 +25,7 @@ export const Route = createFileRoute('/blog/$slug')({
     return generateMetaTags({
       title: 'Blog Post | One Percent Digital',
       description:
-        'Expert insights on SEO, GEO, and search optimization strategies.',
+        'Expert insights on GEO, SEO, and search optimization strategies.',
       url: 'https://onepercentseo.com/blog',
     });
   },

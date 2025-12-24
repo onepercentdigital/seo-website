@@ -16,9 +16,9 @@ export const Route = createFileRoute('/blog/')({
   component: BlogIndexPage,
   head: () =>
     generateMetaTags({
-      title: 'Blog | SEO & GEO Insights',
+      title: 'Blog | GEO & SEO Insights',
       description:
-        'Expert insights, strategies, and case studies on SEO, GEO, and search optimization. Learn how to excel in traditional and AI-powered search.',
+        'Expert insights, strategies, and case studies on GEO, SEO, and search optimization. Learn how to excel in AI-powered and traditional search.',
       url: 'https://onepercentseo.com/blog',
     }),
 });
@@ -38,7 +38,7 @@ function BlogIndexPage() {
               Latest Insights
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed tracking-wide lg:text-xl">
-              Expert strategies, case studies, and insights on SEO, GEO, and
+              Expert strategies, case studies, and insights on GEO, SEO, and
               search optimization. Learn how to lead in traditional search, AI
               discovery, and performance marketing.
             </p>
@@ -73,7 +73,7 @@ function BlogIndexPage() {
                 <h2 className="mb-3 font-bold text-2xl">No Posts Yet</h2>
                 <p className="text-muted-foreground leading-relaxed tracking-wide">
                   Blog posts will appear here once they're published. Check back
-                  soon for expert insights on SEO and GEO.
+                  soon for expert insights on GEO and SEO.
                 </p>
               </div>
             </div>
@@ -94,7 +94,7 @@ function BlogIndexPage() {
             Ready to Put These Insights Into Action?
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
-            From SEO and GEO to PPL, we turn strategy into leads. Let's discuss
+            From GEO and SEO to PPL, we turn strategy into leads. Let's discuss
             how to scale your business.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">

@@ -32,9 +32,9 @@ export const Route = createFileRoute('/enterprise')({
   component: EnterprisePage,
   head: () =>
     generateMetaTags({
-      title: 'Enterprise Solutions | SEO, GEO & PPL at Scale',
+      title: 'Enterprise Solutions | GEO, SEO & PPL at Scale',
       description:
-        'Enterprise-grade SEO, GEO, and PPL for multi-location businesses. Dedicated support, custom reporting, and white-glove service for organizations that demand results.',
+        'Enterprise-grade GEO, SEO, and PPL for multi-location businesses. Dedicated support, custom reporting, and white-glove service for organizations that demand results.',
       url: 'https://onepercentseo.com/enterprise',
     }),
 });
@@ -43,9 +43,9 @@ function EnterprisePage() {
   const serviceSchema = {
     type: 'Service' as const,
     data: {
-      name: 'Enterprise SEO, GEO & PPL Solutions',
+      name: 'Enterprise GEO, SEO & PPL Solutions',
       description:
-        'Enterprise-grade SEO, GEO, and PPL services for large organizations with multiple locations, brands, or complex needs.',
+        'Enterprise-grade GEO, SEO, and PPL services for large organizations with multiple locations, brands, or complex needs.',
       url: 'https://onepercentseo.com/enterprise',
       serviceType: 'Search Engine Optimization',
       provider: {
@@ -66,7 +66,7 @@ function EnterprisePage() {
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="mb-6 font-extrabold text-5xl leading-[0.95] tracking-tighter lg:text-7xl xl:text-8xl">
-              Enterprise-Grade SEO, GEO & PPL at Scale
+              Enterprise-Grade GEO, SEO & PPL at Scale
             </h1>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide lg:text-xl">
               Custom solutions for multi-location businesses, enterprise brands,
@@ -378,7 +378,7 @@ function EnterprisePage() {
               Comprehensive Services Included
             </h2>
             <p className="mx-auto max-w-3xl text-lg text-muted-foreground leading-relaxed tracking-wide">
-              SEO, GEO, and PPL capabilities designed for enterprise scale.
+              GEO, SEO, and PPL capabilities designed for enterprise scale.
             </p>
           </div>
 
@@ -934,7 +934,7 @@ function EnterprisePage() {
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">
                 Enterprise marketing isn't just "more marketing"—it's a
-                fundamentally different approach across SEO, GEO, and Pay Per
+                fundamentally different approach across GEO, SEO, and Pay Per
                 Lead Generation. You get a dedicated account team (not shared
                 resources), custom reporting dashboards tailored to your KPIs,
                 white-glove support with priority response times, 24/7 access,
@@ -1019,7 +1019,7 @@ function EnterprisePage() {
           </h2>
           <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
             Join the enterprise companies and multi-location businesses that
-            trust One Percent Digital for enterprise-grade SEO, GEO, and Pay Per
+            trust One Percent Digital for enterprise-grade GEO, SEO, and Pay Per
             Lead Generation. See how we can transform your visibility and lead
             generation at scale.
           </p>
