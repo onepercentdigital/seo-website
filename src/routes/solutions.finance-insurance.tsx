@@ -267,9 +267,8 @@ function FinanceInsurancePage() {
             Acquire More Clients
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-muted-foreground leading-relaxed tracking-wide">
-            Let's generate qualified client leads with proven GEO, SEO, and Pay
-            Per Lead Generation strategies built for financial advisors and
-            insurance professionals.
+            Let's generate qualified client leads with proven GEO, SEO, and PPL
+            strategies built for financial advisors and insurance professionals.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button render={<Link to="/apply" />} size="lg">
