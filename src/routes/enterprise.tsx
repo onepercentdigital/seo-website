@@ -128,7 +128,7 @@ function EnterprisePage() {
               <img
                 src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=450&fit=crop"
                 alt="Corporate strategy session"
-                className="relative z-20 h-full w-full object-cover brightness-[0.6] grayscale"
+                className="relative z-20 h-full w-full object-cover brightness-60 grayscale"
               />
             </div>
           </div>
@@ -854,7 +854,7 @@ function EnterprisePage() {
               <img
                 src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=450&fit=crop"
                 alt="Executive business presentation"
-                className="relative z-20 h-full w-full object-cover brightness-[0.6] grayscale"
+                className="relative z-20 h-full w-full object-cover brightness-60 grayscale"
               />
             </div>
           </div>

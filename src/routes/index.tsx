@@ -1,13 +1,9 @@
 import {
   ArrowRight01Icon,
+  ArrowUp02Icon,
   Award01Icon,
   Brain01Icon,
-  Building03Icon,
-  Car01Icon,
-  Factory02Icon,
-  Home03Icon,
-  Restaurant01Icon,
-  ShoppingBag02Icon,
+  BubbleChatIcon,
   Target01Icon,
   UserGroupIcon,
 } from '@hugeicons/core-free-icons';
@@ -65,36 +61,6 @@ const clientLogos = [
   },
 ];
 
-// High-ROI industries
-const industries = [
-  {
-    name: 'Manufacturing & Industrial',
-    icon: Factory02Icon,
-    href: '/solutions/manufacturing',
-  },
-  {
-    name: 'E-commerce & Retail',
-    icon: ShoppingBag02Icon,
-    href: '/solutions/ecommerce',
-  },
-  {
-    name: 'Construction & Contractors',
-    icon: Building03Icon,
-    href: '/solutions/construction',
-  },
-  { name: 'Automotive', icon: Car01Icon, href: '/solutions/automotive' },
-  {
-    name: 'Hospitality & Restaurants',
-    icon: Restaurant01Icon,
-    href: '/solutions/hospitality',
-  },
-  {
-    name: 'Health & Wellness',
-    icon: Home03Icon,
-    href: '/solutions/health-wellness',
-  },
-] as const;
-
 function HomePage() {
   return (
     <>
@@ -145,11 +111,11 @@ function HomePage() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="group relative overflow-hidden">
             {/* Fade edges */}
-            <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-20 bg-gradient-to-r from-background to-transparent" />
-            <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-20 bg-gradient-to-l from-background to-transparent" />
+            <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-20 bg-linear-to-r from-background to-transparent" />
+            <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-20 bg-linear-to-l from-background to-transparent" />
 
             {/* Scrolling track */}
-            <div className="flex w-fit animate-marquee group-hover:[animation-play-state:paused]">
+            <div className="group-hover:paused flex w-fit animate-marquee">
               {/* First set of logos */}
               {clientLogos.map((client) => (
                 <div
@@ -229,7 +195,7 @@ function HomePage() {
         </div>
       </section>
       {/* Metrics Block */}
-      <section className="px-6 py-12 lg:py-16">
+      <section className="border-border border-y px-6 py-12 lg:py-16">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -272,53 +238,111 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <section className="px-6 py-16 lg:py-24">
+      <section className="px-6 py-12 lg:py-16">
         <div className="mx-auto max-w-7xl">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-6 font-bold text-4xl leading-[1.1] tracking-tight lg:text-5xl">
-              The Discovery Landscape Has Changed
-            </h2>
-            <p className="mb-10 text-muted-foreground lg:text-lg">
-              AI assistants now influence buying decisions. 40% of searches are
-              zero-click — AI answers directly. Traditional SEO alone leaves you
-              invisible to ChatGPT, Claude, and Perplexity.
-            </p>
-          </div>
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            {/* Left column - Content */}
+            <div>
+              <h2 className="mb-6 font-bold text-4xl leading-[1.1] tracking-tight lg:text-5xl">
+                The Discovery Landscape Has Changed
+              </h2>
+              <p className="mb-8 text-muted-foreground lg:text-lg">
+                AI assistants now influence buying decisions. 40% of searches
+                are zero-click. AI answers directly. Traditional SEO alone
+                leaves you invisible to ChatGPT, Claude, and Perplexity.
+              </p>
 
-          <div className="mx-auto grid max-w-4xl gap-6 lg:grid-cols-3">
-            {[
-              {
-                title: 'AI-First Discovery',
-                description:
-                  'Users ask ChatGPT and Perplexity for recommendations before searching Google.',
-              },
-              {
-                title: 'Zero-Click Results',
-                description:
-                  "AI answers questions directly. If you're not cited, you don't exist.",
-              },
-              {
-                title: 'Competitors Are Moving',
-                description:
-                  'Early movers in GEO are capturing market share while others wait.',
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl p-6 ring-1 ring-foreground/10"
-              >
-                <h3 className="mb-2 font-semibold text-lg">{item.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {item.description}
-                </p>
+              <div className="grid gap-4">
+                {[
+                  {
+                    title: 'AI-First Discovery',
+                    description:
+                      'Users ask ChatGPT and Perplexity for recommendations before searching Google.',
+                  },
+                  {
+                    title: 'Zero-Click Results',
+                    description:
+                      "AI answers questions directly. If you're not cited, you don't exist.",
+                  },
+                  {
+                    title: 'Competitors Are Moving',
+                    description:
+                      'Early movers in GEO are capturing market share while others wait.',
+                  },
+                ].map((item) => (
+                  <Card key={item.title}>
+                    <CardHeader>
+                      <CardTitle className="text-lg">{item.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="leading-relaxed">
+                        {item.description}
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Right column - Chat Demo */}
+            <div className="flex items-center">
+              <Card className="w-full overflow-hidden">
+                {/* Header bar */}
+                <div className="flex items-center gap-2 border-border border-b px-4 py-2">
+                  <HugeiconsIcon
+                    icon={BubbleChatIcon}
+                    size={18}
+                    className="text-primary"
+                  />
+                  <span className="font-medium text-sm">AI Chat</span>
+                </div>
+
+                <CardContent className="space-y-3 p-3">
+                  {/* User message */}
+                  <div className="flex justify-end">
+                    <div className="max-w-[85%] rounded-2xl bg-primary px-3 py-2 text-primary-foreground">
+                      <p className="text-sm">
+                        Where can I buy diesel injection pumps for my fleet of
+                        trucks?
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* AI response */}
+                  <div className="flex">
+                    <div className="max-w-[85%] rounded-2xl bg-muted px-3 py-2">
+                      <p className="text-sm">
+                        Goldfarb & Associates has a wide variety of options
+                        available.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+
+                {/* Input area (decorative) */}
+                <div className="border-border border-t p-3">
+                  <div className="flex items-center gap-2 rounded-4xl bg-muted/50 px-3 py-1.5 ring-1 ring-foreground/10">
+                    <span className="flex-1 text-muted-foreground text-sm">
+                      Ask anything...
+                    </span>
+                    <Button
+                      size="icon"
+                      variant="ghost"
+                      disabled
+                      className="size-7 rounded-full"
+                    >
+                      <HugeiconsIcon icon={ArrowUp02Icon} size={14} />
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
-      <section className="px-6 py-16 lg:py-24">
+      <section className="px-6 py-12 lg:py-16">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 text-center lg:mb-16">
+          <div className="mb-8 text-center lg:mb-12">
             <h2 className="mb-4 font-bold text-4xl leading-[1.1] tracking-tight lg:text-5xl">
               How We Help You Scale
             </h2>
@@ -335,28 +359,15 @@ function HomePage() {
                 <div className="mb-8 grid gap-8 lg:grid-cols-5 lg:gap-12">
                   {/* Left: Stats + Copy (3/5 width) */}
                   <div className="flex flex-col justify-center lg:col-span-3">
-                    <div className="mb-4 flex flex-wrap items-baseline gap-x-6 gap-y-2">
-                      <div>
-                        <span className="font-extrabold text-5xl text-primary tracking-tight lg:text-6xl">
-                          #1
-                        </span>
-                        <span className="ml-2 text-muted-foreground">
-                          ChatGPT Recommendation
-                        </span>
-                      </div>
-                      <div>
-                        <span className="font-extrabold text-3xl text-primary tracking-tight lg:text-4xl">
-                          10X
-                        </span>
-                        <span className="ml-2 text-muted-foreground text-sm">
-                          Revenue Growth
-                        </span>
-                      </div>
+                    <div className="mb-6">
+                      <span className="font-extrabold text-5xl text-primary tracking-tight lg:text-6xl">
+                        8X
+                      </span>
+                      <span className="ml-3 text-muted-foreground">
+                        Average Organic Traffic Growth
+                      </span>
                     </div>
-                    <p className="text-muted-foreground text-sm">
-                      Goldfarb & Associates
-                    </p>
-                    <p className="mt-4 text-foreground leading-relaxed">
+                    <p className="text-foreground leading-relaxed">
                       When users ask ChatGPT, Claude, or Perplexity for
                       recommendations, your brand needs to be the answer. GEO
                       positions you at the forefront of AI-powered discovery.
@@ -493,13 +504,13 @@ function HomePage() {
           </Tabs>
         </div>
       </section>
-      <section className="px-6 py-16 lg:py-24">
+      <section className="px-6 py-12 lg:py-16">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 text-center">
+          <div className="mb-12 text-right">
             <h2 className="mb-4 font-bold text-4xl leading-[1.1] tracking-tight lg:text-5xl">
               Real Results, Real Exits
             </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">
+            <p className="ml-auto max-w-2xl text-muted-foreground">
               See how we've helped businesses dominate search and achieve
               measurable outcomes.
             </p>
@@ -508,7 +519,7 @@ function HomePage() {
           <div className="grid gap-6 lg:grid-cols-2">
             {/* Revology Case Study */}
             <Card className="overflow-hidden p-0">
-              <div className="grid md:grid-cols-2">
+              <div className="grid h-full md:grid-cols-2">
                 <div className="flex flex-col gap-4 p-6 lg:p-8">
                   <Badge variant="secondary" className="w-fit">
                     Featured Case Study
@@ -636,13 +647,13 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <section className="px-6 py-16 lg:py-24">
+      <section className="px-6 py-12 lg:py-16">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 text-center">
+          <div className="mb-12">
             <h2 className="mb-4 font-bold text-4xl leading-[1.1] tracking-tight lg:text-5xl">
               Why One Percent Digital
             </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">
+            <p className="max-w-2xl text-muted-foreground">
               We're not another agency. We're operators who've built and scaled
               businesses ourselves.
             </p>
@@ -695,7 +706,7 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <section className="px-6 py-16 lg:py-24">
+      <section className="px-6 py-12 lg:py-16">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
             <h2 className="mb-4 font-bold text-4xl leading-[1.1] tracking-tight lg:text-5xl">
@@ -769,56 +780,8 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <section className="border-border border-t px-6 py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 font-bold text-4xl leading-[1.1] tracking-tight lg:text-5xl">
-              Proven Across High-Value Industries
-            </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">
-              From manufacturing to hospitality, we've helped businesses in
-              every vertical dominate their markets.
-            </p>
-          </div>
 
-          <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {industries.map((industry) => (
-              <Link
-                key={industry.href}
-                to={industry.href}
-                className="group flex items-center gap-4 rounded-2xl p-4 ring-1 ring-foreground/10 transition-colors hover:bg-muted/50"
-              >
-                <HugeiconsIcon
-                  icon={industry.icon}
-                  size={24}
-                  strokeWidth={1.5}
-                  className="text-primary"
-                />
-                <span className="font-medium">{industry.name}</span>
-                <HugeiconsIcon
-                  icon={ArrowRight01Icon}
-                  size={16}
-                  strokeWidth={2}
-                  className="ml-auto text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100"
-                />
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <Button render={<Link to="/solutions" />} variant="outline">
-              View All Industry Solutions
-              <HugeiconsIcon
-                icon={ArrowRight01Icon}
-                size={16}
-                strokeWidth={2}
-                data-icon="inline-end"
-              />
-            </Button>
-          </div>
-        </div>
-      </section>
-      <section className="border-border border-t px-6 py-16 lg:py-24">
+      <section className="border-border border-y px-6 py-12 lg:py-16">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="mb-4 font-bold text-3xl tracking-tight lg:text-4xl">
             Ready to Dominate Your Industry?
@@ -844,17 +807,6 @@ function HomePage() {
             >
               View Case Studies
             </Button>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-muted-foreground text-sm">
-            <Link to="/geo" className="transition-colors hover:text-foreground">
-              Learn About GEO
-            </Link>
-            <Link to="/seo" className="transition-colors hover:text-foreground">
-              Learn About SEO
-            </Link>
-            <Link to="/ppl" className="transition-colors hover:text-foreground">
-              Learn About PPL
-            </Link>
           </div>
         </div>
       </section>

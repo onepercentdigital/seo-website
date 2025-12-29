@@ -317,7 +317,7 @@ function GEOPage() {
               <img
                 src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=450&fit=crop"
                 alt="Server hardware and data infrastructure"
-                className="relative z-20 h-full w-full object-cover brightness-[0.6] grayscale"
+                className="relative z-20 h-full w-full object-cover brightness-60 grayscale"
               />
             </div>
           </div>
@@ -504,7 +504,7 @@ function GEOPage() {
               <img
                 src="https://images.unsplash.com/photo-1484557052118-f32bd25b45b5?w=800&h=450&fit=crop"
                 alt="Data center server racks"
-                className="relative z-20 h-full w-full object-cover brightness-[0.6] grayscale"
+                className="relative z-20 h-full w-full object-cover brightness-60 grayscale"
               />
             </div>
           </div>
