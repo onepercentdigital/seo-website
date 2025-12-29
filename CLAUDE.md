@@ -78,7 +78,7 @@ import { ArrowRight01Icon, Brain01Icon } from '@hugeicons/core-free-icons';
     <img 
       src="https://images.unsplash.com/photo-xxx?w=800&h=450&fit=crop" 
       alt="Description"
-      className="relative z-20 aspect-video w-full object-cover brightness-[0.6] grayscale transition-transform duration-300 group-hover:scale-105" 
+      className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale transition-transform duration-300 group-hover:scale-105" 
     />
   </div>
   <CardHeader>
@@ -165,6 +165,7 @@ import { ArrowRight01Icon, Brain01Icon } from '@hugeicons/core-free-icons';
 - Add two-tone coloring to headlines with `<span className="text-primary">`
 - Use `bg-primary/10` icon containers (use bare icons instead)
 - Use initials in colored circles for avatars (use grayscale images)
+- Use em-dashes (—) in copy (use periods, commas, or rewrite instead)
 
 ---
 

@@ -350,7 +350,7 @@ function PayPerLeadPage() {
               <img
                 src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=450&fit=crop"
                 alt="Business meeting and lead generation"
-                className="relative z-20 h-full w-full object-cover brightness-[0.6] grayscale"
+                className="relative z-20 h-full w-full object-cover brightness-60 grayscale"
               />
             </div>
           </div>
@@ -568,7 +568,7 @@ function PayPerLeadPage() {
               <img
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=450&fit=crop"
                 alt="Team collaboration and lead pipeline"
-                className="relative z-20 h-full w-full object-cover brightness-[0.6] grayscale"
+                className="relative z-20 h-full w-full object-cover brightness-60 grayscale"
               />
             </div>
           </div>

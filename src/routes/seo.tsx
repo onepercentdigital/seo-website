@@ -318,7 +318,7 @@ function SEOPage() {
               <img
                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop"
                 alt="Search analytics and data visualization"
-                className="relative z-20 h-full w-full object-cover brightness-[0.6] grayscale"
+                className="relative z-20 h-full w-full object-cover brightness-60 grayscale"
               />
             </div>
           </div>
@@ -521,7 +521,7 @@ function SEOPage() {
               <img
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop"
                 alt="Growth charts and analytics dashboard"
-                className="relative z-20 h-full w-full object-cover brightness-[0.6] grayscale"
+                className="relative z-20 h-full w-full object-cover brightness-60 grayscale"
               />
             </div>
           </div>
