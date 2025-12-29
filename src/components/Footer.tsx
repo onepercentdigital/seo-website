@@ -52,7 +52,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-6 md:flex-row">
+        <div className="mt-12 flex items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
             © {currentYear} {brand.displayName}. All rights reserved.
           </p>
