@@ -1,4 +1,4 @@
-import { Menu01Icon, Moon02Icon, Sun01Icon } from '@hugeicons/core-free-icons';
+import { Menu09Icon, Moon02Icon, Sun01Icon } from '@hugeicons/core-free-icons';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Link } from '@tanstack/react-router';
 import { Logo } from '@/components/Logo';
@@ -89,14 +89,14 @@ function MobileMenu() {
           nativeButton={true}
           render={<Button variant="ghost" size="icon" aria-label="Open menu" />}
         >
-          <HugeiconsIcon icon={Menu01Icon} size={24} strokeWidth={2} />
+          <HugeiconsIcon icon={Menu09Icon} size={24} strokeWidth={2} />
         </SheetTrigger>
         <SheetContent
           side="full"
           showCloseButton
           className="overflow-y-auto px-6 pt-16 pb-[env(safe-area-inset-bottom)]"
         >
-          <nav className="flex min-h-full flex-col gap-2">
+          <nav className="flex flex-col gap-2">
             {/* CTA at top */}
             <SheetClose
               render={
@@ -124,7 +124,7 @@ function MobileMenu() {
                       {item.label}
                     </AccordionTrigger>
                     <AccordionContent className="[&_a]:no-underline">
-                      <div className="flex flex-col gap-1">
+                      <div className="flex max-h-72 flex-col gap-1 overflow-y-auto">
                         {item.items.map((subItem) => (
                           <SheetClose
                             key={subItem.href}
