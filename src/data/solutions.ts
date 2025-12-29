@@ -1425,7 +1425,7 @@ export const solutions: IndustrySolution[] = [
       {
         question: 'How important is AI search (GEO) for technology companies?',
         answer:
-          "Absolutely critical. More tech buyers are asking ChatGPT, Perplexity, and AI assistants for software recommendations instead of Googling comparison lists. If your product doesn't appear in AI-generated recommendations, you're invisible to a growing segment of buyers. GEO optimization ensures AI assistants understand your product, recommend it for relevant queries, and cite your content. We've seen tech companies double their organic visibility by optimizing for both traditional GEO and SEO. It's not either/or - you need both to succeed in modern search.",
+          "Absolutely critical. More tech buyers are asking ChatGPT, Perplexity, and AI assistants for software recommendations instead of Googling comparison lists. If your product doesn't appear in AI-generated recommendations, you're invisible to a growing segment of buyers. GEO optimization ensures AI assistants understand your product, recommend it for relevant queries, and cite your content. We've seen tech companies double their organic visibility by optimizing for both GEO and traditional SEO. It's not either/or - you need both to succeed in modern search.",
       },
       {
         question: 'How do you measure ROI for SaaS SEO?',

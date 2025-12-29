@@ -122,7 +122,7 @@ import { ArrowRight01Icon, Brain01Icon } from '@hugeicons/core-free-icons';
 | Menu | Menu01Icon |
 | X | Cancel01Icon |
 | Sun | Sun01Icon |
-| Moon | Moon01Icon |
+| Moon | Moon02Icon |
 | Plus | PlusSignIcon |
 | Search | Search01Icon |
 | ExternalLink | LinkSquare01Icon |
@@ -142,6 +142,7 @@ import { ArrowRight01Icon, Brain01Icon } from '@hugeicons/core-free-icons';
 - Transitions: `transition-all` or `transition-colors`
 
 ### Required Patterns
+- Prefer shadcn/ui components over custom implementations (check `src/components/ui/` first)
 - Always use `Link` from `@tanstack/react-router` for internal navigation
 - Use `render` prop on Button for links (not `asChild`)
 - Use `generateMetaTags()` helper for SEO in route `head()` functions
@@ -231,9 +232,11 @@ website/
 │   │   ├── Logo.tsx         # Theme-aware logo
 │   │   ├── Navigation.tsx   # Header with dropdowns
 │   │   ├── Footer.tsx       # Multi-column footer
-│   │   ├── ThemeToggle.tsx  # Dark/light mode
 │   │   ├── NotFound.tsx     # 404 page
 │   │   └── SEO.tsx          # Structured data
+│   │
+│   ├── hooks/
+│   │   └── useTheme.ts      # Dark/light mode hook
 │   │
 │   ├── routes/              # File-based routing
 │   │   ├── __root.tsx       # Root layout

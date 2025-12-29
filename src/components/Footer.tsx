@@ -1,14 +1,17 @@
+import { Moon02Icon, Sun01Icon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 import { Link } from '@tanstack/react-router';
 import { Logo } from '@/components/Logo';
-import { ThemeToggle } from '@/components/ThemeToggle';
-import { Button } from '@/components/ui/button';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { brand, footer } from '@/config/brand';
+import { useTheme } from '@/hooks/useTheme';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const { theme, setTheme, mounted } = useTheme();
 
   return (
-    <footer className="border-border border-t bg-background">
+    <footer className="bg-background">
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:gap-12">
@@ -49,16 +52,32 @@ export function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-6 border-border border-t pt-8 md:flex-row">
+        <div className="mt-12 flex items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
             © {currentYear} {brand.displayName}. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4">
-            <Button render={<Link to={footer.cta.href} />} size="sm">
-              {footer.cta.label}
-            </Button>
-            <ThemeToggle />
+            {mounted && (
+              <ToggleGroup
+                value={[theme]}
+                onValueChange={(values) => {
+                  const newTheme = values[0] as 'light' | 'dark' | undefined;
+                  if (newTheme && newTheme !== theme) {
+                    setTheme(newTheme);
+                  }
+                }}
+                variant="outline"
+                size="sm"
+              >
+                <ToggleGroupItem value="light" aria-label="Light mode">
+                  <HugeiconsIcon icon={Sun01Icon} size={16} strokeWidth={2} />
+                </ToggleGroupItem>
+                <ToggleGroupItem value="dark" aria-label="Dark mode">
+                  <HugeiconsIcon icon={Moon02Icon} size={16} strokeWidth={2} />
+                </ToggleGroupItem>
+              </ToggleGroup>
+            )}
           </div>
         </div>
       </div>
