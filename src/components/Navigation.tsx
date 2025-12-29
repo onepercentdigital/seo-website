@@ -1,8 +1,7 @@
-import { Menu01Icon } from '@hugeicons/core-free-icons';
+import { Menu01Icon, Moon02Icon, Sun01Icon } from '@hugeicons/core-free-icons';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Link } from '@tanstack/react-router';
 import { Logo } from '@/components/Logo';
-import { ThemeToggle } from '@/components/ThemeToggle';
 import {
   Accordion,
   AccordionContent,
@@ -19,13 +18,16 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
+import { Separator } from '@/components/ui/separator';
 import {
   Sheet,
   SheetClose,
   SheetContent,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { navigation } from '@/config/brand';
+import { useTheme } from '@/hooks/useTheme';
 
 export function Navigation() {
   return (
@@ -63,99 +65,145 @@ export function Navigation() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* Right Side - CTA and Theme Toggle */}
+        {/* Right Side - CTA */}
         <div className="hidden items-center gap-3 md:flex">
           <Button render={<Link to={navigation.cta.href} />}>
             {navigation.cta.label}
           </Button>
-          <ThemeToggle />
         </div>
 
         {/* Mobile Menu */}
-        <div className="flex items-center gap-3 md:hidden">
-          <ThemeToggle />
-          <Sheet>
-            <SheetTrigger
-              nativeButton={true}
+        <MobileMenu />
+      </nav>
+    </header>
+  );
+}
+
+function MobileMenu() {
+  const { theme, setTheme, mounted } = useTheme();
+
+  return (
+    <div className="flex items-center md:hidden">
+      <Sheet>
+        <SheetTrigger
+          nativeButton={true}
+          render={<Button variant="ghost" size="icon" aria-label="Open menu" />}
+        >
+          <HugeiconsIcon icon={Menu01Icon} size={24} strokeWidth={2} />
+        </SheetTrigger>
+        <SheetContent
+          side="full"
+          showCloseButton
+          className="overflow-y-auto px-6 pt-16 pb-[env(safe-area-inset-bottom)]"
+        >
+          <nav className="flex min-h-full flex-col gap-2">
+            {/* CTA at top */}
+            <SheetClose
               render={
-                <Button variant="ghost" size="icon" aria-label="Open menu" />
+                <Button
+                  render={<Link to={navigation.cta.href} />}
+                  className="mb-4 w-full"
+                  size="lg"
+                />
               }
             >
-              <HugeiconsIcon icon={Menu01Icon} size={24} strokeWidth={2} />
-            </SheetTrigger>
-            <SheetContent side="right" showCloseButton className="px-6">
-              <nav className="flex h-full flex-col gap-2 pt-16">
-                <Accordion className="gap-2 rounded-none border-0">
-                  {navigation.main
-                    .filter((item) => item.type === 'dropdown')
-                    .map((item) => (
-                      <AccordionItem
-                        key={item.label}
-                        value={item.label}
-                        className="border-none data-open:bg-transparent"
-                      >
-                        <AccordionTrigger className="py-2 hover:no-underline">
-                          {item.label}
-                        </AccordionTrigger>
-                        <AccordionContent className="[&_a]:no-underline">
-                          <div className="flex flex-col gap-1">
-                            {item.items.map((subItem) => (
-                              <SheetClose
-                                key={subItem.href}
-                                render={
-                                  <Link
-                                    to={subItem.href}
-                                    className="rounded-lg px-3 py-2 text-foreground text-sm transition-colors hover:bg-muted"
-                                  />
-                                }
-                              >
-                                {subItem.label}
-                              </SheetClose>
-                            ))}
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
-                </Accordion>
+              {navigation.cta.label}
+            </SheetClose>
 
-                {/* Plain links */}
-                {navigation.main
-                  .filter((item) => item.type === 'link')
-                  .map((item) => (
-                    <SheetClose
-                      key={item.label}
-                      render={
-                        <Link
-                          to={item.href}
-                          className="rounded-lg px-4 py-2 font-medium text-foreground text-sm transition-colors hover:bg-muted"
-                        />
-                      }
-                    >
+            {/* Accordion nav items */}
+            <Accordion className="gap-2 rounded-none border-0">
+              {navigation.main
+                .filter((item) => item.type === 'dropdown')
+                .map((item) => (
+                  <AccordionItem
+                    key={item.label}
+                    value={item.label}
+                    className="border-none data-open:bg-transparent"
+                  >
+                    <AccordionTrigger className="min-h-11 py-2 hover:no-underline">
                       {item.label}
-                    </SheetClose>
-                  ))}
+                    </AccordionTrigger>
+                    <AccordionContent className="[&_a]:no-underline">
+                      <div className="flex flex-col gap-1">
+                        {item.items.map((subItem) => (
+                          <SheetClose
+                            key={subItem.href}
+                            render={
+                              <Link
+                                to={subItem.href}
+                                className="min-h-11 rounded-lg px-3 py-2 text-foreground text-sm transition-colors hover:bg-muted"
+                              />
+                            }
+                          >
+                            {subItem.label}
+                          </SheetClose>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+            </Accordion>
 
-                {/* CTA */}
+            {/* Plain links (Enterprise) */}
+            {navigation.main
+              .filter((item) => item.type === 'link')
+              .map((item) => (
                 <SheetClose
+                  key={item.label}
                   render={
-                    <Button
-                      render={<Link to={navigation.cta.href} />}
-                      className="mt-4"
+                    <Link
+                      to={item.href}
+                      className="min-h-11 rounded-lg px-4 py-2 font-medium text-foreground text-sm transition-colors hover:bg-muted"
                     />
                   }
                 >
-                  {navigation.cta.label}
+                  {item.label}
                 </SheetClose>
+              ))}
 
-                {/* Logo at bottom */}
-                <div className="mt-auto flex items-center justify-center pt-12 pb-8">
-                  <Logo size="footer" showWordmark={false} />
-                </div>
-              </nav>
-            </SheetContent>
-          </Sheet>
-        </div>
-      </nav>
-    </header>
+            {/* Theme toggle */}
+            <div className="pt-4">
+              <Separator className="mb-4" />
+              <div className="flex items-center justify-between px-4">
+                <span className="font-medium text-foreground text-sm">
+                  Theme
+                </span>
+                {mounted && (
+                  <ToggleGroup
+                    value={[theme]}
+                    onValueChange={(values) => {
+                      const newTheme = values[0] as
+                        | 'light'
+                        | 'dark'
+                        | undefined;
+                      if (newTheme && newTheme !== theme) {
+                        setTheme(newTheme);
+                      }
+                    }}
+                    variant="outline"
+                    size="sm"
+                  >
+                    <ToggleGroupItem value="light" aria-label="Light mode">
+                      <HugeiconsIcon
+                        icon={Sun01Icon}
+                        size={16}
+                        strokeWidth={2}
+                      />
+                    </ToggleGroupItem>
+                    <ToggleGroupItem value="dark" aria-label="Dark mode">
+                      <HugeiconsIcon
+                        icon={Moon02Icon}
+                        size={16}
+                        strokeWidth={2}
+                      />
+                    </ToggleGroupItem>
+                  </ToggleGroup>
+                )}
+              </div>
+            </div>
+          </nav>
+        </SheetContent>
+      </Sheet>
+    </div>
   );
 }

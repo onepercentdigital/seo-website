@@ -142,6 +142,7 @@ import { ArrowRight01Icon, Brain01Icon } from '@hugeicons/core-free-icons';
 - Transitions: `transition-all` or `transition-colors`
 
 ### Required Patterns
+- Prefer shadcn/ui components over custom implementations (check `src/components/ui/` first)
 - Always use `Link` from `@tanstack/react-router` for internal navigation
 - Use `render` prop on Button for links (not `asChild`)
 - Use `generateMetaTags()` helper for SEO in route `head()` functions
