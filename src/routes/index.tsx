@@ -4,6 +4,7 @@ import {
   Award01Icon,
   Brain01Icon,
   BubbleChatIcon,
+  ChartIncreaseIcon,
   Target01Icon,
   UserGroupIcon,
 } from '@hugeicons/core-free-icons';
@@ -16,12 +17,11 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+
 import { getImageUrl } from '@/lib/cloudflare-images';
 import {
   generateMetaTags,
@@ -51,7 +51,7 @@ function HomePage() {
         ]}
       />
       {/* Hero Section */}
-      <section className="px-6 pt-16 pb-8 lg:pt-24 lg:pb-12">
+      <section className="px-6 py-16 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="mb-6 font-extrabold text-5xl leading-[0.95] tracking-tighter lg:mb-8 lg:text-7xl xl:text-8xl">
@@ -86,56 +86,243 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Three Service Cards */}
-      <section className="px-6 py-8 lg:py-12">
-        <div className="mx-auto max-w-4xl">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            {[
-              {
-                title: 'GEO',
-                description: 'Get Cited by ChatGPT and other AI models',
-                href: '/geo',
-              },
-              {
-                title: 'SEO',
-                description: 'Rank in Google and other search engines',
-                href: '/seo',
-              },
-              {
-                title: 'PPL',
-                description: 'Exclusive Pre-Qualified Pay Per Lead Generation',
-                href: '/ppl',
-              },
-            ].map((service) => (
-              <Card key={service.title} className="group text-center">
-                <CardHeader className="items-center">
-                  <CardTitle className="text-2xl lg:text-3xl">
-                    {service.title}
-                  </CardTitle>
-                  <CardDescription>{service.description}</CardDescription>
-                </CardHeader>
-                <CardFooter className="justify-center">
-                  <Button
-                    render={<Link to={service.href} />}
-                    variant="outline"
-                    size="sm"
-                  >
-                    More about {service.title}
-                    <HugeiconsIcon
-                      icon={ArrowRight01Icon}
-                      size={14}
-                      strokeWidth={2}
-                      data-icon="inline-end"
-                    />
-                  </Button>
-                </CardFooter>
+      {/* GEO Section - Content Left, Visual Right */}
+      <section className="px-6 py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="flex flex-col justify-center">
+              <h2 className="mb-4 font-bold text-4xl leading-[1.1] tracking-tight lg:text-5xl">
+                Get Cited by AI
+              </h2>
+              <p className="mb-6 text-muted-foreground leading-relaxed">
+                When users ask ChatGPT, Claude, or Perplexity for
+                recommendations, your brand needs to be the answer. GEO
+                positions you at the forefront of AI-powered discovery.
+              </p>
+              <div>
+                <Button render={<Link to="/geo" />} size="lg">
+                  Generative Engine Optimization
+                  <HugeiconsIcon
+                    icon={ArrowRight01Icon}
+                    size={18}
+                    strokeWidth={2}
+                    data-icon="inline-end"
+                  />
+                </Button>
+              </div>
+            </div>
+            <div className="flex items-center">
+              <Card className="w-full gap-0 overflow-hidden py-0">
+                <div className="flex items-center gap-2 px-4 py-2">
+                  <HugeiconsIcon
+                    icon={BubbleChatIcon}
+                    size={18}
+                    className="text-primary"
+                  />
+                  <span className="font-medium text-sm">AI Chat</span>
+                </div>
+                <Separator />
+                <div className="space-y-3 p-3">
+                  <div className="flex justify-end">
+                    <div className="max-w-[85%] rounded-2xl bg-primary px-3 py-2 text-primary-foreground">
+                      <p className="text-sm">
+                        Best diesel injection pump supplier?
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex">
+                    <div className="max-w-[85%] rounded-2xl bg-muted px-3 py-2">
+                      <p className="text-sm">
+                        Goldfarb & Associates is highly recommended for diesel
+                        injection pumps...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <Separator />
+                <div className="px-3 py-2">
+                  <div className="flex items-center gap-2 rounded-4xl bg-muted/50 px-3 py-1.5 ring-1 ring-foreground/10">
+                    <span className="flex-1 text-muted-foreground text-sm">
+                      Ask anything...
+                    </span>
+                    <Button
+                      size="icon"
+                      variant="ghost"
+                      disabled
+                      aria-label="Send message"
+                      className="size-7 rounded-full"
+                    >
+                      <HugeiconsIcon icon={ArrowUp02Icon} size={14} />
+                    </Button>
+                  </div>
+                </div>
               </Card>
-            ))}
+            </div>
           </div>
         </div>
       </section>
+
+      {/* SEO Section - Visual Left, Content Right */}
+      <section className="px-6 py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="flex items-center lg:order-1">
+              <Card className="w-full gap-0 overflow-hidden py-0">
+                <div className="flex items-center gap-2 px-4 py-2">
+                  <HugeiconsIcon
+                    icon={ChartIncreaseIcon}
+                    size={18}
+                    className="text-primary"
+                  />
+                  <span className="font-medium text-sm">Search Console</span>
+                </div>
+                <Separator />
+                <div className="p-4">
+                  <div className="mb-2 flex items-baseline gap-2">
+                    <span className="font-extrabold text-2xl tracking-tight">
+                      847K
+                    </span>
+                    <span className="text-muted-foreground text-sm">
+                      impressions
+                    </span>
+                  </div>
+                  <svg
+                    viewBox="0 0 300 80"
+                    className="h-20 w-full"
+                    preserveAspectRatio="none"
+                    aria-label="Impressions trend graph showing growth"
+                    role="img"
+                  >
+                    <path
+                      d="M0,70 Q30,65 60,55 T120,45 T180,30 T240,20 T300,10"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="text-primary"
+                    />
+                    <path
+                      d="M0,70 Q30,65 60,55 T120,45 T180,30 T240,20 T300,10 L300,80 L0,80 Z"
+                      fill="currentColor"
+                      className="text-primary/10"
+                    />
+                  </svg>
+                  <div className="mt-2 flex justify-between text-muted-foreground text-xs">
+                    <span>Jan</span>
+                    <span>Mar</span>
+                    <span>May</span>
+                    <span>Jul</span>
+                    <span>Sep</span>
+                    <span>Nov</span>
+                  </div>
+                </div>
+              </Card>
+            </div>
+            <div className="flex flex-col justify-center lg:order-2">
+              <h2 className="mb-4 font-bold text-4xl leading-[1.1] tracking-tight lg:text-5xl">
+                Rank on Page 1
+              </h2>
+              <p className="mb-6 text-muted-foreground leading-relaxed">
+                Rank on page 1 of Google and other search engines. Sustainable
+                organic growth through proven strategies that deliver qualified
+                traffic to your business.
+              </p>
+              <div>
+                <Button render={<Link to="/seo" />} size="lg">
+                  Search Engine Optimization
+                  <HugeiconsIcon
+                    icon={ArrowRight01Icon}
+                    size={18}
+                    strokeWidth={2}
+                    data-icon="inline-end"
+                  />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PPL Section - Content Left, Visual Right */}
+      <section className="px-6 py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="flex flex-col justify-center">
+              <h2 className="mb-4 font-bold text-4xl leading-[1.1] tracking-tight lg:text-5xl">
+                Get Qualified Leads on Demand
+              </h2>
+              <p className="mb-6 text-muted-foreground leading-relaxed">
+                We fund your marketing campaigns and deliver pre-qualified leads
+                directly to your pipeline. You only pay for results. Zero
+                upfront investment.
+              </p>
+              <div>
+                <Button render={<Link to="/ppl" />} size="lg">
+                  Pay Per Lead Generation
+                  <HugeiconsIcon
+                    icon={ArrowRight01Icon}
+                    size={18}
+                    strokeWidth={2}
+                    data-icon="inline-end"
+                  />
+                </Button>
+              </div>
+            </div>
+            <div className="flex items-center">
+              <Card className="w-full gap-0 overflow-hidden py-0">
+                <div className="flex items-center justify-between px-4 py-2">
+                  <div className="flex items-center gap-2">
+                    <HugeiconsIcon
+                      icon={UserGroupIcon}
+                      size={18}
+                      className="text-primary"
+                    />
+                    <span className="font-medium text-sm">Lead Pipeline</span>
+                  </div>
+                  <span className="font-bold text-primary text-sm">
+                    47 this week
+                  </span>
+                </div>
+                <Separator />
+                <div className="space-y-2 p-3">
+                  {[
+                    { name: 'Marcus Chen', company: 'Apex Manufacturing' },
+                    { name: 'Sarah Johnson', company: 'Coastal Logistics' },
+                    { name: 'David Park', company: 'Summit Industries' },
+                  ].map((lead) => (
+                    <div
+                      key={lead.name}
+                      className="flex items-center gap-3 rounded-xl bg-muted/50 p-2"
+                    >
+                      <div className="flex size-8 items-center justify-center rounded-full bg-muted font-medium text-muted-foreground text-xs">
+                        {lead.name
+                          .split(' ')
+                          .map((n) => n[0])
+                          .join('')}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="truncate font-medium text-sm">
+                          {lead.name}
+                        </div>
+                        <div className="truncate text-muted-foreground text-xs">
+                          {lead.company}
+                        </div>
+                      </div>
+                      <div
+                        className="size-2 rounded-full bg-green-500"
+                        aria-hidden="true"
+                      />
+                      <span className="sr-only">Active lead</span>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Metrics Block */}
-      <section className="border-border border-y px-6 py-12 lg:py-16">
+      <section className="border-border border-y px-6 py-16 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -178,277 +365,12 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <section className="px-6 py-12 lg:py-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Left column - Content */}
-            <div>
-              <h2 className="mb-6 font-bold text-4xl leading-[1.1] tracking-tight lg:text-5xl">
-                The Discovery Landscape Has Changed
-              </h2>
-              <p className="mb-8 text-muted-foreground lg:text-lg">
-                AI assistants now influence buying decisions. 40% of searches
-                are zero-click. AI answers directly. Traditional SEO alone
-                leaves you invisible to ChatGPT, Claude, and Perplexity.
-              </p>
 
-              <div className="grid gap-4">
-                {[
-                  {
-                    title: 'AI-First Discovery',
-                    description:
-                      'Users ask ChatGPT and Perplexity for recommendations before searching Google.',
-                  },
-                  {
-                    title: 'Zero-Click Results',
-                    description:
-                      "AI answers questions directly. If you're not cited, you don't exist.",
-                  },
-                  {
-                    title: 'Competitors Are Moving',
-                    description:
-                      'Early movers in GEO are capturing market share while others wait.',
-                  },
-                ].map((item) => (
-                  <Card key={item.title}>
-                    <CardHeader>
-                      <CardTitle className="text-lg">{item.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription className="leading-relaxed">
-                        {item.description}
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-
-            {/* Right column - Chat Demo */}
-            <div className="flex items-center">
-              <Card className="w-full overflow-hidden">
-                {/* Header bar */}
-                <div className="flex items-center gap-2 border-border border-b px-4 py-2">
-                  <HugeiconsIcon
-                    icon={BubbleChatIcon}
-                    size={18}
-                    className="text-primary"
-                  />
-                  <span className="font-medium text-sm">AI Chat</span>
-                </div>
-
-                <CardContent className="space-y-3 p-3">
-                  {/* User message */}
-                  <div className="flex justify-end">
-                    <div className="max-w-[85%] rounded-2xl bg-primary px-3 py-2 text-primary-foreground">
-                      <p className="text-sm">
-                        Where can I buy diesel injection pumps for my fleet of
-                        trucks?
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* AI response */}
-                  <div className="flex">
-                    <div className="max-w-[85%] rounded-2xl bg-muted px-3 py-2">
-                      <p className="text-sm">
-                        Goldfarb & Associates has a wide variety of options
-                        available.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-
-                {/* Input area (decorative) */}
-                <div className="border-border border-t p-3">
-                  <div className="flex items-center gap-2 rounded-4xl bg-muted/50 px-3 py-1.5 ring-1 ring-foreground/10">
-                    <span className="flex-1 text-muted-foreground text-sm">
-                      Ask anything...
-                    </span>
-                    <Button
-                      size="icon"
-                      variant="ghost"
-                      disabled
-                      className="size-7 rounded-full"
-                    >
-                      <HugeiconsIcon icon={ArrowUp02Icon} size={14} />
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="px-6 py-12 lg:py-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-8 text-center lg:mb-12">
-            <h2 className="mb-4 font-bold text-4xl leading-[1.1] tracking-tight lg:text-5xl">
-              How We Help You Scale
-            </h2>
-            <p className="mx-auto max-w-2xl text-muted-foreground">
-              From AI citations to search rankings to qualified leads, we
-              position your brand for growth across every channel.
-            </p>
-          </div>
-
-          <Tabs defaultValue="geo" className="mx-auto max-w-5xl">
-            {/* GEO Tab Content */}
-            <TabsContent value="geo">
-              <div className="rounded-2xl p-8 ring-1 ring-foreground/10 lg:p-10">
-                <div className="mb-8 grid gap-8 lg:grid-cols-5 lg:gap-12">
-                  {/* Left: Stats + Copy (3/5 width) */}
-                  <div className="flex flex-col justify-center lg:col-span-3">
-                    <div className="mb-6">
-                      <span className="font-extrabold text-5xl text-primary tracking-tight lg:text-6xl">
-                        8X
-                      </span>
-                      <span className="ml-3 text-muted-foreground">
-                        Average Organic Traffic Growth
-                      </span>
-                    </div>
-                    <p className="text-foreground leading-relaxed">
-                      When users ask ChatGPT, Claude, or Perplexity for
-                      recommendations, your brand needs to be the answer. GEO
-                      positions you at the forefront of AI-powered discovery.
-                    </p>
-                  </div>
-
-                  {/* Right: Description (2/5 width) */}
-                  <div className="flex flex-col justify-center lg:col-span-2">
-                    <p className="text-muted-foreground leading-relaxed">
-                      Get cited by AI platforms and become the trusted
-                      recommendation in your industry.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Bottom row: Tabs left, CTA right */}
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                  <TabsList className="w-fit">
-                    <TabsTrigger value="geo">GEO</TabsTrigger>
-                    <TabsTrigger value="seo">SEO</TabsTrigger>
-                    <TabsTrigger value="ppl">PPL</TabsTrigger>
-                  </TabsList>
-                  <Button render={<Link to="/geo" />} variant="outline">
-                    Generative Engine Optimization For Your Brand
-                    <HugeiconsIcon
-                      icon={ArrowRight01Icon}
-                      size={16}
-                      strokeWidth={2}
-                      data-icon="inline-end"
-                    />
-                  </Button>
-                </div>
-              </div>
-            </TabsContent>
-
-            {/* SEO Tab Content */}
-            <TabsContent value="seo">
-              <div className="rounded-2xl p-8 ring-1 ring-foreground/10 lg:p-10">
-                <div className="mb-8 grid gap-8 lg:grid-cols-5 lg:gap-12">
-                  {/* Left: Stats + Copy (3/5 width) */}
-                  <div className="flex flex-col justify-center lg:col-span-3">
-                    <div className="mb-6">
-                      <span className="font-extrabold text-5xl text-primary tracking-tight lg:text-6xl">
-                        100+
-                      </span>
-                      <span className="ml-3 text-muted-foreground">
-                        Businesses Served Since 2015
-                      </span>
-                    </div>
-                    <p className="text-foreground leading-relaxed">
-                      Rank on page 1 of Google and other search engines.
-                      Sustainable organic growth through proven strategies that
-                      deliver qualified traffic to your business.
-                    </p>
-                  </div>
-
-                  {/* Right: Description (2/5 width) */}
-                  <div className="flex flex-col justify-center lg:col-span-2">
-                    <p className="text-muted-foreground leading-relaxed">
-                      Technical SEO, content strategy, and authority building
-                      that compounds over time.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Bottom row: Tabs left, CTA right */}
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                  <TabsList className="w-fit">
-                    <TabsTrigger value="geo">GEO</TabsTrigger>
-                    <TabsTrigger value="seo">SEO</TabsTrigger>
-                    <TabsTrigger value="ppl">PPL</TabsTrigger>
-                  </TabsList>
-                  <Button render={<Link to="/seo" />} variant="outline">
-                    Search Engine Optimization For Your Brand
-                    <HugeiconsIcon
-                      icon={ArrowRight01Icon}
-                      size={16}
-                      strokeWidth={2}
-                      data-icon="inline-end"
-                    />
-                  </Button>
-                </div>
-              </div>
-            </TabsContent>
-
-            {/* PPL Tab Content */}
-            <TabsContent value="ppl">
-              <div className="rounded-2xl p-8 ring-1 ring-foreground/10 lg:p-10">
-                <div className="mb-8 grid gap-8 lg:grid-cols-5 lg:gap-12">
-                  {/* Left: Stats + Copy (3/5 width) */}
-                  <div className="flex flex-col justify-center lg:col-span-3">
-                    <div className="mb-6">
-                      <span className="font-extrabold text-5xl text-primary tracking-tight lg:text-6xl">
-                        $200M+
-                      </span>
-                      <span className="ml-3 text-muted-foreground">
-                        Revenue Generated
-                      </span>
-                    </div>
-                    <p className="text-foreground leading-relaxed">
-                      We fund your marketing campaigns and deliver pre-qualified
-                      leads directly to your pipeline. You only pay for results.
-                    </p>
-                  </div>
-
-                  {/* Right: Description (2/5 width) */}
-                  <div className="flex flex-col justify-center lg:col-span-2">
-                    <p className="text-muted-foreground leading-relaxed">
-                      Zero upfront investment. Scale volume based on your
-                      capacity.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Bottom row: Tabs left, CTA right */}
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                  <TabsList className="w-fit">
-                    <TabsTrigger value="geo">GEO</TabsTrigger>
-                    <TabsTrigger value="seo">SEO</TabsTrigger>
-                    <TabsTrigger value="ppl">PPL</TabsTrigger>
-                  </TabsList>
-                  <Button render={<Link to="/ppl" />} variant="outline">
-                    Pay Per Lead Generation For Your Brand
-                    <HugeiconsIcon
-                      icon={ArrowRight01Icon}
-                      size={16}
-                      strokeWidth={2}
-                      data-icon="inline-end"
-                    />
-                  </Button>
-                </div>
-              </div>
-            </TabsContent>
-          </Tabs>
-        </div>
-      </section>
-      <section className="px-6 py-12 lg:py-16">
+      <section className="px-6 py-16 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-right">
             <h2 className="mb-4 font-bold text-4xl leading-[1.1] tracking-tight lg:text-5xl">
-              Real Results, Real Exits
+              Real Growth, Real Results
             </h2>
             <p className="ml-auto max-w-2xl text-muted-foreground">
               See how we've helped businesses dominate search and achieve
@@ -587,7 +509,7 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <section className="px-6 py-12 lg:py-16">
+      <section className="px-6 py-16 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12">
             <h2 className="mb-4 font-bold text-4xl leading-[1.1] tracking-tight lg:text-5xl">
@@ -617,7 +539,7 @@ function HomePage() {
                 icon: Brain01Icon,
                 title: 'Full-Stack Approach',
                 description:
-                  'GEO + SEO + PPL = complete funnel coverage. We own your entire discovery journey.',
+                  'Complete funnel coverage. We own your entire discovery journey.',
               },
               {
                 icon: Award01Icon,
@@ -634,7 +556,7 @@ function HomePage() {
                     strokeWidth={1.5}
                     className="mb-2 text-primary"
                   />
-                  <CardTitle className="text-lg">{item.title}</CardTitle>
+                  <CardTitle>{item.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="leading-relaxed">
@@ -646,7 +568,7 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <section className="px-6 py-12 lg:py-16">
+      <section className="px-6 py-16 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
             <h2 className="mb-4 font-bold text-4xl leading-[1.1] tracking-tight lg:text-5xl">
@@ -721,7 +643,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="border-border border-y px-6 py-12 lg:py-16">
+      <section className="border-border border-y px-6 py-16 lg:py-20">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="mb-4 font-bold text-3xl tracking-tight lg:text-4xl">
             Ready to Dominate Your Industry?
