@@ -21,11 +21,5 @@ function HealthWellnessPage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="Health & Wellness SEO"
-      seoUrl="https://op.digital/solutions/health-wellness"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }

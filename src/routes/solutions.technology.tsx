@@ -21,11 +21,5 @@ function TechnologyPage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="Technology & SaaS SEO"
-      seoUrl="https://op.digital/solutions/technology"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }

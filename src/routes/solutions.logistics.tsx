@@ -21,11 +21,5 @@ function LogisticsPage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="Logistics & Transportation SEO"
-      seoUrl="https://op.digital/solutions/logistics"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }

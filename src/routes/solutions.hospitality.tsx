@@ -21,11 +21,5 @@ function HospitalityPage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="Hospitality & Restaurant SEO"
-      seoUrl="https://op.digital/solutions/hospitality"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }

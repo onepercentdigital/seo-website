@@ -21,11 +21,5 @@ function RealEstatePage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="Real Estate SEO"
-      seoUrl="https://op.digital/solutions/real-estate"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }

@@ -21,11 +21,5 @@ function ManufacturingPage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="Manufacturing & Industrial SEO"
-      seoUrl="https://op.digital/solutions/manufacturing"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }

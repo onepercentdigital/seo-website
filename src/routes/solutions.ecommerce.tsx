@@ -21,11 +21,5 @@ function EcommercePage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="E-commerce & Retail SEO"
-      seoUrl="https://op.digital/solutions/ecommerce"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }

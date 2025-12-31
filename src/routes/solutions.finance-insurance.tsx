@@ -21,11 +21,5 @@ function FinanceInsurancePage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="Finance & Insurance SEO"
-      seoUrl="https://op.digital/solutions/finance-insurance"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }

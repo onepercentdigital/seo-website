@@ -21,11 +21,5 @@ function AutomotivePage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="Automotive SEO"
-      seoUrl="https://op.digital/solutions/automotive"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }

@@ -21,11 +21,5 @@ function ConstructionPage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="Construction & Contractor SEO"
-      seoUrl="https://op.digital/solutions/construction"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }

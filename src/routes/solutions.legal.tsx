@@ -21,11 +21,5 @@ function LegalPage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="Law Firm SEO"
-      seoUrl="https://op.digital/solutions/legal"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }
