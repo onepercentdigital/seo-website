@@ -7,9 +7,9 @@ export const Route = createFileRoute('/solutions/logistics')({
   component: LogisticsPage,
   head: () =>
     generateMetaTags({
-      title: 'Logistics & Transportation SEO | Freight Lead Generation',
+      title: 'Logistics Marketing - Rank in AI & Generate Freight Leads',
       description:
-        'Generate qualified shipping and logistics leads through search. Capture industry keywords and reach shippers searching for reliable partners.',
+        'Get recommended when shippers search for logistics partners. Drive qualified leads through GEO, SEO, and industry-specific strategies.',
       url: 'https://op.digital/solutions/logistics',
     }),
 });

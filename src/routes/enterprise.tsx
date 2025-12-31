@@ -39,9 +39,9 @@ export const Route = createFileRoute('/enterprise')({
   component: EnterprisePage,
   head: () =>
     generateMetaTags({
-      title: 'Enterprise Solutions | GEO, SEO & PPL at Scale',
+      title: 'Enterprise Solutions - GEO, SEO & Lead Generation at Scale',
       description:
-        'Enterprise-grade GEO, SEO, and PPL for multi-location businesses. Dedicated support, custom reporting, and white-glove service for organizations that demand results.',
+        'White-glove GEO, SEO, and PPL for multi-location enterprises. Dedicated support, custom reporting, and strategies built for organizations that demand results.',
       url: 'https://op.digital/enterprise',
     }),
 });

@@ -38,9 +38,9 @@ export const Route = createFileRoute('/seo')({
   component: SEOPage,
   head: () =>
     generateMetaTags({
-      title: 'SEO - Search Engine Optimization',
+      title: 'Search Engine Optimization - Page 1 on Google',
       description:
-        'Drive sustainable growth through search excellence. Proven SEO strategies that deliver qualified traffic, higher rankings, and measurable ROI.',
+        'Drive sustainable growth through search. Proven SEO strategies that deliver qualified traffic, higher rankings, and measurable ROI.',
       url: 'https://op.digital/seo',
     }),
 });

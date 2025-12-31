@@ -29,9 +29,9 @@ export const Route = createFileRoute('/case-studies')({
   component: CaseStudiesPage,
   head: () =>
     generateMetaTags({
-      title: 'Case Studies | Proven GEO & SEO Results',
+      title: 'Case Studies - Real Results From Real Businesses',
       description:
-        'Real results from real businesses. See how our GEO and SEO strategies helped Revology Cars exit, grew Goldfarb 10x, and made Royal Covers #1 in Arizona.',
+        'See how we helped Revology Cars exit, grew Goldfarb 10x, and made Royal Covers #1 in Arizona through GEO, SEO, and targeted lead generation.',
       url: 'https://op.digital/case-studies',
     }),
 });

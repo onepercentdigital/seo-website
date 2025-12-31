@@ -26,9 +26,9 @@ export const Route = createFileRoute('/customers')({
   component: CustomersPage,
   head: () =>
     generateMetaTags({
-      title: 'Our Customers - Industry Leaders Powered by One Percent Digital',
+      title: 'Our Customers - Brands That Dominate Their Markets',
       description:
-        'Join industry-leading companies like Grove Bay Hospitality, Afni Careers, Sorting Robotics, and more who trust One Percent Digital to lead search results and drive real revenue growth.',
+        'Join Grove Bay Hospitality, Sorting Robotics, Revology Cars, and other industry leaders who trust us to drive AI visibility, search rankings, and qualified leads.',
       url: 'https://op.digital/customers',
     }),
 });

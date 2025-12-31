@@ -25,9 +25,9 @@ export const Route = createFileRoute('/about')({
   component: AboutPage,
   head: () =>
     generateMetaTags({
-      title: 'About One Percent Digital | Meet the Team Behind Your Success',
+      title: 'Meet the Team - One Percent Digital',
       description:
-        'Meet the entrepreneurs behind One Percent Digital. With 10+ years of combined experience and multiple successful E-commerce brands, we understand what it takes to grow your business.',
+        'Entrepreneurs who built and sold their own brands. We bring 10+ years of experience in GEO, SEO, and lead generation to help you dominate your market.',
       url: 'https://op.digital/about',
     }),
 });

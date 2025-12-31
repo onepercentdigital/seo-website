@@ -7,9 +7,9 @@ export const Route = createFileRoute('/solutions/hospitality')({
   component: HospitalityPage,
   head: () =>
     generateMetaTags({
-      title: 'Hospitality & Restaurant SEO | Fill Tables with Search',
+      title: 'Hospitality Marketing - Rank in AI & Fill More Tables',
       description:
-        'Own local search and AI recommendations for restaurants, hotels, and hospitality venues. Beat OTAs, outrank chains, and fill every table with search-driven customers.',
+        'Own local search and AI recommendations for restaurants and hotels. Beat OTAs, outrank chains, and fill every table with GEO, SEO, and targeted leads.',
       url: 'https://op.digital/solutions/hospitality',
     }),
 });

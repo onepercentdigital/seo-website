@@ -39,9 +39,9 @@ export const Route = createFileRoute('/geo')({
   component: GEOPage,
   head: () =>
     generateMetaTags({
-      title: 'GEO - Generative Engine Optimization',
+      title: 'Generative Engine Optimization - Rank in AI Search',
       description:
-        'Lead AI search results and capture mind share. Position your brand at the forefront of ChatGPT, Claude, Perplexity, and other generative AI platforms.',
+        'Get cited by ChatGPT, Claude, and Perplexity. GEO positions your brand as the answer when AI recommends solutions in your industry.',
       url: 'https://op.digital/geo',
     }),
 });

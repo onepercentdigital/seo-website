@@ -7,9 +7,9 @@ export const Route = createFileRoute('/solutions/legal')({
   component: LegalPage,
   head: () =>
     generateMetaTags({
-      title: 'Law Firm SEO | Legal Case Lead Generation',
+      title: 'Law Firm Marketing - Rank in AI & Generate Case Inquiries',
       description:
-        'Generate qualified case inquiries for law firms. Dominate local legal searches and reach clients with proven GEO, SEO, and PPL strategies.',
+        'Get recommended when people search for legal help. Dominate local search and drive qualified case inquiries through GEO, SEO, and PPL.',
       url: 'https://op.digital/solutions/legal',
     }),
 });

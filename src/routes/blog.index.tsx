@@ -17,9 +17,9 @@ export const Route = createFileRoute('/blog/')({
   component: BlogIndexPage,
   head: () =>
     generateMetaTags({
-      title: 'Blog | GEO & SEO Insights',
+      title: 'GEO & SEO Insights - One Percent Digital Blog',
       description:
-        'Expert insights, strategies, and case studies on GEO, SEO, and search optimization. Learn how to excel in AI-powered and traditional search.',
+        'Expert strategies for ranking in AI search and Google. Learn how to dominate both generative engines and traditional search.',
       url: 'https://op.digital/blog',
     }),
 });

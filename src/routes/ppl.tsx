@@ -42,9 +42,9 @@ export const Route = createFileRoute('/ppl')({
   component: PayPerLeadPage,
   head: () =>
     generateMetaTags({
-      title: 'PPL - Pay Per Lead Generation',
+      title: 'Pay Per Lead - Exclusive Leads on Demand',
       description:
-        'Exclusive pre-qualified leads delivered on demand. No retainers, no contracts, no set-up fees. We fund your marketing. You only pay for results.',
+        'Pre-qualified leads delivered exclusively to you. No retainers, no contracts, no setup fees. We fund your marketing, you only pay for results.',
       url: 'https://op.digital/ppl',
     }),
 });
