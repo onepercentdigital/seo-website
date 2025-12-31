@@ -151,7 +151,7 @@ export function SolutionPageTemplate({
                       {IconComponent && (
                         <HugeiconsIcon
                           icon={IconComponent}
-                          size={24}
+                          size={28}
                           strokeWidth={1.5}
                           className="text-muted-foreground"
                         />

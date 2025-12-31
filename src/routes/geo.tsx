@@ -403,26 +403,26 @@ function GEOPage() {
               </p>
               <div className="grid gap-4 sm:grid-cols-3">
                 <Card className="p-4">
-                  <div className="font-extrabold text-3xl text-primary tracking-tight">
+                  <div className="mb-1 font-extrabold text-4xl tracking-tight lg:text-5xl">
                     400%
                   </div>
-                  <div className="mt-1 text-muted-foreground text-sm">
+                  <div className="text-muted-foreground text-sm">
                     Increase in AI Searches Monthly
                   </div>
                 </Card>
                 <Card className="p-4">
-                  <div className="font-extrabold text-3xl text-primary tracking-tight">
+                  <div className="mb-1 font-extrabold text-4xl tracking-tight lg:text-5xl">
                     10%
                   </div>
-                  <div className="mt-1 text-muted-foreground text-sm">
+                  <div className="text-muted-foreground text-sm">
                     Increase in AI Usage Monthly
                   </div>
                 </Card>
                 <Card className="p-4">
-                  <div className="font-extrabold text-3xl text-primary tracking-tight">
+                  <div className="mb-1 font-extrabold text-4xl tracking-tight lg:text-5xl">
                     First
                   </div>
-                  <div className="mt-1 text-muted-foreground text-sm">
+                  <div className="text-muted-foreground text-sm">
                     Mover Advantage
                   </div>
                 </Card>
@@ -466,7 +466,7 @@ function GEOPage() {
                       className="text-muted-foreground"
                     />
                   </div>
-                  <CardTitle className="text-xl">{step.title}</CardTitle>
+                  <CardTitle>{step.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="leading-relaxed">

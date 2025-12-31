@@ -96,10 +96,7 @@ function CustomersPage() {
 
           <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5">
             {customers.map((customer) => (
-              <Card
-                key={customer.id}
-                className="group transition-all hover:shadow-lg hover:shadow-primary/10"
-              >
+              <Card key={customer.id}>
                 <CardContent className="flex items-center justify-center">
                   {customer.logo ? (
                     <img
@@ -108,7 +105,7 @@ function CustomersPage() {
                       className="h-auto w-full max-w-30 object-contain dark:invert"
                     />
                   ) : (
-                    <div className="text-center font-bold text-foreground text-sm transition-colors group-hover:text-primary lg:text-base">
+                    <div className="text-center font-bold text-foreground text-sm lg:text-base">
                       {customer.name}
                     </div>
                   )}
@@ -140,7 +137,7 @@ function CustomersPage() {
                 strokeWidth={1.5}
                 className="mx-auto mb-3 text-primary"
               />
-              <div className="mb-1 font-extrabold text-4xl text-primary tracking-tight lg:text-5xl">
+              <div className="mb-1 font-extrabold text-4xl tracking-tight lg:text-5xl">
                 100+
               </div>
               <div className="text-muted-foreground text-sm">
@@ -155,7 +152,7 @@ function CustomersPage() {
                 strokeWidth={1.5}
                 className="mx-auto mb-3 text-primary"
               />
-              <div className="mb-1 font-extrabold text-4xl text-primary tracking-tight lg:text-5xl">
+              <div className="mb-1 font-extrabold text-4xl tracking-tight lg:text-5xl">
                 8X
               </div>
               <div className="text-muted-foreground text-sm">
@@ -170,7 +167,7 @@ function CustomersPage() {
                 strokeWidth={1.5}
                 className="mx-auto mb-3 text-primary"
               />
-              <div className="mb-1 font-extrabold text-4xl text-primary tracking-tight lg:text-5xl">
+              <div className="mb-1 font-extrabold text-4xl tracking-tight lg:text-5xl">
                 $200M+
               </div>
               <div className="text-muted-foreground text-sm">
@@ -253,7 +250,7 @@ function CustomersPage() {
                       strokeWidth={1.5}
                       className="mb-2 text-primary"
                     />
-                    <CardTitle className="text-xl">{category.name}</CardTitle>
+                    <CardTitle>{category.name}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground leading-relaxed">
@@ -289,7 +286,7 @@ function CustomersPage() {
                         key={metric.label}
                         className="flex items-center gap-4"
                       >
-                        <div className="font-bold text-3xl text-primary tracking-tight lg:text-4xl">
+                        <div className="font-bold text-4xl tracking-tight lg:text-5xl">
                           {metric.value}
                         </div>
                         <div className="text-muted-foreground">

@@ -155,7 +155,7 @@ function CaseStudiesPage() {
               <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                 {featuredStudy.metrics.map((metric) => (
                   <div key={metric.label} className="text-center">
-                    <div className="mb-2 font-extrabold text-3xl text-primary tracking-tight lg:text-4xl">
+                    <div className="mb-2 font-extrabold text-4xl tracking-tight lg:text-5xl">
                       {metric.value}
                     </div>
                     <div className="mb-1 font-semibold text-foreground text-sm">
