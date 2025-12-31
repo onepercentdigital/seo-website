@@ -187,9 +187,7 @@ function EnterprisePage() {
                     className="text-muted-foreground"
                   />
                 </div>
-                <CardTitle className="text-xl">
-                  Discovery & Enterprise Audit
-                </CardTitle>
+                <CardTitle>Discovery & Enterprise Audit</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="leading-relaxed">
@@ -211,9 +209,7 @@ function EnterprisePage() {
                     className="text-muted-foreground"
                   />
                 </div>
-                <CardTitle className="text-xl">
-                  Custom Strategy Development
-                </CardTitle>
+                <CardTitle>Custom Strategy Development</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="leading-relaxed">
@@ -235,9 +231,7 @@ function EnterprisePage() {
                     className="text-muted-foreground"
                   />
                 </div>
-                <CardTitle className="text-xl">
-                  Implementation & Integration
-                </CardTitle>
+                <CardTitle>Implementation & Integration</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="leading-relaxed">
@@ -259,9 +253,7 @@ function EnterprisePage() {
                     className="text-muted-foreground"
                   />
                 </div>
-                <CardTitle className="text-xl">
-                  Ongoing Optimization & Support
-                </CardTitle>
+                <CardTitle>Ongoing Optimization & Support</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="leading-relaxed">

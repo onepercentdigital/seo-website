@@ -25,9 +25,13 @@ When auditing a page against homepage standards, check **every** element:
 - [ ] Paragraph: `text-muted-foreground` (no `text-lg`)
 
 ### Stats
-- [ ] Icon: `size={28}` (not `size={32}`)
+- [ ] Icon: `size={28}`
 - [ ] Value: `mb-1 font-extrabold text-4xl tracking-tight lg:text-5xl`
 - [ ] Label: `text-muted-foreground text-sm`
+
+### Icons (General Rule)
+- [ ] All non-button icons: `size={28}` (feature icons, card icons, stats icons, decorative icons)
+- [ ] Button icons only: `size={18}`
 
 ### Cards
 - [ ] Use Card component (not manual `ring-1 ring-foreground/10`)

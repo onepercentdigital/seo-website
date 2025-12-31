@@ -183,7 +183,7 @@ function ApplyPage() {
                     className="text-muted-foreground"
                   />
                 </div>
-                <CardTitle className="text-xl">Schedule a Call</CardTitle>
+                <CardTitle>Schedule a Call</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="leading-relaxed">
@@ -205,7 +205,7 @@ function ApplyPage() {
                     className="text-muted-foreground"
                   />
                 </div>
-                <CardTitle className="text-xl">We Do Our Homework</CardTitle>
+                <CardTitle>We Do Our Homework</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="leading-relaxed">
@@ -227,7 +227,7 @@ function ApplyPage() {
                     className="text-muted-foreground"
                   />
                 </div>
-                <CardTitle className="text-xl">Qualification Call</CardTitle>
+                <CardTitle>Qualification Call</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="leading-relaxed">
@@ -249,7 +249,7 @@ function ApplyPage() {
                     className="text-muted-foreground"
                   />
                 </div>
-                <CardTitle className="text-xl">Next Steps</CardTitle>
+                <CardTitle>Next Steps</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="leading-relaxed">

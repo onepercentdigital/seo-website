@@ -360,7 +360,7 @@ function CustomersPage() {
                 size="lg"
                 variant="outline"
               >
-                View All Case Studies
+                View Case Studies
               </Button>
             </div>
           </div>
