@@ -38,6 +38,10 @@ When auditing a page against homepage standards, check **every** element:
 - [ ] CardTitle: no className override (exception: team cards use `text-xl`)
 - [ ] CardDescription: no className override (exceptions: `leading-relaxed`, team cards use `text-primary`)
 
+### Icon Size Exceptions
+- [ ] Theme toggle icons: `size={16}` acceptable
+- [ ] Inline list checkmarks (CheckmarkCircle02Icon): `size={20}` acceptable
+
 ### Final CTA Section
 - [ ] Border: `border-y` (both top and bottom)
 - [ ] Container: `max-w-3xl`
@@ -99,7 +103,7 @@ import { HugeiconsIcon } from '@hugeicons/react'
 import { ArrowRight01Icon } from '@hugeicons/core-free-icons'
 
 // Bare icons (preferred)
-<HugeiconsIcon icon={Brain01Icon} size={32} strokeWidth={1.5} className="text-primary" />
+<HugeiconsIcon icon={Brain01Icon} size={28} strokeWidth={1.5} className="text-primary" />
 
 // In buttons
 <HugeiconsIcon icon={ArrowRight01Icon} size={18} strokeWidth={2} data-icon="inline-end" />
