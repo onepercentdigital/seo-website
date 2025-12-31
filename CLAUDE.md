@@ -55,6 +55,7 @@ When auditing a page against homepage standards, check **every** element:
 - Use em-dashes in copy
 - Add emojis unless requested
 - Use `tracking-wide` (not part of design system)
+- Add `cursor-pointer`, `group`, or hover effects to non-clickable cards
 
 When auditing pages, compare element-by-element against the homepage. Use the Page Audit Checklist above.
 
@@ -85,6 +86,8 @@ When auditing pages, compare element-by-element against the homepage. Use the Pa
   <CardFooter>...</CardFooter>
 </Card>
 ```
+
+**Note:** Card has `has-[>img:first-child]:pt-0` rule. If your first child isn't an image but padding looks wrong, wrap content in CardContent.
 
 ### Icons (HugeIcons)
 ```tsx
@@ -146,6 +149,29 @@ Used for GEO/SEO/PPL sections with faux visual demos. Alternate visual position 
 </section>
 ```
 To alternate layout, add `lg:order-1` and `lg:order-2` to swap columns on desktop.
+
+### Testimonial Cards
+Use inline quotes with italic text, not standalone quote icons.
+```tsx
+<Card>
+  <CardContent>
+    <p className="mb-4 italic leading-relaxed">
+      "Customer quote text here."
+    </p>
+    <p className="font-medium">Customer Name</p>
+    <p className="text-muted-foreground text-sm">Title, Company</p>
+  </CardContent>
+</Card>
+```
+
+### Centered Grids
+When a grid has fewer items than columns, center them to avoid "missing item" appearance.
+```tsx
+{/* For 2 items that would look odd in 3-column layout */}
+<div className="mx-auto grid max-w-4xl justify-center gap-8 lg:grid-cols-2">
+  ...
+</div>
+```
 
 ---
 

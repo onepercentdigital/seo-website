@@ -199,7 +199,7 @@ function CustomersPage() {
               {testimonialsCustomers.map((customer) => (
                 <Card key={customer.id}>
                   <CardContent>
-                    <p className="mb-6 text-foreground leading-relaxed italic">
+                    <p className="mb-6 text-foreground italic leading-relaxed">
                       "{customer.testimonial?.quote}"
                     </p>
                     <div className="flex items-center gap-3">
