@@ -7,9 +7,9 @@ export const Route = createFileRoute('/solutions/real-estate')({
   component: RealEstatePage,
   head: () =>
     generateMetaTags({
-      title: 'Real Estate SEO | Generate Buyer & Seller Leads',
+      title: 'Real Estate Marketing - Rank in AI & Generate Buyer Leads',
       description:
-        'Drive qualified leads for real estate agents, brokerages, developers, and luxury home builders. Own property searches in your market with GEO, SEO, and PPL.',
+        'Get recommended when buyers and sellers search for agents. Own property searches through GEO, SEO, and targeted lead generation.',
       url: 'https://op.digital/solutions/real-estate',
     }),
 });
@@ -21,11 +21,5 @@ function RealEstatePage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="Real Estate SEO"
-      seoUrl="https://op.digital/solutions/real-estate"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }

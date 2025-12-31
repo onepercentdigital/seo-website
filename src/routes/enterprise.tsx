@@ -39,9 +39,9 @@ export const Route = createFileRoute('/enterprise')({
   component: EnterprisePage,
   head: () =>
     generateMetaTags({
-      title: 'Enterprise Solutions | GEO, SEO & PPL at Scale',
+      title: 'Enterprise Solutions - GEO, SEO & Lead Generation at Scale',
       description:
-        'Enterprise-grade GEO, SEO, and PPL for multi-location businesses. Dedicated support, custom reporting, and white-glove service for organizations that demand results.',
+        'White-glove GEO, SEO, and PPL for multi-location enterprises. Dedicated support, custom reporting, and strategies built for organizations that demand results.',
       url: 'https://op.digital/enterprise',
     }),
 });
@@ -872,7 +872,7 @@ function EnterprisePage() {
 
               <div className="grid gap-6 sm:grid-cols-3">
                 <Card className="p-6">
-                  <div className="mb-1 font-extrabold text-3xl tracking-tight sm:text-4xl">
+                  <div className="mb-1 font-extrabold text-4xl tracking-tight lg:text-5xl">
                     $200M
                   </div>
                   <div className="text-muted-foreground text-sm">
@@ -880,7 +880,7 @@ function EnterprisePage() {
                   </div>
                 </Card>
                 <Card className="p-6">
-                  <div className="mb-1 font-extrabold text-3xl tracking-tight sm:text-4xl">
+                  <div className="mb-1 font-extrabold text-4xl tracking-tight lg:text-5xl">
                     8X
                   </div>
                   <div className="text-muted-foreground text-sm">
@@ -888,7 +888,7 @@ function EnterprisePage() {
                   </div>
                 </Card>
                 <Card className="p-6">
-                  <div className="mb-1 font-extrabold text-3xl tracking-tight sm:text-4xl">
+                  <div className="mb-1 font-extrabold text-4xl tracking-tight lg:text-5xl">
                     1000%
                   </div>
                   <div className="text-muted-foreground text-sm">

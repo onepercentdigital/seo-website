@@ -7,9 +7,9 @@ export const Route = createFileRoute('/solutions/finance-insurance')({
   component: FinanceInsurancePage,
   head: () =>
     generateMetaTags({
-      title: 'Finance & Insurance SEO | Client Lead Generation',
+      title: 'Finance & Insurance Marketing - Rank in AI & Generate Clients',
       description:
-        'Generate qualified client leads for financial advisors and insurance professionals. Build trust and reach prospects with proven GEO, SEO, and PPL strategies.',
+        'Get recommended when prospects research financial services. Build trust and generate qualified leads through GEO, SEO, and targeted strategies.',
       url: 'https://op.digital/solutions/finance-insurance',
     }),
 });
@@ -21,11 +21,5 @@ function FinanceInsurancePage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="Finance & Insurance SEO"
-      seoUrl="https://op.digital/solutions/finance-insurance"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }

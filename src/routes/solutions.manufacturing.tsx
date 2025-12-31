@@ -7,9 +7,9 @@ export const Route = createFileRoute('/solutions/manufacturing')({
   component: ManufacturingPage,
   head: () =>
     generateMetaTags({
-      title: 'Manufacturing & Industrial SEO | B2B Lead Generation',
+      title: 'Manufacturing Marketing - Rank in AI & Generate B2B Leads',
       description:
-        'Drive qualified B2B leads for manufacturers and industrial companies. Lead high-value searches and reach decision-makers with proven GEO, SEO, and PPL.',
+        'Get cited when AI recommends industrial suppliers. Drive qualified B2B leads through GEO, SEO, and targeted outreach to decision-makers.',
       url: 'https://op.digital/solutions/manufacturing',
     }),
 });
@@ -21,11 +21,5 @@ function ManufacturingPage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="Manufacturing & Industrial SEO"
-      seoUrl="https://op.digital/solutions/manufacturing"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }

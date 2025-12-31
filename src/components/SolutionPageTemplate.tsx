@@ -24,15 +24,13 @@ import { type SolutionIconKey, solutionIcons } from '@/lib/solution-icons';
 
 interface SolutionPageTemplateProps {
   solution: IndustrySolution;
-  seoTitle: string;
-  seoUrl: string;
 }
 
-export function SolutionPageTemplate({
-  solution,
-  seoTitle,
-  seoUrl,
-}: SolutionPageTemplateProps) {
+export function SolutionPageTemplate({ solution }: SolutionPageTemplateProps) {
+  // Derive SEO values from solution object
+  const seoTitle = `${solution.name} SEO`;
+  const seoUrl = `https://op.digital/solutions/${solution.slug}`;
+
   const serviceSchema = {
     type: 'Service' as const,
     data: {
@@ -151,7 +149,7 @@ export function SolutionPageTemplate({
                       {IconComponent && (
                         <HugeiconsIcon
                           icon={IconComponent}
-                          size={24}
+                          size={28}
                           strokeWidth={1.5}
                           className="text-muted-foreground"
                         />

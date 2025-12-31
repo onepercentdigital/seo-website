@@ -33,9 +33,9 @@ export const Route = createFileRoute('/')({
   component: HomePage,
   head: () =>
     generateMetaTags({
-      title: 'Takeover Your Industry With AI and Search Optimization',
+      title: 'Dominate Your Industry - Rank in AI and Google',
       description:
-        'Dominate Both AI and Traditional Search with proven GEO and SEO strategies.',
+        'Get recommended by ChatGPT and rank #1 on Google. GEO, SEO, and exclusive lead generation for brands ready to dominate their market.',
       url: 'https://op.digital/',
     }),
 });

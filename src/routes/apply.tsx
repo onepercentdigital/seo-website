@@ -30,9 +30,9 @@ export const Route = createFileRoute('/apply')({
   component: ApplyPage,
   head: () =>
     generateMetaTags({
-      title: 'Apply To Work With Us | One Percent Digital',
+      title: 'Apply To Work With Us - One Percent Digital',
       description:
-        'Apply to see if you qualify to work with us. We help serious brands grow through GEO, SEO, and PPL.',
+        'Schedule a strategy call to see if you qualify. We partner with serious brands ready to dominate AI search, Google rankings, and lead generation.',
       url: 'https://op.digital/apply',
     }),
 });

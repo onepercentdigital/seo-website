@@ -21,19 +21,15 @@ export interface SEOConfig {
  * Generate meta tags for a page
  */
 export function generateMetaTags(config: SEOConfig) {
-  const title = config.title
-    ? config.title.includes('|')
-      ? config.title
-      : `${config.title} | ${brand.displayName}`
-    : brand.seo.defaultTitle;
+  const title = config.title || brand.seo.defaultTitle;
 
   const description = config.description || brand.seo.defaultDescription;
   const ogImage = config.ogImage || brand.seo.defaultOgImage;
   const canonical = config.canonical;
 
   return {
-    title,
     meta: [
+      { title },
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'description', content: description },

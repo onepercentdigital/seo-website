@@ -29,9 +29,9 @@ export const Route = createFileRoute('/case-studies')({
   component: CaseStudiesPage,
   head: () =>
     generateMetaTags({
-      title: 'Case Studies | Proven GEO & SEO Results',
+      title: 'Case Studies - Real Results From Real Businesses',
       description:
-        'Real results from real businesses. See how our GEO and SEO strategies helped Revology Cars exit, grew Goldfarb 10x, and made Royal Covers #1 in Arizona.',
+        'See how we helped Revology Cars exit, grew Goldfarb 10x, and made Royal Covers #1 in Arizona through GEO, SEO, and targeted lead generation.',
       url: 'https://op.digital/case-studies',
     }),
 });
@@ -155,7 +155,7 @@ function CaseStudiesPage() {
               <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                 {featuredStudy.metrics.map((metric) => (
                   <div key={metric.label} className="text-center">
-                    <div className="mb-2 font-extrabold text-3xl text-primary tracking-tight lg:text-4xl">
+                    <div className="mb-2 font-extrabold text-4xl tracking-tight lg:text-5xl">
                       {metric.value}
                     </div>
                     <div className="mb-1 font-semibold text-foreground text-sm">

@@ -7,9 +7,9 @@ export const Route = createFileRoute('/solutions/construction')({
   component: ConstructionPage,
   head: () =>
     generateMetaTags({
-      title: 'Construction & Contractor SEO | Project Lead Generation',
+      title: 'Construction Marketing - Rank in AI & Generate Project Leads',
       description:
-        'Generate qualified project leads for construction and contracting businesses. Win local searches and reach property owners who need you.',
+        'Get recommended when property owners search for contractors. Win local searches and drive qualified project leads through GEO, SEO, and PPL.',
       url: 'https://op.digital/solutions/construction',
     }),
 });
@@ -21,11 +21,5 @@ function ConstructionPage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="Construction & Contractor SEO"
-      seoUrl="https://op.digital/solutions/construction"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }

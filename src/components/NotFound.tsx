@@ -42,7 +42,7 @@ export function NotFound() {
             <div className="mb-8 inline-flex h-24 w-24 items-center justify-center rounded-full bg-primary/10">
               <HugeiconsIcon
                 icon={Search01Icon}
-                size={48}
+                size={28}
                 strokeWidth={2}
                 className="text-primary"
               />
@@ -61,7 +61,7 @@ export function NotFound() {
               <Button render={<Link to="/" />} size="lg">
                 <HugeiconsIcon
                   icon={Home01Icon}
-                  size={20}
+                  size={18}
                   strokeWidth={2}
                   className="mr-2"
                 />
@@ -70,7 +70,7 @@ export function NotFound() {
               <Button render={<Link to="/apply" />} size="lg" variant="outline">
                 <HugeiconsIcon
                   icon={Calendar01Icon}
-                  size={20}
+                  size={18}
                   strokeWidth={2}
                   className="mr-2"
                 />
@@ -92,7 +92,7 @@ export function NotFound() {
                       <h4 className="font-medium text-lg">{page.title}</h4>
                       <HugeiconsIcon
                         icon={ArrowRight01Icon}
-                        size={20}
+                        size={28}
                         strokeWidth={2}
                         className="text-muted-foreground transition-colors group-hover:text-primary"
                       />

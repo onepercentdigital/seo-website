@@ -7,9 +7,9 @@ export const Route = createFileRoute('/solutions/automotive')({
   component: AutomotivePage,
   head: () =>
     generateMetaTags({
-      title: 'Automotive SEO | Dealership & Vehicle Lead Generation',
+      title: 'Automotive Marketing - Rank in AI & Generate Vehicle Leads',
       description:
-        'Drive qualified leads for automotive businesses. Excel in local and specialty vehicle searches with proven GEO, SEO, and PPL strategies.',
+        'Get your dealership recommended by AI and dominate local search. Drive qualified buyers through GEO, SEO, and targeted lead generation.',
       url: 'https://op.digital/solutions/automotive',
     }),
 });
@@ -21,11 +21,5 @@ function AutomotivePage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="Automotive SEO"
-      seoUrl="https://op.digital/solutions/automotive"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }

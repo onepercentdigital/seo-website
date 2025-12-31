@@ -42,9 +42,9 @@ export const Route = createFileRoute('/ppl')({
   component: PayPerLeadPage,
   head: () =>
     generateMetaTags({
-      title: 'PPL - Pay Per Lead Generation',
+      title: 'Pay Per Lead - Exclusive Leads on Demand',
       description:
-        'Exclusive pre-qualified leads delivered on demand. No retainers, no contracts, no set-up fees. We fund your marketing. You only pay for results.',
+        'Pre-qualified leads delivered exclusively to you. No retainers, no contracts, no setup fees. We fund your marketing, you only pay for results.',
       url: 'https://op.digital/ppl',
     }),
 });
@@ -327,26 +327,26 @@ function PayPerLeadPage() {
               </p>
               <div className="grid gap-4 sm:grid-cols-3">
                 <Card className="p-4">
-                  <div className="font-extrabold text-3xl text-primary tracking-tight">
+                  <div className="mb-1 font-extrabold text-4xl tracking-tight lg:text-5xl">
                     100+
                   </div>
-                  <div className="mt-1 text-muted-foreground text-sm">
+                  <div className="text-muted-foreground text-sm">
                     Businesses Served
                   </div>
                 </Card>
                 <Card className="p-4">
-                  <div className="font-extrabold text-3xl text-primary tracking-tight">
+                  <div className="mb-1 font-extrabold text-4xl tracking-tight lg:text-5xl">
                     100%
                   </div>
-                  <div className="mt-1 text-muted-foreground text-sm">
+                  <div className="text-muted-foreground text-sm">
                     Exclusive Leads
                   </div>
                 </Card>
                 <Card className="p-4">
-                  <div className="font-extrabold text-3xl text-primary tracking-tight">
+                  <div className="mb-1 font-extrabold text-4xl tracking-tight lg:text-5xl">
                     $0
                   </div>
-                  <div className="mt-1 text-muted-foreground text-sm">
+                  <div className="text-muted-foreground text-sm">
                     Set-Up Fees
                   </div>
                 </Card>
@@ -391,7 +391,7 @@ function PayPerLeadPage() {
                       className="text-muted-foreground"
                     />
                   </div>
-                  <CardTitle className="text-xl">{step.title}</CardTitle>
+                  <CardTitle>{step.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="leading-relaxed">

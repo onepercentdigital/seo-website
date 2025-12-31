@@ -7,9 +7,9 @@ export const Route = createFileRoute('/solutions/technology')({
   component: TechnologyPage,
   head: () =>
     generateMetaTags({
-      title: 'Technology & SaaS SEO | B2B Software Lead Generation',
+      title: 'SaaS & Tech Marketing - Rank in AI & Drive Demo Requests',
       description:
-        'Accelerate growth for technology and SaaS companies. Reach decision-makers and drive qualified demos with proven GEO, SEO, and PPL strategies.',
+        'Get your software recommended by AI when buyers research solutions. Accelerate growth through GEO, SEO, and qualified demo generation.',
       url: 'https://op.digital/solutions/technology',
     }),
 });
@@ -21,11 +21,5 @@ function TechnologyPage() {
     return <div>Solution not found</div>;
   }
 
-  return (
-    <SolutionPageTemplate
-      solution={solution}
-      seoTitle="Technology & SaaS SEO"
-      seoUrl="https://op.digital/solutions/technology"
-    />
-  );
+  return <SolutionPageTemplate solution={solution} />;
 }
